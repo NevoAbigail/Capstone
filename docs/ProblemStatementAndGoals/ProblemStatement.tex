@@ -47,6 +47,19 @@ We want to deliver a Smart Lock, which is a bike lock that is locked/unlocked th
 
 \subsection{Inputs and Outputs}
 
+\begin{table}[hI]
+  \begin{center}
+    \begin{tabular}{l|r}
+      \textbf{Inputs} & \textbf{Outputs}\\
+      \hline
+      Wireless signal to engage/disengage lock  & Location Signal\\
+      Battery & Battery Status\\
+      Open/Close Status & Open/Close Status\\
+      Lock Status & Lock Status\\
+    \end{tabular}
+  \end{center}
+\end{table}
+
 \wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
 Use abstraction so that you can avoid details.}
 
@@ -63,10 +76,25 @@ Software: phone app
 \wss{Hardware and software}
 
 \section{Goals}
-
+\begin{table}[hG]
+  \begin{center}
+    \begin{tabular}{l|r}
+      \textbf{Goals} & \textbf{Measurability}\\
+      \hline
+      Wireless communication and engagement/ disengagement of bike lock  & Quality and distance of signal strength\\
+      Effective bike lock  & Lock functions, X amount of force before failure\\
+      Long lasting battery life  & Time - in months \\
+      Fits on many different styles of bikes & Can easily be mounted to mountain bikes, city bikes, children's bikes and road bikes \\
+      Easily mount on bike frame & Does not require special tools for mount/dismount\\
+    \end{tabular}
+  \end{center}
+\end{table}
 
 \section{Stretch Goals}
-
+  - Integrating with fitness apps (ie. strava) for increased capabilities
+  - Integrating the battery with a solar panel for self charging to reduce user interaction with the lock futher
+  - GPS location services
+  - Cross platform app implementation for accessibility using an Android in addition to an IOS device
 \section{References}
 
 [1]“bicycle-thefts,” data.torontopolice.on.ca. https://data.torontopolice.on.ca/pages/bicycle-thefts (accessed Sep. 25, 2022).
