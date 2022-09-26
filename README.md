@@ -1,12 +1,12 @@
 # Smart Lock by Locked & Loaded Co.
 
 Developer Names:
-  Abi Nevo
-  Elsa Bassi
-  Steffi Ralph
-  Abdul Rehman Iqbal
-  Stephen De Jong
-  Anthony Shenouda
+  Abi Nevo,
+  Elsa Bassi,
+  Steffi Ralph,
+  Abdul Rehman Iqbal,
+  Stephen De Jong,
+  Anthony Shenouda,
 
 Date of project start:
   September 2022
