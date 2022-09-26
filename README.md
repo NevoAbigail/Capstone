@@ -4,7 +4,7 @@ Developer Names:
   Abi Nevo
   Elsa Bassi
   Steffi Ralph
-  Abdual Iqbal
+  Abdul Rehman Iqbal
   Stephen De Jong
   Anthony Shenouda
 
