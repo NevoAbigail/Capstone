@@ -1,5 +1,5 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{booktabs}
 
@@ -9,12 +9,15 @@
 
 \date{}
 
-\input{Comments.tex}
-\input{Common.tex}
+\input{../Comments}
+\input{../Common}
 
 \begin{document}
-
 \maketitle
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
+\end{figure}
 
 \begin{table}[hp]
 \caption{Revision History} \label{TblRevisionHistory}
@@ -27,6 +30,7 @@ Sep 25 & Steffi & Completed\\
 \end{tabularx}
 \end{table}
 
+\newpage
 \section{Problem Statement}
 
 \subsection{Problem}
