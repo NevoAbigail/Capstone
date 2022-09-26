@@ -36,7 +36,7 @@ Sept 26 & Stephen & Drafted Intro, Demo Plan, \& Scheduling\\
 
 \section{Introduction}
 
-The Smart Lock will be Locked \& Loaded company's first model of smart bike locks to be produced. The Smart Lock is a bike lock which will be mounted to your favourate bike with many features that can be controlled from your smart phone. The locking and unlocking can be controlled with your phone, and other outputs may be monitored like the lock state, batery level, and position.
+The Smart Lock will be the first model of smart bike locks produced by Locked \& Loaded. The lock will be mounted to your favourite bike with many features that can be controlled from a smart phone. Additionally other outputs may be monitored such as the lock state, battery level and position.
 
 \section{Team Meeting Plan}
 
@@ -58,7 +58,7 @@ Our primary form of fast, short communication will be through our text group cha
 \toprule
 \textbf{Role} & \textbf{Primary Lead} & \textbf{Support}\\
 \midrule
-Embedded Systems Design & Elsa & Abi\\
+Microcontroller Design & Elsa & Abi\\
 Documentation/Latex/"Faux Marker"/Git & Steffi & Elsa\\
 Lock Frame Design (CAD) & Stephen & Steffi\\
 Software (App Development) & Anthony & Abdul\\
@@ -82,7 +82,7 @@ Merging will take place under the following branch protection rules:
 
 \begin{enumerate}
 
-\item The main branch can only be merged into and not committed to directly. 
+\item The main branch can only be merged into it and not committed to directly. 
 \item Merging pull requests is disallowed when tests fail. 
 \item Pull requests are required before merging such that one other group member must approve the code. 
 \item Status checks and actions must pass before merging. 
@@ -112,7 +112,7 @@ Our workflow process will be as follows.
 
 \subsection{Issue Tracking}
 
-Github Issues will be used to track bugs and for accountability purposes. An issue will be created when a developer is unsure about their path forward or if a bug is detected in the code. Issues will be assigned to specific team members explicitly. When an issue is detected and the team member is not able to resolve it themselves, the team lead for that issue will review and advise. Issues can also be raised if a team member foresees a conflict or problem with merging as well as for general tasks. 
+Github Issues will be used to track bugs and for accountability purposes. An issue will be created when a developer is unsure about their path forward or if a bug is detected in the code. Issues will be assigned to specific team members explicitly. When an issue is detected and the team member is not able to resolve it themselves, the team lead for that issue will review and advise. Issues can also be raised if a team member foresees a conflict or problem with merging as well as for general tasks that may not be being accomplished according to the deadlines specified in the Milestones. 
 \bigskip
 They will be categorized according to the following labels.
 
@@ -123,46 +123,34 @@ They will be categorized according to the following labels.
 \item Help Wanted: Extra attention is needed.
 \item Wontfix: This will not be worked on.
 \item CAD: A task related to CAD in this location.
-\item Wireless Communications: A task related to wirless communications (i.e., bluetooth, GPS) in this location.
-\item App: A task related to the phone application in this location.
-\item Embedded Systems Design: A task related to a microcontroller in this location.
+\item Wireless Communications: A task related to CAD in this location.
+\item App: A task related to an application in this location.
+\item Microcontroller Design: A task related to a microcontroller in this location.
 \item Stretch Goal: A task related to a stretch goal in this location. 
 \item Template: A task related to a template.
 \end{itemize}
 
 \subsection{Milestones}
 
-Milestones will be created for each deliverable to keep team members accountable. They will be added continuously as necessary. 
+Milestones will be created for each deliverable to keep team members accountable. This will be added continuously as necessary. 
 
 \section{Proof of Concept Demonstration Plan}
 
-	Our project requires a large amount of research and development. Therefore, we must be able to prove that our concept ideas will indeed work and our goals are feasible before we invest too much time. We will prove our concept with a demonstration in November. For our proof-of-concept demo, we will need to produce a prototype or model of our system which shows that we will be able to achieve our product goals with the technologies that exist, and that our physical design will be able to function as we want. Our demo only needs to be a crude system and not a final refined version. 
-	
-	The largest risk we foresee in our project development is our lack of knowledge in wireless communications. In order to complete our project, we first must understand which technologies exactly we must use and implement, then learn how to use those technologies, and finally implement these technologies specifically for our project. This will have to be a steep learning curve, and we must manage our time effectively in order to complete our project on time. 
+Our project requires a large amount of research and development, therefore we must be able to prove that our concept ideas will function as desired and our goals are accomplishable. We will prove our concept with a demonstration in November. For our proof-of-concept demo we will need to produce a prototype or model of our system which shows that we will be able to do what we need to do with the technologies that exist, and that our physical design will be able to function as desired. Our demo should be a crude system and not a final refined version.  
 
-	Our demo will need to include parts to show off each goal for our product and that with some refinement and revisions we will be able to fulfil each requirement we have set out. For implementation of our demo, we will need to show the software, hardware, and mechanical aspects of our product with models and prototypes. We will show our code/software through a set of test cases or utilizing a model to show functionality. For our hardware we will need to demonstrate that the components will be able to complete our tasks, using a sample circuit to prove the technology works. Finally for the mechanical design as well as packaging of our product we will need to simulate design using CAD software and prototype using 3d-printing, laser cutting, or manual construction. We will need to test that all the components and devices will be able to talk and function together. Doing this we will be able to show that the system will be able to function using the required inputs and giving the final outputs.
-	
+Our demo will need to include parts to demonstrate each goal for our product and that with some refinement and revisions we will be able to fulfill each requirement. For implementation of our demo, we will need to show the software, hardware and mechanical functionality of our product with models and prototypes. We will show our code/software through a set of test cases or utilizing a model. For our hardware we will need to demonstrate that the components will be able to complete our tasks, using a sample circuit to prove the technology works. Finally, for the mechanical design as well as packaging of our product we will need to simulate design using CAD software and prototype using 3d-printing, laser cutting, or manual construction. We will also need to test that all the components and devices will be able to communicate and work as an ensemble. Therefore, we will demonstrate that the system is able to function using the required inputs and giving the desired outputs.
 
 \section{Technology}
 
-\begin{itemize}
-\item Specific programming language
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Libraries you will likely be using?
-\item Tools you will likely be using?
-\end{itemize}
+The mobile application will be developed using XCode Ver.14.0 IDE, utilizing the Swift programming language for iOS Development. A limitation of this platform is that it only allows for iOS development. The Flutter IDE could be used as an extension as it allows for cross-platform development but requires additional research to be used effectively. For linting, we will be using SwiftLint as it is commonly used in the industry for iOS development utilizing XCode. For simple prototyping and early models, the team will 3D print components as it is cheaper and the team as extensive knowledge with the software. Once the model begins to be finalized, parts will be laser cut for higher quality testing. During the prototyping and testing phases, the team will also run FEA analysis to on solid works for free and vigorous testing. The model will also be test in a controlled wet environment for waterproof/weather resistant testing. Multiple sensors, small electric motors, and batteries will also be tested during this phase. Other miscellaneous parts and tooling will be completed in the Hatch Centre as team members have access to the tools and resources there. The team has decided to complete all documentation using Latex and will have them posted on the team Git.
 
 \section{Coding Standard}
 
+The coding style will follow camel case for local variables (lowercaseFirstUpperSecond). Global variables however will follow the same style, but the first word will start with an uppercase letter. Constants and macros will be in full capitals. The code will be modular with functions not being longer than 20 lines of code. Each function will be responsible to complete a single task to enhancing testing and reliability. The functions will also be well commented above the respective function declaration. Also, functions will start with an action verb to describe exactly what the purpose of that function is. For linting, SwiftLint will be used for enforcing swift style and conventions.
+
 \section{Project Scheduling}
 
-	Our project, work, deliverables, deadlines, and dates will be managed and scheduled accordingly so that our team will be able to complete all tasks and requirement before their due dates. Our team will have weekly meetings in which we will discuss the upcoming dates and deadlines and our goals and strategies to manage them. To manage all our work, we will use various software’s including GitHub milestones and/or Trello project management. We will post our required tasks and subprojects that need to be completed into GitHub milestones. The GitHub milestones will be associated with a person, a required date of completion, and a set priority. Using this we will be able to see all open issues for our project and be able to easily delegate them to get our work done. 
+Our project, work, deliverables, deadlines, and dates will be managed and scheduled accordingly so that our team will be able to complete all tasks and requirement before their due dates. Our team will have weekly meetings in which we will discuss the upcoming dates and deadlines and our goals and strategies to manage them. To manage all our work, we will use various softwares including GitHub milestones and Trello project management. We will post our required tasks and subprojects that need to be completed into GitHub milestones. The GitHub milestones will be associated with a person, a required date of completion, and a set priority. Using this we will be able to see all open issues for our project and be able to easily delegate them to get our work done. 
 
 	Our major milestones are outlined from the course deliverable schedule, with the Proof of Concept Demo, Revision 0 Demo, Final Demo, \& Final Documentation being the major milestones. 
 
