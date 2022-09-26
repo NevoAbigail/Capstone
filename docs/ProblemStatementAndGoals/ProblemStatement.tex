@@ -52,10 +52,12 @@ We want to deliver a Smart Lock, which is a bike lock that is locked/unlocked th
     \begin{tabular}{l|r}
       \textbf{Inputs} & \textbf{Outputs}\\
       \hline
-      Wireless signal to engage/disengage lock  & Location Signal\\
-      Battery & Battery Status\\
-      Open/Close Status & Open/Close Status\\
-      Lock Status & Lock Status\\
+      SignalLock (to lock latch)  & LatchLocked\\
+	    SignalUnlock (to unlock) & LatchUnlocked\\
+	    SignalOpened & LockOpened\\
+	    SignalClosed & LockClosed\\
+	    BatteryPower & Battery \% Status\\
+	    GpsLocation & BikePosition\\
     \end{tabular}
   \end{center}
 \end{table}
