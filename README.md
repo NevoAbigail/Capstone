@@ -1,4 +1,4 @@
-# Smart Lock by Locked & Loaded co
+# Smart Lock by Locked & Loaded Co.
 
 Developer Names:
   Abi Nevo
