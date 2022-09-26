@@ -1,5 +1,5 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 
@@ -9,8 +9,8 @@
 
 \date{}
 
-\input{../Comments}
-\input{../Common}
+\input{Comments.tex}
+\input{Common.tex}
 
 \begin{document}
 
@@ -20,10 +20,10 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-Sept 25 & Abi & Drafted Team Meeting & Communication Plan and Team Member Roles\\
+Sept 25 & Abi & Drafted Team Meeting, Communication Plan and Team Member Roles\\
+Sept 26 & Elsa & Drafted Workflow Process\\
 \bottomrule
+
 \end{tabularx}
 \end{table}
 
@@ -43,7 +43,7 @@ An agenda will be created and committed to our Git repo prior to meetings.  This
 
 \section{Team Communication Plan}
 
-Our primary form of fast, short communication will be through our text group chat. We will use Github to post issues and host documentation for deliverables.  In addition to Github, we will also use Trello for project management (Kanban).  Lastly, we will use Team to host virtual meetings.
+Our primary form of fast, short communication will be through our text group chat. We will use Github to post issues and host documentation for deliverables.  In addition to Github, we will also use Trello for project management and task tracking (Kanban).  Lastly, we will use Teams to host virtual meetings.
 
 \section{Team Member Roles}
 
@@ -67,11 +67,67 @@ Each member has been designated as a lead for the various features/topics of our
 
 \section{Workflow Plan}
 
+\subsection{Code Development}
+
+Team members are expected to use the team repository on Github for code development. The master branch will be used as the current working copy of the code. To develop code, they will fork the main branches to create sub-branches that can then be merged back to the main branch according to the rules outlined below. 
+
+\subsection{Rules for Merging}
+
+Merging will take place under the following branch protection rules: 
+
+\begin{enumerate}
+
+\item The main branch can only be merged into it and not committed to directly. 
+\item Merging pull requests is disallowed when tests fail. 
+\item Pull requests are required before merging such that one other group member must approve the code. 
+\item Status checks and actions must pass before merging. 
+\item Branches must be up to date before merging to reduce merge conflicts. 
+
+\end{enumerate} 
+
+\subsection{Commits}
+
+Commits should take place as often as possible, preferably for every 50 lines of code. Commit messages must be specific, concise and descriptive. 
+
+\subsection{Workflow Process}
+
+Our workflow process will be as follows.
+
+\begin{enumerate}
+\item Create a detailed and structured plan for the software development. 
+\item Pull any new changes from the master branch. 
+\item Create a new branch to develop on. 
+\item Implement any independent modules. 
+\item Perform unit testing on the independent modules. 
+\item Push the changes made to the new branch.  
+\item Implement any dependent modules .
+\item Perform unit testing on the dependent modules.  
+\item Merge all changes to the main branch after a pull request is approved by another group member.  
+\end{enumerate}
+
+\subsection{Issue Tracking}
+
+Github Issues will be used to track bugs and for accountability purposes. An issue will be created when a developer is unsure about their path forward or if a bug is detected in the code. Issues will be assigned to specific team members explicitly. When an issue is detected and the team member is not able to resolve it themselves, the team lead for that issue will review and advise. Issues can also be raised if a team member foresees a conflict or problem with merging as well as for general tasks that may not be being accomplished according to the deadlines specified in the Milestones. 
+\bigskip
+They will be categorized according to the following labels.
+
 \begin{itemize}
-	\item How will you be using git, including branches, pull request, etc.?
-	\item How will you be managing issues, including template issues, issue
-	classificaiton, etc.?
+
+\item Bug: Code that is not working properly.
+\item Documentation: Improvements or additions to documentation.
+\item Help Wanted: Extra attention is needed.
+\item Wontfix: This will not be worked on.
+\item CAD: A task related to CAD in this location.
+\item Wireless Communications: A task related to CAD in this location.
+\item App: A task related to an application in this location.
+\item Microcontroller Design: A task related to a microcontroller in this location.
+\item Stretch Goal: A task related to a stretch goal in this location. 
+\item Template: A task related to a template.
 \end{itemize}
+
+\subsection{Milestones}
+
+Milestones will be created for each deliverable to keep team members accountable. This will be added continuously as necessary. 
 
 \section{Proof of Concept Demonstration Plan}
 
