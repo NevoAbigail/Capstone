@@ -16,7 +16,6 @@
 \usepackage{caption}
 \usepackage{pdflscape}
 \usepackage{afterpage}
-\usepackage{graphicx}
 
 \usepackage[round]{natbib}
 
@@ -377,39 +376,15 @@ characteristics and lists the system constraints.  \plt{This text can likely be
 
 \subsection{System Context}
 
-\plt{Your system context will include a figure that shows the abstract view of
-  the software.  Often in a scientific context, the program can be viewed
-  abstractly following the design pattern of Inputs $\rightarrow$ Calculations
-  $\rightarrow$ Outputs.  The system context will therefore often follow this
-  pattern.  The user provides inputs, the system does the calculations, and then
-  provides the outputs to the user.  The figure should not show all of the
-  inputs, just an abstract view of the main categories of inputs (like material
-  properties, geometry, etc.).  Likewise, the outputs should be presented from
-  an abstract point of view.  In some cases the diagram will show other external
-  entities, besides the user.  For instance, when the software product is a
-  library, the user will be another software program, not an actual end user.
-  If there are system constraints that the software must work with external
-  libraries, these libraries can also be shown on the System Context diagram.
-  They should only be named with a specific library name if this is required by
-  the system constraint.}
-
-\begin{figure}[h!]
-\begin{center}
- \includegraphics[width=0.6\textwidth]{SystemContextFigure}
-\caption{System Context}
-\label{Fig_SystemContext} 
-\end{center}
-\end{figure}
-
-\plt{For each of the entities in the system context diagram its responsibilities
-  should be listed.  Whenever possible the system should check for data quality,
-  but for some cases the user will need to assume that responsibility.  The list
-  of responsibilites should be about the inputs and outputs only, and they
-  should be abstract.  Details should not be presented here.  However, the
-  information should not be so abstract as to just say ``inputs'' and
-  ``outputs''.  A summarizing phrase can be used to characterize the inputs.
-  For instance, saying ``material properties'' provides some information, but it
-  stays away from the detail of listing every required properties.}
+ \begin{figure}[h!]
+ \begin{center}
+ %\rotatebox{-90}
+ {
+  \includegraphics[width=0.6\linewidth]{../SystemContextDiagram.jpeg}
+ }
+ \caption{\label{The System Context}The System Context: Shows the inputs, the entities that manipulate them, and the outputs.}
+ \end{center}
+ \end{figure}
 
 \begin{itemize}
 \item User Responsibilities:
@@ -437,12 +412,34 @@ characteristics and lists the system constraints.  \plt{This text can likely be
 
 \subsection{System Constraints}
 
-\plt{System constraints differ from other type of requirements because they
-  limit the developers' options in the system design and they identify how the
-  eventual system must fit into the world. This is the only place in the SRS
-  where design decisions can be specified.  That is, the quality requirement for
-  abstraction is relaxed here.  However, system constraints should only be
-  included if they are truly required.}
+The system has the following constraints.
+
+\begin{itemize}
+
+\item GPS to accurately locate the bike within a tolerance of 50 meters.
+	\begin{itemize}
+		\item Justification: Complex software like Google Maps ensures an accuracy of around 20 meters. Considering users only 		require the general location and our software will not be as complex as Google’s, the team added this constraint. 
+	\end{itemize}
+%Source: https://support.google.com/maps/answer/2839911?hl=en\&co=GENIE.Platform\%3DAndroid 
+
+\item Total mass of lock under 3 kg. 
+	\begin{itemize} 
+		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly 				heavier the team added this constraint.
+	\end{itemize}
+%Source: https://www.nytimes.com/wirecutter/reviews/best-bike-lock/ 
+
+\item App storage under 50 megabytes. 
+	\begin{itemize} 
+		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications 			are around 50 megabytes.
+	\end{itemize}
+%Source: https://apps.apple.com/us/app/gps-fields-area-measure/id1123033235 
+
+\item The budget for testing, designing, and equipment is \$750.
+	\begin{itemize}
+		\item Justification: Smart Lock has a limited budget to work within to encourage efficient use of materials and ensure low 			costs
+	\end{itemize} 
+
+\end{itemize}
 
 \section{Specific System Description}
 
@@ -470,11 +467,11 @@ The terms listed below will be used throughout the scope of this document and sh
 \item Battery: The power source used to power the motor for engaging and disengaging. 
 \item Battery Status: A measure of the quantity of charge in the battery. 
 \item Git: The platform used to store the documentation and software and track changes made to the files. 
-\item XCode/Flutter: The IDE used to develop the mobile application. 
+\item XCode and Flutter: The IDE used to develop the mobile application. 
 \item Cross-Platform Development: The means of developing the mobile application on both iOS and Android devices. 
-\item Transmitter: The device used to send signals to and from the app to give status information and to send the engagement/disengagement signals. 
+\item Transmitter: The device used to send signals to and from the app to give status information and to send the engagement and disengagement signals. 
 \item GPS: The satellite-based navigation system used to locate the bike. 
-\item Receiver: The device used to receive the signals from the app for engagement/disengagement. 
+\item Receiver: The device used to receive the signals from the app for engagement and disengagement. 
 \item Microcontroller: The programmable device used to control the motor. 
 \end{itemize}
 
@@ -484,20 +481,9 @@ The terms listed below will be used throughout the scope of this document and sh
  \begin{center}
  %\rotatebox{-90}
  {
- \includegraphics[width=0.8\linewidth]{../FunctionalDiagram.jpeg}
+ \includegraphics[width=0.6\linewidth]{../FunctionalDiagram.jpeg}
  }
- \caption{\label{The Physical System} <Caption>}
- \end{center}
- \end{figure}
-
-
- \begin{figure}[h!]
- \begin{center}
- %\rotatebox{-90}
- {
-  \includegraphics[width=0.5\linewidth]{../SystemContextDiagram.jpeg}
-
- \caption{\label{The System Context} <Caption>}
+ \caption{\label{The Physical System} The Physical System}
  \end{center}
  \end{figure}
 
@@ -532,9 +518,9 @@ Dependencies: Locations such as garages and underground parking.
 \item The user’s phone will always be able to connect to the lock (wireless connection works as intended).
 Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
 \item Users will have no limiting physical disabilities.
-Dependencies: Average person is strong enough to manually lock/ unlock the bike.
+Dependencies: Average person is strong enough to manually lock and unlock the bike.
 \item The lock will be weatherproof.
-Dependencies: Rain, snow and/or extreme temperatures will not damage the lock. 
+Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
 \item Battery life is only reduced when the motor is being used.
 Dependencies: Battery life is independent of weather and time.
 \item Efficiency is always constant.
@@ -544,38 +530,23 @@ Dependencies: The battery's power does not decrease over time.
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
 
-\plt{Theoretical models are sets of abstract mathematical equations or axioms
-  for solving the problem described in Section ``Physical System Description''
-  (Section~\ref{sec_phySystDescrip}). Examples of theoretical models are
-  physical laws, constitutive equations, relevant conversion factors, etc.}
-
-This section focuses on the general equations and laws that \progname{} is based
-on.  \plt{Modify the examples below for your problem, and add additional models
-  as appropriate.}
-
 ~\newline
 
 \noindent
 \deftheory
 % #2 refname of theory
-{T:COE}
 % #3 label
-{Conservation of thermal energy}
+{Torque of a Motor}
 % #4 equation
 {
-  $-{\bf \nabla \cdot q} + g$ = $\rho C \frac{\partial T}{\partial t}$
+  ${\bf T = F \cdot d} = {\bf I  \cdot  k_T}$
 }
+
 % #5 description
 {
-  The above equation gives the conservation of energy for transient heat transfer in a material
-  of specific heat capacity $C$ (\si{\joule\per\kilogram\per\celsius}) and density $\rho$ 
-  (\si{\kilogram\per\cubic\metre}), where $\bf q$ is the thermal flux vector (\si{\watt\per\square\metre}),
-  $g$ is the volumetric heat generation
-  (\si{\watt\per\cubic\metre}), $T$ is the temperature
-  (\si{\celsius}),  $t$ is time (\si{\second}), and $\nabla$ is
-  the gradient operator.  For this equation to apply, other forms
-  of energy, such as mechanical energy, are assumed to be negligible in the
-  system (\aref{A_OnlyThermalEnergy}).  In general, the material properties ($\rho$ and $C$) depend on temperature.
+The above equation gives the torque $T$ (\si{\newton\metre}) required to actuate the opening and closing mechanism of the lock through the motor. Torque is equal to the force $F$ (\si{\newton}) to open or close the lock, multiplied by the distance $d$ (\si{\metre}) from the motor's axis of rotation. To extract current, torque is also equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the motor's torque Constant $k_T$ (\si{\newton\metre\per\ampere}).  
+
+The net force will be calculated once the design is finalized. The distance and torque constant will be dependent on the motor. These equations will be used to calculate the current required from the battery. They must be computed twice; once for engaging, and again for disengaging. 
 }
 % #6 Notes
 {
@@ -583,7 +554,7 @@ None.
 }
 % #7 Source
 {
-  \url{http://www.efunda.com/formulae/heat_transfer/conduction/overview_cond.cfm}
+  \url{https://www.motioncontroltips.com/faq-whats-the-relationship-between-current-and-dc-motor-output-torque/ }
 }
 % #8 Referenced by
 {
@@ -596,14 +567,75 @@ None
 % #1 derivation - not applicable by default
 {}
 
-\plt{``Ref.\ By'' is used repeatedly with the different types of information.
-  This stands for Referenced By.  It means that the models, definitions and
-  assumptions listed reference the current model, definition or assumption.
-  This information is given for traceability.  Ref. By provides a pointer in the
-  opposite direction to what we commonly do.  You still need to have a reference
-  in the other direction pointing to the current model, definition or
-  assumption.  As an example, if T1 is referenced by G2, that means that G2 will
-  explicitly include a reference to T1.}
+~\newline
+
+\noindent
+\deftheory
+% #2 refname of theory
+% #3 label
+{Ohm's Law}
+% #4 equation
+{
+  $V = I \cdot R$
+}
+
+% #5 description
+{
+The above equation gives the voltage $V$ (\si{\volt}), which is equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the resistance $R$ (\si{\ohm}) of the motor. This can be used to find the rating of battery needed to power the motor. This calculation must also be done twice as outlined above.
+}
+% #6 Notes
+{
+None.
+}
+% #7 Source
+{
+
+}
+% #8 Referenced by
+{
+  \dref{ROCT}
+}
+% #9 Preconditions
+{
+None
+}
+% #1 derivation - not applicable by default
+{}
+
+~\newline
+
+\noindent
+\deftheory
+% #2 refname of theory
+% #3 label
+{Battery Life}
+% #4 equation
+{
+  ${\bf BL = \frac{BC}{I}}$
+}
+
+% #5 description
+{
+The above equation gives the battery life $BL$ (\si{\hour}), which will be calculated by dividing the battery capacity $BC$ (\si{\ampere\hour}) selected and the load current $I$ (\si{\ampere)}.
+}
+% #6 Notes
+{
+None.
+}
+% #7 Source
+{
+ 
+}
+% #8 Referenced by
+{
+  \dref{ROCT}
+}
+% #9 Preconditions
+{
+None
+}
+% #1 derivation - not applicable by default
+{}
 
 ~\newline
 
