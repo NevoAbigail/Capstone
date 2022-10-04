@@ -851,64 +851,91 @@ qualities that the software is expected to exhibit.
 \subsection{Functional Requirements}
 
 \subsubsection{User Input Related}
-
-\paragraph{LockButton input must engage the lock on the bike.}
-\paragraph{UnlockButton input must disengage the lock on the bike }
-\paragraph{When lock is engaged, change lock status to locked }
-\paragraph{When lock is unengaged, change lock status to unlocked }
-\paragraph{Moving locking bar closed must move OpenClosedstatus to Closed }
-\paragraph{Moving locking bar open must move OpenClosedstatus to open }
-\paragraph{Location (coordinates) of user’s phone must be shown on app as UserPosition }
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[FR\refstepcounter{reqnum}\thereqnum:] LockButton input must engage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum:] UnlockButton input must disengage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum:] When lock is engaged, change lock status to locked.
+\item[FR\refstepcounter{reqnum}\thereqnum:] When lock is unengaged, change lock status to unlocked.
+\item[FR\refstepcounter{reqnum}\thereqnum:] Moving locking bar closed must move OpenClosedstatus to Closed.
+\item[FR\refstepcounter{reqnum}\thereqnum:] Moving locking bar open must move OpenClosedstatus to open.
+\item[FR\refstepcounter{reqnum}\thereqnum:] Location (coordinates) of user’s phone must be shown on app as UserPosition.
+\end{itemize}
 
 \subsubsection{Bike Input Related}
-\paragraph{The lock can be mounted to the bikes frame}
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[FR\refstepcounter{reqnum}\thereqnum:] The lock can be mounted to the bikes frame.
+\end{itemize}
 
 \subsubsection{Output Related}
-\paragraph{Battery percentage must be shown on phone app }
-\paragraph{Location (coordinates) of bike must be shown on app as BikePosition }
-\paragraph{Battery must output enough power to engage/disengage the lock }
-
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[FR\refstepcounter{reqnum}\thereqnum:] Battery percentage must be shown on phone app.
+\item[FR\refstepcounter{reqnum}\thereqnum:] Location (coordinates) of bike must be shown on app as BikePosition.
+\item[FR\refstepcounter{reqnum}\thereqnum:] Battery must output enough power to engage/disengage the lock.
+\end{itemize}
 
 \subsection{Nonfunctional Requirements}
 
 \subsubsection{Smart Phone}
-\paragraph{can be used by people speaking different languages }
-\paragraph{Can reasonably be used without requiring an instruction manual}
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Can be used by people speaking different languages.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Can reasonably be used without requiring an instruction manual.
+\end{itemize}
 
 \subsubsection{Physical Design}
-\paragraph{The design must be visual appealing }
-\paragraph{The design must not impede normal bike functions}
-\paragraph{The lock must be waterproofed to withstand normal rainfall}
-\paragraph{The lock must be waterproofed to withstand normal splashing while riding}
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The design must be visual appealing.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The design must not impede normal bike functions.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The lock must be waterproofed to withstand normal rainfall.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The lock must be waterproofed to withstand normal splashing while riding.
+\end{itemize}
 
 \subsubsection{Accuracy}
-\paragraph{Accuracy of bike lock status must be above 90\% }
-\paragraph{The accuracy of gps positioning must be accurate within 10M }
-\paragraph{Battery percentage must be calculated accurately within 10\% }
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Accuracy of bike lock status must be above 90\%.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The accuracy of gps positioning must be accurate within 10M.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Battery percentage must be calculated accurately within 10\%.
+\end{itemize}
 
 \subsubsection{Usability}
-\paragraph{iPhone app locking must be quicker to use than a typical keyed/combo bike lock }
-\paragraph{Opening and closing lock must require similar force to a typical keyed/combo }
-\paragraph{Battery must last for greater than 1 month and/or 60 rides }
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Opening and closing lock must require similar force to a typical keyed/combo.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Battery must last for greater than 1 month and/or 60 rides.
+\end{itemize}
 
 \subsubsection{Maintainability}
-\paragraph{Should take less than X\_FRACTION of total development time }
-\paragraph{Making changes to the GUI }
-\paragraph{Motor/Battery Controller Software }
-\paragraph{Electrical Circuit }
-\paragraph{Mechanical physical design }
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Should take less than X\_FRACTION of total development time.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Making changes to the GUI.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Motor/Battery Controller Software.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Electrical Circuit.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Mechanical physical design.
+\end{itemize}
 
 \subsubsection{Portability}
-\paragraph{The app should run on iOS }
-\paragraph{The app should be easily maintained through iOS updates }
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The app should run on iOS.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The app should be easily maintained through iOS updates.
+\end{itemize}
 
 \subsubsection{Security}
-\paragraph{Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock)}
-
+\begin{itemize}
+\setlength{\itemindent}{.5in}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
+\end{itemize}
 
 \section{Likely Changes}    
 
-\noindent \begin{itemize}
+\begin{itemize}
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
     the likely changes, with a reference to the related assumption (aref), as appropriate.}
