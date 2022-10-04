@@ -16,6 +16,7 @@
 \usepackage{caption}
 \usepackage{pdflscape}
 \usepackage{afterpage}
+\usepackage{graphicx}
 
 \usepackage[round]{natbib}
 
@@ -356,172 +357,99 @@ characteristics and lists the system constraints.  \plt{This text can likely be
 
 \section{Specific System Description}
 
-This section first presents the problem description, which gives a high-level
-view of the problem to be solved.  This is followed by the solution characteristics
-specification, which presents the assumptions, theories, definitions and finally
-the instance models.  \plt{Add any project specific details that are relevant
-  for the section overview.}
 
 \subsection{Problem Description} \label{Sec_pd}
 
-\progname{} is intended to solve ... \plt{What problem does your program solve?
-The description here should be in the problem space, not the solution space.}
+There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen, namely the seat, front and back wheels, and frame.  
+
+
+Furthermore, bike locks can be bulky, heavy and dangerous to carry around. It can also be tedious to find and lock one’s bike to an external frame.  The combination of these nuisances can lead to individuals leaving their bikes without properly securing them.  The city of Toronto reports an average 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, which indicates a rather expansive problem that can be solved [1,2].  
 
 \subsubsection{Terminology and  Definitions}
 
-\plt{This section is expressed in words, not with equations.  It provide the
-  meaning of the different words and phrases used in the domain of the problem.
-The terminology is used to introduce concepts from the world outside of the
-mathematical model  The terminology provides a real world connection to give the
-mathematical model meaning.}
-
-This subsection provides a list of terms that are used in the subsequent
-sections and their meaning, with the purpose of reducing ambiguity and making it
-easier to correctly understand the requirements:
+The terms listed below will be used throughout the scope of this document and should be referenced when referring to specific components.  
 
 \begin{itemize}
-
-\item 
-
+\item Smart Lock: The scope of this project and document referring to both the mechanical lock and the mobile application communicating with it. 
+\item Lock: The physical component of the Smart Lock; includes the hardware, battery, motor, and locking mechanism.  
+\item Team: Refers to the members working on Smart Lock 
+\item App: The mobile application used to communicate with the lock 
+\item Open/Close: The process of physically moving the lock frame into a state where it can be latched onto something else. 
+\item Open/Close Status: The current state of the lock frame. 
+\item Engage/Disengage: The automated process to actuate the lock to secure the frame. 
+\item Wireless Signalling: The means of communication between the lock and the mobile application. 
+\item Battery: The power source used to power the motor for engaging and disengaging. 
+\item Battery Status: A measure of the quantity of charge in the battery. 
+\item Git: The platform used to store the documentation and software and track changes made to the files. 
+\item XCode/Flutter: The IDE used to develop the mobile application. 
+\item Cross-Platform Development: The means of developing the mobile application on both iOS and Android devices. 
+\item Transmitter: The device used to send signals to and from the app to give status information and to send the engagement/disengagement signals. 
+\item GPS: The satellite-based navigation system used to locate the bike. 
+\item Receiver: The device used to receive the signals from the app for engagement/disengagement. 
+\item Microcontroller: The programmable device used to control the motor. 
 \end{itemize}
 
 \subsubsection{Physical System Description} \label{sec_phySystDescrip}
 
-\plt{The purpose of this section is to clearly and unambiguously state the
-  physical system that is to be modelled. Effective problem solving requires a
-  logical and organized approach. The statements on the physical system to be
-  studied should cover enough information to solve the problem. The physical
-  description involves element identification, where elements are defined as
-  independent and separable items of the physical system. Some example elements
-  include acceleration due to gravity, the mass of an object, and the size and
-  shape of an object. Each element should be identified and labelled, with their
-  interesting properties specified clearly. The physical description can also
-  include interactions of the elements, such as the following: i) the
-  interactions between the elements and their physical environment; ii) the
-  interactions between elements; and, iii) the initial or boundary conditions.}
+ \begin{figure}[h!]
+ \begin{center}
+ %\rotatebox{-90}
+ {
+ \includegraphics[width=0.8\linewidth]{../FunctionalDiagram.jpeg}
+ }
+ \caption{\label{The Physical System} <Caption>}
+ \end{center}
+ \end{figure}
 
-The physical system of \progname{}, as shown in Figure~?,
-includes the following elements:
 
-\begin{itemize}
+ \begin{figure}[h!]
+ \begin{center}
+ %\rotatebox{-90}
+ {
+  \includegraphics[width=0.5\linewidth]{../SystemContextDiagram.jpeg}
 
-\item[PS1:] 
-
-\item[PS2:] ...
-
-\end{itemize}
-
-\plt{A figure here makes sense for most SRS documents}
-
-% \begin{figure}[h!]
-% \begin{center}
-% %\rotatebox{-90}
-% {
-%  \includegraphics[width=0.5\textwidth]{<FigureName>}
-% }
-% \caption{\label{<Label>} <Caption>}
-% \end{center}
-% \end{figure}
+ \caption{\label{The System Context} <Caption>}
+ \end{center}
+ \end{figure}
 
 \subsubsection{Goal Statements}
 
-\plt{The goal statements refine the ``Problem Description''
-  (Section~\ref{Sec_pd}).  A goal is a functional objective the system under
-  consideration should achieve. Goals provide criteria for sufficient
-  completeness of a requirements specification and for requirements
-  pertinence. Goals will be refined in Section “Instanced Models”
-  (Section~\ref{sec_instance}). Large and complex goals should be decomposed
-  into smaller sub-goals.  The goals are written abstractly, with a minimal
-  amount of technical language.  They should be understandable by non-domain
-  experts.}
+
 
 \noindent Given the \plt{inputs}, the goal statements are:
 
 \begin{itemize}
 
-\item[GS\refstepcounter{goalnum}\thegoalnum \label{G_meaningfulLabel}:] \plt{One
-    sentence description of the goal.  There may be more than one.  Each Goal
-    should have a meaningful label.}
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective Bike Lock: The lock is sturdy and cannot be manual opened by the average human once engaged.
+
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Long Lasting Battery Life: The power source is used efficiently to last a sufficient period of time without requiring replacement. 
+
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Bicycle Versatility: The lock can be used on mountain, city, kids, and road bikes.
+
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Easily Mountable on Bike Frame: Does not require special tools to be installed. 
+
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective GPS Tracking: The lock can accurately transmit location to app regardless of location.  
+
+\item[GS\refstepcounter{goalnum}\thegoalnum :] Weatherproof: The lock is not easily damaged by wind, rain, snow, heat, and cold weather.
 
 \end{itemize}
 
-\subsection{Solution Characteristics Specification}
-
-\plt{This section specifies the information in the solution domain of the system
-  to be developed. This section is intended to express what is required in
-  such a way that analysts and stakeholders get a clear picture, and the
-  latter will accept it. The purpose of this section is to reduce the problem
-  into one expressed in mathematical terms. Mathematical expertise is used to
-  extract the essentials from the underlying physical description of the
-  problem, and to collect and substantiate all physical data pertinent to the
-  problem.}
-
-\plt{This section presents the solution characteristics by successively refining
-  models.  It starts with the abstract/general Theoretical Models (TMs) and
-  refines them to the concrete/specific Instance Models (IMs).  If necessary
-  there are intermediate refinements to General Definitions (GDs).  All of these
-  refinements can potentially use Assumptions (A) and Data Definitions (DD).
-  TMs are refined to create new models, that are called GMs or IMs. DDs are not
-  refined; they are just used. GDs and IMs are derived, or refined, from other
-  models. DDs are not derived; they are just given. TMs are also just given, but
-  they are refined, not used.  If a potential DD includes a derivation, then
-  that means it is refining other models, which would make it a GD or an IM.}
-
-\plt{The above makes a distinction between ``refined'' and ``used.'' A model is
-  refined to another model if it is changed by the refinement. When we change a
-  general 3D equation to a 2D equation, we are making a refinement, by applying
-  the assumption that the third dimension does not matter. If we use a
-  definition, like the definition of density, we aren't refining, or changing
-  that definition, we are just using it.}
-
-\plt{The same information can be a TM in one problem and a DD in another.  It is
-  about how the information is used.  In one problem the definition of
-  acceleration can be a TM, in another it would be a DD.}
-
-\plt{There is repetition between the information given in the different chunks
-  (TM, GDs etc) with other information in the document.  For instance, the
-  meaning of the symbols, the units etc are repeated.  This is so that the
-  chunks can stand on their own when being read by a reviewer/user.  It also
-  facilitates reuse of the models in a different context.}
-
-\noindent \plt{The relationships between the parts of the document are show in
-  the following figure.  In this diagram ``may ref'' has the same role as
-  ``uses'' above.  The figure adds ``Likely Changes,'' which are able to
-  reference (use) Assumptions.}
-
-\begin{figure}[H]
-  \includegraphics[scale=0.9]{RelationsBetweenTM_GD_IM_DD_A.pdf}
-\end{figure}
-
-The instance models that govern \progname{} are presented in
-Subsection~\ref{sec_instance}.  The information to understand the meaning of the
-instance models and their derivation is also presented, so that the instance
-models can be verified.
-
 \subsubsection{Assumptions} \label{sec_assumpt}
-
-\plt{The assumptions are a refinement of the scope.  The scope is general, where
-  the assumptions are specific.  All assumptions should be listed, even those
-  that domain experts know so well that they are rarely (if ever) written down.}
-\plt{The document should not take for granted that the reader knows which
-  assumptions have been made. In the case of unusual assumptions, it is
-  recommended that the documentation either include, or point to, an explanation
-  and justification for the assumption.}
-
-This section simplifies the original problem and helps in developing the
-theoretical model by filling in the missing information for the physical
-system. The numbers given in the square brackets refer to the theoretical model
-[T], general definition [GD], data definition [DD], instance model [IM], or
-likely change [LC], in which the respective assumption is used.
 
 \begin{itemize}
 
-\item[A\refstepcounter{assumpnum}\theassumpnum \label{A_meaningfulLabel}:]
-  \plt{Short description of each assumption.  Each assumption
-    should have a meaningful label.  Use cross-references to identify the
-    appropriate traceability to T, GD, DD etc., using commands like dref, ddref
-    etc.  Each assumption should be atomic - that is, there should not be an
-    explicit (or implicit) ``and'' in the text of an assumption.}
+\item The bike will be left in locations with strong GPS signal.
+Dependencies: Locations such as garages and underground parking. 
+\item The user’s phone will always be able to connect to the lock (wireless connection works as intended).
+Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
+\item Users will have no limiting physical disabilities.
+Dependencies: Average person is strong enough to manually lock/ unlock the bike.
+\item The lock will be weatherproof.
+Dependencies: Rain, snow and/or extreme temperatures will not damage the lock. 
+\item Battery life is only reduced when the motor is being used.
+Dependencies: Battery life is independent of weather and time.
+\item Efficiency is always constant.
+Dependencies: The battery's power does not decrease over time.
 
 \end{itemize}
 
