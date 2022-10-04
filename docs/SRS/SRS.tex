@@ -19,6 +19,8 @@
 
 \usepackage[round]{natbib}
 
+\usepackage{titlesec}
+
 %\usepackage{refcheck}
 
 \hypersetup{
@@ -124,10 +126,21 @@
 
 }
 
+%\documentclass{article}
+
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
 \begin{document}
 
-\title{Software Requirements Specification for \progname: subtitle describing software} 
-\author{Author Name(s)}
+\title{Software Requirements Specification for \progname: Smart Bike Lock} 
+\author{Abi Nevo\\Elsa Bassi\\Steffi Ralph\\Abdul Iqbal\\Stephen De Jong\\Anthony Shenouda}
 \date{\today}
 	
 \maketitle
@@ -142,11 +155,11 @@
 
 \section*{Revision History}
 
-\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+02-10-22 & 1.0 & Elsa & Drafted first draft\\
+03-10-22& 1.1 & Stephen & Drafted 1 \& 5, and formating updates\\
 \bottomrule
 \end{tabularx}
 
@@ -166,6 +179,7 @@ description of the unit and the SI name.
 
 \renewcommand{\arraystretch}{1.2}
 %\begin{table}[ht]
+%\begincenter
   \noindent \begin{tabular}{l l l} 
     \toprule		
     \textbf{symbol} & \textbf{unit} & \textbf{SI}\\
@@ -173,31 +187,17 @@ description of the unit and the SI name.
     \si{\metre} & length & metre\\
     \si{\kilogram} & mass	& kilogram\\
     \si{\second} & time & second\\
-    \si{\celsius} & temperature & centigrade\\
     \si{\joule} & energy & joule\\
-    \si{\watt} & power & watt (W = \si{\joule\per\second})\\
+    P or \si{\watt} & power & watt (W = \si{\joule\per\second})\\
+    \si{\ampere} or I& current & ampere\\
+    \si{\ohm} or R& resistance & ohm\\
+    \si{\volt} & voltage & volt\\
+    \si{\newton} & force & newton\\
+    \si{\newton}M & torque & newton meter\\
     \bottomrule
   \end{tabular}
   %	\caption{Provide a caption}
 %\end{table}
-
-\plt{Only include the units that your SRS actually uses.}
-
-\plt{Derived units, like newtons, pascal, etc, should show their derivation
-    (the units they are derived from) if their constituent units are in the
-    table of units (that is, if the units they are derived from are used in the
-    document).  For instance, the derivation of pascals as
-    $\si{\pascal}=\si{\newton\per\square\meter}$ is shown if newtons and m are
-    both in the table.  The derivations of newtons would not be shown if kg and
-    s are not both in the table.}
-
-\plt{The symbol for units named after people use capital letters, but the name
-  of the unit itself uses lower case.  For instance, pascals use the symbol Pa,
-  watts use the symbol W, teslas use the symbol T, newtons use the symbol N,
-  etc.  The one exception to this is degree Celsius.  Details on writing metric
-  units can be found on the 
-  \href{https://www.nist.gov/pml/weights-and-measures/writing-metric-units}
-  {NIST} web-page.}
 
 \subsection{Table of Symbols}
 
@@ -211,15 +211,13 @@ systems.  The symbols are listed in alphabetical order.
 \noindent \begin{longtable*}{l l p{12cm}} \toprule
 \textbf{symbol} & \textbf{unit} & \textbf{description}\\
 \midrule 
-$A_C$ & \si[per-mode=symbol] {\square\metre} & coil surface area
-\\
-$A_\text{in}$ & \si[per-mode=symbol] {\square\metre} & surface area over 
-which heat is transferred in
-\\ 
+$B_L$ & hour & battery lifein hours\\
+$B_C$ & mAH & battery capacity in amp hours\\
+$L_C$ & A/actuation & current drawn per motor actuation\\
+$A_\text{num}$ & actuation/charge & number of actuations per charge\\ 
 \bottomrule
 \end{longtable*}
-\plt{Use your problems actual symbols.  The si package is a good idea to use for
-  units.}
+
 
 \subsection{Abbreviations and Acronyms}
 
@@ -228,102 +226,15 @@ which heat is transferred in
   \toprule		
   \textbf{symbol} & \textbf{description}\\
   \midrule 
-  A & Assumption\\
-  DD & Data Definition\\
-  GD & General Definition\\
-  GS & Goal Statement\\
-  IM & Instance Model\\
-  LC & Likely Change\\
-  PS & Physical System Description\\
-  R & Requirement\\
   SRS & Software Requirements Specification\\
-  \progname{} & \plt{put an expanded version of your program name here (as appropriate)}\\
-  T & Theoretical Model\\
   \bottomrule
 \end{tabular}\\
 
-\plt{Add any other abbreviations or acronyms that you add}
 
-\subsection{Mathematical Notation}
-
-\plt{This section is optional, but should be included for projects that make use
-  of notation to convey mathematical information.  For instance, if typographic
-  conventions (like bold face font) are used to distinguish matrices, this
-  should be stated here.  If symbols are used to show mathematical operations,
-  these should be summarized here.  In some cases the easiest way to summarize
-  the notation is to point to a text or other source that explains the
-  notation.}
-
-\plt{This section was added to the template because some students use very
-  domain specific notation.  This notation will not be readily understandable to
-  people outside of your domain.  It should be explained.}
-
-\newpage
+%\subsection{Mathematical Notation}
 
 \pagenumbering{arabic}
 
-\plt{This SRS template is based on \citet{SmithAndLai2005, SmithEtAl2007}.  It
-  will get you started.  You should not modify the section headings, without
-  first discussing the change with the course instructor.  Modification means
-  you are not following the template, which loses some of the advantage of a
-  template, especially standardization.  Although the bits shown below do not
-  include type information, you may need to add this information for your
-  problem.  If you are unsure, please can ask the instructor.}
-
-\plt{Feel free to change the appearance of the report by modifying the LaTeX
-  commands.}
-
-\plt{This template document assumes that a single program is being documented.
-  If you are documenting a family of models, you should start with a commonality
-  analysis.  A separate template is provided for this.  For program
-  families you should look at \cite{Smith2006, SmithMcCutchanAndCarette2017}.
-  Single family member programs are often programs based on a single physical
-  model.  General purpose tools are usually documented as a family.  Families of
-  physical models also come up.}
-
-\plt{The SRS is not generally written, or read, sequentially.  The SRS is a
-  reference document.  It is generally read in an ad hoc order, as the need
-  arises.  For writing an SRS, and for reading one for the first time, the
-  suggested order of sections is:
-\begin{itemize}
-\item Goal Statement
-\item Instance Models
-\item Requirements
-\item Introduction
-\item Specific System Description
-\end{itemize}
-}
-
-\plt{Guiding principles for the SRS document:
-\begin{itemize}
-\item Do not repeat the same information at the same abstraction level.  If
-  information is repeated, the repetition should be at a different abstraction
-  level.  For instance, there will be overlap between the scope section and the
-  assumptions, but the scope section will not go into as much detail as the
-  assumptions section.
-\end{itemize}
-}
-
-\plt{The template description comments should be disabled before submitting this
-  document for grading.}
-
-\plt{You can borrow any wording from the text given in the template.  It is part
-  of the template, and not considered an instance of academic integrity.  Of
-  course, you need to cite the source of the template.}
-
-\plt{When the documentation is done, it should be possible to trace back to the
-  source of every piece of information.  Some information will come from
-  external sources, like terminology.  Other information will be derived, like
-  General Definitions.}
-
-\plt{An SRS document should have the following qualities: unambiguous,
-  consistent, complete, validatable, abstract and traceable.}
-
-\plt{The overall goal of the SRS is that someone that meets the Characteristics
-  of the Intended Reader (Section~\ref{sec_IntendedReader}) can learn,
-  understand and verify the captured domain knowledge.  They should not have to
-  trust the authors of the SRS on any statements.  They should be able to
-  independently verify/derive every statement made.}
 
 \section{Introduction}
 
@@ -973,93 +884,67 @@ A correct solution must exhibit \plt{fill in the details}.  \plt{These
 
 \section{Requirements}
 
-\plt{The requirements refine the goal statement.  They will make heavy use of
-  references to the instance models.}
-
 This section provides the functional requirements, the business tasks that the
 software is expected to complete, and the nonfunctional requirements, the
 qualities that the software is expected to exhibit.
 
 \subsection{Functional Requirements}
 
-\noindent \begin{itemize}
+\subsubsection{User Input Related}
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Inputs}:] \plt{Requirements
-    for the inputs that are supplied by the user.  This information has to be
-    explicit.}
+\paragraph{LockButton input must engage the lock on the bike.}
+\paragraph{UnlockButton input must disengage the lock on the bike }
+\paragraph{When lock is engaged, change lock status to locked }
+\paragraph{When lock is unengaged, change lock status to unlocked }
+\paragraph{Moving locking bar closed must move OpenClosedstatus to Closed }
+\paragraph{Moving locking bar open must move OpenClosedstatus to open }
+\paragraph{Location (coordinates) of user’s phone must be shown on app as UserPosition }
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_OutputInputs}:] \plt{It isn't
-    always required, but often echoing the inputs as part of the output is a
-    good idea.}
+\subsubsection{Bike Input Related}
+\paragraph{The lock can be mounted to the bikes frame}
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Calculate}:] \plt{Calculation
-    related requirements.}
+\subsubsection{Output Related}
+\paragraph{Battery percentage must be shown on phone app }
+\paragraph{Location (coordinates) of bike must be shown on app as BikePosition }
+\paragraph{Battery must output enough power to engage/disengage the lock }
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_VerifyOutput}:]
-  \plt{Verification related requirements.}
-
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Output}:] \plt{Output related
-    requirements.}
-
-\end{itemize}
-
-\plt{Every IM should map to at least one requirement, but not every requirement
-  has to map to a corresponding IM.}
 
 \subsection{Nonfunctional Requirements}
 
-\plt{List your nonfunctional requirements.  You may consider using a fit
-  criterion to make them verifiable.}
-\plt{The goal is for the nonfunctional requirements to be unambiguous, abstract
-  and verifiable.  This isn't easy to show succinctly, so a good strategy may be
-to give a ``high level'' view of the requirement, but allow for the details to
-be covered in the Verification and Validation document.}
-\plt{An absolute requirement on a quality of the system is rarely needed.  For
-  instance, an accuracy of 0.0101 \% is likely fine, even if the requirement is
-  for 0.01 \% accuracy.  Therefore, the emphasis will often be more on
-  describing now well the quality is achieved, through experimentation, and
-  possibly theory, rather than meeting some bar that was defined a priori.}
-\plt{You do not need an entry for correctness in your NFRs.  The purpose of the
-  SRS is to record the requirements that need to be satisfied for correctness.
-  Any statement of correctness would just be redundant. Rather than discuss
-  correctness, you can characterize how far away from the correct (true)
-  solution you are allowed to be.  This is discussed under accuracy.}
+\subsubsection{Smart Phone}
+\paragraph{can be used by people speaking different languages }
+\paragraph{Can reasonably be used without requiring an instruction manual}
 
-\noindent \begin{itemize}
+\subsubsection{Physical Design}
+\paragraph{The design must be visual appealing }
+\paragraph{The design must not impede normal bike functions}
+\paragraph{The lock must be waterproofed to withstand normal rainfall}
+\paragraph{The lock must be waterproofed to withstand normal splashing while riding}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Accuracy}:]
-  \textbf{Accuracy} \plt{Characterize the accuracy by giving the context/use for
-    the software.  Maybe something like, ``The accuracy of the computed
-    solutions should meet the level needed for $<$engineering or scientific
-    application$>$.  The level of accuracy achieved by \progname{} shall be
-    described following the procedure given in Section~X of the Verification and
-    Validation Plan.''  A link to the VnV plan would be a nice extra.}
+\subsubsection{Accuracy}
+\paragraph{Accuracy of bike lock status must be above 90\% }
+\paragraph{The accuracy of gps positioning must be accurate within 10M }
+\paragraph{Battery percentage must be calculated accurately within 10\% }
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
-  \plt{Characterize the usability by giving the context/use for the software.
-    You should likely reference the user characteristics section.  The level of
-    usability achieved by the software shall be described following the
-    procedure given in Section~X of the Verification and Validation Plan.  A
-    link to the VnV plan would be a nice extra.}
+\subsubsection{Usability}
+\paragraph{iPhone app locking must be quicker to use than a typical keyed/combo bike lock }
+\paragraph{Opening and closing lock must require similar force to a typical keyed/combo }
+\paragraph{Battery must last for greater than 1 month and/or 60 rides }
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:]
-  \textbf{Maintainability} \plt{The effort required to make any of the likely
-    changes listed for \progname{} should be less than FRACTION of the original
-    development time.  FRACTION is then a symbolic constant that can be defined
-    at the end of the report.}
+\subsubsection{Maintainability}
+\paragraph{Should take less than X\_FRACTION of total development time }
+\paragraph{Making changes to the GUI }
+\paragraph{Motor/Battery Controller Software }
+\paragraph{Electrical Circuit }
+\paragraph{Mechanical physical design }
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Portability}:]
-  \textbf{Portability} \plt{This NFR is easier to write than the others.  The
-    systems that \progname{} should run on should be listed here.  When possible
-    the specific versions of the potential operating environments should be
-    given.  To make the NFR verifiable a statement could be made that the tests
-    from a given section of the VnV plan can be successfully run on all of the
-    possible operating environments.}
+\subsubsection{Portability}
+\paragraph{The app should run on iOS }
+\paragraph{The app should be easily maintained through iOS updates }
 
-\item Other NFRs that might be discussed include verifiability,
-  understandability and reusability.
+\subsubsection{Security}
+\paragraph{Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock)}
 
-\end{itemize}
 
 \section{Likely Changes}    
 
