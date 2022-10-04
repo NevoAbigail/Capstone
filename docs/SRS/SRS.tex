@@ -77,6 +77,9 @@
 \newcounter{lcnum} %Likely change number
 \newcommand{\lthelcnum}{LC\thelcnum}
 \newcommand{\lcref}[1]{LC\ref{#1}}
+\newcounter{ulcnum} %Unlikely change number
+\newcommand{\ltheulcnum}{ULC\theulcnum}
+\newcommand{\ulcref}[1]{ULC\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -853,27 +856,29 @@ qualities that the software is expected to exhibit.
 \subsubsection{User Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum:] LockButton input must engage the lock on the bike.
-\item[FR\refstepcounter{reqnum}\thereqnum:] UnlockButton input must disengage the lock on the bike.
-\item[FR\refstepcounter{reqnum}\thereqnum:] When lock is engaged, change lock status to locked.
-\item[FR\refstepcounter{reqnum}\thereqnum:] When lock is unengaged, change lock status to unlocked.
-\item[FR\refstepcounter{reqnum}\thereqnum:] Moving locking bar closed must move OpenClosedstatus to Closed.
-\item[FR\refstepcounter{reqnum}\thereqnum:] Moving locking bar open must move OpenClosedstatus to open.
-\item[FR\refstepcounter{reqnum}\thereqnum:] Location (coordinates) of user’s phone must be shown on app as UserPosition.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockButton input must engage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] UnlockButton input must disengage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to locked.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is unengaged, change lock status to unlocked.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually  opened by the average human once engaged.
+\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
 \end{itemize}
 
 \subsubsection{Bike Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum:] The lock can be mounted to the bikes frame.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR10}:] The lock can be mounted to the bike's frame.
 \end{itemize}
 
 \subsubsection{Output Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum:] Battery percentage must be shown on phone app.
-\item[FR\refstepcounter{reqnum}\thereqnum:] Location (coordinates) of bike must be shown on app as BikePosition.
-\item[FR\refstepcounter{reqnum}\thereqnum:] Battery must output enough power to engage/disengage the lock.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on phone app.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on app as BikePosition.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR13}:] Battery must output enough power to engage/disengage the lock.
 \end{itemize}
 
 \subsection{Nonfunctional Requirements}
@@ -881,64 +886,74 @@ qualities that the software is expected to exhibit.
 \subsubsection{Smart Phone}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Can be used by people speaking different languages.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Can reasonably be used without requiring an instruction manual.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people speaking different languages.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone. 
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The design must be visual appealing.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The design must not impede normal bike functions.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The lock must be waterproofed to withstand normal rainfall.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The lock must be waterproofed to withstand normal splashing while riding.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Accuracy of bike lock status must be above 90\%.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The accuracy of gps positioning must be accurate within 10M.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Battery percentage must be calculated accurately within 10\%.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 90\%.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] The accuracy of gps positioning must be accurate within 10M.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Opening and closing lock must require similar force to a typical keyed/combo.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Battery must last for greater than 1 month and/or 60 rides.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
 \end{itemize}
 
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Should take less than X\_FRACTION of total development time.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Making changes to the GUI.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Motor/Battery Controller Software.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Electrical Circuit.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Mechanical physical design.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Should take less than X\_FRACTION of total development time.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] Making changes to the GUI.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The app should run on iOS.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] The app should be easily maintained through iOS updates.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
 \end{itemize}
 
-\subsubsection{Security}
-\begin{itemize}
-\setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
-\end{itemize}
+%\subsubsection{Security}
+%\begin{itemize}
+%\setlength{\itemindent}{.5in}
+
+%I moved the requirement that was in this section to be a functional requirement --Abi
+
+%\end{itemize}
 
 \section{Likely Changes}    
 
 \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the likely changes, with a reference to the related assumption (aref), as appropriate.}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:]  Depending on the battery life, showing battery percentage on the phone app, as required in \hyperref[FR11]{FR11}, might not be necessary. If the battery life is very long, then perhaps a warning that battery is low is sufficient. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Having never created an app like this before, the amount of storage needed for the smartphone application is unknown. Requirement \hyperref[NFR3]{NFR3} provides ample space, if any change, this requirement might be revised so that it be required that the app take up even less storage. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Even though aesthetics is a selling point of any product, it is not a priority for this product. As such, the requirement \hyperref[NFR4]{NFR4} is subject to change. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] The degree of accuracy mentioned in \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, and \hyperref[NFR10]{NFR10}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Given that we will likely not be maintaining the system, requirements regarding maintability will be difficult to test and verify. While products should be designed with maintability in mind, it is not a priority for this project. Thus, requirements \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21} are subject to change. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Requiring an iOS application as stated in \hyperref[NFR22]{NFR22} and \hyperref[NFR23]{NFR23} was chosen given the team's skillset; however, the product's nature does not require the application to be iOS based. Given different preferences and/or skillset, this application could be substituted or extended to an Android application. Note that \hyperref[NFR23]{NFR23} is dependent on \hyperref[NFR22]{NFR22}
 
 \end{itemize}
 
@@ -946,9 +961,15 @@ qualities that the software is expected to exhibit.
 
 \noindent \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the unlikely changes.  The design can assume that the changes listed will
-    not occur.}
+%\item[LC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] \plt{Give
+ %   the unlikely changes.  The design can assume that the changes listed will
+ %   not occur.}
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are core to the functionality of the product. The product would not accomplish it's purpose without meeting these requirements. Thus, these requirements are  unlikely to change: \hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR7]{FR7}, \hyperref[FR8]{FR8}, \hyperref[FR9]{FR9}, \hyperref[FR13]{FR13}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are key selling featueres of the system, and are therefore unlikely to change: \hyperref[FR10]{FR10}, \hyperref[FR11]{FR11}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are necessary to ensure accessibility for all users: \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] Dependent on requirement \hyperref[FR10]{ FR10}, that the lock can be mounted on the bike's frame, \hyperref[NFR5]{NFR5} that the design must not impede normal bike function is necessary for the bike to function at all, and, if the bike does not function, the SmartLock product is useless. As such, this requirement is unlikely to change.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] To maintain usability in imperfect weather conditions, requirements \hyperref[NFR6]{NFR6} and \hyperref[NFR7]{NFR7}, and are therefore unlikely to change. \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] The following requirements must be satisfied to maintain an edge over typical, manually engaged/disengaged bike locks, and are therefore unlikely to change: \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR14]{NFR14}, \hyperref[NFR13]{NFR13}, \hyperref[NFR15]{NFR15}, \hyperref[NFR16]{NFR16}
 
 \end{itemize}
 
