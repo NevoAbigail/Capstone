@@ -163,7 +163,9 @@
 \midrule
 02-10-22 & 1.0 & Elsa & Drafted first draft\\
 03-10-22& 1.1 & Stephen & Drafted 1 \& 5, and formatting updates\\
+03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
+04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
 \bottomrule
 \end{tabularx}
 
@@ -858,28 +860,45 @@ qualities that the software is expected to exhibit.
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockButton input must engage the lock on the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] UnlockButton input must disengage the lock on the bike.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to locked.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is unengaged, change lock status to unlocked.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to dissengage the lock, the bike lock must be disengaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is disengaged, change lock status to disengaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as disengaged when disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
+
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually  opened by the average human once engaged.
-\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Opening the lock must result in status of lock to change to open.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock.
+\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
 \end{itemize}
 
 \subsubsection{Bike Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR10}:] The lock can be mounted to the bike's frame.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock can not be mounted to the users bike it will not be effective as a lock.
 \end{itemize}
 
 \subsubsection{Output Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on phone app.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on app as BikePosition.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on the phone app.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the battery percentage of the bike lock
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on the app as BikePosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the location of the bike so that teya re able to find bike.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR13}:] Battery must output enough power to engage/disengage the lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The locking system will not be functional if the battery is not able to disengage the lock.
 \end{itemize}
 
 \subsection{Nonfunctional Requirements}
@@ -887,37 +906,57 @@ qualities that the software is expected to exhibit.
 \subsubsection{Smart Phone}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people speaking different languages.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read english.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale:
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 90\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] The accuracy of gps positioning must be accurate within 10M.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Maintainability}
@@ -928,13 +967,25 @@ qualities that the software is expected to exhibit.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 %\subsubsection{Security}
@@ -1114,15 +1165,37 @@ instance models, requirements, and data constraints on each other.
 % 	\end{center}
 % \end{figure}
 
-\section{Development Plan}
+\section{Development Plan: Prioritizing and Phasing of Requirements}
 
-\plt{This section is optional.  It is used to explain the plan for developing
-  the software.  In particular, this section gives a list of the order in which
-  the requirements will be implemented.  In the context of a course  this is
-  where you can indicate which requirements will be implemented as part of the
-  course, and which will be ``faked'' as future work.  This section can be
-  organized as a prioritized list of requirements, or it could should the
-  requirements that will be implemented for ``phase 1'', ``phase 2'', etc.}
+%\plt{This section is optional.  It is used to explain the plan for developing
+ % the software.  In particular, this section gives a list of the order in which
+ % the requirements will be implemented.  In the context of a course  this is
+ % where you can indicate which requirements will be implemented as part of the
+ % course, and which will be ``faked'' as future work.  This section can be
+ % organized as a prioritized list of requirements, or it could should the
+ % requirements that will be implemented for ``phase 1'', ``phase 2'', etc.}
+
+\subsection{Phase 1}
+Phase 1 consists of implementing requirements that, together, make up the minimum viable product: a lock that can be engaged remotely. These requirements are the highest priority, and should be completed first, over the course of November and December. These requirements include:
+\hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR9]{FR9}, \hyperref[NFR22]{NFR22}
+
+\subsection{Phase 2}
+Phase 2 consists of requirements informing the design of the minimum viable product of the physical bike lock. These are the second highest priority, but will be completed in parallel with Phase 1 requirements. These requirements include:
+\hyperref[FR8]{FR8}, \hyperref[FR10]{FR10}, \hyperref[FR13]{FR13}, \hyperref[NFR5]{NFR5}, \hyperref[NFR12]{NFR12}, \hyperref[NFR15]{NFR15},\hyperref[NFR16]{NFR16}
+
+\subsection{Phase 3}
+Phase 3 consists of requirements regarding the locating feature. These are lower priority, but a key selling feature. These requirements will be completed after Phase 1 and Phase 2, in January. These requirements include:
+\hyperref[FR7]{FR7}, \hyperref[FR12]{FR12}
+
+\subsection{Phase 4}
+Phase 4 consists of requirements that ensure accuracy, usability, and accessibility of features. This phase will be completed after Phase 3, likely in February. These requirements include:
+\hyperref[FR11]{FR11}, \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}, \hyperref[NFR3]{NFR3}, \hyperref[NFR6]{NFR6}, \hyperref[NFR7]{NFR7}, \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, \hyperref[NFR10]{NFR10}, \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR13]{NFR13}, \hyperref[NFR14]{NFR14}
+
+\subsection{Phase 5}
+Phase 5 consists of requirements regarding the aesthetics of the product, and are lowest priority. These requirements include: \hyperref[NFR4]{NFR4}
+
+\subsection{Phase 6}
+Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21}
 
 \section{Values of Auxiliary Constants}
 
@@ -1181,7 +1254,7 @@ Their values are defined in this section for easy maintenance.}
 }
 
 \newpage{}
-\section*{Appendix}
+\section{Appendix A}
 
 \subsection{Table of Monitored Variables}
 
@@ -1277,6 +1350,7 @@ Their values are defined in this section for easy maintenance.}
  \end{center}
  \end{figure}
 ~\newpage
+\section{Appendix B}
 \subsection{Reflection}
 
 The information in this section will be used to evaluate the team members on the
@@ -1294,7 +1368,12 @@ graduate attribute of Lifelong Learning.  Please answer the following questions:
   ~\newline
  Steffi: 
   ~\newline
-My lead role on this project is in regard to Documentation and Latex.  While I have experience with some project documentation, the extent to which it is necessary for this project is not something I have done before.  Looking at this project in such detail will help to more deeply understand every component of the project and help to better see the connection between every aspect.  Additionally, technical communication is a skill I have never used before so learning to use Github and Latex will be critical to the delivery of the project and developing skills that will be useful in future technical projects. 
+My lead role on this project is in regard to Documentation and Latex.  While I have experience with some project documentation, the extent to which it is necessary for this project is not something I have done before.  Looking at this project in such detail will help to more deeply understand every component of the project and help to better see the connection between every aspect.  Additionally, technical communication is a skill I have never used before so learning to use Github and Latex will be critical to the delivery of the project and developing skills that will be useful in future technical projects.
+\\
+\\
+Abi:
+\\
+My lead role for this project is surrounding wireless communication, specifically Bluetooth. I will need to learn how to implement Bluetooth communication between the SmartLock and the user's phone so that the lock can be disengaged remotely. I have never worked with this type of technology before, so I will need to have a very steep learning curve. 
   
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
@@ -1307,6 +1386,10 @@ Steffi:
  Documentation - Two approaches that I can use to improve my skillset for documentation are reading old documentation that other groups have produced, or examples of documentation online, and writing documentation and paying careful attention to the focus of the section.  The emphasis will be placed on writing documentation because with this skillset I believe the best approach is to try and then learn from what was difficult and feedback on what was produced.  However, old documentation will still be referenced as well. 
   ~\newline
   Latex - Two approaches that can be used to improve my latex skill set are referencing external explanations (videos \& Tutorials), and trial and error with external reference materials.  I will be focusing on trial and error using some external materials.  I believe that seeing what happens for yourself when you make a change is the best way to understand what is going on.  The external resources will be used to give an idea of what it is possible to try to accomplish in latex, for example, certain formatting that I may not have considered existed. 
+\\
+\\
+Abi:
+\\ There are many different approaches to learning technical skills, such as Bluetooth. I plan to approach learning this skill by researching on the Internet, asking our supervisor for potential resources or personal knowledge, seeking help from peers who have more knowledge on the subject. After researching which hardware is needed to implement wireless communication, I will learn by doing, slowly building up my skills. Rather than choosing just one approach, I plan on using all of these approaches in parallel. 
   
 \end{enumerate}
 
