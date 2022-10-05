@@ -162,7 +162,8 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
 \midrule
 02-10-22 & 1.0 & Elsa & Drafted first draft\\
-03-10-22& 1.1 & Stephen & Drafted 1 \& 5, and formating updates\\
+03-10-22& 1.1 & Stephen & Drafted 1 \& 5, and formatting updates\\
+04-10-22& 1.1 & Steffi & Drafted Appendix\\
 \bottomrule
 \end{tabularx}
 
@@ -388,9 +389,9 @@ The terms listed below will be used throughout the scope of this document and sh
 \item Receiver: The device used to receive the signals from the app for engagement and disengagement. 
 \item Microcontroller: The programmable device used to control the motor. 
 \end{itemize}
-
+~\newpage
 \subsubsection{Physical System Description} \label{sec_phySystDescrip}
-
+~\newline
  \begin{figure}[h!]
  \begin{center}
  %\rotatebox{-90}
@@ -1180,7 +1181,103 @@ Their values are defined in this section for easy maintenance.}
 }
 
 \newpage{}
-\section*{Appendix --- Reflection}
+\section*{Appendix}
+
+\subsection{Table of Monitored Variables}
+
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.23\textwidth} | p{0.54\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
+ \hline
+ Variable Name & Description & Type & Units \\ 
+ \hline
+ m\_SignalEngaged & Monitors whether or not the locking mechanism is engaged & Digital & Boolean \\ 
+  \hline
+ m\_SignalDisengaged & Monitors whether or not the locking mechanism is disengaged & Digital & Boolean \\ 
+  \hline
+ m\_SignalOpen & Monitors whether or not the physical mechanism is open & Digital & Boolean \\ 
+  \hline
+ m\_SignalClosed& Monitors whether or not the physical mechanism is closed & Digital & Boolean \\ 
+  \hline
+ m\_Location & Monitors the location of the bike when it is locked & Analog & Coordinates \\ 
+  \hline
+ m\_BatteryPower & Monitors the current battery percentage & Analog & Percentage \\ 
+ \hline
+\end{tabular}
+\end{minipage}\\
+
+\subsection{Table of Controlled Variables}
+
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
+ \hline
+ Variable Name & Description & Type & Units \\ 
+ \hline
+ c\_LockEngaged & Engages the lock & Digital & Boolean \\ 
+  \hline
+ c\_LocklDisengaged & Disengages the lock & Digital & Boolean \\ 
+  \hline
+ c\_LockOpen & Indicates to the user that the latch is open & Digital & Boolean \\ 
+  \hline
+ c\_LockClosed& Indicates to the user that the latch is closed & Digital & Boolean \\ 
+  \hline
+ c\_BikePosition & Marks the location of the bike when it is locked & Analog & Coordinates \\ 
+  \hline
+ c\_BatteryPercentStatus & Indicates what the percentage of the battery is & Analog & Percentage \\ 
+ \hline
+\end{tabular}
+\end{minipage}\\
+~\newline
+\subsection{Constants -- NA}
+~\newline
+%%
+\subsection{Stimulus and Responses}
+~\newline
+\begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.6\linewidth]{./StimulusandResponses.jpeg}
+ }
+ \caption{\label{Stimulus and Responses} Stimulus and Responses}
+ \end{center}
+ \end{figure}
+%%
+\subsection{Notation}
+~\newline
+\begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.6\linewidth]{./Notation.jpeg}
+ }
+ \caption{\label{Notation} Notation}
+ \end{center}
+ \end{figure}
+%%
+~\newpage
+\subsection{Responses}
+~\newline
+\begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.9\linewidth]{./Responses.jpeg}
+ }
+ \caption{\label{Responses} Responses}
+ \end{center}
+ \end{figure}
+%%
+\subsection{Effect of Each Stimulus}
+~\newline
+\begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.9\linewidth]{./EffectofEachStimulus.jpeg}
+ }
+ \caption{\label{Effect of Each Stimulus} Effect of Each Stimulus}
+ \end{center}
+ \end{figure}
+~\newpage
+\subsection{Reflection}
 
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.  Please answer the following questions:
