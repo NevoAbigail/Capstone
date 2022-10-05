@@ -77,9 +77,14 @@
 \newcounter{lcnum} %Likely change number
 \newcommand{\lthelcnum}{LC\thelcnum}
 \newcommand{\lcref}[1]{LC\ref{#1}}
+
 \newcounter{ulcnum} %Unlikely change number
 \newcommand{\ltheulcnum}{ULC\theulcnum}
 \newcommand{\ulcref}[1]{ULC\ref{#1}}
+
+\newcounter{constnum} %Unlikely change number
+\newcommand{\ltheconstnum}{CONST\theconstnum}
+\newcommand{\constref}[1]{CONST\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -923,11 +928,11 @@ qualities that the software is expected to exhibit.
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Should take less than X\_FRACTION of total development time.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] Making changes to the GUI.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
 \end{itemize}
 
 \subsubsection{Portability}
@@ -1126,12 +1131,17 @@ instance models, requirements, and data constraints on each other.
 
 \section{Values of Auxiliary Constants}
 
-\plt{Show the values of the symbolic parameters introduced in the report.}
+\begin{itemize}
 
-\plt{The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{CONST_meaningfulLabel}:] GUI\_FRACTION = 0.3 related to \hyperref[NFR18]{NFR18}
 
-\plt{The value of FRACTION, for the Maintainability NFR would be given here.}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{CONST_meaningfulLabel}:] CONTROLLER\_FRACTION = 0.3 related to \hyperref[NFR19]{NFR19}
+
+\item[CONST\refstepcounter{constnum}\theconstnum\label{CONST_meaningfulLabel}:] ELECTRICAL\_FRACTION = 0.3 related to \hyperref[NFR20]{NFR20}
+
+\item[CONST\refstepcounter{constnum}\theconstnum\label{CONST_meaningfulLabel}:] MECHANICAL\_FRACTION = 0.3 related to \hyperref[NFR21]{NFR21}
+
+\end{itemize}
 
 \newpage
 
