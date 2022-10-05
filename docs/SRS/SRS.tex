@@ -272,22 +272,16 @@ The reader will have basic knowledge of how bikes are secured in public settings
 
 \subsection{Organization of Document}
 
-The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with an increasing order of specificity, beginning with the General System Description that will include an overview of the Smart Lock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they be used to build the project.  
+The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with an increasing order of specificity, beginning with the General System Description which will include an overview of the Smart Lock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they are used to build the project.  
+
+~\newpage
 
 \section{General System Description}
 
 This section provides general information about the system.  It identifies the
-interfaces between the system and its environment, describes the user
-characteristics and lists the system constraints.  \plt{This text can likely be
-  borrowed verbatim.}
+interfaces between the system and its environment describes the user
+characteristics and lists the system constraints.  
 
-\plt{The purpose of this section is to provide general information about the
-  system so the specific requirements in the next section will be easier to
-  understand. The general system description section is designed to be
-  changeable independent of changes to the functional requirements documented in
-  the specific system description. The general system description provides a
-  context for a family of related models.  The general description can stay the
-  same, while specific details are changed between family members.}
 
 \subsection{System Context}
 
@@ -304,26 +298,23 @@ characteristics and lists the system constraints.  \plt{This text can likely be
 \begin{itemize}
 \item User Responsibilities:
 \begin{itemize}
-\item 
+\item Opening and Closing the physical mechanism
+\item Keeping their smartphone with them and charged to be able to use the application
+\item Disengaging the lock with their smartphone
+\item Leaving their bike in a location where it is possible to connect to an external frame
 \end{itemize}
 \item \progname{} Responsibilities:
 \begin{itemize}
-\item Detect data type mismatch, such as a string of characters instead of a
-  floating point number
-\item 
+\item Develop a mechanism(s) that closes around the wheels and connects to an external frame
+\item Developing a functional lock so that users can feel secure in leaving their bike
+\item Developing an app that is user-friendly that disengages the lock and stores the location of the locked bike
 \end{itemize}
 \end{itemize}
 
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
-\plt{This section summarizes the knowledge/skills expected of the user.
-  Measuring usability, which is often a required non-function requirement,
-  requires knowledge of a typical user.  As mentioned above, the user is a
-  different role from the ``intended reader,'' as given in
-  Section~\ref{sec_IntendedReader}.  As in Section~\ref{sec_IntendedReader}, the
-  user characteristics should be specific an unambiguous.  For instance, ``The
-  end user of \progname{} should have an understanding of undergraduate Level 1
-  Calculus and Physics.''}
+
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device, so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and so that the use time of the app when locking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -331,30 +322,39 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item GPS to accurately locate the bike within a tolerance of 50 meters.
+\item Locate the bike within a tolerance of 50 meters.
 	\begin{itemize}
-		\item Justification: Complex software like Google Maps ensures an accuracy of around 20 meters. Considering users only 		require the general location and our software will not be as complex as Google’s, the team added this constraint. 
+		\item Justification: Complex software like Google Maps ensures accuracy of around 20 meters. Considering users only require the general location and our software will not be as complex as Google’s, the team added this constraint. 
 	\end{itemize}
 %Source: https://support.google.com/maps/answer/2839911?hl=en\&co=GENIE.Platform\%3DAndroid 
 
-\item Total mass of lock under 3 kg. 
+\item Total mass of lock under 3 lbs. 
 	\begin{itemize} 
-		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly 				heavier the team added this constraint.
+		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly heavier than average the team added this constraint.
 	\end{itemize}
 %Source: https://www.nytimes.com/wirecutter/reviews/best-bike-lock/ 
 
 \item App storage under 50 megabytes. 
 	\begin{itemize} 
-		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications 			are around 50 megabytes.
+		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications are around 50 megabytes.
 	\end{itemize}
 %Source: https://apps.apple.com/us/app/gps-fields-area-measure/id1123033235 
 
 \item The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
-		\item Justification: Smart Lock has a limited budget to work within to encourage efficient use of materials and ensure low 			costs
+		\item Justification: SmartLock has a limited budget to work within to encourage efficient use of materials and ensure low costs.
 	\end{itemize} 
 
 \end{itemize}
+
+\subsection{Normal Use Cases}
+In general, for a normal use case, the SmartLock system must be able to engage/disengage the SmartLock remotely through the SmartLock mobile interface after which the user must be able to open/close the SmartLock.  The SmartLock must also be able to send "bike parked” location coordinates as well as current SmartLock statuses back to the mobile application. 
+\subsubsection{Lock is Engaged/Disengaged}
+The lock is to be engaged/disengaged through the SmartLock mobile application.  Given that the user is within range of the system, the SmartLock is designed to receive the corresponding signal request from the user’s smartphone and perform the corresponding action of engaging/disengaging the lock.  The system then sends the current engaged/disengaged status to the mobile application for the user to view.
+\subsubsection{Lock is Open/Closed}
+Once the request to engage/disengage the lock is sent, the system is not designed to perform the swing action of the lock.  The system is designed to accept the user’s manual input of swinging the lock to the desired open/closed position.  The system then sends the current open/closed status to the mobile application for the user to view. 
+\subsubsection{SmartLock location is requested}
+The user’s smartphone's current coordinates can be requested through the mobile application by the user.  When the user is near the lock, then they can tag their coordinates, for later use if they forget where their bike is locked.  
 
 \section{Specific System Description}
 
