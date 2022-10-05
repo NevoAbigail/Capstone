@@ -860,28 +860,47 @@ qualities that the software is expected to exhibit.
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockButton input must engage the lock on the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] UnlockButton input must disengage the lock on the bike.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to locked.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is unengaged, change lock status to unlocked.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to dissengage the lock, the bike lock must be disengaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is disengaged, change lock status to disengaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as disengaged when disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
+<<<<<<< Updated upstream
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually  opened by the average human once engaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
+=======
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Opening the lock must result in status of lock to change to open.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock.
+\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
+>>>>>>> Stashed changes
 \end{itemize}
 
 \subsubsection{Bike Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR10}:] The lock can be mounted to the bike's frame.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock can not be mounted to the users bike it will not be effective as a lock.
 \end{itemize}
 
 \subsubsection{Output Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on phone app.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on app as BikePosition.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on the phone app.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the battery percentage of the bike lock
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on the app as BikePosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the location of the bike so that teya re able to find bike.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR13}:] Battery must output enough power to engage/disengage the lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The locking system will not be functional if the battery is not able to disengage the lock.
 \end{itemize}
 
 \subsection{Nonfunctional Requirements}
@@ -889,54 +908,89 @@ qualities that the software is expected to exhibit.
 \subsubsection{Smart Phone}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people speaking different languages.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read english.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale:
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 90\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] The accuracy of gps positioning must be accurate within 10M.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+<<<<<<< Updated upstream
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
+=======
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+>>>>>>> Stashed changes
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
+<<<<<<< Updated upstream
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Should take less than X\_FRACTION of total development time.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] Making changes to the GUI.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
+=======
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+>>>>>>> Stashed changes
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 %\subsubsection{Security}
