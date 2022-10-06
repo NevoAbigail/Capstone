@@ -169,7 +169,7 @@
 03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
 04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
-04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4\\
+04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
 \bottomrule
 \end{tabularx}
 
@@ -418,27 +418,27 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \begin{itemize}
 
-\item[A\refstepcounter{reqnum}\thereqnum\label{A1}:]The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
+\item A1: The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
 	\begin {itemize}
 		\item Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
 	\end {itemize}
 	
-\item[A\refstepcounter{reqnum}\thereqnum\label{A2}:] Users will have no limiting physical disabilities.
+\item A2: Users will have no limiting physical disabilities.
 	\begin {itemize}
 		\item Dependencies: The average person is strong enough to manually lock and unlock the bike.
 	\end {itemize}
 	
-\item[A\refstepcounter{reqnum}\thereqnum\label{A3}:] The lock will be weatherproof.
+\item A3: The lock will be weatherproof.
 	\begin {itemize}
 		\item Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
 	\end {itemize}
 	
-\item[A\refstepcounter{reqnum}\thereqnum\label{A4}:]Battery life is only reduced when the motor is being used.
+\item A4: Battery life is only reduced when the motor is being used.
 	\begin {itemize} 
 		\item Dependencies: Battery life is independent of weather and time.
 	\end {itemize}
 
-\item[A\refstepcounter{reqnum}\thereqnum\label{A5}:] Battery efficiency is always constant.
+\item A5: Battery efficiency is always constant.
 	\begin {itemize}
 		\item Dependencies: The battery's power does not decrease over time.
 	\end {itemize}
@@ -448,8 +448,6 @@ The terms listed below will be used throughout the scope of this document and sh
 ~\newpage
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
-
-~\newline
 
 \noindent
 \deftheory
@@ -477,7 +475,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+  None
 }
 % #9 Preconditions
 {
@@ -485,8 +483,6 @@ None
 }
 % #1 derivation - not applicable by default
 {}
-
-~\newline
 
 \noindent
 \deftheory
@@ -512,7 +508,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -547,7 +543,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -568,9 +564,9 @@ qualities that the software is expected to exhibit.
 \subsubsection{User Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockButton input must engage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockEngage input must engage the lock on the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] UnlockButton input must disengage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] LockDisengage input must disengage the lock on the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to dissengage the lock, the bike lock must be disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
@@ -733,118 +729,26 @@ qualities that the software is expected to exhibit.
 
 \end{itemize}
 
-\section{Traceability Matrices and Graphs}
+\section{Traceability Index}
 
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| c | c | c | c |c | c | c | c |c | c | c | c |c|c|c|c|c|}
- \hline
- &SC1 &SC2  & SC3 &  SC4& SC5&A1&A2&A3&A4&A5&MV1&MV2&MV3&MV4&MV5&MV6\\ 
- \hline
-FR1& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR2 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR3 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR4& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR5& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR6& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR7  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR8& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR9 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR10 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR11& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR12& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR13& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR14  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR15& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR16 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR17 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR18& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR19& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR20& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR21  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-FR22& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-FR23 & &  &  &  & &&&&&&&&&&&\\ 
-\hline
-\end{tabular}
-\end{minipage}\\
-~\newpage
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| c | c | c | c |c | c | c | c |c | c | c | c |c|c|c|c|c|}
- \hline
- &SC1 &SC2  & SC3 &  SC4& SC5&A1&A2&A3&A4&A5&MV1&MV2&MV3&MV4&MV5&MV6\\ 
- \hline
-NFR1& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR2 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR3 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR4& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR5& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR6& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR7  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR8& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR9 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR10 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR11& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR12& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR13& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR14  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR15& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR16 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR17 & &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR18& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR19& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR20& &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR21  & &  &  &  & &&&&&&&&&&&\\ 
- \hline
-NFR22& &  &  &  & &&&&&&&&&&&\\ 
-  \hline
-NFR23 & &  &  &  & &&&&&&&&&&&\\ 
-\hline
-\end{tabular}
-\end{minipage}\\
-
+The following list will take the following form:
+\\The first requirement: is dependent on the following list of requirements/constraints/assumptions
+\\
+/monitored variables and vice versa
+\\
+ \hyperref[FR1]{FR1}: \hyperref[FR3]{FR3}, \hyperref[FR7]{FR7}, \hyperref[NFR8]{NFR8}, MV1
+ \\  \hyperref[FR2]{FR2}: \hyperref[FR4]{FR4}, MV2
+\\  \hyperref[FR5]{FR5}: MV4, A2
+\\  \hyperref[FR6]{FR6}: MV3, A2
+\\  \hyperref[FR8]{FR8}: \hyperref[FR12]{FR12}, \hyperref[NFR9]{NFR9}, MV4
+\\  \hyperref[FR10]{FR10}: \hyperref[NFR15]{FR15}, \hyperref[NFR16]{FR16},SC4
+\\  \hyperref[FR11]{FR11}: \hyperref[FR13]{FR13},\hyperref[NFR10]{NFR10}, MR6
+\\  \hyperref[NFR1]{NFR1}: \hyperref[NFR2]{NFR2}
+\\  \hyperref[NFR3]{NFR3}: \hyperref[NFR22]{NFR22}, \hyperref[NFR23]{NFR23}
+\\  \hyperref[NFR4]{NFR4}: \hyperref[NFR5]{NFR5}
+\\  \hyperref[NFR6]{NFR6}: \hyperref[NFR7]{NFR7}, A3
+ \\  \hyperref[NFR11]{NFR11}: \hyperref[NFR12]{NFR12},A1
+ \\  \hyperref[NFR13]{NFR13}: A4, A5
 \section{Development Plan: Prioritizing and Phasing of Requirements}
 
 %\plt{This section is optional.  It is used to explain the plan for developing
@@ -880,7 +784,7 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 \section{Values of Auxiliary Constants}
 
 \begin{itemize}
-\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
+\setlength{\itemindent}{0.5in} \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFR19]{NFR19}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFR20]{NFR20}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFR21]{NFR20}
