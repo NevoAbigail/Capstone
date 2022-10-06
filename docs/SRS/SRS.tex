@@ -166,6 +166,7 @@
 03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
 04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
+04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from section4\\
 \bottomrule
 \end{tabularx}
 
@@ -274,22 +275,16 @@ The reader will have basic knowledge of how bikes are secured in public settings
 
 \subsection{Organization of Document}
 
-The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with an increasing order of specificity, beginning with the General System Description that will include an overview of the Smart Lock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they be used to build the project.  
+The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with an increasing order of specificity, beginning with the General System Description which will include an overview of the Smart Lock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they are used to build the project.  
+
+~\newpage
 
 \section{General System Description}
 
 This section provides general information about the system.  It identifies the
-interfaces between the system and its environment, describes the user
-characteristics and lists the system constraints.  \plt{This text can likely be
-  borrowed verbatim.}
+interfaces between the system and its environment describes the user
+characteristics and lists the system constraints.  
 
-\plt{The purpose of this section is to provide general information about the
-  system so the specific requirements in the next section will be easier to
-  understand. The general system description section is designed to be
-  changeable independent of changes to the functional requirements documented in
-  the specific system description. The general system description provides a
-  context for a family of related models.  The general description can stay the
-  same, while specific details are changed between family members.}
 
 \subsection{System Context}
 
@@ -306,26 +301,23 @@ characteristics and lists the system constraints.  \plt{This text can likely be
 \begin{itemize}
 \item User Responsibilities:
 \begin{itemize}
-\item 
+\item Opening and Closing the physical mechanism
+\item Keeping their smartphone with them and charged to be able to use the application
+\item Disengaging the lock with their smartphone
+\item Leaving their bike in a location where it is possible to connect to an external frame
 \end{itemize}
 \item \progname{} Responsibilities:
 \begin{itemize}
-\item Detect data type mismatch, such as a string of characters instead of a
-  floating point number
-\item 
+\item Develop a mechanism(s) that closes around the wheels and connects to an external frame
+\item Developing a functional lock so that users can feel secure in leaving their bike
+\item Developing an app that is user-friendly that disengages the lock and stores the location of the locked bike
 \end{itemize}
 \end{itemize}
 
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
-\plt{This section summarizes the knowledge/skills expected of the user.
-  Measuring usability, which is often a required non-function requirement,
-  requires knowledge of a typical user.  As mentioned above, the user is a
-  different role from the ``intended reader,'' as given in
-  Section~\ref{sec_IntendedReader}.  As in Section~\ref{sec_IntendedReader}, the
-  user characteristics should be specific an unambiguous.  For instance, ``The
-  end user of \progname{} should have an understanding of undergraduate Level 1
-  Calculus and Physics.''}
+
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device, so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and so that the use time of the app when locking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -333,30 +325,39 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item GPS to accurately locate the bike within a tolerance of 50 meters.
+\item Locate the bike within a tolerance of 50 meters.
 	\begin{itemize}
-		\item Justification: Complex software like Google Maps ensures an accuracy of around 20 meters. Considering users only 		require the general location and our software will not be as complex as Google’s, the team added this constraint. 
+		\item Justification: Complex software like Google Maps ensures accuracy of around 20 meters. Considering users only require the general location and our software will not be as complex as Google’s, the team added this constraint. 
 	\end{itemize}
 %Source: https://support.google.com/maps/answer/2839911?hl=en\&co=GENIE.Platform\%3DAndroid 
 
-\item Total mass of lock under 3 kg. 
+\item Total mass of lock under 3 lbs. 
 	\begin{itemize} 
-		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly 				heavier the team added this constraint.
+		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly heavier than average the team added this constraint.
 	\end{itemize}
 %Source: https://www.nytimes.com/wirecutter/reviews/best-bike-lock/ 
 
 \item App storage under 50 megabytes. 
 	\begin{itemize} 
-		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications 			are around 50 megabytes.
+		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications are around 50 megabytes.
 	\end{itemize}
 %Source: https://apps.apple.com/us/app/gps-fields-area-measure/id1123033235 
 
 \item The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
-		\item Justification: Smart Lock has a limited budget to work within to encourage efficient use of materials and ensure low 			costs
+		\item Justification: SmartLock has a limited budget to work within to encourage efficient use of materials and ensure low costs.
 	\end{itemize} 
 
 \end{itemize}
+
+\subsection{Normal Use Cases}
+In general, for a normal use case, the SmartLock system must be able to engage/disengage the SmartLock remotely through the SmartLock mobile interface after which the user must be able to open/close the SmartLock.  The SmartLock must also be able to send "bike parked” location coordinates as well as current SmartLock statuses back to the mobile application. 
+\subsubsection{Lock is Engaged/Disengaged}
+The lock is to be engaged/disengaged through the SmartLock mobile application.  Given that the user is within range of the system, the SmartLock is designed to receive the corresponding signal request from the user’s smartphone and perform the corresponding action of engaging/disengaging the lock.  The system then sends the current engaged/disengaged status to the mobile application for the user to view.
+\subsubsection{Lock is Open/Closed}
+Once the request to engage/disengage the lock is sent, the system is not designed to perform the swing action of the lock.  The system is designed to accept the user’s manual input of swinging the lock to the desired open/closed position.  The system then sends the current open/closed status to the mobile application for the user to view. 
+\subsubsection{SmartLock location is requested}
+The user’s smartphone's current coordinates can be requested through the mobile application by the user.  When the user is near the lock, then they can tag their coordinates, for later use if they forget where their bike is locked.  
 
 \section{Specific System Description}
 
@@ -555,298 +556,6 @@ None
 {}
 
 ~\newline
-
-\subsubsection{General Definitions}\label{sec_gendef}
-
-\plt{General Definitions (GDs) are a refinement of one or more TMs, and/or of
-  other GDs.  The GDs are less abstract than the TMs.  Generally the reduction
-  in abstraction is possible through invoking (using/referencing) Assumptions.
-  For instance, the TM could be Newton's Law of Cooling stated abstracting.  The
-  GD could take the general law and apply it to get a 1D equation.}
-
-This section collects the laws and equations that will be used in building the
-instance models.
-
-\plt{Some projects may not have any content for this section, but the section
-  heading should be kept.}  \plt{Modify the examples below for your problem, and
-  add additional definitions as appropriate.}
-
-~\newline
-
-\noindent
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-\hline
-\rowcolor[gray]{0.9}
-Number& GD\refstepcounter{defnum}\thedefnum \label{NL}\\
-\hline
-Label &\bf Newton's law of cooling \\
-\hline
-% Units&$MLt^{-3}T^0$\\
-% \hline
-SI Units&\si{\watt\per\square\metre}\\
-\hline
-Equation&$ q(t) = h \Delta T(t)$  \\
-\hline
-Description &
-Newton's law of cooling describes convective cooling from a surface.  The law is
-stated as: the rate of heat loss from a body is proportional to the difference
-in temperatures between the body and its surroundings.
-\\
-& $q(t)$ is the thermal flux (\si{\watt\per\square\metre}).\\
-& $h$ is the heat transfer coefficient, assumed independent of $T$ (\aref{A_hcoeff})
-	(\si{\watt\per\square\metre\per\celsius}).\\
-&$\Delta T(t)$= $T(t) - T_{\text{env}}(t)$ is the time-dependent thermal gradient
-between the environment and the object (\si{\celsius}).
-\\
-\hline
-  Source & Citation here \\
-  \hline
-  Ref.\ By & \ddref{FluxCoil}, \ddref{FluxPCM}\\
-  \hline
-\end{tabular}
-\end{minipage}\\
-
-\subsubsection*{Detailed derivation of simplified rate of change of temperature}
-
-\plt{This may be necessary when the necessary information does not fit in the
-  description field.}
-\plt{Derivations are important for justifying a given GD.  You want it to be
-  clear where the equation came from.}
-
-\subsubsection{Data Definitions}\label{sec_datadef}
-
-\plt{The Data Definitions are definitions of symbols and equations that are
-  given for the problem.  They are not derived; they are simply used by other
-  models.  For instance, if a problem depends on density, there may be a data
-  definition for the equation defining density.  The DDs are given information
-  that you can use in your other modules.}
-
-\plt{All Data Definitions should be used (referenced) by at least one other
-  model.}
-
-This section collects and defines all the data needed to build the instance
-models. The dimension of each quantity is also given.  \plt{Modify the examples
-  below for your problem, and add additional definitions as appropriate.}
-
-~\newline
-
-\noindent
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-\hline
-\rowcolor[gray]{0.9}
-Number& DD\refstepcounter{datadefnum}\thedatadefnum \label{FluxCoil}\\
-\hline
-Label& \bf Heat flux out of coil\\
-\hline
-Symbol &$q_C$\\
-\hline
-% Units& $Mt^{-3}$\\
-% \hline
-  SI Units & \si{\watt\per\square\metre}\\
-  \hline
-  Equation&$q_C(t) = h_C (T_C - T_W(t))$, over area $A_C$\\
-  \hline
-  Description & 
-                $T_C$ is the temperature of the coil (\si{\celsius}).  $T_W$ is the temperature of the water (\si{\celsius}).  
-                The heat flux out of the coil, $q_C$ (\si{\watt\per\square\metre}), is found by
-                assuming that Newton's Law 
-                of Cooling applies (\aref{A_Newt_coil}).  This law (\dref{NL}) is used on the surface of
-                the coil, which has area $A_C$ (\si{\square\metre}) and heat 
-                transfer coefficient $h_C$
-                (\si{\watt\per\square\metre\per\celsius}).  This equation
-                assumes that the temperature of the coil is constant over time (\aref{A_tcoil}) and that it does not vary along the length
-                of the coil (\aref{A_tlcoil}).
-  \\
-  \hline
-  Sources& Citation here \\
-  \hline
-  Ref.\ By & \iref{ewat}\\
-  \hline
-\end{tabular}
-\end{minipage}\\
-
-\subsubsection{Data Types}\label{sec_datatypes}
-
-\plt{This section is optional.  In many scientific computing programs it isn't
-  necessary, since the inputs and outpus are straightforward types, like reals,
-  integers, and sequences of reals and integers.  However, for some problems it
-  is very helpful to capture the type information.}
-
-\plt{The data types are not derived; they are simply stated and used by other
-  models.}
-
-\plt{All data types must be used by at least one of the models.}
-
-\plt{For the mathematical notation for expressing types, the recommendation is
-  to use the notation of~\citet{HoffmanAndStrooper1995}.}
-
-This section collects and defines all the data types needed to document the
-models. \plt{Modify the examples below for your problem, and add additional
-  definitions as appropriate.}
-
-~\newline
-
-\noindent
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-  \hline
-  \rowcolor[gray]{0.9}
-  Type Name & Name for Type\\
-  \hline
-  Type Def & mathematical definition of the type\\
-  \hline
-  Description & description here
-  \\
-  \hline
-  Sources & Citation here, if the type is borrowed from another source\\
-  \hline
-\end{tabular}
-\end{minipage}\\
-
-\subsubsection{Instance Models} \label{sec_instance}    
-
-\plt{The motivation for this section is to reduce the problem defined in
-  ``Physical System Description'' (Section~\ref{sec_phySystDescrip}) to one
-  expressed in mathematical terms. The IMs are built by refining the TMs and/or
-  GDs.  This section should remain abstract.  The SRS should specify the
-  requirements without considering the implementation.}
-
-This section transforms the problem defined in Section~\ref{Sec_pd} into 
-one which is expressed in mathematical terms. It uses concrete symbols defined 
-in Section~\ref{sec_datadef} to replace the abstract symbols in the models 
-identified in Sections~\ref{sec_theoretical} and~\ref{sec_gendef}.
-
-The goals \plt{reference your goals} are solved by \plt{reference your instance
-  models}.  \plt{other details, with cross-references where appropriate.}
-\plt{Modify the examples below for your problem, and add additional models as
-  appropriate.}
-
-~\newline
-
-%Instance Model 1
-
-\noindent
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{\colAwidth} | p{\colBwidth}|}
-  \hline
-  \rowcolor[gray]{0.9}
-  Number& IM\refstepcounter{instnum}\theinstnum \label{ewat}\\
-  \hline
-  Label& \bf Energy balance on water to find $T_W$\\
-  \hline
-  Input&$m_W$, $C_W$, $h_C$, $A_C$, $h_P$, $A_P$, $t_\text{final}$, $T_C$, 
-  $T_\text{init}$, $T_P(t)$ from \iref{epcm}\\
-  & The input is constrained so that $T_\text{init} \leq T_C$ (\aref{A_charge})\\
-  \hline
-  Output&$T_W(t)$, $0\leq t \leq t_\text{final}$, such that\\
-  &$\frac{dT_W}{dt} = \frac{1}{\tau_W}[(T_C - T_W(t)) + {\eta}(T_P(t) - T_W(t))]$,\\
-  &$T_W(0) = T_P(0) = T_\text{init}$ (\aref{A_InitTemp}) and $T_P(t)$ from \iref{epcm} \\
-  \hline
-  Description&$T_W$ is the water temperature (\si{\celsius}).\\
-  &$T_P$ is the PCM temperature (\si{\celsius}).\\
-  &$T_C$ is the coil temperature (\si{\celsius}).\\
-  &$\tau_W = \frac{m_W C_W}{h_C A_C}$ is a constant (\si{\second}).\\
-  &$\eta = \frac{h_P A_P}{h_C A_C}$ is a constant (dimensionless).\\
-  & The above equation applies as long as the water is in liquid form,
-  $0<T_W<100^o\text{C}$, where $0^o\text{C}$ and $100^o\text{C}$ are the melting
-  and boiling points of water, respectively (\aref{A_OpRange}, \aref{A_Pressure}).
-  \\
-  \hline
-  Sources& Citation here \\
-  \hline
-  Ref.\ By & \iref{epcm}\\
-  \hline
-\end{tabular}
-\end{minipage}\\
-
-%~\newline
-
-\subsubsection*{Derivation of ...}
-
-\plt{The derivation shows how the IM is derived from the TMs/GDs.  In cases
-  where the derivation cannot be described under the Description field, it will
-  be necessary to include this subsection.}
-
-\subsubsection{Input Data Constraints} \label{sec_DataConstraints}    
-
-Table~\ref{TblInputVar} shows the data constraints on the input output
-variables.  The column for physical constraints gives the physical limitations
-on the range of values that can be taken by the variable.  The column for
-software constraints restricts the range of inputs to reasonable values.  The
-software constraints will be helpful in the design stage for picking suitable
-algorithms.  The constraints are conservative, to give the user of the model the
-flexibility to experiment with unusual situations.  The column of typical values
-is intended to provide a feel for a common scenario.  The uncertainty column
-provides an estimate of the confidence with which the physical quantities can be
-measured.  This information would be part of the input if one were performing an
-uncertainty quantification exercise.
-
-The specification parameters in Table~\ref{TblInputVar} are listed in
-Table~\ref{TblSpecParams}.
-
-\begin{table}[!h]
-  \caption{Input Variables} \label{TblInputVar}
-  \renewcommand{\arraystretch}{1.2}
-\noindent \begin{longtable*}{l l l l c} 
-  \toprule
-  \textbf{Var} & \textbf{Physical Constraints} & \textbf{Software Constraints} &
-                             \textbf{Typical Value} & \textbf{Uncertainty}\\
-  \midrule 
-  $L$ & $L > 0$ & $L_{\text{min}} \leq L \leq L_{\text{max}}$ & 1.5 \si[per-mode=symbol] {\metre} & 10\%
-  \\
-  \bottomrule
-\end{longtable*}
-\end{table}
-
-\noindent 
-\begin{description}
-\item[(*)] \plt{you might need to add some notes or clarifications}
-\end{description}
-
-\begin{table}[!h]
-\caption{Specification Parameter Values} \label{TblSpecParams}
-\renewcommand{\arraystretch}{1.2}
-\noindent \begin{longtable*}{l l} 
-  \toprule
-  \textbf{Var} & \textbf{Value} \\
-  \midrule 
-  $L_\text{min}$ & 0.1 \si{\metre}\\
-  \bottomrule
-\end{longtable*}
-\end{table}
-
-\subsubsection{Properties of a Correct Solution} \label{sec_CorrectSolution}
-
-\noindent
-A correct solution must exhibit \plt{fill in the details}.  \plt{These
-  properties are in addition to the stated requirements.  There is no need to
-  repeat the requirements here.  These additional properties may not exist for
-  every problem.  Examples include conservation laws (like conservation of
-  energy or mass) and known constraints on outputs, which are usually summarized
-  in tabular form.  A sample table is shown in Table~\ref{TblOutputVar}}
-
-\begin{table}[!h]
-\caption{Output Variables} \label{TblOutputVar}
-\renewcommand{\arraystretch}{1.2}
-\noindent \begin{longtable*}{l l} 
-  \toprule
-  \textbf{Var} & \textbf{Physical Constraints} \\
-  \midrule 
-  $T_W$ & $T_\text{init} \leq T_W \leq T_C$ (by~\aref{A_charge})
-  \\
-  \bottomrule
-\end{longtable*}
-\end{table}
-
-\plt{This section is not for test cases or techniques for verification and
-  validation.  Those topics will be addressed in the Verification and Validation
-  plan.}
 
 \section{Requirements}
 
@@ -1338,8 +1047,19 @@ My lead role on this project is in regard to Documentation and Latex.  While I h
 \\
 Abi:
 \\
-My lead role for this project is surrounding wireless communication, specifically Bluetooth. I will need to learn how to implement Bluetooth communication between the SmartLock and the user's phone so that the lock can be disengaged remotely. I have never worked with this type of technology before, so I will need to have a very steep learning curve. 
-  
+My lead role for this project is surrounding wireless communication, specifically Bluetooth.  I will need to learn how to implement Bluetooth communication between the SmartLock and the user's phone so that the lock can be disengaged remotely.  I have never worked with this type of technology before, so I will need to have a very steep learning curve. 
+ \\
+\\
+Elsa:
+\\ 
+ I am the Embedded Systems Lead of the project, and as such I will be adding to my existing skills in order to design, build and provide support to other members of my team related to this topic.  This project will require significant knowledge in the realm of electronics, wiring, microprocessor programming and general hardware systems.  I am also a Support Lead of Documentation, which includes technical writing and typesetting in Latex. 
+  \\
+\\
+Abdul:
+\\ 
+ Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the Smart Lock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
+ 
+ 
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
   mastering the skill?  Of the identified approaches, which will each team
@@ -1354,8 +1074,19 @@ Steffi:
 \\
 \\
 Abi:
-\\ There are many different approaches to learning technical skills, such as Bluetooth. I plan to approach learning this skill by researching on the Internet, asking our supervisor for potential resources or personal knowledge, seeking help from peers who have more knowledge on the subject. After researching which hardware is needed to implement wireless communication, I will learn by doing, slowly building up my skills. Rather than choosing just one approach, I plan on using all of these approaches in parallel. 
+\\ There are many different approaches to learning technical skills, such as Bluetooth.  I plan to approach learning this skill by researching on the Internet, asking our supervisor for potential resources or personal knowledge, seeking help from peers who have more knowledge on the subject.  After researching which hardware is needed to implement wireless communication, I will learn by doing, slowly building up my skills. Rather than choosing just one approach, I plan on using all of these approaches in parallel. 
+\\
+\\
+Elsa:
+\\ 
+  I will acquire this expertise by learning through resources such as previous Embedded Systems and Electronics courses I have taken, online research and journals that I have access to through McMaster.  Additionally, I find YouTube to be a useful experiential resource for learning how to apply acquired knowledge in personal projects.  I will improve my technical writing and typesetting skills by practicing using Latex and challenging myself to continue researching and learning new modes of practice and editing.
+\\
+\\
+Abdul:
+\\ 
+ Swift -  To learn Swift effectively, I plan to take a few starter courses as well as practise some basic programs using Swift. Doing so would familiarize myself with the Syntax and libraries. Most of the general programming basics I have already developed through my use of other languages. 
   
+ Bluetooth - My approach to this would be to look at a few existing projects and adopt a similar approach within our system. Bluetooth is widely used, and there are a variety of open-source libraries of which we can take advantage.
 \end{enumerate}
 
 \end{document}
