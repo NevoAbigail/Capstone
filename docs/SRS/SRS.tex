@@ -166,7 +166,7 @@
 03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
 04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
-04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from section4\\
+04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4\\
 \bottomrule
 \end{tabularx}
 
@@ -556,7 +556,6 @@ None
 {}
 
 ~\newline
-
 \section{Requirements}
 
 This section provides the functional requirements, the business tasks that the
@@ -579,18 +578,11 @@ qualities that the software is expected to exhibit.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
-
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Opening the lock must result in status of lock to change to open.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock.
 \item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
 \end{itemize}
@@ -699,6 +691,8 @@ qualities that the software is expected to exhibit.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
+
+
 
 \end{itemize}
 
