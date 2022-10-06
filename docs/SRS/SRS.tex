@@ -80,6 +80,9 @@
 \newcounter{ulcnum} %Unlikely change number
 \newcommand{\ltheulcnum}{ULC\theulcnum}
 \newcommand{\ulcref}[1]{ULC\ref{#1}}
+\newcounter{constnum} %Unlikely change number
+\newcommand{\ltheconstnum}{CONST\theconstnum}
+\newcommand{\constref}[1]{CONST\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -234,6 +237,10 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
   \textbf{symbol} & \textbf{description}\\
   \midrule 
   SRS & Software Requirements Specification\\
+  FR & Functional Requirements\\
+  NFR & Nonfunctional Requirements\\
+  LC & Likely Changes\\
+  ULC & Unlikely Changes\\
   \bottomrule
 \end{tabular}\\
 
@@ -896,12 +903,12 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 
 \section{Values of Auxiliary Constants}
 
-\plt{Show the values of the symbolic parameters introduced in the report.}
-
-\plt{The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.}
-
-\plt{The value of FRACTION, for the Maintainability NFR would be given here.}
+\begin{itemize}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFR19]{NFR19}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFR20]{NFR20}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFR21]{NFR20}
+\end{itemize}
 
 \newpage
 
@@ -1046,7 +1053,11 @@ Elsa:
 Abdul:
 \\ 
  Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the Smart Lock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
- 
+ \\
+\\
+Stephen:
+\\
+ I will need to strengthen my knowledge in many topics including mechanical prototyping/design, software development, and electrical circuit design.  I will really try to advance my knowledge in the mechanical design aspect of this project.  I will need skills to design a system that can complete its function and package all of the electrical features.  For this I will really push my knowledge in circular prototyping and prototyping methods.
  
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
@@ -1080,6 +1091,11 @@ Abdul:
  Swift -  To learn Swift effectively, I plan to take a few starter courses as well as practise some basic programs using Swift. Doing so would familiarize myself with the Syntax and libraries. Most of the general programming basics I have already developed through my use of other languages. 
   
  Bluetooth - My approach to this would be to look at a few existing projects and adopt a similar approach within our system. Bluetooth is widely used, and there are a variety of open-source libraries of which we can take advantage.
+\\
+\\
+Stephen:
+\\
+ To aquire the skills I need in mechanical design/prototyping I will use past course content and lecture slides from my mechanical product design, to recite the best practices for 3D printing and prototyping methods. I will also utlize the resources on campus like the thode maker space or student workshop for direction interms of prototyping processes as well as meterial selection, design, and analysis.  Finally I will also utilize a mentor who is in the design industry to mentor me on these skills.
 \end{enumerate}
 
 \end{document}
