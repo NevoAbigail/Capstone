@@ -241,6 +241,8 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
   NFR & Nonfunctional Requirements\\
   LC & Likely Changes\\
   ULC & Unlikely Changes\\
+  SC & System Contraints\\
+  A & Assumptions\\
   \bottomrule
 \end{tabular}\\
 
@@ -332,24 +334,24 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item The project must be completed before the demo date.
+\item[SC\refstepcounter{reqnum}\thereqnum\label{SC1}:] The project must be completed before the demo date.
 
-\item The materials and resources used to design and build the project must be accessible to students.
+\item[SC\refstepcounter{reqnum}\thereqnum\label{SC2}:] The materials and resources used to design and build the project must be accessible to students.
 	\begin{itemize}
 		\item Justification: The materials and resources are not available only to professionals or businesses and they cannot be industrial grade, i.e. they must be available at accessible local businesses.
 	\end{itemize} 
 
-\item The budget for testing, designing, and equipment is \$750.
+\item[SC\refstepcounter{reqnum}\thereqnum\label{SC3}:] The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
 		\item Justification: The project has a finite budget to work within to encourage efficient use of materials and ensure low costs.
 	\end{itemize} 
 	
-\item The project must be mounted on existing bike designs.
+\item[SC\refstepcounter{reqnum}\thereqnum\label{SC4}:] The project must be mounted on existing bike designs.
 	\begin{itemize}
 		\item Justification: The team does not have the ability to design a custom bike to mount the project on. 
 	\end{itemize} 	
 	
-\item The project must be locked on existing external locking frames or racks.
+\item[SC\refstepcounter{reqnum}\thereqnum\label{SC5}:] The project must be locked on existing external locking frames or racks.
 	\begin{itemize}
 		\item Justification: The team does not have the ability to design a custom bike rack to lock the project to. 
 	\end{itemize} 
@@ -415,32 +417,34 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \begin{itemize}
 
-\item The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
+\item[A\refstepcounter{reqnum}\thereqnum\label{A1}:]The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
 	\begin {itemize}
 		\item Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
 	\end {itemize}
 	
-\item Users will have no limiting physical disabilities.
+\item[A\refstepcounter{reqnum}\thereqnum\label{A2}:] Users will have no limiting physical disabilities.
 	\begin {itemize}
 		\item Dependencies: The average person is strong enough to manually lock and unlock the bike.
 	\end {itemize}
 	
-\item The lock will be weatherproof.
+\item[A\refstepcounter{reqnum}\thereqnum\label{A3}:] The lock will be weatherproof.
 	\begin {itemize}
 		\item Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
 	\end {itemize}
 	
-\item Battery life is only reduced when the motor is being used.
+\item[A\refstepcounter{reqnum}\thereqnum\label{A4}:]Battery life is only reduced when the motor is being used.
 	\begin {itemize} 
 		\item Dependencies: Battery life is independent of weather and time.
 	\end {itemize}
 
-\item Battery efficiency is always constant.
+\item[A\refstepcounter{reqnum}\thereqnum\label{A5}:] Battery efficiency is always constant.
 	\begin {itemize}
 		\item Dependencies: The battery's power does not decrease over time.
 	\end {itemize}
 
 \end{itemize}
+
+~\newpage
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
 
@@ -574,12 +578,12 @@ qualities that the software is expected to exhibit.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
-\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
 \end{itemize}
 
@@ -687,7 +691,6 @@ qualities that the software is expected to exhibit.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
-
 
 
 \end{itemize}
