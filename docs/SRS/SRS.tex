@@ -325,27 +325,26 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item Locate the bike within a tolerance of 50 meters.
+\item The project must be completed before the demo date.
+
+\item The materials and resources used to design and build the project must be accessible to students.
 	\begin{itemize}
-		\item Justification: Complex software like Google Maps ensures accuracy of around 20 meters. Considering users only require the general location and our software will not be as complex as Google’s, the team added this constraint. 
-	\end{itemize}
-%Source: https://support.google.com/maps/answer/2839911?hl=en\&co=GENIE.Platform\%3DAndroid 
-
-\item Total mass of lock under 3 lbs. 
-	\begin{itemize} 
-		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly heavier than average the team added this constraint.
-	\end{itemize}
-%Source: https://www.nytimes.com/wirecutter/reviews/best-bike-lock/ 
-
-\item App storage under 50 megabytes. 
-	\begin{itemize} 
-		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications are around 50 megabytes.
-	\end{itemize}
-%Source: https://apps.apple.com/us/app/gps-fields-area-measure/id1123033235 
+		\item Justification: The materials and resources are not available only to professionals or businesses and they cannot be industrial grade, i.e. they must be available at accessible local businesses.
+	\end{itemize} 
 
 \item The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
-		\item Justification: SmartLock has a limited budget to work within to encourage efficient use of materials and ensure low costs.
+		\item Justification: The project has a finite budget to work within to encourage efficient use of materials and ensure low costs.
+	\end{itemize} 
+	
+\item The project must be mounted on existing bike designs.
+	\begin{itemize}
+		\item Justification: The team does not have the ability to design a custom bike to mount the project on. 
+	\end{itemize} 	
+	
+\item The project must be locked on existing external locking frames or racks.
+	\begin{itemize}
+		\item Justification: The team does not have the ability to design a custom bike rack to lock the project to. 
 	\end{itemize} 
 
 \end{itemize}
@@ -376,8 +375,8 @@ The terms listed below will be used throughout the scope of this document and sh
 \begin{itemize}
 \item Smart Lock: The scope of this project and document referring to both the mechanical lock and the mobile application communicating with it. 
 \item Lock: The physical component of the Smart Lock; includes the hardware, battery, motor, and locking mechanism.  
-\item Team: Refers to the members working on Smart Lock 
-\item App: The mobile application used to communicate with the lock 
+\item Team: The authors of this document.
+\item App: The mobile application used to communicate with the lock.
 \item Open/Close: The process of physically moving the lock frame into a state where it can be latched onto something else. 
 \item Open/Close Status: The current state of the lock frame. 
 \item Engage/Disengage: The automated process to actuate the lock to secure the frame. 
@@ -405,44 +404,34 @@ The terms listed below will be used throughout the scope of this document and sh
  \end{center}
  \end{figure}
 
-\subsubsection{Goal Statements}
-
-
-
-\noindent Given the \plt{inputs}, the goal statements are:
-
-\begin{itemize}
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective Bike Lock: The lock is sturdy and cannot be manual opened by the average human once engaged.
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Long Lasting Battery Life: The power source is used efficiently to last a sufficient period of time without requiring replacement. 
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Bicycle Versatility: The lock can be used on mountain, city, kids, and road bikes.
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Easily Mountable on Bike Frame: Does not require special tools to be installed. 
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective GPS Tracking: The lock can accurately transmit location to app regardless of location.  
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Weatherproof: The lock is not easily damaged by wind, rain, snow, heat, and cold weather.
-
-\end{itemize}
-
 \subsubsection{Assumptions} \label{sec_assumpt}
 
 \begin{itemize}
 
-\item The bike will be left in locations with strong GPS signal.
-Dependencies: Locations such as garages and underground parking. 
-\item The user’s phone will always be able to connect to the lock (wireless connection works as intended).
-Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
+\item The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
+	\begin {itemize}
+		\item Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
+	\end {itemize}
+	
 \item Users will have no limiting physical disabilities.
-Dependencies: Average person is strong enough to manually lock and unlock the bike.
+	\begin {itemize}
+		\item Dependencies: The average person is strong enough to manually lock and unlock the bike.
+	\end {itemize}
+	
 \item The lock will be weatherproof.
-Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
+	\begin {itemize}
+		\item Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
+	\end {itemize}
+	
 \item Battery life is only reduced when the motor is being used.
-Dependencies: Battery life is independent of weather and time.
-\item Efficiency is always constant.
-Dependencies: The battery's power does not decrease over time.
+	\begin {itemize} 
+		\item Dependencies: Battery life is independent of weather and time.
+	\end {itemize}
+
+\item Battery efficiency is always constant.
+	\begin {itemize}
+		\item Dependencies: The battery's power does not decrease over time.
+	\end {itemize}
 
 \end{itemize}
 
