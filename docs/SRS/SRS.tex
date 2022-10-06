@@ -448,8 +448,6 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
 
-~\newline
-
 \noindent
 \deftheory
 % #2 refname of theory
@@ -476,7 +474,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+  None
 }
 % #9 Preconditions
 {
@@ -484,8 +482,6 @@ None
 }
 % #1 derivation - not applicable by default
 {}
-
-~\newline
 
 \noindent
 \deftheory
@@ -511,7 +507,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -546,7 +542,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -734,26 +730,6 @@ qualities that the software is expected to exhibit.
 
 \section{Traceability Matrices and Graphs}
 
-The purpose of the traceability matrices is to provide easy references on what
-has to be additionally modified if a certain component is changed.  Every time a
-component is changed, the items in the column of that component that are marked
-with an ``X'' may have to be modified as well.  Table~\ref{Table:trace} shows the
-dependencies of theoretical models, general definitions, data definitions, and
-instance models with each other. Table~\ref{Table:R_trace} shows the
-dependencies of instance models, requirements, and data constraints on each
-other. Table~\ref{Table:A_trace} shows the dependencies of theoretical models,
-general definitions, data definitions, instance models, and likely changes on
-the assumptions.
-
-\plt{You will have to modify these tables for your problem.}
-
-\plt{The traceability matrix is not generally symmetric.  If GD1 uses A1, that
-  means that GD1's derivation or presentation requires invocation of A1.  A1
-  does not use GD1.  A1 is ``used by'' GD1.}
-
-\plt{The traceability matrix is challenging to maintain manually.  Please do
-  your best.  In the future tools (like Drasil) will make this much easier.}
-
 \afterpage{
 \begin{landscape}
 \begin{table}[h!]
@@ -907,7 +883,7 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 \section{Values of Auxiliary Constants}
 
 \begin{itemize}
-\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
+\setlength{\itemindent}{0.5in} \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFR19]{NFR19}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFR20]{NFR20}
 \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFR21]{NFR20}
