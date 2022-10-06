@@ -243,6 +243,7 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
   ULC & Unlikely Changes\\
   SC & System Contraints\\
   A & Assumptions\\
+  MV & Monitored Variables\\
   \bottomrule
 \end{tabular}\\
 
@@ -734,143 +735,115 @@ qualities that the software is expected to exhibit.
 
 \section{Traceability Matrices and Graphs}
 
-The purpose of the traceability matrices is to provide easy references on what
-has to be additionally modified if a certain component is changed.  Every time a
-component is changed, the items in the column of that component that are marked
-with an ``X'' may have to be modified as well.  Table~\ref{Table:trace} shows the
-dependencies of theoretical models, general definitions, data definitions, and
-instance models with each other. Table~\ref{Table:R_trace} shows the
-dependencies of instance models, requirements, and data constraints on each
-other. Table~\ref{Table:A_trace} shows the dependencies of theoretical models,
-general definitions, data definitions, instance models, and likely changes on
-the assumptions.
-
-\plt{You will have to modify these tables for your problem.}
-
-\plt{The traceability matrix is not generally symmetric.  If GD1 uses A1, that
-  means that GD1's derivation or presentation requires invocation of A1.  A1
-  does not use GD1.  A1 is ``used by'' GD1.}
-
-\plt{The traceability matrix is challenging to maintain manually.  Please do
-  your best.  In the future tools (like Drasil) will make this much easier.}
-
-\afterpage{
-\begin{landscape}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-	& \aref{A_OnlyThermalEnergy}& \aref{A_hcoeff}& \aref{A_mixed}& \aref{A_tpcm}& \aref{A_const_density}& \aref{A_const_C}& \aref{A_Newt_coil}& \aref{A_tcoil}& \aref{A_tlcoil}& \aref{A_Newt_pcm}& \aref{A_charge}& \aref{A_InitTemp}& \aref{A_OpRangePCM}& \aref{A_OpRange}& \aref{A_htank}& \aref{A_int_heat}& \aref{A_vpcm}& \aref{A_PCM_state}& \aref{A_Pressure} \\
-\hline
-\tref{T_COE}        & X& & & & & & & & & & & & & & & & & & \\ \hline
-\tref{T_SHE}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\tref{T_LHE}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\dref{NL}           & & X& & & & & & & & & & & & & & & & & \\ \hline
-\dref{ROCT}         & & & X& X& X& X& & & & & & & & & & & & & \\ \hline
-\ddref{FluxCoil}    & & & & & & & X& X& X& & & & & & & & & & \\ \hline
-\ddref{FluxPCM}     & & & X& X& & & & & & X& & & & & & & & & \\ \hline
-\ddref{D_HOF}       & & & & & & & & & & & & & & & & & & & \\ \hline
-\ddref{D_MF}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\iref{ewat}         & & & & & & & & & & & X& X& & X& X& X& & & X \\ \hline
-\iref{epcm}         & & & & & & & & & & & & X& X& & & X& X& X& \\ \hline
-\iref{I_HWAT}       & & & & & & & & & & & & & & X& & & & & X \\ \hline
-\iref{I_HPCM}       & & & & & & & & & & & & & X& & & & & X & \\ \hline
-\lcref{LC_tpcm}     & & & & X& & & & & & & & & & & & & & & \\ \hline
-\lcref{LC_tcoil}    & & & & & & & & X& & & & & & & & & & & \\ \hline
-\lcref{LC_tlcoil}   & & & & & & & & & X& & & & & & & & & & \\ \hline
-\lcref{LC_charge}   & & & & & & & & & & & X& & & & & & & & \\ \hline
-\lcref{LC_InitTemp} & & & & & & & & & & & & X& & & & & & & \\ \hline
-\lcref{LC_htank}    & & & & & & & & & & & & & & & X& & & & \\
-\hline
-\end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Assumptions and Other Items}
-\label{Table:A_trace}
-\end{table}
-\end{landscape}
-}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline        
-	& \tref{T_COE}& \tref{T_SHE}& \tref{T_LHE}& \dref{NL}& \dref{ROCT} & \ddref{FluxCoil}& \ddref{FluxPCM} & \ddref{D_HOF}& \ddref{D_MF}& \iref{ewat}& \iref{epcm}& \iref{I_HWAT}& \iref{I_HPCM} \\
-\hline
-\tref{T_COE}     & & & & & & & & & & & & & \\ \hline
-\tref{T_SHE}     & & & X& & & & & & & & & & \\ \hline
-\tref{T_LHE}     & & & & & & & & & & & & & \\ \hline
-\dref{NL}        & & & & & & & & & & & & & \\ \hline
-\dref{ROCT}      & X& & & & & & & & & & & & \\ \hline
-\ddref{FluxCoil} & & & & X& & & & & & & & & \\ \hline
-\ddref{FluxPCM}  & & & & X& & & & & & & & & \\ \hline
-\ddref{D_HOF}    & & & & & & & & & & & & & \\ \hline
-\ddref{D_MF}     & & & & & & & & X& & & & & \\ \hline
-\iref{ewat}      & & & & & X& X& X& & & & X& & \\ \hline
-\iref{epcm}      & & & & & X& & X& & X& X& & & X \\ \hline
-\iref{I_HWAT}    & & X& & & & & & & & & & & \\ \hline
-\iref{I_HPCM}    & & X& X& & & & X& X& X& & X& & \\
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| c | c | c | c |c | c | c | c |c | c | c | c |c|c|c|c|c|}
+ \hline
+ &SC1 &SC2  & SC3 &  SC4& SC5&A1&A2&A3&A4&A5&MV1&MV2&MV3&MV4&MV5&MV6\\ 
+ \hline
+FR1& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR2 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR3 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR4& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR5& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR6& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR7  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR8& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR9 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR10 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR11& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR12& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR13& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR14  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR15& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR16 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR17 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR18& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR19& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR20& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR21  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+FR22& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+FR23 & &  &  &  & &&&&&&&&&&&\\ 
 \hline
 \end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Items of Different Sections}
-\label{Table:trace}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-	& \iref{ewat}& \iref{epcm}& \iref{I_HWAT}& \iref{I_HPCM}& \ref{sec_DataConstraints}& \rref{R_RawInputs}& \rref{R_MassInputs} \\
-\hline
-\iref{ewat}            & & X& & & & X& X \\ \hline
-\iref{epcm}            & X& & & X& & X& X \\ \hline
-\iref{I_HWAT}          & & & & & & X& X \\ \hline
-\iref{I_HPCM}          & & X& & & & X& X \\ \hline
-\rref{R_RawInputs}     & & & & & & & \\ \hline
-\rref{R_MassInputs}    & & & & & & X& \\ \hline
-\rref{R_CheckInputs}   & & & & & X& & \\ \hline
-\rref{R_OutputInputs}  & X& X& & & & X& X \\ \hline
-\rref{R_TempWater}     & X& & & & & & \\ \hline 
-\rref{R_TempPCM}       & & X& & & & & \\ \hline
-\rref{R_EnergyWater}   & & & X& & & & \\ \hline
-\rref{R_EnergyPCM}     & & & & X& & & \\ \hline
-\rref{R_VerifyOutput}  & & & X& X& & & \\ \hline
-\rref{R_timeMeltBegin} & & X& & & & & \\ \hline
-\rref{R_timeMeltEnd}   & & X& & & & & \\ 
+\end{minipage}\\
+~\newpage
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| c | c | c | c |c | c | c | c |c | c | c | c |c|c|c|c|c|}
+ \hline
+ &SC1 &SC2  & SC3 &  SC4& SC5&A1&A2&A3&A4&A5&MV1&MV2&MV3&MV4&MV5&MV6\\ 
+ \hline
+NFR1& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR2 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR3 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR4& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR5& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR6& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR7  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR8& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR9 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR10 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR11& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR12& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR13& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR14  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR15& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR16 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR17 & &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR18& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR19& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR20& &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR21  & &  &  &  & &&&&&&&&&&&\\ 
+ \hline
+NFR22& &  &  &  & &&&&&&&&&&&\\ 
+  \hline
+NFR23 & &  &  &  & &&&&&&&&&&&\\ 
 \hline
 \end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Requirements and Instance Models}
-\label{Table:R_trace}
-\end{table}
-
-The purpose of the traceability graphs is also to provide easy references on
-what has to be additionally modified if a certain component is changed.  The
-arrows in the graphs represent dependencies. The component at the tail of an
-arrow is depended on by the component at the head of that arrow. Therefore, if a
-component is changed, the components that it points to should also be
-changed. Figure~\ref{Fig_ATrace} shows the dependencies of theoretical models,
-general definitions, data definitions, instance models, likely changes, and
-assumptions on each other. Figure~\ref{Fig_RTrace} shows the dependencies of
-instance models, requirements, and data constraints on each other.
-
-% \begin{figure}[h!]
-% 	\begin{center}
-% 		%\rotatebox{-90}
-% 		{
-% 			\includegraphics[width=\textwidth]{ATrace.png}
-% 		}
-% 		\caption{\label{Fig_ATrace} Traceability Matrix Showing the Connections Between Items of Different Sections}
-% 	\end{center}
-% \end{figure}
-
-
-% \begin{figure}[h!]
-% 	\begin{center}
-% 		%\rotatebox{-90}
-% 		{
-% 			\includegraphics[width=0.7\textwidth]{RTrace.png}
-% 		}
-% 		\caption{\label{Fig_RTrace} Traceability Matrix Showing the Connections Between Requirements, Instance Models, and Data Constraints}
-% 	\end{center}
-% \end{figure}
+\end{minipage}\\
 
 \section{Development Plan: Prioritizing and Phasing of Requirements}
 
