@@ -580,8 +580,11 @@ qualities that the software is expected to exhibit.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually  opened by the average human once engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Opening the lock must result in status of lock to change to open.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
@@ -617,84 +620,86 @@ qualities that the software is expected to exhibit.
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read english.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users who do not know english.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale:
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be easy to use with a minimal learning curve for it to be useful.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users, and learning period for app will be tracked
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: We want our app to fit on anyones phone, and use up minimal storage.
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be visual appealing for it to be a desirable product.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Design willbe verified with test users who will rank visual how appealing the lock is.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock will not be used if it negatively impacts the normal function of the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by mounting it on test users bikes, then having them use the bike.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be left in the rain without it breaking.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by leaving bike with lock out in the rain.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be splashed without it breaking
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by splashing it to simulate a splash from riding through a puddle.
+
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 90\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] The accuracy of gps positioning must be accurate within 10M.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 95\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the classic confidence interval used. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The status will be manually verified over 100 trials. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] Where location services are available, the accuracy of location coordinates must be within 10M.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order for the locating feature to be useful, it must be accurate. The figure of 10M was obtained since a bike within a distance of 10M will be visible. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over 50 trials. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order to avoid the case where the user uses the lock and it dies while it must be locked, battery percentage must be accurate. The average user would replace their battery when it only has 10\% charge left.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe battery charge shown right before battery dies. 
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If using the SmartLock takes longer than a typical lock, it is no longer more convenient than a typical lock, which is a key selling feature. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by average user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If opening and closing the lock takes more strength than a typical lock, it is no longer convenient for the user. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask regular use of typical bike locks to use SmartLock and compare force. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It would be inconvenient to ask for the user to replace the batteries more frequently than this.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the batteries are not accessible to replace or charge, then when the battery dies initially, the user can no longer use the SmartLock.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Required for convenience for user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The SmartLock must fit a wide variety of bikes so that user's can use the SmartLock with their bike, no matter what that might be.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare dimensions of typical bike frame/dimensions found online with dimensions/shape of SmartLock to ensure the lock can be used. 
 \end{itemize}
 
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Should take less than X\_FRACTION of total development time.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] Making changes to the GUI.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: This rationale applies for all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The team's skillset is in development of iOS apps, so the requirement reflects the app only running on iOS. However, should the designer have a different skillset, an alternative requirement might be: the app should run on Android, or the app should run on iOS and Android. This requirement is constrained to only iOS due to this project's development time constraint of eight months.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
+
 \end{itemize}
 
 %\subsubsection{Security}
@@ -921,46 +926,6 @@ Their values are defined in this section for easy maintenance.}
 \bibliography {../../refs/References}
 
 \newpage
-
-\noindent \plt{The following is not part of the template, just some things to consider
-  when filing in the template.}
-
-\noindent \plt{Grammar, flow and \LaTeX advice:
-\begin{itemize}
-\item For Mac users \texttt{*.DS\_Store} should be in \texttt{.gitignore}
-\item \LaTeX{} and formatting rules
-\begin{itemize}
-\item Variables are italic, everything else not, includes subscripts (link to
-  document)
-\begin{itemize}
-\item \href{https://physics.nist.gov/cuu/pdf/typefaces.pdf}{Conventions}
-\item Watch out for implied multiplication
-\end{itemize}
-\item Use BibTeX
-\item Use cross-referencing
-\end{itemize}
-\item Grammar and writing rules
-\begin{itemize}
-\item Acronyms expanded on first usage (not just in table of acronyms)
-\item ``In order to'' should be ``to''
-\end{itemize}
-\end{itemize}}
-
-\noindent \plt{Advice on using the template:
-\begin{itemize}
-\item Difference between physical and software constraints
-\item Properties of a correct solution means \emph{additional} properties, not
-  a restating of the requirements (may be ``not applicable'' for your problem).
-  If you have a table of output constraints, then these are properties of a
-  correct solution.
-\item Assumptions have to be invoked somewhere
-\item ``Referenced by'' implies that there is an explicit reference
-\item Think of traceability matrix, list of assumption invocations and list of
-  reference by fields as automatically generatable
-\item If you say the format of the output (plot, table etc), then your
-  requirement could be more abstract
-\end{itemize}
-}
 
 \newpage{}
 \section{Appendix A}
