@@ -65,6 +65,9 @@
 \newcounter{goalnum} %Goal Number
 \newcommand{\gthegoalnum}{P\thegoalnum}
 \newcommand{\gsref}[1]{GS\ref{#1}}
+\newcounter{scnum} %System Constraint Number
+\newcommand{\scthescnum}{SC\thscnum}
+\newcommand{\scref}[1]{SC\ref{#1}}
 \newcounter{instnum} %Instance Number
 \newcommand{\itheinstnum}{IM\theinstnum}
 \newcommand{\iref}[1]{IM\ref{#1}}
@@ -170,6 +173,7 @@
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
 04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
 04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
+14-10-22 & 1.3 & Abi & Fixed System Constraint numbering\\
 \bottomrule
 \end{tabularx}
 
@@ -335,24 +339,24 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item[SC\refstepcounter{reqnum}\thereqnum\label{SC1}:] The project must be completed before the demo date.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC1}:] The project must be completed before the demo date.
 
-\item[SC\refstepcounter{reqnum}\thereqnum\label{SC2}:] The materials and resources used to design and build the project must be accessible to students.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC2}:] The materials and resources used to design and build the project must be accessible to students.
 	\begin{itemize}
 		\item Justification: The materials and resources are not available only to professionals or businesses and they cannot be industrial grade, i.e. they must be available at accessible local businesses.
 	\end{itemize} 
 
-\item[SC\refstepcounter{reqnum}\thereqnum\label{SC3}:] The budget for testing, designing, and equipment is \$750.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC3}:] The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
 		\item Justification: The project has a finite budget to work within to encourage efficient use of materials and ensure low costs.
 	\end{itemize} 
 	
-\item[SC\refstepcounter{reqnum}\thereqnum\label{SC4}:] The project must be mounted on existing bike designs.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC4}:]  The project must be mounted on existing bike designs.
 	\begin{itemize}
 		\item Justification: The team does not have the ability to design a custom bike to mount the project on. 
 	\end{itemize} 	
 	
-\item[SC\refstepcounter{reqnum}\thereqnum\label{SC5}:] The project must be locked on existing external locking frames or racks.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC5}:] The project must be locked on existing external locking frames or racks.
 	\begin{itemize}
 		\item Justification: The team does not have the ability to design a custom bike rack to lock the project to. 
 	\end{itemize} 
