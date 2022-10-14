@@ -16,6 +16,14 @@
 \input{../Comments}
 \input{../Common}
 
+\newcounter{canum} %Critical Assumptions number
+\newcommand{\lthecanum}{CA\thecanum}
+\newcommand{\caref}[1]{CA\ref{#1}}
+
+\newcounter{srnum} %Safety Requirement number
+\newcommand{\lthesrnum}{SR\thesrnum}
+\newcommand{\srref}[1]{SR\ref{#1}}
+
 \begin{document}
 
 \pagenumbering{roman}
@@ -27,6 +35,7 @@
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
 Oct 14, 2022 & Elsa & Added FMEA\\
+Oct 14, 2022 & Abi & Added Critical Assumptions \& Safety Reqs\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -50,6 +59,17 @@ Oct 14, 2022 & Elsa & Added FMEA\\
 \section{System Boundaries and Components}
 
 \section{Critical Assumptions}
+
+\begin{itemize}
+
+\item[CA\refstepcounter{canum}\thecanum\label{CA1}:] Assume operator is not tampering or purposefully damaging the product.
+\item[CA\refstepcounter{canum}\thecanum\label{CA2}:] Assume weather is typical of Canada (i.e., no natural disasters).
+\item[CA\refstepcounter{canum}\thecanum\label{CA3}:] Assume operator's smartphone (including all integrated technologies, like GPS) is functioning properly.
+\item[CA\refstepcounter{canum}\thecanum\label{CA4}:] Assume GPS and Bluetooth signals are receivable and transmittable; operator is in a location that can be properly triangulated (i.e., operator is not underground, etc.). 
+\item[CA\refstepcounter{canum}\thecanum\label{CA5}:] Assume operator's bicycle has standard frame and dimensions, and functions properly.
+\item[CA\refstepcounter{canum}\thecanum\label{CA6}:] Assume operator's smartphone has power/is charged. 
+
+\end{itemize}
 
 \section{Failure Modes and Effects Analysis}
 
@@ -78,6 +98,18 @@ Contains and carries all physical lock components on bike when not in use & Some
 \end{table}
 
 \section{Safety and Security Requirements}
+
+\begin{itemize}
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR1}:] Internal parts of locking mechanism shall be accessible and replaceable.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] The locking mechanism shall be able to disengage manually (e.g., with a key), in addition to remotely.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be adaptable and be able to fit a wide variety of external frames/bike racks.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR4}:] Product shall be made from anti-corrosive materials. 
+
+%TO DO: ADD REFERENCES TO SAFETY REQS IN FMEA TABLE
+
+
+\end{itemize}
+
 
 \section{Roadmap}
 
