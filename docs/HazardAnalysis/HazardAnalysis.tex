@@ -54,15 +54,45 @@ Oct 14, 2022 & Steffi & Intro, Scope \& Purpose of Hazard Analysis \& System Bou
 ~\newpage
 
 \section{Introduction}
-The purpose of this document is to outline the hazards that may face the SmartLock. We are defining a hazard to be anything that puts the efficacy of the SmartLock at risk of failure or places the user in danger. 
+The purpose of this document is to outline the hazards that may face the SmartLock.  We are defining a hazard to be anything that puts the efficacy of the SmartLock at risk of failure or places the user in danger. 
 Throughout this document, the potential hazards will be outlined, and through the use of hazard analysis techniques, we will aim to mitigate these risks. 
-
 
 \section{Scope and Purpose of Hazard Analysis}
 
-It is crucial to understand both all the requirements of what a project is supposed to accomplish, but also all the risks that may accompany those requirements.
+The scope of this project is to create a device that securely locks a bike where the lock can be engaged and disengaged via a phone and doesn’t impede the rider causing a safety issue.  It is crucial to understand both all the requirements of what a project is supposed to accomplish, but also all the risks that may accompany those requirements – this is the purpose of the hazard analysis.  Furthermore, the analysis will aim to assess the system boundaries, critical assumptions and the safety requirements in order predict the effects of the potential hazards to preemptively add precautions. 
+
+
+\section{Definitions}
+
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.23\textwidth} | p{0.77\textwidth} |}
+ \hline
+ Term & Definition \\ 
+ \hline
+ Hazard & An action that puts the efficacy of the SmartLock at risk of failure or places the user in danger\\ 
+  \hline
+ System Failure & System Failure is when the engagement of the lock malfunctions and the lock is no longer secure\\ 
+  \hline
+ Risk & A risk indicates a potential safety concern to the user\\ 
+  \hline
+ Error & An error indicates a problem with the software that relates to the engagement for the lock\\ 
+  \hline
+ Conflicts & A conflict indicates trying to execute an action while the SmartLock is in the wrong state. Ie. trying to engage the lock when the mechanism is open\\ 
+ \hline
+\end{tabular}
+\end{minipage}\\
 
 \section{System Boundaries and Components}
+The system can be broken into the following components and has the following boundaries:
+\subsection {Physical Components}
+\subsubsection{Locking Mechanism}
+\subsubsection{Closing Mechanism}
+\subsection {Software Components}
+\subsubsection {App}
+\subsubsection {Location Services}
+\subsection {Boundaries}
+
 
 \section{Critical Assumptions}
 
