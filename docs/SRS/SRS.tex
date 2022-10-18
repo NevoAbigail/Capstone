@@ -65,6 +65,9 @@
 \newcounter{goalnum} %Goal Number
 \newcommand{\gthegoalnum}{P\thegoalnum}
 \newcommand{\gsref}[1]{GS\ref{#1}}
+\newcounter{scnum} %System Constraint Number
+\newcommand{\scthescnum}{SC\thscnum}
+\newcommand{\scref}[1]{SC\ref{#1}}
 \newcounter{instnum} %Instance Number
 \newcommand{\itheinstnum}{IM\theinstnum}
 \newcommand{\iref}[1]{IM\ref{#1}}
@@ -80,6 +83,9 @@
 \newcounter{ulcnum} %Unlikely change number
 \newcommand{\ltheulcnum}{ULC\theulcnum}
 \newcommand{\ulcref}[1]{ULC\ref{#1}}
+\newcounter{constnum} %Unlikely change number
+\newcommand{\ltheconstnum}{CONST\theconstnum}
+\newcommand{\constref}[1]{CONST\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -166,7 +172,8 @@
 03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
 04-10-22& 1.2 & Steffi & Drafted Appendix\\
 04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
-04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from section4\\
+04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
+14-10-22 & 1.3 & Abi & Fixed System Constraint numbering\\
 \bottomrule
 \end{tabularx}
 
@@ -234,6 +241,13 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
   \textbf{symbol} & \textbf{description}\\
   \midrule 
   SRS & Software Requirements Specification\\
+  FR & Functional Requirements\\
+  NFR & Nonfunctional Requirements\\
+  LC & Likely Changes\\
+  ULC & Unlikely Changes\\
+  SC & System Contraints\\
+  A & Assumptions\\
+  MV & Monitored Variables\\
   \bottomrule
 \end{tabular}\\
 
@@ -325,27 +339,26 @@ The system has the following constraints.
 
 \begin{itemize}
 
-\item Locate the bike within a tolerance of 50 meters.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC1}:] The project must be completed before the demo date.
+
+\item[SC\refstepcounter{scnum}\thescnum\label{SC2}:] The materials and resources used to design and build the project must be accessible to students.
 	\begin{itemize}
-		\item Justification: Complex software like Google Maps ensures accuracy of around 20 meters. Considering users only require the general location and our software will not be as complex as Google’s, the team added this constraint. 
-	\end{itemize}
-%Source: https://support.google.com/maps/answer/2839911?hl=en\&co=GENIE.Platform\%3DAndroid 
+		\item Justification: The materials and resources are not available only to professionals or businesses and they cannot be industrial grade, i.e. they must be available at accessible local businesses.
+	\end{itemize} 
 
-\item Total mass of lock under 3 lbs. 
-	\begin{itemize} 
-		\item Justification: Average weight of a bike lock is just under 3 pounds. To ensure the lock was not significantly heavier than average the team added this constraint.
-	\end{itemize}
-%Source: https://www.nytimes.com/wirecutter/reviews/best-bike-lock/ 
-
-\item App storage under 50 megabytes. 
-	\begin{itemize} 
-		\item Justification: A small mobile app should not take significant space on the user's phone. Similar GPS applications are around 50 megabytes.
-	\end{itemize}
-%Source: https://apps.apple.com/us/app/gps-fields-area-measure/id1123033235 
-
-\item The budget for testing, designing, and equipment is \$750.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC3}:] The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
-		\item Justification: SmartLock has a limited budget to work within to encourage efficient use of materials and ensure low costs.
+		\item Justification: The project has a finite budget to work within to encourage efficient use of materials and ensure low costs.
+	\end{itemize} 
+	
+\item[SC\refstepcounter{scnum}\thescnum\label{SC4}:]  The project must be mounted on existing bike designs.
+	\begin{itemize}
+		\item Justification: The team does not have the ability to design a custom bike to mount the project on. 
+	\end{itemize} 	
+	
+\item[SC\refstepcounter{scnum}\thescnum\label{SC5}:] The project must be locked on existing external locking frames or racks.
+	\begin{itemize}
+		\item Justification: The team does not have the ability to design a custom bike rack to lock the project to. 
 	\end{itemize} 
 
 \end{itemize}
@@ -376,8 +389,8 @@ The terms listed below will be used throughout the scope of this document and sh
 \begin{itemize}
 \item Smart Lock: The scope of this project and document referring to both the mechanical lock and the mobile application communicating with it. 
 \item Lock: The physical component of the Smart Lock; includes the hardware, battery, motor, and locking mechanism.  
-\item Team: Refers to the members working on Smart Lock 
-\item App: The mobile application used to communicate with the lock 
+\item Team: The authors of this document.
+\item App: The mobile application used to communicate with the lock.
 \item Open/Close: The process of physically moving the lock frame into a state where it can be latched onto something else. 
 \item Open/Close Status: The current state of the lock frame. 
 \item Engage/Disengage: The automated process to actuate the lock to secure the frame. 
@@ -405,50 +418,40 @@ The terms listed below will be used throughout the scope of this document and sh
  \end{center}
  \end{figure}
 
-\subsubsection{Goal Statements}
-
-
-
-\noindent Given the \plt{inputs}, the goal statements are:
-
-\begin{itemize}
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective Bike Lock: The lock is sturdy and cannot be manual opened by the average human once engaged.
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Long Lasting Battery Life: The power source is used efficiently to last a sufficient period of time without requiring replacement. 
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Bicycle Versatility: The lock can be used on mountain, city, kids, and road bikes.
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Easily Mountable on Bike Frame: Does not require special tools to be installed. 
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Effective GPS Tracking: The lock can accurately transmit location to app regardless of location.  
-
-\item[GS\refstepcounter{goalnum}\thegoalnum :] Weatherproof: The lock is not easily damaged by wind, rain, snow, heat, and cold weather.
-
-\end{itemize}
-
 \subsubsection{Assumptions} \label{sec_assumpt}
 
 \begin{itemize}
 
-\item The bike will be left in locations with strong GPS signal.
-Dependencies: Locations such as garages and underground parking. 
-\item The user’s phone will always be able to connect to the lock (wireless connection works as intended).
-Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
-\item Users will have no limiting physical disabilities.
-Dependencies: Average person is strong enough to manually lock and unlock the bike.
-\item The lock will be weatherproof.
-Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
-\item Battery life is only reduced when the motor is being used.
-Dependencies: Battery life is independent of weather and time.
-\item Efficiency is always constant.
-Dependencies: The battery's power does not decrease over time.
+\item A1: The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
+	\begin {itemize}
+		\item Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
+	\end {itemize}
+	
+\item A2: Users will have no limiting physical disabilities.
+	\begin {itemize}
+		\item Dependencies: The average person is strong enough to manually lock and unlock the bike.
+	\end {itemize}
+	
+\item A3: The lock will be weatherproof.
+	\begin {itemize}
+		\item Dependencies: Rain, snow or extreme temperatures will not damage the lock. 
+	\end {itemize}
+	
+\item A4: Battery life is only reduced when the motor is being used.
+	\begin {itemize} 
+		\item Dependencies: Battery life is independent of weather and time.
+	\end {itemize}
+
+\item A5: Battery efficiency is always constant.
+	\begin {itemize}
+		\item Dependencies: The battery's power does not decrease over time.
+	\end {itemize}
 
 \end{itemize}
 
-\subsubsection{Theoretical Models}\label{sec_theoretical}
+~\newpage
 
-~\newline
+\subsubsection{Theoretical Models}\label{sec_theoretical}
 
 \noindent
 \deftheory
@@ -476,7 +479,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+  None
 }
 % #9 Preconditions
 {
@@ -484,8 +487,6 @@ None
 }
 % #1 derivation - not applicable by default
 {}
-
-~\newline
 
 \noindent
 \deftheory
@@ -511,7 +512,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -546,7 +547,7 @@ None.
 }
 % #8 Referenced by
 {
-  \dref{ROCT}
+None
 }
 % #9 Preconditions
 {
@@ -556,7 +557,6 @@ None
 {}
 
 ~\newline
-
 \section{Requirements}
 
 This section provides the functional requirements, the business tasks that the
@@ -568,9 +568,9 @@ qualities that the software is expected to exhibit.
 \subsubsection{User Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockButton input must engage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockEngage input must engage the lock on the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] UnlockButton input must disengage the lock on the bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] LockDisengage input must disengage the lock on the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to dissengage the lock, the bike lock must be disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
@@ -579,16 +579,12 @@ qualities that the software is expected to exhibit.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
-
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. Doing so enables memory of where the user's phone was at a specific time, such as when locking the bike, which can then later be used to determine where the bike is parked/locked. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually  opened by the average human once engaged.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s) (I.e., not everyone with the app can engage/disengage the lock).
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Opening the lock must result in status of lock to change to open.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock.
-\item[FR\refstepcounter{reqnum}\thenfrnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
 \end{itemize}
 
@@ -617,84 +613,87 @@ qualities that the software is expected to exhibit.
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read english.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users who do not know english.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale:
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be easy to use with a minimal learning curve for it to be useful.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users, and learning period for app will be tracked
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: We want our app to fit on anyones phone, and use up minimal storage.
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be visual appealing for it to be a desirable product.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Design willbe verified with test users who will rank visual how appealing the lock is.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock will not be used if it negatively impacts the normal function of the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by mounting it on test users bikes, then having them use the bike.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be left in the rain without it breaking.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by leaving bike with lock out in the rain.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be splashed without it breaking
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by splashing it to simulate a splash from riding through a puddle.
+
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 90\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] The accuracy of gps positioning must be accurate within 10M.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 95\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the classic confidence interval used. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The status will be manually verified over 100 trials. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] Where location services are available, the accuracy of location coordinates must be within 10M.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order for the locating feature to be useful, it must be accurate. The figure of 10M was obtained since a bike within a distance of 10M will be visible. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over 50 trials. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order to avoid the case where the user uses the lock and it dies while it must be locked, battery percentage must be accurate. The average user would replace their battery when it only has 10\% charge left.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe battery charge shown right before battery dies. 
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If using the SmartLock takes longer than a typical lock, it is no longer more convenient than a typical lock, which is a key selling feature. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by average user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If opening and closing the lock takes more strength than a typical lock, it is no longer convenient for the user. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask regular use of typical bike locks to use SmartLock and compare force. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It would be inconvenient to ask for the user to replace the batteries more frequently than this.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or charge.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the batteries are not accessible to replace or charge, then when the battery dies initially, the user can no longer use the SmartLock.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Required for convenience for user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The SmartLock must fit a wide variety of bikes so that user's can use the SmartLock with their bike, no matter what that might be.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare dimensions of typical bike frame/dimensions found online with dimensions/shape of SmartLock to ensure the lock can be used. 
 \end{itemize}
 
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Should take less than X\_FRACTION of total development time.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] Making changes to the GUI.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] Motor/Battery Controller Software.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] Electrical Circuit.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] Mechanical physical design.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: This rationale applies for all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The team's skillset is in development of iOS apps, so the requirement reflects the app only running on iOS. However, should the designer have a different skillset, an alternative requirement might be: the app should run on Android, or the app should run on iOS and Android. This requirement is constrained to only iOS due to this project's development time constraint of eight months.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
+
+
 \end{itemize}
 
 %\subsubsection{Security}
@@ -734,146 +733,26 @@ qualities that the software is expected to exhibit.
 
 \end{itemize}
 
-\section{Traceability Matrices and Graphs}
+\section{Traceability Index}
 
-The purpose of the traceability matrices is to provide easy references on what
-has to be additionally modified if a certain component is changed.  Every time a
-component is changed, the items in the column of that component that are marked
-with an ``X'' may have to be modified as well.  Table~\ref{Table:trace} shows the
-dependencies of theoretical models, general definitions, data definitions, and
-instance models with each other. Table~\ref{Table:R_trace} shows the
-dependencies of instance models, requirements, and data constraints on each
-other. Table~\ref{Table:A_trace} shows the dependencies of theoretical models,
-general definitions, data definitions, instance models, and likely changes on
-the assumptions.
-
-\plt{You will have to modify these tables for your problem.}
-
-\plt{The traceability matrix is not generally symmetric.  If GD1 uses A1, that
-  means that GD1's derivation or presentation requires invocation of A1.  A1
-  does not use GD1.  A1 is ``used by'' GD1.}
-
-\plt{The traceability matrix is challenging to maintain manually.  Please do
-  your best.  In the future tools (like Drasil) will make this much easier.}
-
-\afterpage{
-\begin{landscape}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-	& \aref{A_OnlyThermalEnergy}& \aref{A_hcoeff}& \aref{A_mixed}& \aref{A_tpcm}& \aref{A_const_density}& \aref{A_const_C}& \aref{A_Newt_coil}& \aref{A_tcoil}& \aref{A_tlcoil}& \aref{A_Newt_pcm}& \aref{A_charge}& \aref{A_InitTemp}& \aref{A_OpRangePCM}& \aref{A_OpRange}& \aref{A_htank}& \aref{A_int_heat}& \aref{A_vpcm}& \aref{A_PCM_state}& \aref{A_Pressure} \\
-\hline
-\tref{T_COE}        & X& & & & & & & & & & & & & & & & & & \\ \hline
-\tref{T_SHE}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\tref{T_LHE}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\dref{NL}           & & X& & & & & & & & & & & & & & & & & \\ \hline
-\dref{ROCT}         & & & X& X& X& X& & & & & & & & & & & & & \\ \hline
-\ddref{FluxCoil}    & & & & & & & X& X& X& & & & & & & & & & \\ \hline
-\ddref{FluxPCM}     & & & X& X& & & & & & X& & & & & & & & & \\ \hline
-\ddref{D_HOF}       & & & & & & & & & & & & & & & & & & & \\ \hline
-\ddref{D_MF}        & & & & & & & & & & & & & & & & & & & \\ \hline
-\iref{ewat}         & & & & & & & & & & & X& X& & X& X& X& & & X \\ \hline
-\iref{epcm}         & & & & & & & & & & & & X& X& & & X& X& X& \\ \hline
-\iref{I_HWAT}       & & & & & & & & & & & & & & X& & & & & X \\ \hline
-\iref{I_HPCM}       & & & & & & & & & & & & & X& & & & & X & \\ \hline
-\lcref{LC_tpcm}     & & & & X& & & & & & & & & & & & & & & \\ \hline
-\lcref{LC_tcoil}    & & & & & & & & X& & & & & & & & & & & \\ \hline
-\lcref{LC_tlcoil}   & & & & & & & & & X& & & & & & & & & & \\ \hline
-\lcref{LC_charge}   & & & & & & & & & & & X& & & & & & & & \\ \hline
-\lcref{LC_InitTemp} & & & & & & & & & & & & X& & & & & & & \\ \hline
-\lcref{LC_htank}    & & & & & & & & & & & & & & & X& & & & \\
-\hline
-\end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Assumptions and Other Items}
-\label{Table:A_trace}
-\end{table}
-\end{landscape}
-}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline        
-	& \tref{T_COE}& \tref{T_SHE}& \tref{T_LHE}& \dref{NL}& \dref{ROCT} & \ddref{FluxCoil}& \ddref{FluxPCM} & \ddref{D_HOF}& \ddref{D_MF}& \iref{ewat}& \iref{epcm}& \iref{I_HWAT}& \iref{I_HPCM} \\
-\hline
-\tref{T_COE}     & & & & & & & & & & & & & \\ \hline
-\tref{T_SHE}     & & & X& & & & & & & & & & \\ \hline
-\tref{T_LHE}     & & & & & & & & & & & & & \\ \hline
-\dref{NL}        & & & & & & & & & & & & & \\ \hline
-\dref{ROCT}      & X& & & & & & & & & & & & \\ \hline
-\ddref{FluxCoil} & & & & X& & & & & & & & & \\ \hline
-\ddref{FluxPCM}  & & & & X& & & & & & & & & \\ \hline
-\ddref{D_HOF}    & & & & & & & & & & & & & \\ \hline
-\ddref{D_MF}     & & & & & & & & X& & & & & \\ \hline
-\iref{ewat}      & & & & & X& X& X& & & & X& & \\ \hline
-\iref{epcm}      & & & & & X& & X& & X& X& & & X \\ \hline
-\iref{I_HWAT}    & & X& & & & & & & & & & & \\ \hline
-\iref{I_HPCM}    & & X& X& & & & X& X& X& & X& & \\
-\hline
-\end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Items of Different Sections}
-\label{Table:trace}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-	& \iref{ewat}& \iref{epcm}& \iref{I_HWAT}& \iref{I_HPCM}& \ref{sec_DataConstraints}& \rref{R_RawInputs}& \rref{R_MassInputs} \\
-\hline
-\iref{ewat}            & & X& & & & X& X \\ \hline
-\iref{epcm}            & X& & & X& & X& X \\ \hline
-\iref{I_HWAT}          & & & & & & X& X \\ \hline
-\iref{I_HPCM}          & & X& & & & X& X \\ \hline
-\rref{R_RawInputs}     & & & & & & & \\ \hline
-\rref{R_MassInputs}    & & & & & & X& \\ \hline
-\rref{R_CheckInputs}   & & & & & X& & \\ \hline
-\rref{R_OutputInputs}  & X& X& & & & X& X \\ \hline
-\rref{R_TempWater}     & X& & & & & & \\ \hline 
-\rref{R_TempPCM}       & & X& & & & & \\ \hline
-\rref{R_EnergyWater}   & & & X& & & & \\ \hline
-\rref{R_EnergyPCM}     & & & & X& & & \\ \hline
-\rref{R_VerifyOutput}  & & & X& X& & & \\ \hline
-\rref{R_timeMeltBegin} & & X& & & & & \\ \hline
-\rref{R_timeMeltEnd}   & & X& & & & & \\ 
-\hline
-\end{tabular}
-\caption{Traceability Matrix Showing the Connections Between Requirements and Instance Models}
-\label{Table:R_trace}
-\end{table}
-
-The purpose of the traceability graphs is also to provide easy references on
-what has to be additionally modified if a certain component is changed.  The
-arrows in the graphs represent dependencies. The component at the tail of an
-arrow is depended on by the component at the head of that arrow. Therefore, if a
-component is changed, the components that it points to should also be
-changed. Figure~\ref{Fig_ATrace} shows the dependencies of theoretical models,
-general definitions, data definitions, instance models, likely changes, and
-assumptions on each other. Figure~\ref{Fig_RTrace} shows the dependencies of
-instance models, requirements, and data constraints on each other.
-
-% \begin{figure}[h!]
-% 	\begin{center}
-% 		%\rotatebox{-90}
-% 		{
-% 			\includegraphics[width=\textwidth]{ATrace.png}
-% 		}
-% 		\caption{\label{Fig_ATrace} Traceability Matrix Showing the Connections Between Items of Different Sections}
-% 	\end{center}
-% \end{figure}
-
-
-% \begin{figure}[h!]
-% 	\begin{center}
-% 		%\rotatebox{-90}
-% 		{
-% 			\includegraphics[width=0.7\textwidth]{RTrace.png}
-% 		}
-% 		\caption{\label{Fig_RTrace} Traceability Matrix Showing the Connections Between Requirements, Instance Models, and Data Constraints}
-% 	\end{center}
-% \end{figure}
-
+The following list will take the following form:
+\\The first requirement: is dependent on the following list of requirements/constraints/assumptions
+\\
+/monitored variables and vice versa
+\\
+ \hyperref[FR1]{FR1}: \hyperref[FR3]{FR3}, \hyperref[FR7]{FR7}, \hyperref[NFR8]{NFR8}, MV1
+ \\  \hyperref[FR2]{FR2}: \hyperref[FR4]{FR4}, MV2
+\\  \hyperref[FR5]{FR5}: MV4, A2
+\\  \hyperref[FR6]{FR6}: MV3, A2
+\\  \hyperref[FR8]{FR8}: \hyperref[FR12]{FR12}, \hyperref[NFR9]{NFR9}, MV4
+\\  \hyperref[FR10]{FR10}: \hyperref[NFR15]{FR15}, \hyperref[NFR16]{FR16},SC4
+\\  \hyperref[FR11]{FR11}: \hyperref[FR13]{FR13},\hyperref[NFR10]{NFR10}, MR6
+\\  \hyperref[NFR1]{NFR1}: \hyperref[NFR2]{NFR2}
+\\  \hyperref[NFR3]{NFR3}: \hyperref[NFR22]{NFR22}, \hyperref[NFR23]{NFR23}
+\\  \hyperref[NFR4]{NFR4}: \hyperref[NFR5]{NFR5}
+\\  \hyperref[NFR6]{NFR6}: \hyperref[NFR7]{NFR7}, A3
+ \\  \hyperref[NFR11]{NFR11}: \hyperref[NFR12]{NFR12},A1
+ \\  \hyperref[NFR13]{NFR13}: A4, A5
 \section{Development Plan: Prioritizing and Phasing of Requirements}
 
 %\plt{This section is optional.  It is used to explain the plan for developing
@@ -908,12 +787,12 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 
 \section{Values of Auxiliary Constants}
 
-\plt{Show the values of the symbolic parameters introduced in the report.}
-
-\plt{The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.}
-
-\plt{The value of FRACTION, for the Maintainability NFR would be given here.}
+\begin{itemize}
+\setlength{\itemindent}{0.5in} \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFR19]{NFR19}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFR20]{NFR20}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFR21]{NFR20}
+\end{itemize}
 
 \newpage
 
@@ -921,46 +800,6 @@ Their values are defined in this section for easy maintenance.}
 \bibliography {../../refs/References}
 
 \newpage
-
-\noindent \plt{The following is not part of the template, just some things to consider
-  when filing in the template.}
-
-\noindent \plt{Grammar, flow and \LaTeX advice:
-\begin{itemize}
-\item For Mac users \texttt{*.DS\_Store} should be in \texttt{.gitignore}
-\item \LaTeX{} and formatting rules
-\begin{itemize}
-\item Variables are italic, everything else not, includes subscripts (link to
-  document)
-\begin{itemize}
-\item \href{https://physics.nist.gov/cuu/pdf/typefaces.pdf}{Conventions}
-\item Watch out for implied multiplication
-\end{itemize}
-\item Use BibTeX
-\item Use cross-referencing
-\end{itemize}
-\item Grammar and writing rules
-\begin{itemize}
-\item Acronyms expanded on first usage (not just in table of acronyms)
-\item ``In order to'' should be ``to''
-\end{itemize}
-\end{itemize}}
-
-\noindent \plt{Advice on using the template:
-\begin{itemize}
-\item Difference between physical and software constraints
-\item Properties of a correct solution means \emph{additional} properties, not
-  a restating of the requirements (may be ``not applicable'' for your problem).
-  If you have a table of output constraints, then these are properties of a
-  correct solution.
-\item Assumptions have to be invoked somewhere
-\item ``Referenced by'' implies that there is an explicit reference
-\item Think of traceability matrix, list of assumption invocations and list of
-  reference by fields as automatically generatable
-\item If you say the format of the output (plot, table etc), then your
-  requirement could be more abstract
-\end{itemize}
-}
 
 \newpage{}
 \section{Appendix A}
@@ -1087,18 +926,22 @@ My lead role for this project is surrounding wireless communication, specificall
 \\
 Elsa:
 \\ 
- I am the Embedded Systems Lead of the project, and as such I will be adding to my existing skills in order to design, build and provide support to other members of my team related to this topic.  This project will require significant knowledge in the realm of electronics, wiring, microprocessor programming and general hardware systems.  I am also a Support Lead of Documentation, which includes technical writing and typesetting in Latex. 
-\\
-\\
-Anthony:
-\\ 
-The mobile application will be developed using XCode Ver.14.0, utilizing the Swift programming language for iOS Development. For linting, SwiftLint will be implemented as it is commonly used in the industry for iOS development utilizing XCode. Basic background in programming is a required skill needed to be able to effectively learn the IDE and programming language.
+ I am the Embedded Systems Lead of the project, and as such I will be adding to my existing skills in order to design, build and provide support to other members of my team related to this topic. This project will require significant knowledge in the realm of electronics, wiring, microprocessor programming and general hardware systems. I am also a Support Lead of Documentation, which includes technical writing and typesetting in Latex. 
  \\
+ \\
+ Anthony: 
+ \\
+ The mobile application will be developed using XCode Ver.14.0, utilizing the Swift programming language for iOS Development. For linting, SwiftLint will be implemented as it is commonly used in the industry for iOS development utilizing XCode. Basic background in programming is a required skill needed to be able to effectively learn the IDE and programming language.
+  \\
 \\
 Abdul:
 \\ 
  Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the Smart Lock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
- 
+ \\
+\\
+Stephen:
+\\
+ I will need to strengthen my knowledge in many topics including mechanical prototyping/design, software development, and electrical circuit design.  I will really try to advance my knowledge in the mechanical design aspect of this project.  I will need skills to design a system that can complete its function and package all of the electrical features.  For this I will really push my knowledge in circular prototyping and prototyping methods.
  
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
@@ -1119,11 +962,11 @@ Abi:
 \\
 Elsa:
 \\ 
-  I will acquire this expertise by learning through resources such as previous Embedded Systems and Electronics courses I have taken, online research and journals that I have access to through McMaster.  Additionally, I find YouTube to be a useful experiential resource for learning how to apply acquired knowledge in personal projects.  I will improve my technical writing and typesetting skills by practicing using Latex and challenging myself to continue researching and learning new modes of practice and editing.
+  I will acquire this expertise by learning through resources such as previous Embedded Systems and Electronics courses I have taken, online research and journals that I have access to through McMaster. Additionally, I find YouTube to be a useful experiential resource for learning how to apply acquired knowledge in personal projects. I will improve my technical writing and typesetting skills by practicing using Latex and challenging myself to continue researching and learning new modes of practice and editing.
 \\
 \\
 Anthony:
-\\ 
+\\
 Apple has created their own modules to teach individuals how to use their IDE and programming language. Other resources include free YouTube tutorials and private companies offering courses. For the scope of this project and considering the complexity of the application, Apple’s free course and YouTube tutorials would be sufficient. Additionally, there are several public forums where individuals could search similar problems others have experienced before and find various solutions contributed by the community. Team member Anthony Shenouda has experience with the IDE as they have developed multiple mobile applications before. They will be responsible for the overall development and ensuring the application is completed successfully and timely. 
 \\
 \\
@@ -1132,6 +975,11 @@ Abdul:
  Swift -  To learn Swift effectively, I plan to take a few starter courses as well as practise some basic programs using Swift. Doing so would familiarize myself with the Syntax and libraries. Most of the general programming basics I have already developed through my use of other languages. 
   
  Bluetooth - My approach to this would be to look at a few existing projects and adopt a similar approach within our system. Bluetooth is widely used, and there are a variety of open-source libraries of which we can take advantage.
+\\
+\\
+Stephen:
+\\
+ To aquire the skills I need in mechanical design/prototyping I will use past course content and lecture slides from my mechanical product design, to recite the best practices for 3D printing and prototyping methods. I will also utlize the resources on campus like the thode maker space or student workshop for direction interms of prototyping processes as well as meterial selection, design, and analysis.  Finally I will also utilize a mentor who is in the design industry to mentor me on these skills.
 \end{enumerate}
 
 \end{document}
