@@ -89,13 +89,28 @@ The scope of this project is to create a device that securely locks a bike where
 \section{System Boundaries and Components}
 The system can be broken into the following components and has the following boundaries:
 \subsection {Physical Components}
+Our physical components are the aspects that will be on the bike itself.
 \subsubsection{Locking Mechanism}
+The locking mechanism will be the component that ensures the security of the bike.
 \subsubsection{Closing Mechanism}
+The closing mechanism is the component that will both attach the bike to an external frame, as well as make sure that the wheels will stay connected to the bike when you leave it.
+\subsubsection{Sensors}
+The sensors will be used to indicate whether or not the lock is open/closed or engaged/disengaged. 
+\subsubsection{Battery}
+The battery will be used for the engagement/disengagement of the locking mechanism.  This is the only feature that it will  be used for which will extend the life of this component.
 \subsection {Software Components}
+The software components that we will be using are related to our smartphone app.
 \subsubsection {App}
+The app component itself will be used to communicate with the physical components to give the user information on the status of the lock and allow the user to change the engagement/disengagement status. 
 \subsubsection {Location Services}
+The location service component will be used to communicate to the app where the bike was located upon engaging the lock.
 \subsection {Boundaries}
-
+\subsubsection{Bike Size}
+The boundary that we need to work with on the physical components is the standard sizes of bikes so that they can be mounted properly.
+\subsubsection{Standard External Frames}
+The other physical boundary that we need to work within is the standard size/location of external frames which provides us with measurements for the open/closing mechanism that we must abide by.
+\subsubsection{Current Technology}
+The software boundary that we must remain within is the bounds of current technology; this is a very feasible and large boundary to work within as we do not plan to use any complex software.
 
 \section{Critical Assumptions}
 
