@@ -224,41 +224,79 @@ How test will be performed:
 \wss{Tests related to usability could include conducting a usability test and
   survey.}
 
-\subsubsection{Area of Testing1}
+\subsubsection{Area of Testing1: Smart Phone}
 		
-\paragraph{Title for Test}
+\paragraph{Title for Test:}
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{test-id1: NFR1: Can be used by people who speak any native language. \\}
 
-Type: 
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+Type: Manual
 
-Type: Functional, Dynamic, Manual, Static etc.
+Initial State: Lock is engaged and phone is on with App downloaded and open.
+
+Input/Condition: Non-English-speaking test user has no prior knowledge of how to use the System.
+
+Output/Results: The lock is successfully engaged and the bike is securely locked by test user.
+
+How test will be performed: User attempts to disengage the mechanism through the App, attach bike to external frame and re-engage mechanism.
 					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
+\item{test-id2: NFR2: Can reasonably be used without requiring an instruction manual. \\}
+
+Type: Manual
+
+Initial State: Lock is engaged and phone is on with App downloaded and open.
+
+Input/Condition: A group of test users with no prior knowledge of how to use the System. 
+
+Output/Results: The lock is successfully engaged, and the bike is securely locked by all test users.
+
+How test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must below ten minutes. Learning period is subsequently calculated and plotted. 
+
+\item{test-id3: 3. NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
+
+Type: Static 
+
+Initial State: App development IDE is open and up to date.
+
+Output/Results: App storage is less than 50 megabytes.
+
+How test will be performed: App storage displayed on the IDE is kept below the upper threshold of 50 megabytes. 
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Usability}
 
-...
+\paragraph{Title for Test:}
+
+\begin{enumerate}
+
+\item{test-id1: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
+
+Type: Manual 
+
+Initial State: The System is ready to be installed.  
+
+Input/Condition: A group of test users with an average understanding of how to use typical tools. They have access to those typical tools. 
+
+Output/Results: The System is successfully mounted on the bike frame without special tools for each test user. 
+
+How test will be performed: Each user attempts to install the System, following the procedure outlined in the instructions. This procedure will be developed following the completion of the first stage of prototyping. 
+
+\item{test-id2: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
+
+Type: Manual 
+
+Initial State: The System is ready to be installed. 
+
+Input/Condition: A group of test users with an average understanding of how to use typical tools. They have access to those typical tools. Three different models of bike are tested; one for each type (mountain, city and road). 
+
+Output/Results:	The System can be mounted on all three bike models successfully by each test user. 
+
+How the test will be performed: Three users attempt to install the System, following the procedure outlined in the instructions.  
+
+\end{enumerate}
 
 \subsection{Traceability Between Test Cases and Requirements}
 
