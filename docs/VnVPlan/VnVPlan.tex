@@ -32,6 +32,7 @@
 \midrule
 20-10-22 & 1.0 & Steffi & Section 2, 3 \& 4\\
 01-11-22 & 1.1 & Stephen, Elsa, Abi, \& Anthony & Section 5\\
+02-11-22 & 1.2 & Abdul & Section 4\\
 \bottomrule
 \end{tabularx}
 
@@ -104,11 +105,11 @@ For more information on the project breakdown, planning or delivery refer to the
 
 \section{Plan}
 \-\
-In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually prototype our solution.
+In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually prototype our solution. It also covers any automation tools used as well as a software validation plan.
 
 \-\
-\wss{Introduce this section.   You can provide a roadmap of the sections to
-  come.}
+
+  
 ~\newpage
 
 \subsection{Verification and Validation Team}
@@ -180,7 +181,7 @@ Our plan for verification of the Design Plan includes the following steps:
 \item Review with Supervisor (Dr. Sirouspour)
 \subitem As a novice design team, we will use the meetings with Dr. Sirouspour to review, primarily the hardware components of, our design and understand if we are using the right technical pieces and if our approach can lead to success. 
 \item Proof of Concept Demo
-\subitem The proof of concept demo will be a crucial part of our validation plan.  With the intent to be able to demonstrate both a portion of our physical component and a preliminary software UI, the presentation and feedback will provide with an opportunity to validate our objectives and verify the next steps and problem areas.
+\subitem The proof of concept demo will be a crucial part of our validation plan.  With the intent to be able to demonstrate both a portion of our physical component and a preliminary software UI, the presentation and feedback will provide us with an opportunity to validate our objectives and verify the next steps and problem areas.
 \item Testing
 \subitem Testing, which will be discussed in detail below, will be used to understand if our requirements can be met given the scope of this project and help us to determine what needs to change for our final product.
 \item MIS \& MG Checklists
@@ -197,6 +198,24 @@ Our plan for verification of the Design Plan includes the following steps:
 
 \subsection{Implementation Verification Plan}
 
+Our plan to verify the implementation is outlined below:
+\begin{enumerate}
+\item Functional Requirements Verification
+
+\subitem The verification of our non-functional requirements will be done by performing the system tests discussed further in this document. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with a good metric on the core functionality of the product.
+
+
+~\newpage
+
+\item Non-functional Requirements Verification
+
+\subitem The verification of our functional requirements will be done by performing the system tests discussed further in this document. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with good metric on the overall quality and class of the product. This will help us in verifying other aspects of the product including our smart phone app features, durability and ease of use.
+
+\item Code Implementation Verification
+
+\subitem In order to verify the implementation of our code-base, we will make use of both code walk-throughs and inspection by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only shine light on any shortcomings in our implementation but also help us in identifying more efficient techniques within our code-base. By performing unit tests, which are discussed further in this document below we can verify different modules within our system and verify if each module is performing as expected and is robust. This will help us maintain best practices while implementing our code-base.
+
+\end{enumerate}
 \wss{You should at least point to the tests listed in this document and the unit
   testing plan.}
 
@@ -205,6 +224,28 @@ Our plan for verification of the Design Plan includes the following steps:
   inspection, static analyzers, etc.}
 
 \subsection{Automated Testing and Verification Tools}
+The tools used for automated testing and verifying coding standards are outlined below:
+
+\begin{enumerate}
+
+
+\item SwiftLint
+
+\subitem SwiftLint will be used in order to enforce common Swift style and naming conventions.
+
+\item CodeFactor
+
+\subitem CodeFactor will be used for automated code analysis on our repo on Github.
+
+\item Github
+
+\subitem Github will be used to host our codebase including all staging branches and the production branch. All changes will need to be approved and reviewed before merging to production.
+
+\item Git
+
+\subitem Git will be used for version control, resolving merge conflicts and interfacing with different branches.
+
+\end{enumerate}
 
 \wss{What tools are you using for automated testing.  Likely a unit testing
   framework and maybe a profiling tool, like ValGrind.  Other possible tools
@@ -219,6 +260,7 @@ Our plan for verification of the Design Plan includes the following steps:
   implementation.}
 
 \subsection{Software Validation Plan}
+
 
 \wss{If there is any external data that can be used for validation, you should
   point to it here.  If there are no plans for validation, you should state that
