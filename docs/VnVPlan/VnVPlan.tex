@@ -333,6 +333,8 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the battery percentage of the lock 
 
+How the test will be performed: apply input condition, observe expected output
+
 \item{test-id5: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
 Control: Manual 
 
@@ -342,6 +344,8 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the saved coordinates 
 
+How the test will be performed: apply input condition, observe expected output
+
 \item{test-id6: FR13: Battery must output enough power to engage the lock. \\}
 Control: Manual 
 
@@ -350,6 +354,8 @@ Initial State: Locking mechanism disengaged, electro magnet has ability to get p
 Input/Condition: supply power to electromagnet 
 
 Output/Results: lock mechanism is engaged 
+
+How the test will be performed: apply input condition, observe expected output
 
 \end{enumerate}
 
@@ -410,6 +416,8 @@ Input/Condition: Survey users on their opinions of the visual appeal of the devi
 
 Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
 
+How the test will be performed: apply input condition, survey 50 users, observe expected output
+
 \item{test-id11: NFR5: The lock must not impede normal bike functions. \\}
 Control: Manual 
 
@@ -418,6 +426,8 @@ Initial State: Locking mechanism assembled and mounted on bike frame
 Input/Condition: Normal bike operation (ride forward, turn right, turn left, ride downhill, ride uphill) 
 
 Output/Results: Device does not impede bicycle functioning 
+
+How the test will be performed: apply input condition, observe expected output
 
 \item{test-id12: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
@@ -431,6 +441,8 @@ Input/Condition: Simulate rain: Hold housing under shower for 5 minutes, slowly 
 
 Output/Results: Receives a pass if the inside of housing is completely dry.
 
+How the test will be performed: apply input condition, observe expected output
+
 Stage 2: Full Mechanism 
 
 Control: Manual 
@@ -441,6 +453,8 @@ Input/Condition: Simulate rain: hold housing under shower for 5 minutes, slowly 
 
 Output/Results: Receives a pass if the device remains functional and operational.
 
+How the test will be performed: apply input condition, observe expected output
+
 \item{test-id13: NFR8: Accuracy of bike lock status must be above 95\%. \\}
 Control: Manual 
 
@@ -449,6 +463,8 @@ Initial State: Locking mechanism, electronics, and housing assembled operational
 Input/Condition: Engage/disengage lock 100 times. 
 
 Output/Results: Ensure engage/disengage status matches current physical state.
+
+How the test will be performed: apply input condition, observe expected output
 \end{enumerate}
 
 \subsubsection{Area of Testing: Usability}
@@ -526,6 +542,24 @@ Input/Condition: A group of test users with an average understanding of how to u
 Output/Results: The System can be mounted on all three bike models successfully by each test user. 
 
 How the test will be performed: Three users attempt to install the System, following the procedure outlined in the instructions.  
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Accuracy}
+
+\begin{enumerate}
+
+\item{test-id20: NFR10: Battery percentage must be calculated accurately within 10\%. \\}
+
+Control: Manual
+
+Initial State: Full device assembled, battery percentage calculated is 1\%. 
+
+Input/Condition: Engage/disengage lock until battery dies.
+
+Output/Results: Number of lock engages possible with 1\% battery matches our specification for number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100).
+
+How the test will be performed: apply input condition, observe expected output
 
 \end{enumerate}
 
