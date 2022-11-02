@@ -211,7 +211,55 @@ How test will be performed:
 
 \end{enumerate}
 
-\subsubsection{Smartphone App}
+\subsubsection{User Input Related}
+
+\begin{enumerate}
+
+\item{test-id1: FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. \\}
+
+Control: Manual
+
+Initial State: Lock is engaged, and bike is locked.
+
+Input/Condition: A prying, pulling, kicking, etc. force between 200-400N.
+
+Output/Results: A pass/fail as well as a score from 1-4 for the following cases; a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged with out breaking.
+
+How test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
+
+\item{test-id1: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
+
+Control: Manual
+
+Initial State: Lock is engaged, and bike is locked.
+
+Input/Condition: Iphone Bluetooth signal.
+
+Output/Results: A fail if they are able to connect to the smart bike lock and disengage it and a pass if they can’t connect and disengage the lock.
+
+How test will be performed: A test group will attempt to connect via Bluetooth from their smartphones.
+
+\end{enumerate}
+
+\subsubsection{Bike Input Related}
+
+\begin{enumerate}
+
+\item{test-id1: FR10: The lock can be mounted to the bike’s frame. \\}
+
+Control: Manual
+
+Initial State: Lock is in disengaged state and not mounted to a bike.
+
+Input/Condition: Users force to mount the SmartLock.
+
+Output/Results: A pass/fail for each bike if the lock is/isn’t able to mount in to the bike as intended. A score from 0-the number of bikes tested will also be given.
+
+How test will be performed: Users will attempt to mount the SmartLock onto 1-3 bikes each from 3-5 categories of bikes including (adult standard/hybrid, road, mountain, kids standard/hybrid).
+
+\end{enumerate}
+
+\subsubsection{Output Related}
 
 \begin{enumerate}
 
@@ -232,12 +280,6 @@ Initial State: Phone on with App downloaded and open
 Input/Condition: observation of app 
 
 Output/Results: user must be able to view the saved coordinates 
-
-\end{enumerate}
-
-\subsubsection{Physical Lock}
-
-\begin{enumerate}
 
 \item{FR13: Battery must output enough power to engage the lock. \\}
 Type: Manual 
@@ -361,9 +403,57 @@ Output/Results: Ensure engage/disengage status matches current physical state
 
 \begin{enumerate}
 
+\item{test-id1: NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock.  \\}
+
+Control: Manual 
+
+Initial State: The Smart lock is in the transport state with the test user standing beside the bike at a bike rack.
+
+Input/Condition: User engaging and disengaging the SmartLock.
+
+Output/Results: Scores from 1-10 will be given for weighted time from fasted to slowest.
+
+How test will be performed: Users will be timed on locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
+
+\item{test-id1: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
+
+Control: Manual 
+
+Initial State: The Smart Lock will be in transport state with the test user standing beside the bike at a bike rack.
+
+Input/Condition: Users Engaging and Disengaging the SmartLock.
+
+Output/Results: Scores from 1-5 will be given from most to least amount of relative force required.
+
+How test will be performed: Users will measure force while locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
+
+\item{test-id1: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
+
+Control: Manual 
+
+Initial State: The Smart Lock is fully charged
+
+Input/Condition: Users Engaging, Locating, and Disengaging the SmartLock.
+
+Output/Results: The amount of time and quantity of lock/unlocks of the Smart Lock. A pass if it meets the required number.
+
+How test will be performed:  A group of users will take turns to bike to a new bike lock, lock the bike, mark the bikes location in the app, unlock, and then repeat. This will be done until the battery dies.
+
+\item{test-id1: NFR14: Batteries must be accessible to replace or chargeable. \\}
+
+Control: Manual 
+
+Initial State: The Smart Lock is in the Transport state.
+
+Input/Condition: Users will charge/replace batteries as intended.
+
+Output/Results: Pass if the batteries can be charged/replaced as intended.
+
+How test will be performed: Users will charge/replace batteries as intended.
+
 \item{test-id1: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
 
-Type: Manual 
+Control: Manual 
 
 Initial State: The System is ready to be installed.  
 
@@ -375,7 +465,7 @@ How test will be performed: Each user attempts to install the System, following 
 
 \item{test-id2: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
 
-Type: Manual 
+Control: Manual 
 
 Initial State: The System is ready to be installed. 
 
