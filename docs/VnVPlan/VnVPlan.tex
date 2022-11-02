@@ -211,9 +211,44 @@ How test will be performed:
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsubsection{Smartphone App}
 
-...
+\begin{enumerate}
+
+\item{FR11: Battery percentage must be shown on the phone app. \\}
+Type: Manual 
+
+Initial State: Phone on with App downloaded and open 
+
+Input/Condition: observation of app 
+
+Output/Results: user must be able to view the battery percentage of the lock 
+
+\item{FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
+Type: Manual 
+
+Initial State: Phone on with App downloaded and open 
+
+Input/Condition: observation of app 
+
+Output/Results: user must be able to view the saved coordinates 
+
+\end{enumerate}
+
+\subsubsection{Physical Lock}
+
+\begin{enumerate}
+
+\item{FR13: Battery must output enough power to engage the lock. \\}
+Type: Manual 
+
+Initial State: Locking mechanism disengaged, electro magnet has ability to get power from battery (functional circuit) 
+
+Input/Condition: supply power to electromagnet 
+
+Output/Results: lock mechanism is engaged 
+
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 
@@ -264,6 +299,60 @@ Output/Results: App storage is less than 50 megabytes.
 
 How test will be performed: App storage displayed on the IDE is kept below the upper threshold of 50 megabytes. 
 
+\end{enumerate}
+
+\subsubsection{Area of Testing: Physical Lock}
+\begin{enumerate}
+\item{NFR4: The design must be visually appealing. \\}
+Type: Manual 
+
+Initial State: Locking mechanism assembled 
+
+Input/Condition: Survey users on their opinions of the visual appeal of the device 
+
+Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
+
+\item{NFR5: The lock must not impede normal bike functions. \\}
+Type: Manual 
+
+Initial State: Locking mechanism assembled and mounted on bike frame 
+
+Input/Condition: Normal bike operation (ride forward, turn right, turn left, ride downhill, ride uphill) 
+
+Output/Results: Device does not impede bicycle functioning 
+
+\item{NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
+
+Test 1: empty housing (no electronics inside) 
+
+Type: Manual 
+
+Initial State: housing assembled 
+
+Input/Condition: simulate rain: hold housing under shower for 5 minutes, slowly rotating 
+
+Output/Results: inside of housing is completely dry 
+
+Test 2: full mechanism 
+
+Type: Manual 
+
+Initial State: Locking mechanism, electronics, and housing assembled, microcontroller on 
+
+Input/Condition: simulate rain: hold housing under shower for 5 minutes, slowly rotating 
+
+Output/Results: device remains functional and operational 
+
+\item{NFR8: Accuracy of bike lock status must be above 95\%. \\}
+Type: Manual 
+
+Initial State: Locking mechanism, electronics, and housing assembled 
+
+ operational and within range  
+
+Input/Condition: Engage/disengage lock x100 
+
+Output/Results: Ensure engage/disengage status matches current physical state 
 \end{enumerate}
 
 \subsubsection{Usability}
