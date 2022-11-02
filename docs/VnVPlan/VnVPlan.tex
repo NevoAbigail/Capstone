@@ -157,7 +157,7 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
 \-\
 Our plan for verification of the SRS includes the following steps:
 \begin{enumerate}
-\item Keep the document alive
+\item Keep the Document Alive
 \subitem By keeping the document alive we will be able to continually update any requirements/constraints/objectives that adapt as our project comes to life.  This will ensure that all the documentation is accurate. 
 \item Peer Review
 \subitem We will use the peer review to verify our work and to look for inconsistencies or aspects that we didn't consider.
@@ -202,18 +202,17 @@ Our plan to verify the implementation is outlined below:
 \begin{enumerate}
 \item Functional Requirements Verification
 
-\subitem The verification of our non-functional requirements will be done by performing the system tests discussed further in this document. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with a good metric on the core functionality of the product.
-
+\subitem The verification of our functional requirements will be done by performing the system tests discussed in \nameref{Section 5.1}. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with good metrics on the core functionality of the product.
 
 ~\newpage
 
 \item Non-functional Requirements Verification
 
-\subitem The verification of our functional requirements will be done by performing the system tests discussed further in this document. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with good metric on the overall quality and class of the product. This will help us in verifying other aspects of the product including our smart phone app features, durability and ease of use.
+\subitem The verification of our non-functional requirements will be done by performing the system tests discussed in \nameref{Section 5.2}. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with good metrics on the overall quality and class of the product. This will help us in verifying other aspects of the product including the App features, durability and ease of use.
 
 \item Code Implementation Verification
 
-\subitem In order to verify the implementation of our code-base, we will make use of both code walk-throughs and inspection by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only shine light on any shortcomings in our implementation but also help us in identifying more efficient techniques within our code-base. By performing unit tests, which are discussed further in this document below we can verify different modules within our system and verify if each module is performing as expected and is robust. This will help us maintain best practices while implementing our code-base.
+\subitem In order to verify the implementation of our code-base, we will make use of both code walk-throughs and inspection by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only illuminate any shortcomings in our implementation but also help us in identifying more efficient techniques within our code-base. By performing unit tests, which are discussed in \nameref{Section 6}, we can verify different modules within our system to see if each is performing as expected and is robust. This will help us maintain best practices while implementing our code-base.
 
 \end{enumerate}
 \wss{You should at least point to the tests listed in this document and the unit
@@ -269,6 +268,7 @@ The tools used for automated testing and verifying coding standards are outlined
 \section{System Test Description}
 	
 \subsection{Tests for Functional Requirements}
+\label{Section 5.1}
 
 The Tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product
 
@@ -288,7 +288,7 @@ Output/Results: A pass/fail as well as a score from 1-4 for the following cases;
 
 How test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
 
-\item{test-id1: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
+\item{test-id2: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
 
 Control: Manual
 
@@ -306,7 +306,7 @@ How test will be performed: A test group will attempt to connect via Bluetooth f
 
 \begin{enumerate}
 
-\item{test-id1: FR10: The lock can be mounted to the bike’s frame. \\}
+\item{test-id3: FR10: The lock can be mounted to the bike’s frame. \\}
 
 Control: Manual
 
@@ -324,7 +324,7 @@ How test will be performed: Users will attempt to mount the SmartLock onto 1-3 b
 
 \begin{enumerate}
 
-\item{test-id1: FR11: Battery percentage must be shown on the phone app. \\}
+\item{test-id4: FR11: Battery percentage must be shown on the phone app. \\}
 Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
@@ -333,7 +333,7 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the battery percentage of the lock 
 
-\item{test-id1: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
+\item{test-id5: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
 Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
@@ -342,7 +342,7 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the saved coordinates 
 
-\item{test-id1: FR13: Battery must output enough power to engage the lock. \\}
+\item{test-id6: FR13: Battery must output enough power to engage the lock. \\}
 Control: Manual 
 
 Initial State: Locking mechanism disengaged, electro magnet has ability to get power from battery (functional circuit) 
@@ -354,14 +354,15 @@ Output/Results: lock mechanism is engaged
 \end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
+\label{Section 5.2}
 
-This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usibility of our product.
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usability of our product.
 
 \subsubsection{Area of Testing: Smart Phone}
 
 \begin{enumerate}
 
-\item{test-id1: NFR1: Can be used by people who speak any native language. \\}
+\item{test-id7: NFR1: Can be used by people who speak any native language. \\}
 
 Control: Manual
 
@@ -373,7 +374,7 @@ Output/Results: The lock is successfully engaged and the bike is securely locked
 
 How test will be performed: User attempts to disengage the mechanism through the App, attach bike to external frame and re-engage mechanism.
 					
-\item{test-id2: NFR2: Can reasonably be used without requiring an instruction manual. \\}
+\item{test-id8: NFR2: Can reasonably be used without requiring an instruction manual. \\}
 
 Control: Manual
 
@@ -385,7 +386,7 @@ Output/Results: The lock is successfully engaged, and the bike is securely locke
 
 How test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must below ten minutes. Learning period is subsequently calculated and plotted. 
 
-\item{test-id3: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
+\item{test-id9: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
 
 Control: Static 
 
@@ -399,7 +400,8 @@ How test will be performed: App storage displayed on the IDE is kept below the u
 
 \subsubsection{Area of Testing: Physical Lock}
 \begin{enumerate}
-\item{test-id1: NFR4: The design must be visually appealing. \\}
+
+\item{test-id10: NFR4: The design must be visually appealing. \\}
 Control: Manual 
 
 Initial State: Locking mechanism assembled 
@@ -408,7 +410,7 @@ Input/Condition: Survey users on their opinions of the visual appeal of the devi
 
 Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
 
-\item{test-id1: NFR5: The lock must not impede normal bike functions. \\}
+\item{test-id11: NFR5: The lock must not impede normal bike functions. \\}
 Control: Manual 
 
 Initial State: Locking mechanism assembled and mounted on bike frame 
@@ -417,7 +419,7 @@ Input/Condition: Normal bike operation (ride forward, turn right, turn left, rid
 
 Output/Results: Device does not impede bicycle functioning 
 
-\item{test-id1: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
+\item{test-id12: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
 Stage 1: Empty Housing (no electronics inside) 
 
@@ -427,7 +429,7 @@ Initial State: Husing assembled.
 
 Input/Condition: Simulate rain: Hold housing under shower for 5 minutes, slowly rotating.
 
-Output/Results: Recieves a pass if the inside of housing is completely dry.
+Output/Results: Receives a pass if the inside of housing is completely dry.
 
 Stage 2: Full Mechanism 
 
@@ -437,9 +439,9 @@ Initial State: Locking mechanism, electronics, and housing assembled, microcontr
 
 Input/Condition: Simulate rain: hold housing under shower for 5 minutes, slowly rotating.
 
-Output/Results: Recieves a pass if the device remains functional and operational.
+Output/Results: Receives a pass if the device remains functional and operational.
 
-\item{test-id1: NFR8: Accuracy of bike lock status must be above 95\%. \\}
+\item{test-id13: NFR8: Accuracy of bike lock status must be above 95\%. \\}
 Control: Manual 
 
 Initial State: Locking mechanism, electronics, and housing assembled operational and within range.
@@ -453,7 +455,7 @@ Output/Results: Ensure engage/disengage status matches current physical state.
 
 \begin{enumerate}
 
-\item{test-id1: NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock.  \\}
+\item{test-id14: NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock.  \\}
 
 Control: Manual 
 
@@ -465,7 +467,7 @@ Output/Results: Scores from 1-10 will be given for weighted time from fasted to 
 
 How test will be performed: Users will be timed on locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
-\item{test-id1: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
+\item{test-id15: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
 
 Control: Manual.
 
@@ -477,7 +479,7 @@ Output/Results: Scores from 1-5 will be given from most to least amount of relat
 
 How test will be performed: Users will measure force while locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
-\item{test-id1: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
+\item{test-id16: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
 
 Control: Manual 
 
@@ -489,7 +491,7 @@ Output/Results: The amount of time and quantity of lock/unlocks of the Smart Loc
 
 How test will be performed:  A group of users will take turns to bike to a new bike lock, lock the bike, mark the bikes location in the app, unlock, and then repeat. This will be done until the battery dies.
 
-\item{test-id1: NFR14: Batteries must be accessible to replace or chargeable. \\}
+\item{test-id17: NFR14: Batteries must be accessible to replace or chargeable. \\}
 
 Control: Manual.
 
@@ -501,7 +503,7 @@ Output/Results: Pass if the batteries can be charged/replaced as intended.
 
 How test will be performed: Users will charge/replace batteries as intended.
 
-\item{test-id1: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
+\item{test-id18: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
 
 Control: Manual.
 
@@ -513,7 +515,7 @@ Output/Results: The System is successfully mounted on the bike frame without spe
 
 How test will be performed: Each user attempts to install the System, following the procedure outlined in the instructions. This procedure will be developed following the completion of the first stage of prototyping. 
 
-\item{test-id2: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
+\item{test-id19: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
 
 Control: Manual 
 
@@ -533,120 +535,23 @@ How the test will be performed: Three users attempt to install the System, follo
   requirements.}
 
 \section{Unit Test Description}
-
-\wss{Reference your MIS and explain your overall philosophy for test case
-  selection.}  
-\wss{This section should not be filled in until after the MIS has
-  been completed.}
+\label{Section 6}
 
 \subsection{Unit Testing Scope}
 
-\wss{What modules are outside of the scope.  If there are modules that are
-  developed by someone else, then you would say here if you aren't planning on
-  verifying them.  There may also be modules that are part of your software, but
-  have a lower priority for verification than others.  If this is the case,
-  explain your rationale for the ranking of module importance.}
+Not applicable.
 
 \subsection{Tests for Functional Requirements}
 
-\wss{Most of the verification will be through automated unit testing.  If
-  appropriate specific modules can be verified by a non-testing based
-  technique.  That can also be documented in this section.}
-
-\subsubsection{Module 1}
-
-\wss{Include a blurb here to explain why the subsections below cover the module.
-  References to the MIS would be good.  You will want tests from a black box
-  perspective and from a white box perspective.  Explain to the reader how the
-  tests were selected.}
-
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-
-\item{...\\}
-    
-\end{enumerate}
-
-\subsubsection{Module 2}
-
-...
+Not applicable.
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
-\end{enumerate}
-
-\subsubsection{Module ?}
-
-...
+Not applicable.
 
 \subsection{Traceability Between Test Cases and Modules}
 
-\wss{Provide evidence that all of the modules have been considered.}
+Not applicable.
 				
 \bibliographystyle{plainnat}
 
