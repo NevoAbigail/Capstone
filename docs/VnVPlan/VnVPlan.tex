@@ -163,55 +163,9 @@ This document ... \wss{provide an introductory blurb and roadmap of the
 	
 \subsection{Tests for Functional Requirements}
 
-\wss{Subsets of the tests may be in related, so this section is divided into
-  different areas.  If there are no identifiable subsets for the tests, this
-  level of document structure can be removed.}
+\paragraph{The Tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product}
 
-\wss{Include a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good.}
-
-\subsubsection{Area of Testing1}
-
-\wss{It would be nice to have a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good.  If a section
-  covers tests for input constraints, you should reference the data constraints
-  table in the SRS.}
-		
-\paragraph{Title for Test}
-
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Control: Manual versus Automatic
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Control: Manual versus Automatic
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
-
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-
-How test will be performed: 
-
-\end{enumerate}
-
-\subsubsection{User Input Related}
+\subsubsection{Area of Testing: User Input Related}
 
 \begin{enumerate}
 
@@ -241,7 +195,7 @@ How test will be performed: A test group will attempt to connect via Bluetooth f
 
 \end{enumerate}
 
-\subsubsection{Bike Input Related}
+\subsubsection{Area of Testing: Bike Input Related}
 
 \begin{enumerate}
 
@@ -259,12 +213,12 @@ How test will be performed: Users will attempt to mount the SmartLock onto 1-3 b
 
 \end{enumerate}
 
-\subsubsection{Output Related}
+\subsubsection{Area of Testing: Output Related}
 
 \begin{enumerate}
 
-\item{FR11: Battery percentage must be shown on the phone app. \\}
-Type: Manual 
+\item{test-id1: FR11: Battery percentage must be shown on the phone app. \\}
+Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
 
@@ -272,8 +226,8 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the battery percentage of the lock 
 
-\item{FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
-Type: Manual 
+\item{test-id1: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
+Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
 
@@ -281,8 +235,8 @@ Input/Condition: observation of app
 
 Output/Results: user must be able to view the saved coordinates 
 
-\item{FR13: Battery must output enough power to engage the lock. \\}
-Type: Manual 
+\item{test-id1: FR13: Battery must output enough power to engage the lock. \\}
+Control: Manual 
 
 Initial State: Locking mechanism disengaged, electro magnet has ability to get power from battery (functional circuit) 
 
@@ -294,22 +248,15 @@ Output/Results: lock mechanism is engaged
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.}
+\paragraph{This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usibility of our product.}
 
-\wss{Tests related to usability could include conducting a usability test and
-  survey.}
-
-\subsubsection{Area of Testing1: Smart Phone}
-		
-\paragraph{Title for Test:}
+\subsubsection{Area of Testing: Smart Phone}
 
 \begin{enumerate}
 
 \item{test-id1: NFR1: Can be used by people who speak any native language. \\}
 
-Type: Manual
+Control: Manual
 
 Initial State: Lock is engaged and phone is on with App downloaded and open.
 
@@ -321,7 +268,7 @@ How test will be performed: User attempts to disengage the mechanism through the
 					
 \item{test-id2: NFR2: Can reasonably be used without requiring an instruction manual. \\}
 
-Type: Manual
+Control: Manual
 
 Initial State: Lock is engaged and phone is on with App downloaded and open.
 
@@ -331,9 +278,9 @@ Output/Results: The lock is successfully engaged, and the bike is securely locke
 
 How test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must below ten minutes. Learning period is subsequently calculated and plotted. 
 
-\item{test-id3: 3. NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
+\item{test-id3: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
 
-Type: Static 
+Control: Static 
 
 Initial State: App development IDE is open and up to date.
 
@@ -345,8 +292,8 @@ How test will be performed: App storage displayed on the IDE is kept below the u
 
 \subsubsection{Area of Testing: Physical Lock}
 \begin{enumerate}
-\item{NFR4: The design must be visually appealing. \\}
-Type: Manual 
+\item{test-id1: NFR4: The design must be visually appealing. \\}
+Control: Manual 
 
 Initial State: Locking mechanism assembled 
 
@@ -354,8 +301,8 @@ Input/Condition: Survey users on their opinions of the visual appeal of the devi
 
 Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
 
-\item{NFR5: The lock must not impede normal bike functions. \\}
-Type: Manual 
+\item{test-id1: NFR5: The lock must not impede normal bike functions. \\}
+Control: Manual 
 
 Initial State: Locking mechanism assembled and mounted on bike frame 
 
@@ -363,11 +310,11 @@ Input/Condition: Normal bike operation (ride forward, turn right, turn left, rid
 
 Output/Results: Device does not impede bicycle functioning 
 
-\item{NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
+\item{test-id1: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
 Test 1: empty housing (no electronics inside) 
 
-Type: Manual 
+Control: Manual 
 
 Initial State: housing assembled 
 
@@ -377,7 +324,7 @@ Output/Results: inside of housing is completely dry
 
 Test 2: full mechanism 
 
-Type: Manual 
+Control: Manual 
 
 Initial State: Locking mechanism, electronics, and housing assembled, microcontroller on 
 
@@ -385,8 +332,8 @@ Input/Condition: simulate rain: hold housing under shower for 5 minutes, slowly 
 
 Output/Results: device remains functional and operational 
 
-\item{NFR8: Accuracy of bike lock status must be above 95\%. \\}
-Type: Manual 
+\item{test-id1: NFR8: Accuracy of bike lock status must be above 95\%. \\}
+Control: Manual 
 
 Initial State: Locking mechanism, electronics, and housing assembled 
 
@@ -397,9 +344,7 @@ Input/Condition: Engage/disengage lock x100
 Output/Results: Ensure engage/disengage status matches current physical state 
 \end{enumerate}
 
-\subsubsection{Usability}
-
-\paragraph{Title for Test:}
+\subsubsection{Area of Testing: Usability}
 
 \begin{enumerate}
 
