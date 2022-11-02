@@ -58,26 +58,29 @@ Refer to section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/mai
 
 \pagenumbering{arabic}
 
-This document will outline the verification and validation plans we have created for the purpose of proving that the Smart Bike Lock device is a successful product. The tests mentioned in this document will validate out product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a sucessful device at its completion. 
+This document will outline the verification and validation plans we have created for the purpose of proving that the SmartLock device is a successful product. The tests mentioned in this document will validate our product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a successful device at its completion. 
 
 \section{General Information}
 
 \subsection{Summary}
-
+\-\
 The smart lock can be broken down into two main components, the software (ie. the smartphone application) and the hardware (ie. the physical lock).
 
 The smartphone application, SmartLock, will be a basic UI that our users can interact with to send a signal to unlock/lock the locking mechanism, check in on the battery of the device, and remember where they left their bike when they locked it.
 
 The physical locking device will be used to secure the wheels to the bike frame, which can also be connected to an external mount.
 
+These components will be tested through various different methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS Document}.
 
+\-\
 \wss{Say what software is being tested.  Give its name and a brief overview of
   its general functions.}
 
 \subsection{Objectives}
-
+\-\
 The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike with confidence and to allow them to find their bike with ease.
 
+\-\
 \wss{State what is intended to be accomplished.  The objective will be around
   the qualities that are most important for your project.  You might have
   something like: ``build confidence in the software correctness,''
@@ -85,27 +88,31 @@ The objective that our project hopes to accomplish is to create a simple-to-use 
   just those that are most important.}
 
 \subsection{Relevant Documentation}
-
+\-\
+For more information on the project breakdown, planning or delivery refer to the following documentation.
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA} MG MIS
+ 
+\-\
 \wss{Reference relevant documentation.  This will definitely include your SRS
   and your other project documents (MG, MIS, etc).  You can include these even
   before they are written, since by the time the project is done, they will be
   written.}
 
-For more information on the project breakdown, planning or delivery refer to the following documentation.
- \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}
- \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA} MG MIS
-
 
 %\citet{SRS}
 
 \section{Plan}
+\-\
+In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually prototype our solution.
 
-In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually our prototype solution.
-
+\-\
 \wss{Introduce this section.   You can provide a roadmap of the sections to
   come.}
+~\newpage
 
 \subsection{Verification and Validation Team}
+\-\
 
   \begin{minipage}{\textwidth}
 \renewcommand*{\arraystretch}{1.5}
@@ -113,7 +120,7 @@ In this section, various aspects of the verification plan will be illustrated ex
  \hline
  VnV Team Members & Role \\ 
   \hline
- Group 5 Members & Responsible for quality control on their topic of expertise and keeping the other group members aware of any changes or progress and reflecting that knowledge in the documentation\\ 
+ Group 5 Members & Responsible for quality control on their topic of expertise, keeping the other group members aware of any changes or progress and reflecting that knowledge in the documentation\\ 
  \hline
 Gr 5: Abi Nevo & Wireless Communication Expert \\ 
   \hline
@@ -128,11 +135,11 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
   Gr 5: Anthony
   ~\newline Shenouda & Software Expert \\ 
   \hline
-   Dr. Sirouspour & As our supervisor, from Dr. Sirouspour we are looking for technical feedback on components that we might not have considered or fully grasped as well as feedback on any design, materials or documentation considerations\\
+   Dr. Sirouspour & From our supervisor, Dr. Sirouspour, we are looking for technical feedback on components that we might not have considered or fully grasped as well as feedback on any design, materials or documentation considerations\\
   \hline
-    Classmates & Peer Review from the perspective of someone who knows what is required of the documentation \\
+    Classmates & Peer review from the perspective of someone who knows what is required of the documentation \\
   \hline
-   Nicholas Annable & Provide specific feedback and grades on the work we have completed so that we can take appropriate action moving further into the project\\
+   Nicholas Annable & Provide specific feedback and grades on the work we have completed so that we can take the appropriate action moving further into the project\\
   \hline
   Dr. Smith & Provide information and guidance on the project goals/deliverables and documentation requirements \\
   \hline
@@ -140,13 +147,26 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
 \end{tabular}
 \end{minipage}\\
 
-
+\-\
 \wss{You, your classmates and the course instructor.  Maybe your supervisor.
   You shoud do more than list names.  You should say what each person's role is
   for the project.  A table is a good way to summarize this information.}
 
 \subsection{SRS Verification Plan}
+\-\
+Our plan for verification of the SRS includes the following steps:
+\begin{enumerate}
+\item Keep the document alive
+\subitem By keeping the document alive we will be able to continually update any requirements/constraints/objectives that adapt as our project comes to life.  This will ensure that all the documentation is accurate. 
+\item Peer Review
+\subitem We will use the peer review to verify our work and to look for inconsistencies or aspects that we didn't consider.
+\item TA Review
+\subitem The TA review will be used to validate what we have done and what needs to be reworked as the project progresses.
+\item SRS Checklist
+\subitem With every update of the SRS document and progression of the SmartLock we will continue to reference the  \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Checklists/SRS-Checklist.pdf}{SRS Checklist} to ensure that we continue to meet all the requirements and produce complete documentation.
+\end{enumerate}
 
+ \-\
 \wss{List any approaches you intend to use for SRS verification.  This may just
   be ad hoc feedback from reviewers, like your classmates, or you may have
   something more rigorous/systematic in mind..}
@@ -154,7 +174,21 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
 \wss{Remember you have an SRS checklist}
 
 \subsection{Design Verification Plan}
+\-\
+Our plan for verification of the Design Plan includes the following steps:
+\begin{enumerate}
+\item Review with Supervisor (Dr. Sirouspour)
+\subitem As a novice design team, we will use the meetings with Dr. Sirouspour to review, primarily the hardware components of, our design and understand if we are using the right technical pieces and if our approach can lead to success. 
+\item Proof of Concept Demo
+\subitem The proof of concept demo will be a crucial part of our validation plan.  With the intent to be able to demonstrate both a portion of our physical component and a preliminary software UI, the presentation and feedback will provide with an opportunity to validate our objectives and verify the next steps and problem areas.
+\item Testing
+\subitem Testing, which will be discussed in detail below, will be used to understand if our requirements can be met given the scope of this project and help us to determine what needs to change for our final product.
+\item MIS \& MG Checklists
+\subitem The \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Checklists/MIS-Checklist.pdf}{MIS Checklist} and the
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Checklists/MG-Checklist.pdf}{MG Checklist} will be used to review the tests that are created and check that they follow the guidelines so that we can properly test the work product. Tests will be reviewed and updated as the project progresses.
+\end{enumerate}
 
+\-\
 \wss{Plans for design verification}
 
 \wss{The review will include reviews by your classmates}
