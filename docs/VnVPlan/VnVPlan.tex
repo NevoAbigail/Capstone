@@ -3,6 +3,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{caption}
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -14,6 +15,9 @@
 
 \input{../Comments}
 \input{../Common}
+
+\newcounter{testnum} %Test Number
+\newcommand{\dthetestnum}{TN\thetestnum}
 
 \begin{document}
 
@@ -41,19 +45,13 @@
 \tableofcontents
 
 \listoftables
-\wss{Remove this section if it isn't needed}
 
-\listoffigures
-\wss{Remove this section if it isn't needed}
 
 \newpage
 
 \section{Symbols, Abbreviations and Acronyms}
 
-Refer to section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS} documentation for a full reference section on units, symbols and abbreviations/acronyms
-
-\wss{symbols, abbreviations or acronyms -- you can simply reference the SRS
-  \citep{SRS} tables, if appropriate}
+Refer to Section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS} documentation for a full reference section on units, symbols and abbreviations/acronyms.
 
 \newpage
 
@@ -71,37 +69,18 @@ The smartphone application, SmartLock, will be a basic UI that our users can int
 
 The physical locking device will be used to secure the wheels to the bike frame, which can also be connected to an external mount.
 
-These components will be tested through various different methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS Document}.
-
-\-\
-\wss{Say what software is being tested.  Give its name and a brief overview of
-  its general functions.}
+These components will be tested through various different methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}.
 
 \subsection{Objectives}
 \-\
 The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike with confidence and to allow them to find their bike with ease.
 
-\-\
-\wss{State what is intended to be accomplished.  The objective will be around
-  the qualities that are most important for your project.  You might have
-  something like: ``build confidence in the software correctness,''
-  ``demonstrate adequate usability.'' etc.  You won't list all of the qualities,
-  just those that are most important.}
-
 \subsection{Relevant Documentation}
 \-\
-For more information on the project breakdown, planning or delivery refer to the following documentation.
- \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}
- \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA} MG MIS
+For more information on the project breakdown, planning or delivery refer to the following documentation:
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA}, MG, and MIS.
  
-\-\
-\wss{Reference relevant documentation.  This will definitely include your SRS
-  and your other project documents (MG, MIS, etc).  You can include these even
-  before they are written, since by the time the project is done, they will be
-  written.}
-
-
-%\citet{SRS}
 
 \section{Plan}
 \-\
@@ -115,7 +94,8 @@ In this section, various aspects of the verification plan will be illustrated ex
 \subsection{Verification and Validation Team}
 \-\
 
-  \begin{minipage}{\textwidth}
+ \begin{minipage}{\textwidth}
+ \captionof{table}{Verification and Validation Team Table}
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{| p{0.30\textwidth} | p{0.70\textwidth} |}
  \hline
@@ -148,11 +128,6 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
 \end{tabular}
 \end{minipage}\\
 
-\-\
-\wss{You, your classmates and the course instructor.  Maybe your supervisor.
-  You shoud do more than list names.  You should say what each person's role is
-  for the project.  A table is a good way to summarize this information.}
-
 \subsection{SRS Verification Plan}
 \-\
 Our plan for verification of the SRS includes the following steps:
@@ -166,13 +141,6 @@ Our plan for verification of the SRS includes the following steps:
 \item SRS Checklist
 \subitem With every update of the SRS document and progression of the SmartLock we will continue to reference the  \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Checklists/SRS-Checklist.pdf}{SRS Checklist} to ensure that we continue to meet all the requirements and produce complete documentation.
 \end{enumerate}
-
- \-\
-\wss{List any approaches you intend to use for SRS verification.  This may just
-  be ad hoc feedback from reviewers, like your classmates, or you may have
-  something more rigorous/systematic in mind..}
-
-\wss{Remember you have an SRS checklist}
 
 \subsection{Design Verification Plan}
 \-\
@@ -190,11 +158,6 @@ Our plan for verification of the Design Plan includes the following steps:
 \end{enumerate}
 
 \-\
-\wss{Plans for design verification}
-
-\wss{The review will include reviews by your classmates}
-
-\wss{Remember you have MG and MIS checklists}
 
 \subsection{Implementation Verification Plan}
 
@@ -206,7 +169,7 @@ Our plan to verify the implementation is outlined below:
 
 ~\newpage
 
-\item Non-functional Requirements Verification
+\item Non-Functional Requirements Verification
 
 \subitem The verification of our non-functional requirements will be done by performing the system tests discussed in \nameref{Section 5.2}. The success rate of these system tests will help the team to confirm and validate these requirements and therefore will provide the team with good metrics on the overall quality and class of the product. This will help us in verifying other aspects of the product including the App features, durability and ease of use.
 
@@ -215,18 +178,11 @@ Our plan to verify the implementation is outlined below:
 \subitem In order to verify the implementation of our code-base, we will make use of both code walk-throughs and inspection by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only illuminate any shortcomings in our implementation but also help us in identifying more efficient techniques within our code-base. By performing unit tests, which are discussed in \nameref{Section 6}, we can verify different modules within our system to see if each is performing as expected and is robust. This will help us maintain best practices while implementing our code-base.
 
 \end{enumerate}
-\wss{You should at least point to the tests listed in this document and the unit
-  testing plan.}
-
-\wss{In this section you would also give any details of any plans for static verification of
-  the implementation.  Potential techniques include code walkthroughs, code
-  inspection, static analyzers, etc.}
 
 \subsection{Automated Testing and Verification Tools}
 The tools used for automated testing and verifying coding standards are outlined below:
 
 \begin{enumerate}
-
 
 \item SwiftLint
 
@@ -246,20 +202,7 @@ The tools used for automated testing and verifying coding standards are outlined
 
 \end{enumerate}
 
-\wss{What tools are you using for automated testing.  Likely a unit testing
-  framework and maybe a profiling tool, like ValGrind.  Other possible tools
-  include a static analyzer, make, continuous integration tools, test coverage
-  tools, etc.  Explain your plans for summarizing code coverage metrics.
-  Linters are another important class of tools.  For the programming language
-  you select, you should look at the available linters.  There may also be tools
-  that verify that coding standards have been respected, like flake9 for
-  Python.}
-
-\wss{The details of this section will likely evolve as you get closer to the
-  implementation.}
-
 \subsection{Software Validation Plan}
-
 
 \wss{If there is any external data that can be used for validation, you should
   point to it here.  If there are no plans for validation, you should state that
@@ -270,13 +213,97 @@ The tools used for automated testing and verifying coding standards are outlined
 \subsection{Tests for Functional Requirements}
 \label{Section 5.1}
 
-The Tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product
+The tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product
 
 \subsubsection{Area of Testing: User Input Related}
 
 \begin{enumerate}
 
-\item{test-id1: FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. \\}
+\item{test-id1: FR1: LockEngage input must engage the lock on the bike. \\} 
+
+Control: Automatic 
+
+Initial State: Bike lock is disengaged 
+
+Input/ Condition: Signal from App to engage the lock 
+
+Output/ Results: Pass/fail if lock is successfully engaged  
+
+How test will be performed: The bike lock will be disengaged. The user will use the App to engage the lock. If successful, lock becomes engaged. 
+
+\item{test-id2: FR2: LockDisengage input must disengage the lock on the bike. \\} 
+
+Control: Automatic 
+
+Initial State: Bike lock is engaged 
+
+Input/ Condition: Signal from App to disengage the lock 
+
+Output/ Results: Pass/fail if lock is successfully disengaged  
+
+How test will be performed: The bike lock will be engaged. The user will use the App to disengage the lock. If successful, lock becomes disengaged. 
+
+\item{test-id3: FR3: When lock is engaged, change lock status to engaged. \\} 
+
+Control: Automatic 
+
+Initial State: Bike lock is engaged 
+
+Input/ Condition: Signal from microcontroller to App stating lock is engaged 
+
+Output/ Results: Pass/fail if App correctly displays lock is engaged 
+
+How test will be performed: The bike lock will be engaged.  
+
+ \item{test-id4: FR4: When lock is disengaged, change lock status to disengaged. \\} 
+
+Control: Automatic 
+
+Initial State: Bike lock is disengaged 
+
+Input/ Condition: Signal from microcontroller to App stating lock is disengaged 
+
+Output/ Results: Pass/fail if App correctly displays lock is disengaged 
+
+How test will be performed: The bike lock will be disengaged. 
+
+\item{test-id5: FR5: Moving locking bar closed must move OpenClosedStatus to Closed. \\} 
+
+Control: Automatic 
+
+Initial State: Locking bar is open 
+
+Input/ Condition: Locking bar is moved closed 
+
+Output/ Results: Pass/fail if App correctly displays OpenClosedStatus to Closed 
+
+How test will be performed: The locking bar will be moved closed and the App will be checked if the OpenClosedstatus to Closed. 
+
+\item{test-id6: FR6: Moving locking bar open must move OpenClosedStatus to Open. \\} 
+
+Control: Automatic 
+
+Initial State: Locking bar is closed 
+
+Input/ Condition: Locking bar is pushed open 
+
+Output/ Results: Pass/fail if App correctly displays OpenClosedStatus to Open 
+
+How test will be performed: The locking bar will be pushed open and the App will be checked if the OpenClosedStatus to Open. 
+ 
+\item{test-id7: FR7: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. \\} 
+
+Control: Automatic 
+
+Initial State: No location  
+
+Input/ Condition: User engages the Bike lock using the App 
+
+Output/ Results: Pass/fail if App places a geotag within 10 metres of the Users current location 
+
+How test will be performed: The Bike lock will be engaged on the App. The App will be monitored to ensure the geotag is stored and correctly placed on the App.  
+
+\item{test-id8: FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. \\}
 
 Control: Manual
 
@@ -288,7 +315,7 @@ Output/Results: A pass/fail as well as a score from 1-4 for the following cases;
 
 How test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
 
-\item{test-id2: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
+\item{test-id9: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
 
 Control: Manual
 
@@ -306,7 +333,7 @@ How test will be performed: A test group will attempt to connect via Bluetooth f
 
 \begin{enumerate}
 
-\item{test-id3: FR10: The lock can be mounted to the bike’s frame. \\}
+\item{test-id10: FR10: The lock can be mounted to the bike’s frame. \\}
 
 Control: Manual
 
@@ -324,7 +351,7 @@ How test will be performed: Users will attempt to mount the SmartLock onto 1-3 b
 
 \begin{enumerate}
 
-\item{test-id4: FR11: Battery percentage must be shown on the phone app. \\}
+\item{test-id11: FR11: Battery percentage must be shown on the phone app. \\}
 Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
@@ -335,7 +362,7 @@ Output/Results: user must be able to view the battery percentage of the lock
 
 How the test will be performed: apply input condition, observe expected output
 
-\item{test-id5: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
+\item{test-id12: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
 Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
@@ -346,7 +373,7 @@ Output/Results: user must be able to view the saved coordinates
 
 How the test will be performed: apply input condition, observe expected output
 
-\item{test-id6: FR13: Battery must output enough power to engage the lock. \\}
+\item{test-id13: FR13: Battery must output enough power to engage the lock. \\}
 Control: Manual 
 
 Initial State: Locking mechanism disengaged, electro magnet has ability to get power from battery (functional circuit) 
@@ -368,7 +395,7 @@ This subset of tests will be used to validate the nonfunctional requirements of 
 
 \begin{enumerate}
 
-\item{test-id7: NFR1: Can be used by people who speak any native language. \\}
+\item{test-id14: NFR1: Can be used by people who speak any native language. \\}
 
 Control: Manual
 
@@ -380,7 +407,7 @@ Output/Results: The lock is successfully engaged and the bike is securely locked
 
 How test will be performed: User attempts to disengage the mechanism through the App, attach bike to external frame and re-engage mechanism.
 					
-\item{test-id8: NFR2: Can reasonably be used without requiring an instruction manual. \\}
+\item{test-id15: NFR2: Can reasonably be used without requiring an instruction manual. \\}
 
 Control: Manual
 
@@ -392,7 +419,7 @@ Output/Results: The lock is successfully engaged, and the bike is securely locke
 
 How test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must below ten minutes. Learning period is subsequently calculated and plotted. 
 
-\item{test-id9: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
+\item{test-id16: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
 
 Control: Static 
 
@@ -407,18 +434,18 @@ How test will be performed: App storage displayed on the IDE is kept below the u
 \subsubsection{Area of Testing: Physical Lock}
 \begin{enumerate}
 
-\item{test-id10: NFR4: The design must be visually appealing. \\}
+\item{test-id17: NFR4: The design must be visually appealing. \\}
 Control: Manual 
 
 Initial State: Locking mechanism assembled 
 
-Input/Condition: Survey users on their opinions of the visual appeal of the device 
+Input/Condition: Survey users on their opinions of the visual appeal of the device; see \nameref{Survey}.
 
 Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
 
-How the test will be performed: apply input condition, survey 50 users, observe expected output
+How the test will be performed: Apply input condition, survey 50 users and observe expected output.
 
-\item{test-id11: NFR5: The lock must not impede normal bike functions. \\}
+\item{test-id18: NFR5: The lock must not impede normal bike functions. \\}
 Control: Manual 
 
 Initial State: Locking mechanism assembled and mounted on bike frame 
@@ -429,7 +456,7 @@ Output/Results: Device does not impede bicycle functioning
 
 How the test will be performed: apply input condition, observe expected output
 
-\item{test-id12: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
+\item{test-id19: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
 Stage 1: Empty Housing (no electronics inside) 
 
@@ -455,7 +482,7 @@ Output/Results: Receives a pass if the device remains functional and operational
 
 How the test will be performed: apply input condition, observe expected output
 
-\item{test-id13: NFR8: Accuracy of bike lock status must be above 95\%. \\}
+\item{test-id20: NFR8: Accuracy of bike lock status must be above 95\%. \\}
 Control: Manual 
 
 Initial State: Locking mechanism, electronics, and housing assembled operational and within range.
@@ -471,7 +498,7 @@ How the test will be performed: apply input condition, observe expected output
 
 \begin{enumerate}
 
-\item{test-id14: NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock.  \\}
+\item{test-id21: NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock.  \\}
 
 Control: Manual 
 
@@ -483,7 +510,7 @@ Output/Results: Scores from 1-10 will be given for weighted time from fasted to 
 
 How test will be performed: Users will be timed on locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
-\item{test-id15: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
+\item{test-id22: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
 
 Control: Manual.
 
@@ -495,7 +522,7 @@ Output/Results: Scores from 1-5 will be given from most to least amount of relat
 
 How test will be performed: Users will measure force while locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
-\item{test-id16: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
+\item{test-id23: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
 
 Control: Manual 
 
@@ -507,7 +534,7 @@ Output/Results: The amount of time and quantity of lock/unlocks of the Smart Loc
 
 How test will be performed:  A group of users will take turns to bike to a new bike lock, lock the bike, mark the bikes location in the app, unlock, and then repeat. This will be done until the battery dies.
 
-\item{test-id17: NFR14: Batteries must be accessible to replace or chargeable. \\}
+\item{test-id24: NFR14: Batteries must be accessible to replace or chargeable. \\}
 
 Control: Manual.
 
@@ -519,7 +546,7 @@ Output/Results: Pass if the batteries can be charged/replaced as intended.
 
 How test will be performed: Users will charge/replace batteries as intended.
 
-\item{test-id18: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
+\item{test-id25: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install.  \\}
 
 Control: Manual.
 
@@ -531,7 +558,7 @@ Output/Results: The System is successfully mounted on the bike frame without spe
 
 How test will be performed: Each user attempts to install the System, following the procedure outlined in the instructions. This procedure will be developed following the completion of the first stage of prototyping. 
 
-\item{test-id19: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
+\item{test-id26: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
 
 Control: Manual 
 
@@ -559,55 +586,73 @@ Input/Condition: Engage/disengage lock until battery dies.
 
 Output/Results: Number of lock engages possible with 1\% battery matches our specification for number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100).
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: Apply input condition and observe expected output
 
 \end{enumerate}
 
 \subsection{Traceability Between Test Cases and Requirements}
 
 \begin{minipage}{\textwidth}
+\footnotesize
+\captionof{table}{Traceability Table}
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{0.2\textwidth} | p{0.25\textwidth} | p{0.25\textwidth} |}
+\begin{tabular}{| p{0.2\textwidth} | p{0.4\textwidth} | p{0.45\textwidth} |}
  \hline
- Test Case & Functional Requirement(s) & Non-Functional Requirement(s) \\ 
+ Test Case & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{Functional Requirement(s)} & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{Non-Functional Requirement(s)} \\ 
  \hline
- test-id1 & FR8 &  \\ 
+ test-id1 & FR1 &  \\ 
   \hline
- test-id2 & FR9 &  \\ 
+ test-id2 & FR2 &  \\
   \hline
- test-id3 & FR10 &  \\ 
+ test-id3 & FR3 &  \\  
   \hline
- test-id4 & FR11 & \\ 
+ test-id4 & FR4 &  \\ 
   \hline
- test-id5 & FR12 &  \\ 
+ test-id5 & FR5 &  \\ 
   \hline
- test-id6 & FR13 &  \\ 
+ test-id6 & FR6 &  \\ 
+  \hline
+ test-id7 & FR7 &  \\ 
+  \hline
+ test-id8 & FR8 &  \\ 
+  \hline
+ test-id9 & FR9 &  \\ 
+  \hline
+ test-id10 & FR10 &  \\ 
+  \hline
+ test-id11 & FR11 & \\ 
+  \hline
+ test-id12 & FR12 &  \\ 
+  \hline
+ test-id13 & FR13 &  \\ 
  \hline
- test-id7 & & NFR1 \\
+ test-id14 & & NFR1 \\
  \hline
-  test-id8 & & NFR2 \\
+  test-id15 & & NFR2 \\
  \hline
-  test-id9 & & NFR3 \\
+  test-id16 & & NFR3 \\
  \hline
-  test-id10 & & NFR4 \\
+  test-id17 & & NFR4 \\
  \hline
-  test-id11 & & NFR5 \\
+  test-id18 & & NFR5 \\
  \hline
-  test-id12 & & NFR6, NFR7 \\
+  test-id19 & & NFR6, NFR7 \\
  \hline
-  test-id13 & & NFR8 \\
+  test-id20 & & NFR8 \\
  \hline
-  test-id14 & & NFR11 \\
+  test-id21 & & NFR11 \\
  \hline
-  test-id15 & & NFR12 \\
+  test-id22 & & NFR12 \\
  \hline
-  test-id16 & & NFR13 \\
+  test-id23 & & NFR13 \\
  \hline
-  test-id17 & & NFR14 \\
+  test-id24 & & NFR14 \\
  \hline
-  test-id18 & & NFR15 \\
+  test-id25 & & NFR15 \\
  \hline
-  test-id19 & & NFR16 \\
+  test-id26 & & NFR16 \\
+ \hline
+ test-id27 & & NFR10 \\
  \hline
  \end{tabular}
 \end{minipage}\\
@@ -641,16 +686,17 @@ Not applicable.
 
 \section{Appendix}
 
-This is where you can place additional information.
+\subsection{Usability Survey Questions}
 
-\subsection{Symbolic Parameters}
+\begin{enumerate}
 
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+\item{testid-10: Survey Question}
+\label{Survey}
 
-\subsection{Usability Survey Questions?}
+Rate this device's visual appeal on a scale of 1-10, with 10 being most visually appealing, 1 being least visually appealing.
 
-\wss{This is a section that would be appropriate for some projects.}
+\end{enumerate}
+
 
 \newpage{}
 \section*{Appendix --- Reflection}
