@@ -30,7 +30,7 @@
 \begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
 \midrule
-20-10-22 & 1.0 & Steffi & Section 2\\
+20-10-22 & 1.0 & Steffi & Section 2, 3 \& 4\\
 01-11-22 & 1.1 & Stephen, Elsa, Abi, \& Anthony & Section 5\\
 \bottomrule
 \end{tabularx}
@@ -49,24 +49,7 @@
 
 \section{Symbols, Abbreviations and Acronyms}
 
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l l} 
-  \toprule		
-  \textbf{symbol} & \textbf{description}\\
-  \midrule 
-  SRS & Software Requirements Specification\\
-  FR & Functional Requirements\\
-  NFR & Nonfunctional Requirements\\
-  LC & Likely Changes\\
-  ULC & Unlikely Changes\\
-  SC & System Contraints\\
-  A & Assumptions\\
-  MV & Monitored Variables\\
-  \bottomrule
-\end{tabular}\\
-
-~\newline
-REFERENCE TO SRS FOR OTHER TABLES + ADD CAPTION
+Refer to section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS} documentation for a full reference section on units, symbols and abbreviations/acronyms
 
 \wss{symbols, abbreviations or acronyms -- you can simply reference the SRS
   \citep{SRS} tables, if appropriate}
@@ -81,10 +64,19 @@ This document will outline the verification and validation plans we have created
 
 \subsection{Summary}
 
+The smart lock can be broken down into two main components, the software (ie. the smartphone application) and the hardware (ie. the physical lock).
+
+The smartphone application, SmartLock, will be a basic UI that our users can interact with to send a signal to unlock/lock the locking mechanism, check in on the battery of the device, and remember where they left their bike when they locked it.
+
+The physical locking device will be used to secure the wheels to the bike frame, which can also be connected to an external mount.
+
+
 \wss{Say what software is being tested.  Give its name and a brief overview of
   its general functions.}
 
 \subsection{Objectives}
+
+The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike with confidence and to allow them to find their bike with ease.
 
 \wss{State what is intended to be accomplished.  The objective will be around
   the qualities that are most important for your project.  You might have
@@ -99,14 +91,55 @@ This document will outline the verification and validation plans we have created
   before they are written, since by the time the project is done, they will be
   written.}
 
-\citet{SRS}
+For more information on the project breakdown, planning or delivery refer to the following documentation.
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA} MG MIS
+
+
+%\citet{SRS}
 
 \section{Plan}
+
+In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually our prototype solution.
 
 \wss{Introduce this section.   You can provide a roadmap of the sections to
   come.}
 
 \subsection{Verification and Validation Team}
+
+  \begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.30\textwidth} | p{0.70\textwidth} |}
+ \hline
+ VnV Team Members & Role \\ 
+  \hline
+ Group 5 Members & Responsible for quality control on their topic of expertise and keeping the other group members aware of any changes or progress and reflecting that knowledge in the documentation\\ 
+ \hline
+Gr 5: Abi Nevo & Wireless Communication Expert \\ 
+  \hline
+ Gr 5: Elsa Bassi & Microcontroller Expert \\ 
+  \hline
+ Gr 5: Steffi Ralph & Documentation Expert/ Faux Marker \\ 
+  \hline
+ Gr 5: Abdul Iqbal & Lock Mechanism Expert \\ 
+  \hline
+ Gr 5: Stephen De Jong & Lock Frame Design Expert \\ 
+  \hline
+  Gr 5: Anthony
+  ~\newline Shenouda & Software Expert \\ 
+  \hline
+   Dr. Sirouspour & As our supervisor, from Dr. Sirouspour we are looking for technical feedback on components that we might not have considered or fully grasped as well as feedback on any design, materials or documentation considerations\\
+  \hline
+    Classmates & Peer Review from the perspective of someone who knows what is required of the documentation \\
+  \hline
+   Nicholas Annable & Provide specific feedback and grades on the work we have completed so that we can take appropriate action moving further into the project\\
+  \hline
+  Dr. Smith & Provide information and guidance on the project goals/deliverables and documentation requirements \\
+  \hline
+
+\end{tabular}
+\end{minipage}\\
+
 
 \wss{You, your classmates and the course instructor.  Maybe your supervisor.
   You shoud do more than list names.  You should say what each person's role is
