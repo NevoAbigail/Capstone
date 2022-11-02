@@ -531,8 +531,54 @@ How the test will be performed: Three users attempt to install the System, follo
 
 \subsection{Traceability Between Test Cases and Requirements}
 
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.2\textwidth} | p{0.25\textwidth} | p{0.25\textwidth} |}
+ \hline
+ Test Case & Functional Requirement(s) & Non-Functional Requirement(s) \\ 
+ \hline
+ test-id1 & FR8 &  \\ 
+  \hline
+ test-id2 & FR9 &  \\ 
+  \hline
+ test-id3 & FR10 &  \\ 
+  \hline
+ test-id4 & FR11 & \\ 
+  \hline
+ test-id5 & FR12 &  \\ 
+  \hline
+ test-id6 & FR13 &  \\ 
+ \hline
+ test-id7 & & NFR1 \\
+ \hline
+  test-id8 & & NFR2 \\
+ \hline
+  test-id9 & & NFR3 \\
+ \hline
+  test-id10 & & NFR4 \\
+ \hline
+  test-id11 & & NFR5 \\
+ \hline
+  test-id12 & & NFR6, NFR7 \\
+ \hline
+  test-id13 & & NFR8 \\
+ \hline
+  test-id14 & & NFR11 \\
+ \hline
+  test-id15 & & NFR12 \\
+ \hline
+  test-id16 & & NFR13 \\
+ \hline
+  test-id17 & & NFR14 \\
+ \hline
+  test-id18 & & NFR15 \\
+ \hline
+  test-id19 & & NFR16 \\
+ \hline
+ \end{tabular}
+\end{minipage}\\
+
+Note: NFR9 regarding GPS location accuracy has been changed to a constraint due to its dependence on the GPS capabilities of the user's smartphone. These capabilities are not associated with the System, therefore it is not included in the Traceability Table.
 
 \section{Unit Test Description}
 \label{Section 6}
