@@ -31,6 +31,7 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
 \midrule
 20-10-22 & 1.0 & Steffi & Section 2\\
+01-11-22 & 1.1 & Stephen, Elsa, Abi, \& Anthony & Section 5\\
 \bottomrule
 \end{tabularx}
 
@@ -47,8 +48,6 @@
 \newpage
 
 \section{Symbols, Abbreviations and Acronyms}
-
-
 
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l l} 
@@ -76,8 +75,7 @@ REFERENCE TO SRS FOR OTHER TABLES + ADD CAPTION
 
 \pagenumbering{arabic}
 
-This document ... \wss{provide an introductory blurb and roadmap of the
-  Verification and Validation plan}
+This document will outline the verification and validation plans we have created for the purpose of proving that the Smart Bike Lock device is a successful product. The tests mentioned in this document will validate out product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a sucessful device at its completion. 
 
 \section{General Information}
 
@@ -163,7 +161,7 @@ This document ... \wss{provide an introductory blurb and roadmap of the
 	
 \subsection{Tests for Functional Requirements}
 
-\paragraph{The Tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product}
+The Tests in this section will be used to confirm and validate our functional requirements from the SRS document. Completing these tests will prove the functionality of our product
 
 \subsubsection{Area of Testing: User Input Related}
 
@@ -248,7 +246,7 @@ Output/Results: lock mechanism is engaged
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\paragraph{This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usibility of our product.}
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usibility of our product.
 
 \subsubsection{Area of Testing: Smart Phone}
 
@@ -312,36 +310,34 @@ Output/Results: Device does not impede bicycle functioning
 
 \item{test-id1: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
-Test 1: empty housing (no electronics inside) 
+Stage 1: Empty Housing (no electronics inside) 
 
 Control: Manual 
 
-Initial State: housing assembled 
+Initial State: Husing assembled.
 
-Input/Condition: simulate rain: hold housing under shower for 5 minutes, slowly rotating 
+Input/Condition: Simulate rain: Hold housing under shower for 5 minutes, slowly rotating.
 
-Output/Results: inside of housing is completely dry 
+Output/Results: Recieves a pass if the inside of housing is completely dry.
 
-Test 2: full mechanism 
+Stage 2: Full Mechanism 
 
 Control: Manual 
 
-Initial State: Locking mechanism, electronics, and housing assembled, microcontroller on 
+Initial State: Locking mechanism, electronics, and housing assembled, microcontroller turned on.
 
-Input/Condition: simulate rain: hold housing under shower for 5 minutes, slowly rotating 
+Input/Condition: Simulate rain: hold housing under shower for 5 minutes, slowly rotating.
 
-Output/Results: device remains functional and operational 
+Output/Results: Recieves a pass if the device remains functional and operational.
 
 \item{test-id1: NFR8: Accuracy of bike lock status must be above 95\%. \\}
 Control: Manual 
 
-Initial State: Locking mechanism, electronics, and housing assembled 
+Initial State: Locking mechanism, electronics, and housing assembled operational and within range.
 
- operational and within range  
+Input/Condition: Engage/disengage lock 100 times. 
 
-Input/Condition: Engage/disengage lock x100 
-
-Output/Results: Ensure engage/disengage status matches current physical state 
+Output/Results: Ensure engage/disengage status matches current physical state.
 \end{enumerate}
 
 \subsubsection{Area of Testing: Usability}
@@ -362,7 +358,7 @@ How test will be performed: Users will be timed on locking and unlocking. As a g
 
 \item{test-id1: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
 
-Control: Manual 
+Control: Manual.
 
 Initial State: The Smart Lock will be in transport state with the test user standing beside the bike at a bike rack.
 
@@ -376,7 +372,7 @@ How test will be performed: Users will measure force while locking and unlocking
 
 Control: Manual 
 
-Initial State: The Smart Lock is fully charged
+Initial State: The Smart Lock is fully charged.
 
 Input/Condition: Users Engaging, Locating, and Disengaging the SmartLock.
 
@@ -386,7 +382,7 @@ How test will be performed:  A group of users will take turns to bike to a new b
 
 \item{test-id1: NFR14: Batteries must be accessible to replace or chargeable. \\}
 
-Control: Manual 
+Control: Manual.
 
 Initial State: The Smart Lock is in the Transport state.
 
@@ -398,7 +394,7 @@ How test will be performed: Users will charge/replace batteries as intended.
 
 \item{test-id1: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twnety minutes to install.  \\}
 
-Control: Manual 
+Control: Manual.
 
 Initial State: The System is ready to be installed.  
 
@@ -416,7 +412,7 @@ Initial State: The System is ready to be installed.
 
 Input/Condition: A group of test users with an average understanding of how to use typical tools. They have access to those typical tools. Three different models of bike are tested; one for each type (mountain, city and road). 
 
-Output/Results:	The System can be mounted on all three bike models successfully by each test user. 
+Output/Results: The System can be mounted on all three bike models successfully by each test user. 
 
 How the test will be performed: Three users attempt to install the System, following the procedure outlined in the instructions.  
 
