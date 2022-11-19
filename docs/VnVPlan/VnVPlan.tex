@@ -13,34 +13,37 @@
 }
 \usepackage[round]{natbib}
 
+\title{Verification and Validation Plan for SmartLock\\\progname} 
+\author{\authname}
+\date{\today}
+
 \input{../Comments}
 \input{../Common}
 
 \newcounter{testnum} %Test Number
 \newcommand{\dthetestnum}{TN\thetestnum}
 
-\begin{document}
-
-\title{Project Title: System Verification and Validation Plan for \progname{ Smart Bike Lock}} 
-\author{Abi Nevo\\Elsa Bassi\\Steffi Ralph\\Abdul Iqbal\\Stephen De Jong\\Anthony Shenouda}
-\date{\today}
-	
+\begin{document}	
 \maketitle
+
+
+\newpage
 
 \pagenumbering{roman}
 
-\section{Revision History}
-
-\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
+\begin{table}[hp]
+\caption{Revision History} \label{TblRevisionHistory}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-20-10-22 & 1.0 & Steffi & Section 2, 3 \& 4\\
-01-11-22 & 1.1 & Stephen, Elsa, Abi, \& Anthony & Section 5\\
-02-11-22 & 1.2 & Abdul & Section 4\\
-02-11-22 & 1.3 & Abdul & Section 4\\
-02-11-22 & 1.4 & Abdul & Reflection\\
+20-10-22 & Steffi & Section 2, 3, 4 \& Reflection\\
+01-11-22 & Stephen, Elsa, Abi, \& Anthony & Section 5 \& Reflection\\
+02-11-22 & Abdul & Section 4 \& Reflection\\
+19-11-22 & Steffi & Updates for Consistency\\
 \bottomrule
 \end{tabularx}
+\end{table}
 
 \newpage
 
@@ -51,20 +54,20 @@
 
 \newpage
 
+\pagenumbering{arabic}
+
 \section{Symbols, Abbreviations and Acronyms}
 
 Refer to Section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS} documentation for a full reference section on units, symbols and abbreviations/acronyms.
 
-\newpage
-
-\pagenumbering{arabic}
+\-\
 
 This document will outline the verification and validation plans we have created for the purpose of proving that the SmartLock device is a successful product. The tests mentioned in this document will validate our product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a successful device at its completion. 
 
 \section{General Information}
 
 \subsection{Summary}
-\-\
+
 The smart lock can be broken down into two main components, the software (ie. the smartphone application) and the hardware (ie. the physical lock).
 
 The smartphone application, SmartLock, will be a basic UI that our users can interact with to send a signal to unlock/lock the locking mechanism, check in on the battery of the device, and remember where they left their bike when they locked it.
@@ -74,27 +77,20 @@ The physical locking device will be used to secure the wheels to the bike frame,
 These components will be tested through various different methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}.
 
 \subsection{Objectives}
-\-\
 The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike with confidence and to allow them to find their bike with ease.
 
 \subsection{Relevant Documentation}
-\-\
+
 For more information on the project breakdown, planning or delivery refer to the following documentation:
  \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS},
  \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA}, MG, and MIS.
  
 
 \section{Plan}
-\-\
+
 In this section, various aspects of the verification plan will be illustrated explaining the process from concept to implementation. Beginning with an outline of the Validation team and their roles in guiding the process, this section will cover the verification of our SRS documentation as well as how we plan to design, implement and test our problem and eventually prototype our solution. It also covers any automation tools used as well as a software validation plan.
 
-\-\
-
-  
-~\newpage
-
 \subsection{Verification and Validation Team}
-\-\
 
  \begin{minipage}{\textwidth}
  \captionof{table}{Verification and Validation Team Table}
@@ -131,7 +127,7 @@ Gr 5: Abi Nevo & Wireless Communication Expert \\
 \end{minipage}\\
 
 \subsection{SRS Verification Plan}
-\-\
+
 Our plan for verification of the SRS includes the following steps:
 \begin{enumerate}
 \item Keep the Document Alive
@@ -145,7 +141,7 @@ Our plan for verification of the SRS includes the following steps:
 \end{enumerate}
 
 \subsection{Design Verification Plan}
-\-\
+
 Our plan for verification of the Design Plan includes the following steps:
 \begin{enumerate}
 \item Review with Supervisor (Dr. Sirouspour)
@@ -684,7 +680,7 @@ Not applicable.
 
 \newpage
 
-\section{Appendix}
+\section{Appendix A}
 
 \subsection{Usability Survey Questions}
 
@@ -697,9 +693,8 @@ Rate this device's visual appeal on a scale of 1-10, with 10 being most visually
 
 \end{enumerate}
 
-
-\newpage{}
-\section*{Appendix --- Reflection}
+\section{Appendix B}
+\subsection{Reflection}
 
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.  Please answer the following questions:

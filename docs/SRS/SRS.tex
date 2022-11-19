@@ -148,44 +148,51 @@
 
 \begin{document}
 
-\title{Software Requirements Specification for \progname: Smart Bike Lock} 
-\author{Abi Nevo\\Elsa Bassi\\Steffi Ralph\\Abdul Iqbal\\Stephen De Jong\\Anthony Shenouda}
+\title{Software Requirements Specification for SmartLock\\\progname} 
+\author{\authname}
 \date{\today}
 	
 \maketitle
+\thispagestyle{empty}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
+\end{figure}
 
-~\newpage
-
+\newpage
 \pagenumbering{roman}
+\begin{table}[hp]
+\caption{Revision History} \label{TblRevisionHistory}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
+\midrule
+02-10-22 & Elsa & Drafted first draft\\
+03-10-22 & Stephen & Drafted 1 \& 5, and formatting updates\\
+03-10-22 & Abi & Drafted Likely and Unlikely Changes\\
+04-10-22 & Steffi & Drafted Appendix\\
+04-10-22 & Abi & Drafted Dev Plan and added Reflection\\
+04-10-22 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
+14-10-22 & Abi & Fixed System Constraint numbering\\
+19-11-22 & Steffi & Updates for Consistency\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
 
 \tableofcontents
 
-~\newpage
-
-\section*{Revision History}
-
-\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Name} & {\bf Notes}\\
-\midrule
-02-10-22 & 1.0 & Elsa & Drafted first draft\\
-03-10-22& 1.1 & Stephen & Drafted 1 \& 5, and formatting updates\\
-03-10-22 & 1.1 & Abi & Drafted Likely and Unlikely Changes\\
-04-10-22& 1.2 & Steffi & Drafted Appendix\\
-04-10-22 & 1.3 & Abi & Drafted Dev Plan and added Reflection\\
-04-10-22 & 1.3 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
-14-10-22 & 1.3 & Abi & Fixed System Constraint numbering\\
-\bottomrule
-\end{tabularx}
-
-~\newpage
-
+\newpage
+\pagenumbering{arabic}
 \section{Reference Material}
 
 This section records information for easy reference.
 
 \subsection{Table of Units}
 
-Throughout this document SI (Syst\`{e}me International d'Unit\'{e}s) is employed
+Throughout this document, SI (Syst\`{e}me International d'Unit\'{e}s) is employed
 as the unit system.  In addition to the basic units, several derived units are
 used as described below.  For each unit, the symbol is given followed by a
 description of the unit and the SI name.
@@ -254,7 +261,7 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
 
 %\subsection{Mathematical Notation}
 
-\pagenumbering{arabic}
+
 
 
 \section{Introduction}
@@ -449,7 +456,6 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \end{itemize}
 
-~\newpage
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
 
@@ -556,7 +562,7 @@ None
 % #1 derivation - not applicable by default
 {}
 
-~\newline
+~\newpage
 \section{Requirements}
 
 This section provides the functional requirements, the business tasks that the
