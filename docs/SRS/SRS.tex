@@ -232,7 +232,7 @@ systems.  The symbols are listed in alphabetical order.
 \noindent \begin{longtable*}{l l p{12cm}} \toprule
 \textbf{symbol} & \textbf{unit} & \textbf{description}\\
 \midrule 
-$B_L$ & hour & battery lifein hours\\
+$B_L$ & hour & battery life in hours\\
 $B_C$ & mAH & battery capacity in amp hours\\
 $L_C$ & A/actuation & current drawn per motor actuation\\
 $A_\text{num}$ & actuation/charge & number of actuations per charge\\ 
@@ -266,11 +266,11 @@ $A_\text{num}$ & actuation/charge & number of actuations per charge\\
 
 \section{Introduction}
 
-The purpose of the SmartLock project is to design and build a product that will provide bicycle users with a safer, easier, and more accessible way to secure their bike through their smartphone. Additionally, it will provide users with a GPS feature to locate the lock in case of bike theft or misplacement.  It will consist of a physical lock that mounts to a bike and a smartphone application that will function as the user interface through which the lock can be engaged and disengaged wirelessly, as well as located. The project will provide an engineering solution using wireless communication, mechanical design, and smartphone application development. More broadly, it seeks to encourage members of society to pursue biking, in both a transportation and recreational capacity, improving the health of society’s citizens and its environment.  
+The purpose of the SmartLock project is to design and build a product that will provide bicycle users with a safer, easier, and more accessible way to secure their bike(s) through their smartphone. Additionally, it will provide users with a GPS feature to locate the lock in case of bike theft or misplacement.  It will consist of a physical lock that mounts to a bike and a smartphone application that will function as the user interface through which the lock can be engaged and disengaged wirelessly, as well as located. The project will provide an engineering solution using wireless communication, mechanical design, and smartphone application development. More broadly, it seeks to encourage members of society to pursue biking, in both a transportation and recreational capacity, improving the health of society’s citizens and its environment.  
 
 \subsection{Purpose of Document}
 
-The Requirements Documentation seeks to provide a complete overview of the requirements of the Smart Lock system so as to define the project. The assumptions, inputs and outputs will also be defined in order to outline the problem. Several models will be developed and lastly, likely and unlikely changes will be described. This will communicate a unified and documented plan for the project that can be used after the design stage to verify its functionality and provide an important benchmark. 
+The Requirements Documentation seeks to provide a complete overview of the requirements of the SmartLock system so as to define the project. The assumptions, inputs and outputs will also be defined in order to outline the problem. Several models will be developed and lastly, likely and unlikely changes will be described. This will communicate a unified and documented plan for the project that can be used after the design stage to verify its functionality and provide an important benchmark. 
 
 \subsection{Scope of Requirements} 
 
@@ -292,20 +292,17 @@ Not included in the project scope will be Bluetooth wireless connective capabili
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader}
 
-The reader will have basic knowledge of how bikes are secured in public settings, namely using mechanical locks and keys or combination locks. They will understand why bike locking is necessary and what it means for a bike to be vulnerable to theft, i.e. that all main parts of the bike must be secured including the frame and wheels. They will also have basic knowledge of wireless communications that can be accessed through smartphone applications. Lastly, the reader will have a high-school level understanding of kinematic and electronics-related physics and math such that they can grasp the mechanical and electrical functionality of the system.  
+The reader will have basic knowledge of how bikes are secured in public settings, namely using mechanical locks and keys or combination locks. They will understand why bike locking is necessary and what it means for a bike to be vulnerable to theft, i.e. that all main parts of the bike must be secured including the frame and wheels. They will also have basic knowledge of wireless communications that can be accessed through smartphone applications. Lastly, the reader will have a high-school-level understanding of kinematic and electronics-related physics and math such that they can grasp the mechanical and electrical functionality of the system.  
 
 \subsection{Organization of Document}
 
-The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with an increasing order of specificity, beginning with the General System Description which will include an overview of the Smart Lock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they are used to build the project.  
+The document will follow the base template provided by the Capstone 4TB6 course GitLab. It will be organized with increasing order of specificity, beginning with the General System Description which will include an overview of the SmartLock project. The Specific System Description will make up the bulk of the document, describing the project in greater detail with its assumptions, inputs and outputs, goals and models. Finally, since the context of the project is previously stated, the Functional and Non-Functional Requirements will be outlined, as well as any foreseen Likely and Unlikely Changes to the project. Lastly, the Traceability Matrix is included to define the relationships between various relevant formulas, sections and information in the document and how they are used to build the project.  
 
 ~\newpage
 
 \section{General System Description}
 
-This section provides general information about the system.  It identifies the
-interfaces between the system and its environment describes the user
-characteristics and lists the system constraints.  
-
+This section provides general information about the system. It identifies the interfaces between the system and its environment describes the user characteristics and lists the system constraints.  
 
 \subsection{System Context}
 
@@ -338,7 +335,7 @@ characteristics and lists the system constraints.
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
 
-The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device, so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and so that the use time of the app when locking your bike is short. 
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and so that the use time of the app when locking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -355,7 +352,7 @@ The system has the following constraints.
 
 \item[SC\refstepcounter{scnum}\thescnum\label{SC3}:] The budget for testing, designing, and equipment is \$750.
 	\begin{itemize}
-		\item Justification: The project has a finite budget to work within to encourage efficient use of materials and ensure low costs.
+		\item Justification: The project has a finite budget to work within to encourage the efficient use of materials and ensure low costs.
 	\end{itemize} 
 	
 \item[SC\refstepcounter{scnum}\thescnum\label{SC4}:]  The project must be mounted on existing bike designs.
@@ -387,15 +384,15 @@ The user’s smartphone's current coordinates can be requested through the mobil
 There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen, namely the seat, front and back wheels, and frame.  
 
 
-Furthermore, bike locks can be bulky, heavy and dangerous to carry around. It can also be tedious to find and lock one’s bike to an external frame.  The combination of these nuisances can lead to individuals leaving their bikes without properly securing them.  The city of Toronto reports an average 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, which indicates a rather expansive problem that can be solved [1,2].  
+Furthermore, bike locks can be bulky, heavy and dangerous to carry around. It can also be tedious to find and lock one’s bike to an external frame.  The combination of these nuisances can lead to individuals leaving their bikes without properly securing them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, which indicates a rather expansive problem that can be solved [1,2].  
 
 \subsubsection{Terminology and  Definitions}
 
 The terms listed below will be used throughout the scope of this document and should be referenced when referring to specific components.  
 
 \begin{itemize}
-\item Smart Lock: The scope of this project and document referring to both the mechanical lock and the mobile application communicating with it. 
-\item Lock: The physical component of the Smart Lock; includes the hardware, battery, motor, and locking mechanism.  
+\item SmartLock: The scope of this project and document refers to both the mechanical lock and the mobile application communicating with it. 
+\item Lock: The physical component of the SmartLock; includes the hardware, battery, motor, and locking mechanism.  
 \item Team: The authors of this document.
 \item App: The mobile application used to communicate with the lock.
 \item Open/Close: The process of physically moving the lock frame into a state where it can be latched onto something else. 
@@ -407,7 +404,7 @@ The terms listed below will be used throughout the scope of this document and sh
 \item Git: The platform used to store the documentation and software and track changes made to the files. 
 \item XCode and Flutter: The IDE used to develop the mobile application. 
 \item Cross-Platform Development: The means of developing the mobile application on both iOS and Android devices. 
-\item Transmitter: The device used to send signals to and from the app to give status information and to send the engagement and disengagement signals. 
+\item Transmitter: The device is used to send signals to and from the app to give status information and to send the engagement and disengagement signals. 
 \item GPS: The satellite-based navigation system used to locate the bike. 
 \item Receiver: The device used to receive the signals from the app for engagement and disengagement. 
 \item Microcontroller: The programmable device used to control the motor. 
@@ -506,7 +503,7 @@ None
 
 % #5 description
 {
-The above equation gives the voltage $V$ (\si{\volt}), which is equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the resistance $R$ (\si{\ohm}) of the motor. This can be used to find the rating of battery needed to power the motor. This calculation must also be done twice as outlined above.
+The above equation gives the voltage $V$ (\si{\volt}), which is equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the resistance $R$ (\si{\ohm}) of the motor. This can be used to find the rating of the battery needed to power the motor. This calculation must also be done twice as outlined above.
 }
 % #6 Notes
 {
@@ -565,9 +562,7 @@ None
 ~\newpage
 \section{Requirements}
 
-This section provides the functional requirements, the business tasks that the
-software is expected to complete, and the nonfunctional requirements, the
-qualities that the software is expected to exhibit.
+This section provides the functional requirements, the business tasks that the software is expected to complete, and the nonfunctional requirements, the qualities that the software is expected to exhibit.
 
 \subsection{Functional Requirements}
 
@@ -577,28 +572,28 @@ qualities that the software is expected to exhibit.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockEngage input must engage the lock on the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] LockDisengage input must disengage the lock on the bike.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to dissengage the lock, the bike lock must be disengaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to disengage the lock, the bike lock must be disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is disengaged, change lock status to disengaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as disengaged when disengaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give the correct status as disengaged when disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in status of lock to change to closed.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in the status of the lock to change to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The iphone app needs to save the location of phone when locking for user to locate bike later.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of the user’s phone must be able to be saved in the smartphone application as UserPosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The smartphone app needs to save the location of the phone when locking the bike for the user to locate their bike later.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistance to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft, and be rendered useless.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistant to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft and be rendered useless.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage your lock on your bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage the lock on your bike.
 \end{itemize}
 
 \subsubsection{Bike Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR10}:] The lock can be mounted to the bike's frame.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock can not be mounted to the users bike it will not be effective as a lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock can not be mounted to the user's bike it will not be effective as a lock.
 \end{itemize}
 
 \subsubsection{Output Related}
@@ -606,8 +601,8 @@ qualities that the software is expected to exhibit.
 \setlength{\itemindent}{.5in}
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on the phone app.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the battery percentage of the bike lock
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of bike must be shown on the app as BikePosition.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the location of the bike so that teya re able to find bike.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of the bike must be shown on the app as BikePosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The user must be able to view the location of their bike so that they can find their bike.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR13}:] Battery must output enough power to engage/disengage the lock.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The locking system will not be functional if the battery is not able to disengage the lock.
 \end{itemize}
@@ -618,27 +613,27 @@ qualities that the software is expected to exhibit.
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read english.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users who do not know english.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read English.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users who do not know English.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be easy to use with a minimal learning curve for it to be useful.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users, and learning period for app will be tracked
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take significant space on the user's phone.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: We want our app to fit on anyones phone, and use up minimal storage.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users, and the learning period for the app will be tracked
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take up significant space on the user's phone.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: We want our app to fit on anyone's phone, and use up minimal storage.
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be visual appealing for it to be a desirable product.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Design willbe verified with test users who will rank visual how appealing the lock is.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be visually appealing for it to be a desirable product.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The design will be verified with test users who will rank visual how appealing the lock is.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock will not be used if it negatively impacts the normal function of the bike.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by mounting it on test users bikes, then having them use the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by mounting it on test users' bikes, then having them use the bike.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be left in the rain without it breaking.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by leaving bike with lock out in the rain.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by leaving the bike with the lock out in the rain.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be splashed without it breaking
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by splashing it to simulate a splash from riding through a puddle.
@@ -652,11 +647,11 @@ qualities that the software is expected to exhibit.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the classic confidence interval used. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The status will be manually verified over 100 trials. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] Where location services are available, the accuracy of location coordinates must be within 10M.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order for the locating feature to be useful, it must be accurate. The figure of 10M was obtained since a bike within a distance of 10M will be visible. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: For the locating feature to be useful, it must be accurate. The figure of 10M was obtained since a bike within a distance of 10M will be visible. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over 50 trials. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: In order to avoid the case where the user uses the lock and it dies while it must be locked, battery percentage must be accurate. The average user would replace their battery when it only has 10\% charge left.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe battery charge shown right before battery dies. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: To avoid the case where the user uses the lock and it dies while it must be locked, battery percentage must be accurate. The average user would replace their battery when it only has 10\% charge left.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe the battery charge shown right before the battery dies. 
 \end{itemize}
 
 \subsubsection{Usability}
@@ -664,7 +659,7 @@ qualities that the software is expected to exhibit.
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If using the SmartLock takes longer than a typical lock, it is no longer more convenient than a typical lock, which is a key selling feature. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by average user. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by the average user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If opening and closing the lock takes more strength than a typical lock, it is no longer convenient for the user. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask regular use of typical bike locks to use SmartLock and compare force. 
@@ -676,14 +671,14 @@ qualities that the software is expected to exhibit.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Required for convenience for user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The SmartLock must fit a wide variety of bikes so that user's can use the SmartLock with their bike, no matter what that might be.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare dimensions of typical bike frame/dimensions found online with dimensions/shape of SmartLock to ensure the lock can be used. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare the dimensions of a typical bike frame/dimensions found online with the dimensions/shape of SmartLock to ensure the lock can be used. 
 \end{itemize}
 
 \subsubsection{Maintainability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: This rationale applies for all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: This rationale applies to all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
@@ -693,11 +688,11 @@ qualities that the software is expected to exhibit.
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The team's skillset is in development of iOS apps, so the requirement reflects the app only running on iOS. However, should the designer have a different skillset, an alternative requirement might be: the app should run on Android, or the app should run on iOS and Android. This requirement is constrained to only iOS due to this project's development time constraint of eight months.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS and Android.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Most smartphones use these platforms, allowing us to be accessible to the majority of people.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to the app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
 
 
 \end{itemize}
@@ -714,11 +709,11 @@ qualities that the software is expected to exhibit.
 
 \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:]  Depending on the battery life, showing battery percentage on the phone app, as required in \hyperref[FR11]{FR11}, might not be necessary. If the battery life is very long, then perhaps a warning that battery is low is sufficient. 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Having never created an app like this before, the amount of storage needed for the smartphone application is unknown. Requirement \hyperref[NFR3]{NFR3} provides ample space, if any change, this requirement might be revised so that it be required that the app take up even less storage. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:]  Depending on the battery life, showing battery percentage on the phone app, as required in \hyperref[FR11]{FR11}, might not be necessary. If the battery life is very long, then perhaps a warning that the battery is low is sufficient. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Having never created an app like this before, the amount of storage needed for the smartphone application is unknown. Requirement \hyperref[NFR3]{NFR3} provides ample space, if any change, this requirement might be revised so that it be required that the app takes up even less storage. 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Even though aesthetics is a selling point of any product, it is not a priority for this product. As such, the requirement \hyperref[NFR4]{NFR4} is subject to change. 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] The degree of accuracy mentioned in \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, and \hyperref[NFR10]{NFR10}
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Given that we will likely not be maintaining the system, requirements regarding maintability will be difficult to test and verify. While products should be designed with maintability in mind, it is not a priority for this project. Thus, requirements \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21} are subject to change. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Given that we will likely not be maintaining the system, requirements regarding maintainability will be difficult to test and verify. While products should be designed with maintainability in mind, it is not a priority for this project. Thus, requirements \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21} are subject to change. 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Requiring an iOS application as stated in \hyperref[NFR22]{NFR22} and \hyperref[NFR23]{NFR23} was chosen given the team's skillset; however, the product's nature does not require the application to be iOS based. Given different preferences and/or skillset, this application could be substituted or extended to an Android application. Note that \hyperref[NFR23]{NFR23} is dependent on \hyperref[NFR22]{NFR22}
 
 \end{itemize}
@@ -731,8 +726,8 @@ qualities that the software is expected to exhibit.
  %   the unlikely changes.  The design can assume that the changes listed will
  %   not occur.}
 
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are core to the functionality of the product. The product would not accomplish it's purpose without meeting these requirements. Thus, these requirements are  unlikely to change: \hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR7]{FR7}, \hyperref[FR8]{FR8}, \hyperref[FR9]{FR9}, \hyperref[FR13]{FR13}
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are key selling featueres of the system, and are therefore unlikely to change: \hyperref[FR10]{FR10}, \hyperref[FR11]{FR11}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are core to the functionality of the product. The product would not accomplish its purpose without meeting these requirements. Thus, these requirements are  unlikely to change: \hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR7]{FR7}, \hyperref[FR8]{FR8}, \hyperref[FR9]{FR9}, \hyperref[FR13]{FR13}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are key selling features of the system, and are therefore unlikely to change: \hyperref[FR10]{FR10}, \hyperref[FR11]{FR11}
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are necessary to ensure accessibility for all users: \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] Dependent on requirement \hyperref[FR10]{ FR10}, that the lock can be mounted on the bike's frame, \hyperref[NFR5]{NFR5} that the design must not impede normal bike function is necessary for the bike to function at all, and, if the bike does not function, the SmartLock product is useless. As such, this requirement is unlikely to change.
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] To maintain usability in imperfect weather conditions, requirements \hyperref[NFR6]{NFR6} and \hyperref[NFR7]{NFR7}, and are therefore unlikely to change. \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] The following requirements must be satisfied to maintain an edge over typical, manually engaged/disengaged bike locks, and are therefore unlikely to change: \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR14]{NFR14}, \hyperref[NFR13]{NFR13}, \hyperref[NFR15]{NFR15}, \hyperref[NFR16]{NFR16}
@@ -770,23 +765,23 @@ The following list will take the following form:
  % requirements that will be implemented for ``phase 1'', ``phase 2'', etc.}
 
 \subsection{Phase 1}
-Phase 1 consists of implementing requirements that, together, make up the minimum viable product: a lock that can be engaged remotely. These requirements are the highest priority, and should be completed first, over the course of November and December. These requirements include:
+Phase 1 consists of implementing requirements that, together, make up the minimum viable product: a lock that can be engaged remotely. These requirements are the highest priority and should be completed first, throughout November and December. These requirements include:
 \hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR9]{FR9}, \hyperref[NFR22]{NFR22}
 
 \subsection{Phase 2}
-Phase 2 consists of requirements informing the design of the minimum viable product of the physical bike lock. These are the second highest priority, but will be completed in parallel with Phase 1 requirements. These requirements include:
+Phase 2 consists of requirements informing the design of the minimum viable product of the physical bike lock. These are the second highest priority but will be completed in parallel with Phase 1 requirements. These requirements include:
 \hyperref[FR8]{FR8}, \hyperref[FR10]{FR10}, \hyperref[FR13]{FR13}, \hyperref[NFR5]{NFR5}, \hyperref[NFR12]{NFR12}, \hyperref[NFR15]{NFR15},\hyperref[NFR16]{NFR16}
 
 \subsection{Phase 3}
-Phase 3 consists of requirements regarding the locating feature. These are lower priority, but a key selling feature. These requirements will be completed after Phase 1 and Phase 2, in January. These requirements include:
+Phase 3 consists of requirements regarding the locating feature. These are lower priorities, but key selling features. These requirements will be completed after Phase 1 and Phase 2, in January. These requirements include:
 \hyperref[FR7]{FR7}, \hyperref[FR12]{FR12}
 
 \subsection{Phase 4}
-Phase 4 consists of requirements that ensure accuracy, usability, and accessibility of features. This phase will be completed after Phase 3, likely in February. These requirements include:
+Phase 4 consists of requirements that ensure the accuracy, usability, and accessibility of features. This phase will be completed after Phase 3, likely in February. These requirements include:
 \hyperref[FR11]{FR11}, \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}, \hyperref[NFR3]{NFR3}, \hyperref[NFR6]{NFR6}, \hyperref[NFR7]{NFR7}, \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, \hyperref[NFR10]{NFR10}, \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR13]{NFR13}, \hyperref[NFR14]{NFR14}
 
 \subsection{Phase 5}
-Phase 5 consists of requirements regarding the aesthetics of the product, and are lowest priority. These requirements include: \hyperref[NFR4]{NFR4}
+Phase 5 consists of requirements regarding the aesthetics of the product, and is the lowest priority. These requirements include: \hyperref[NFR4]{NFR4}
 
 \subsection{Phase 6}
 Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21}
@@ -907,22 +902,16 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 \section{Appendix B}
 \subsection{Reflection}
 
-The information in this section will be used to evaluate the team members on the
-graduate attribute of Lifelong Learning.  Please answer the following questions:
+The information in this section will be used to evaluate the team members on the graduate attribute of Lifelong Learning.  Please answer the following questions:
 
 \begin{enumerate}
-  \item What knowledge and skills will the team collectively need to acquire to
-  successfully complete this capstone project?  Examples of possible knowledge
-  to acquire include domain specific knowledge from the domain of your
-  application, or software engineering knowledge, mechatronics knowledge or
-  computer science knowledge.  Skills may be related to technology, or writing,
-  or presentation, or team management, etc.  You should look to identify at
-  least one item for each team member.
+  \item What knowledge and skills will the team collectively need to acquire to successfully complete this capstone project?  Examples of possible knowledge to acquire include domain specific knowledge from the domain of your application, or software engineering knowledge, mechatronics knowledge or
+  computer science knowledge.  Skills may be related to technology, or writing, or presentation, or team management, etc.  You should look to identify at least one item for each team member.
   ~\newline
   ~\newline
  Steffi: 
   ~\newline
-My lead role on this project is in regard to Documentation and Latex.  While I have experience with some project documentation, the extent to which it is necessary for this project is not something I have done before.  Looking at this project in such detail will help to more deeply understand every component of the project and help to better see the connection between every aspect.  Additionally, technical communication is a skill I have never used before so learning to use Github and Latex will be critical to the delivery of the project and developing skills that will be useful in future technical projects.
+My lead role on this project is regarding Documentation and Latex.  While I have experience with some project documentation, the extent to which it is necessary for this project is not something I have done before.  Looking at this project in such detail will help to more deeply understand every component of the project and help to better see the connection between every aspect.  Additionally, technical communication is a skill I have never used before so learning to use Github and Latex will be critical to the delivery of the project and developing skills that will be useful in future technical projects.
 \\
 \\
 Abi:
@@ -942,12 +931,12 @@ Elsa:
 \\
 Abdul:
 \\ 
- Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the Smart Lock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
+ Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the SmartLock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
  \\
 \\
 Stephen:
 \\
- I will need to strengthen my knowledge in many topics including mechanical prototyping/design, software development, and electrical circuit design.  I will really try to advance my knowledge in the mechanical design aspect of this project.  I will need skills to design a system that can complete its function and package all of the electrical features.  For this I will really push my knowledge in circular prototyping and prototyping methods.
+ I will need to strengthen my knowledge in many topics including mechanical prototyping/design, software development, and electrical circuit design.  I will really try to advance my knowledge in the mechanical design aspect of this project.  I will need skills to design a system that can complete its function and package all of the electrical features.  For this, I will really push my knowledge in circular prototyping and prototyping methods.
  
   \item For each of the knowledge areas and skills identified in the previous
   question, what are at least two approaches to acquiring the knowledge or
@@ -963,7 +952,7 @@ Steffi:
 \\
 \\
 Abi:
-\\ There are many different approaches to learning technical skills, such as Bluetooth.  I plan to approach learning this skill by researching on the Internet, asking our supervisor for potential resources or personal knowledge, seeking help from peers who have more knowledge on the subject.  After researching which hardware is needed to implement wireless communication, I will learn by doing, slowly building up my skills. Rather than choosing just one approach, I plan on using all of these approaches in parallel. 
+\\ There are many different approaches to learning technical skills, such as Bluetooth.  I plan to approach learning this skill by researching on the Internet, asking our supervisor for potential resources or personal knowledge, and seeking help from peers who have more knowledge on the subject.  After researching which hardware is needed to implement wireless communication, I will learn by doing, slowly building up my skills. Rather than choosing just one approach, I plan on using all of these approaches in parallel. 
 \\
 \\
 Elsa:
@@ -973,7 +962,7 @@ Elsa:
 \\
 Anthony:
 \\
-Apple has created their own modules to teach individuals how to use their IDE and programming language. Other resources include free YouTube tutorials and private companies offering courses. For the scope of this project and considering the complexity of the application, Apple’s free course and YouTube tutorials would be sufficient. Additionally, there are several public forums where individuals could search similar problems others have experienced before and find various solutions contributed by the community. Team member Anthony Shenouda has experience with the IDE as they have developed multiple mobile applications before. They will be responsible for the overall development and ensuring the application is completed successfully and timely. 
+Apple has created their own modules to teach individuals how to use their IDE and programming language. Other resources include free YouTube tutorials and private companies offering courses. For the scope of this project and considering the complexity of the application, Apple’s free course and YouTube tutorials would be sufficient. Additionally, there are several public forums where individuals could search for similar problems others have experienced before and find various solutions contributed by the community. Team member Anthony Shenouda has experience with the IDE as they have developed multiple mobile applications before. They will be responsible for the overall development and ensuring the application is completed successfully and timely. 
 \\
 \\
 Abdul:
@@ -985,7 +974,7 @@ Abdul:
 \\
 Stephen:
 \\
- To aquire the skills I need in mechanical design/prototyping I will use past course content and lecture slides from my mechanical product design, to recite the best practices for 3D printing and prototyping methods. I will also utlize the resources on campus like the thode maker space or student workshop for direction interms of prototyping processes as well as meterial selection, design, and analysis.  Finally I will also utilize a mentor who is in the design industry to mentor me on these skills.
+ To acquire the skills I need in mechanical design/prototyping I will use past course content and lecture slides from my mechanical product design, to recite the best practices for 3D printing and prototyping methods. I will also utilize the resources on campus like the Thode maker space or student workshop for direction in terms of prototyping processes as well as material selection, design, and analysis.  Finally, I will also utilize a mentor who is in the design industry to mentor me on these skills.
 \end{enumerate}
 
 \end{document}
