@@ -26,16 +26,16 @@
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
       colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
-    citecolor=green,        % color of links to bibliography
-    filecolor=magenta,      % color of file links
-    urlcolor=cyan           % color of external links
+    linkcolor=red,          % colour of internal links (change box colour with linkbordercolor)
+    citecolor=green,        % colour of links to bibliography
+    filecolor=magenta,      % colour of file links
+    urlcolor=cyan           % colour of external links
 }
 
 \input{../Comments}
 \input{../Common}
 
-% For easy change of table widths
+% For an easy change of table widths
 \newcommand{\colZwidth}{1.0\textwidth}
 \newcommand{\colAwidth}{0.13\textwidth}
 \newcommand{\colBwidth}{0.82\textwidth}
@@ -335,7 +335,7 @@ This section provides general information about the system. It identifies the in
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
 
-The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and so that the use time of the app when locking your bike is short. 
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and the use time of the app when locking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -578,7 +578,7 @@ This section provides the functional requirements, the business tasks that the s
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is disengaged, change lock status to disengaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give the correct status as disengaged when disengaged.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in the status of the lock to change to closed.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in the status of the lock changing to closed.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
 \item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of the user’s phone must be able to be saved in the smartphone application as UserPosition.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The smartphone app needs to save the location of the phone when locking the bike for the user to locate their bike later.
@@ -662,7 +662,7 @@ This section provides the functional requirements, the business tasks that the s
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by the average user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If opening and closing the lock takes more strength than a typical lock, it is no longer convenient for the user. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask regular use of typical bike locks to use SmartLock and compare force. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask for regular use of typical bike locks to use SmartLock and compare force. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It would be inconvenient to ask for the user to replace the batteries more frequently than this.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
@@ -758,10 +758,10 @@ The following list will take the following form:
 
 %\plt{This section is optional.  It is used to explain the plan for developing
  % the software.  In particular, this section gives a list of the order in which
- % the requirements will be implemented.  In the context of a course  this is
+ % the requirements will be implemented.  In the context of a course, this is
  % where you can indicate which requirements will be implemented as part of the
  % course, and which will be ``faked'' as future work.  This section can be
- % organized as a prioritized list of requirements, or it could should the
+ % organized as a prioritized list of requirements, or it could the
  % requirements that will be implemented for ``phase 1'', ``phase 2'', etc.}
 
 \subsection{Phase 1}

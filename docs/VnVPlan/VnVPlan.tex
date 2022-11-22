@@ -24,6 +24,8 @@
 \newcommand{\dthetestnum}{TN\thetestnum}
 
 \begin{document}	
+
+
 \maketitle
 
 
@@ -62,7 +64,7 @@ Refer to Section 1 of the \href{https://github.com/NevoAbigail/Capstone/blob/mai
 
 \-\
 
-This document will outline the verification and validation plans we have created for the purpose of proving that the SmartLock device is a successful product. The tests mentioned in this document will validate our product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a successful device at its completion. 
+This document will outline the verification and validation plans we have created to prove that the SmartLock device is a successful product. The tests mentioned in this document will validate our product against the various requirements which we have outlined in the SRS document. At the completion of the plan in this document, we will have the knowledge required to form an iterative design process which improves into a successful device at its completion. 
 
 \section{General Information}
 
@@ -74,10 +76,10 @@ The smartphone application, SmartLock, will be a basic UI that our users can int
 
 The physical locking device will be used to secure the wheels to the bike frame, which can also be connected to an external mount.
 
-These components will be tested through various different methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}.
+These components will be tested through various methods, to determine if they meet all the requirements outlined in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}.
 
 \subsection{Objectives}
-The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike with confidence and to allow them to find their bike with ease.
+The objective that our project hopes to accomplish is to create a simple-to-use smartphone app that allows users to lock the most important features of their bike(s) with confidence and to allow them to find their bike(s) with ease.
 
 \subsection{Relevant Documentation}
 
@@ -133,7 +135,7 @@ Our plan for verification of the SRS includes the following steps:
 \item Keep the Document Alive
 \subitem By keeping the document alive we will be able to continually update any requirements/constraints/objectives that adapt as our project comes to life.  This will ensure that all the documentation is accurate. 
 \item Peer Review
-\subitem We will use the peer review to verify our work and to look for inconsistencies or aspects that we didn't consider.
+\subitem We will use the peer reviews to verify our work and to look for inconsistencies or aspects that we didn't consider.
 \item TA Review
 \subitem The TA review will be used to validate what we have done and what needs to be reworked as the project progresses.
 \item SRS Checklist
@@ -173,7 +175,7 @@ Our plan to verify the implementation is outlined below:
 
 \item Code Implementation Verification
 
-\subitem In order to verify the implementation of our code-base, we will make use of both code walk-throughs and inspection by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only illuminate any shortcomings in our implementation but also help us in identifying more efficient techniques within our code-base. By performing unit tests, which are discussed in \nameref{Section 6}, we can verify different modules within our system to see if each is performing as expected and is robust. This will help us maintain best practices while implementing our code-base.
+\subitem In order to verify the implementation of our code base, we will make use of both code walk-throughs and inspections by fellow peers as well as by performing unit tests on our system. Having a peer review done would not only illuminate any shortcomings in our implementation but also help us in identifying more efficient techniques within our code base. By performing unit tests, which are discussed in \nameref{Section 6}, we can verify different modules within our system to see if each is performing as expected and is robust. This will help us maintain best practices while implementing our code base.
 
 \end{enumerate}
 
@@ -202,7 +204,7 @@ The tools used for automated testing and verifying coding standards are outlined
 
 \subsection{Software Validation Plan}
 
-The above mentioned automated tools will be utilized for validating our software and code implementation. Sample users profiles will be created within our smartphone application in order to perform the system tests outlined in detail further in this document. This will allow the team to validate different modules within our software and test their functionality and success rate. 
+The above-mentioned automated tools will be utilized for validating our software and code implementation. Sample user profiles will be created within our smartphone application in order to perform the system tests outlined in detail further in this document. This will allow the team to validate different modules within our software and test their functionality and success rate. 
 
 \section{System Test Description}
 	
@@ -223,9 +225,9 @@ Initial State: Bike lock is disengaged
 
 Input/ Condition: Signal from App to engage the lock 
 
-Output/ Results: Pass/fail if lock is successfully engaged  
+Output/ Results: Pass/fail if the lock is successfully engaged  
 
-How test will be performed: The bike lock will be disengaged. The user will use the App to engage the lock. If successful, lock becomes engaged. 
+How the test will be performed: The bike lock will be disengaged. The user will use the App to engage the lock. If successful, the lock becomes engaged. 
 
 \item{test-id2: FR2: LockDisengage input must disengage the lock on the bike. \\} 
 
@@ -235,33 +237,33 @@ Initial State: Bike lock is engaged
 
 Input/ Condition: Signal from App to disengage the lock 
 
-Output/ Results: Pass/fail if lock is successfully disengaged  
+Output/ Results: Pass/fail if the lock is successfully disengaged  
 
-How test will be performed: The bike lock will be engaged. The user will use the App to disengage the lock. If successful, lock becomes disengaged. 
+How the test will be performed: The bike lock will be engaged. The user will use the App to disengage the lock. If successful, the lock becomes disengaged. 
 
-\item{test-id3: FR3: When lock is engaged, change lock status to engaged. \\} 
+\item{test-id3: FR3: When the lock is engaged, change lock status to engaged. \\} 
 
 Control: Automatic 
 
 Initial State: Bike lock is engaged 
 
-Input/ Condition: Signal from microcontroller to App stating lock is engaged 
+Input/ Condition: Signal from the microcontroller to App stating lock is engaged 
 
 Output/ Results: Pass/fail if App correctly displays lock is engaged 
 
-How test will be performed: The bike lock will be engaged.  
+How the test will be performed: The bike lock will be engaged.  
 
- \item{test-id4: FR4: When lock is disengaged, change lock status to disengaged. \\} 
+ \item{test-id4: FR4: When the lock is disengaged, change lock status to disengaged. \\} 
 
 Control: Automatic 
 
 Initial State: Bike lock is disengaged 
 
-Input/ Condition: Signal from microcontroller to App stating lock is disengaged 
+Input/ Condition: Signal from the microcontroller to App stating the lock is disengaged 
 
 Output/ Results: Pass/fail if App correctly displays lock is disengaged 
 
-How test will be performed: The bike lock will be disengaged. 
+How the test will be performed: The bike lock will be disengaged. 
 
 \item{test-id5: FR5: Moving locking bar closed must move OpenClosedStatus to Closed. \\} 
 
@@ -273,7 +275,7 @@ Input/ Condition: Locking bar is moved closed
 
 Output/ Results: Pass/fail if App correctly displays OpenClosedStatus to Closed 
 
-How test will be performed: The locking bar will be moved closed and the App will be checked if the OpenClosedstatus to Closed. 
+How the test will be performed: The locking bar will be moved closed and the App will be checked if the OpenClosedstatus to Closed. 
 
 \item{test-id6: FR6: Moving locking bar open must move OpenClosedStatus to Open. \\} 
 
@@ -285,7 +287,7 @@ Input/ Condition: Locking bar is pushed open
 
 Output/ Results: Pass/fail if App correctly displays OpenClosedStatus to Open 
 
-How test will be performed: The locking bar will be pushed open and the App will be checked if the OpenClosedStatus to Open. 
+How the test will be performed: The locking bar will be pushed open and the App will be checked if the OpenClosedStatus to Open. 
  
 \item{test-id7: FR7: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. \\} 
 
@@ -293,11 +295,11 @@ Control: Automatic
 
 Initial State: No location  
 
-Input/ Condition: User engages the Bike lock using the App 
+Input/ Condition: The user engages the Bike lock using the App 
 
-Output/ Results: Pass/fail if App places a geotag within 10 metres of the Users current location 
+Output/ Results: Pass/fail if the App places a geotag within 10 metres of the Users current location 
 
-How test will be performed: The Bike lock will be engaged on the App. The App will be monitored to ensure the geotag is stored and correctly placed on the App.  
+How the test will be performed: The Bike lock will be engaged on the App. The App will be monitored to ensure the geotag is stored and correctly placed on the App.  
 
 \item{test-id8: FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. \\}
 
@@ -307,9 +309,9 @@ Initial State: Lock is engaged, and bike is locked.
 
 Input/Condition: A prying, pulling, kicking, etc. force between 200-400N.
 
-Output/Results: A pass/fail as well as a score from 1-4 for the following cases; a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged with out breaking.
+Output/Results: A pass/fail as well as a score from 1-4 for the following cases; a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged without breaking.
 
-How test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
+How the test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
 
 \item{test-id9: FR9: Lock must only be engaged/disengaged by the intended user(s). \\}
 
@@ -317,11 +319,11 @@ Control: Manual
 
 Initial State: Lock is engaged, and bike is locked.
 
-Input/Condition: Iphone Bluetooth signal.
+Input/Condition: iPhone Bluetooth signal.
 
 Output/Results: A fail if they are able to connect to the smart bike lock and disengage it and a pass if they can’t connect and disengage the lock.
 
-How test will be performed: A test group will attempt to connect via Bluetooth from their smartphones.
+How the test will be performed: A test group will attempt to connect via Bluetooth from their smartphones.
 
 \end{enumerate}
 
@@ -333,13 +335,13 @@ How test will be performed: A test group will attempt to connect via Bluetooth f
 
 Control: Manual
 
-Initial State: Lock is in disengaged state and not mounted to a bike.
+Initial State: The lock is in the disengaged state and not mounted to a bike.
 
-Input/Condition: Users force to mount the SmartLock.
+Input/Condition: Users apply force to mount the SmartLock.
 
-Output/Results: A pass/fail for each bike if the lock is/isn’t able to mount in to the bike as intended. A score from 0-the number of bikes tested will also be given.
+Output/Results: A pass/fail for each bike if the lock is/isn’t able to mount onto the bike as intended. A score from 0-the number of bikes tested will also be given.
 
-How test will be performed: Users will attempt to mount the SmartLock onto 1-3 bikes each from 3-5 categories of bikes including (adult standard/hybrid, road, mountain, kids standard/hybrid).
+How the test will be performed: Users will attempt to mount the SmartLock onto 1-3 bikes each from 3-5 categories of bikes including (adult standard/hybrid, road, mountain, and kids standard/hybrid).
 
 \end{enumerate}
 
@@ -352,40 +354,40 @@ Control: Manual
 
 Initial State: Phone on with App downloaded and open 
 
-Input/Condition: observation of app 
+Input/Condition: Observation of the app 
 
-Output/Results: user must be able to view the battery percentage of the lock 
+Output/Results: The user must be able to view the battery percentage of the lock 
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: Apply input condition, observe the expected output
 
-\item{test-id12: FR12: Location (coordinates) of bike must be shown on the app as BikePosition. \\}
+\item{test-id12: FR12: Location (coordinates) of the bike must be shown on the app as BikePosition. \\}
 Control: Manual 
 
 Initial State: Phone on with App downloaded and open 
 
-Input/Condition: observation of app 
+Input/Condition: Observation of the app 
 
-Output/Results: user must be able to view the saved coordinates 
+Output/Results: The user must be able to view the saved coordinates 
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: apply input condition, observe the expected output
 
 \item{test-id13: FR13: Battery must output enough power to engage the lock. \\}
 Control: Manual 
 
-Initial State: Locking mechanism disengaged, electro magnet has ability to get power from battery (functional circuit) 
+Initial State: Locking mechanism disengaged, electromagnet has the ability to get power from the battery (functional circuit) 
 
-Input/Condition: supply power to electromagnet 
+Input/Condition: Supply power to the electromagnet 
 
-Output/Results: lock mechanism is engaged 
+Output/Results: Locking mechanism is engaged 
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: Apply input condition, observe the expected output
 
 \end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements}
 \label{Section 5.2}
 
-This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our products needs. these aspects include smart phone app features, physical design attributes, accuracy, and the usability of our product.
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's needs. these aspects include smartphone app features, physical design attributes, accuracy, and the usability of our product.
 
 \subsubsection{Area of Testing: Smart Phone}
 
@@ -395,27 +397,27 @@ This subset of tests will be used to validate the nonfunctional requirements of 
 
 Control: Manual
 
-Initial State: Lock is engaged and phone is on with App downloaded and open.
+Initial State: Lock is engaged and the phone is on with App downloaded and open.
 
 Input/Condition: Non-English-speaking test user has no prior knowledge of how to use the System.
 
-Output/Results: The lock is successfully engaged and the bike is securely locked by test user.
+Output/Results: The lock is successfully engaged and the bike is securely locked by the test user.
 
-How test will be performed: User attempts to disengage the mechanism through the App, attach bike to external frame and re-engage mechanism.
+How the test will be performed: The user attempts to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism.
 					
 \item{test-id15: NFR2: Can reasonably be used without requiring an instruction manual. \\}
 
 Control: Manual
 
-Initial State: Lock is engaged and phone is on with App downloaded and open.
+Initial State: Lock is engaged and the phone is on with App downloaded and open.
 
-Input/Condition: A group of test users with no prior knowledge of how to use the System. 
+Input/Condition: A group of test users with no prior knowledge of how to use the system. 
 
 Output/Results: The lock is successfully engaged, and the bike is securely locked by all test users.
 
-How test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must below ten minutes. Learning period is subsequently calculated and plotted. 
+How the test will be performed: Users are told to disengage the mechanism through the App, attach the bike to an external frame and re-engage the mechanism without any instruction. The time required for full usage per test is measured using a stopwatch and must be below ten minutes. The learning period is subsequently calculated and plotted. 
 
-\item{test-id16: NFR3: App storage under 50 megabytes. A small mobile app should not take significant space on the user’s phone.  \\}
+\item{test-id16: NFR3: App storage under 50 megabytes. A small mobile app should not take up significant space on the user’s phone.  \\}
 
 Control: Static 
 
@@ -423,7 +425,7 @@ Initial State: App development IDE is open and up to date.
 
 Output/Results: App storage is less than 50 megabytes.
 
-How test will be performed: App storage displayed on the IDE is kept below the upper threshold of 50 megabytes. 
+How the test will be performed: App storage displayed on the IDE is kept below the upper threshold of 50 megabytes. 
 
 \end{enumerate}
 
@@ -439,18 +441,18 @@ Input/Condition: Survey users on their opinions of the visual appeal of the devi
 
 Output/Results: Visual appeal is rated 7 or higher (on a scale of 1-10) 
 
-How the test will be performed: Apply input condition, survey 50 users and observe expected output.
+How the test will be performed: Apply input condition, survey 50 users and observe the expected output.
 
 \item{test-id18: NFR5: The lock must not impede normal bike functions. \\}
 Control: Manual 
 
-Initial State: Locking mechanism assembled and mounted on bike frame 
+Initial State: Locking mechanism assembled and mounted on the bike frame 
 
 Input/Condition: Normal bike operation (ride forward, turn right, turn left, ride downhill, ride uphill) 
 
-Output/Results: Device does not impede bicycle functioning 
+Output/Results: The device does not impede bicycle functioning 
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: apply input condition, observe the expected output
 
 \item{test-id19: NFR6: The lock must be waterproofed to withstand normal rainfall. And NFR7:  The lock must be waterproofed to withstand normal splashing while riding. \\}
 
@@ -458,13 +460,13 @@ Stage 1: Empty Housing (no electronics inside)
 
 Control: Manual 
 
-Initial State: Husing assembled.
+Initial State: Housing assembled.
 
-Input/Condition: Simulate rain: Hold housing under shower for 5 minutes, slowly rotating.
+Input/Condition: Simulate rain - Hold housing under a shower for 5 minutes, slowly rotating.
 
-Output/Results: Receives a pass if the inside of housing is completely dry.
+Output/Results: Receives a pass if the inside of the housing is completely dry.
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: Apply input condition, observe the expected output
 
 Stage 2: Full Mechanism 
 
@@ -472,22 +474,22 @@ Control: Manual
 
 Initial State: Locking mechanism, electronics, and housing assembled, microcontroller turned on.
 
-Input/Condition: Simulate rain: hold housing under shower for 5 minutes, slowly rotating.
+Input/Condition: Simulate rain - Hold housing under a shower for 5 minutes, slowly rotating.
 
 Output/Results: Receives a pass if the device remains functional and operational.
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: apply input condition, observe the expected output
 
 \item{test-id20: NFR8: Accuracy of bike lock status must be above 95\%. \\}
 Control: Manual 
 
-Initial State: Locking mechanism, electronics, and housing assembled operational and within range.
+Initial State: Locking mechanism, electronics, and housing assembled operationally and within range.
 
-Input/Condition: Engage/disengage lock 100 times. 
+Input/Condition: Engage/disengage the lock 100 times. 
 
-Output/Results: Ensure engage/disengage status matches current physical state.
+Output/Results: Ensure engage/disengage status matches the current physical state.
 
-How the test will be performed: apply input condition, observe expected output
+How the test will be performed: apply input condition, observe the expected output
 \end{enumerate}
 
 \subsubsection{Area of Testing: Usability}
@@ -504,19 +506,19 @@ Input/Condition: User engaging and disengaging the SmartLock.
 
 Output/Results: Scores from 1-10 will be given for weighted time from fastest to slowest.
 
-How test will be performed: Users will be timed on locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
+How the test will be performed: Users will be timed on locking and unlocking. A group of 3 people will, remove the lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to the transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
 \item{test-id22: NFR12: Opening and closing lock must require similar force to a typical keyed/combo.  \\}
 
 Control: Manual.
 
-Initial State: The SmartLock will be in transport state with the test user standing beside the bike at a bike rack.
+Initial State: The SmartLock will be in the transport state with the test user standing beside the bike at a bike rack.
 
 Input/Condition: Users Engaging and Disengaging the SmartLock.
 
 Output/Results: Scores from 1-5 will be given from most to least amount of relative force required.
 
-How test will be performed: Users will measure force while locking and unlocking. As a group of 3 people will, remove lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
+How the test will be performed: Users will measure force while locking and unlocking. A group of 3 people will, remove the lock from the transport state, and engage the lock as intended. To lock they will disengage the lock as intended and convert to the transport state. This will be done with 3-5 types of locks including, SmartLock, keyed, and combination.
 
 \item{test-id23: NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  \\}
 
@@ -528,7 +530,7 @@ Input/Condition: Users Engaging, Locating, and Disengaging the SmartLock.
 
 Output/Results: The amount of time and quantity of lock/unlocks of the SmartLock. A pass if it meets the required number.
 
-How test will be performed:  A group of users will take turns to bike to a new bike lock, lock the bike, mark the bikes location in the app, unlock, and then repeat. This will be done until the battery dies.
+How the test will be performed:  A group of users will take turns to bike to a new bike lock, lock the bike, mark the bike's location in the app, unlock, and then repeat. This will be done until the battery dies.
 
 \item{test-id24: NFR14: Batteries must be accessible to replace or chargeable. \\}
 
@@ -540,7 +542,7 @@ Input/Condition: Users will charge/replace batteries as intended.
 
 Output/Results: Pass if the batteries can be charged/replaced as intended.
 
-How test will be performed: Users will charge/replace batteries as intended.
+How the test will be performed: Users will charge/replace batteries as intended.
 
 \item{test-id25: NFR15: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install.  \\}
 
@@ -552,7 +554,7 @@ Input/Condition: A group of test users with an average understanding of how to u
 
 Output/Results: The System is successfully mounted on the bike frame without special tools for each test user. 
 
-How test will be performed: Each user attempts to install the System, following the procedure outlined in the instructions. This procedure will be developed following the completion of the first stage of prototyping. 
+How the test will be performed: Each user attempts to install the System, following the procedure outlined in the instructions. This procedure will be developed following the completion of the first stage of prototyping. 
 
 \item{test-id26: NFR16: The lock can be used for many different models of mountain, city, and road bikes.  \\}
 
@@ -560,7 +562,7 @@ Control: Manual
 
 Initial State: The System is ready to be installed. 
 
-Input/Condition: A group of test users with an average understanding of how to use typical tools. They have access to those typical tools. Three different models of bike are tested; one for each type (mountain, city and road). 
+Input/Condition: A group of test users with an average understanding of how to use typical tools. They have access to those typical tools. Three different models of bikes are tested; one for each type (mountain, city and road). 
 
 Output/Results: The System can be mounted on all three bike models successfully by each test user. 
 
@@ -578,11 +580,11 @@ Control: Manual
 
 Initial State: Full device assembled, battery percentage calculated is 1\%. 
 
-Input/Condition: Engage/disengage lock until battery dies.
+Input/Condition: Engage/disengage the lock until the battery dies.
 
-Output/Results: Number of lock engages possible with 1\% battery matches our specification for number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
+Output/Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
 
-How the test will be performed: Apply input condition and observe expected output
+How the test will be performed: Apply input condition and observe the expected output
 
 \end{enumerate}
 
@@ -689,7 +691,7 @@ Not applicable.
 \item{testid-10: Survey Question}
 \label{Survey}
 
-Rate this device's visual appeal on a scale of 1-10, with 10 being most visually appealing, 1 being least visually appealing.
+Rate this device's visual appeal on a scale of 1-10, with 10 being the most visually appealing, and 1 being the least visually appealing.
 
 \end{enumerate}
 
@@ -700,19 +702,16 @@ The information in this section will be used to evaluate the team members on the
 graduate attribute of Lifelong Learning.  Please answer the following questions:
 
 \begin{enumerate}
-  \item What knowledge and skills will the team collectively need to acquire to
-  successfully complete the verification and validation of your project?
-  Examples of possible knowledge and skills include dynamic testing knowledge,
-  static testing knowledge, specific tool usage etc.  You should look to
-  identify at least one item for each team member.
+  \item What knowledge and skills will the team collectively need to acquire to successfully complete the verification and validation of your project?
+  Examples of possible knowledge and skills include dynamic testing knowledge, static testing knowledge, specific tool usage etc.  You should look to identify at least one item for each team member.
 
-Abi: In order to perform verification, specifically on accuracy, we need to be able to have an expected output to compare our real output to. This is especially applicable for battery life. We need to first be able to calculate an expected battery life to then validate it, which is a skill we will need to acquire. 
+Abi: In order to perform verification, specifically on accuracy, we need to be able to have an expected output to which we can compare our real output. This is especially applicable for the battery life. We need to first be able to calculate an expected battery life to then validate it, which is a skill we will need to acquire. 
 
-Stephen: We will need critical thinking skills to approach our device in such a way that we can complete a set of tests which have been created critically and will prove our products design and implementation. We will need technical knowledge on how our device works such that these validation tests will be a complete set.
+Stephen: We will need critical thinking skills to approach our device in such a way that we can complete a set of tests which have been created critically and will prove our product's design and implementation. We will need technical knowledge of how our device works such that these validation tests will be a complete set.
 
-Elsa: The Team must build our collective knowledge in the area of structural analysis of engineering designs. In order to be able to effectively evaluate our designs for efficacy, robustness, longevity and usefulness, the Team will need to acquire or re-aquire engineering skills related to how to assess the structural integrity of mechanical devices.
+Elsa: The Team must build our collective knowledge in the area of structural analysis of engineering designs. In order to be able to effectively evaluate our designs for efficacy, robustness, longevity and usefulness, the Team will need to acquire or reacquire engineering skills related to how to assess the structural integrity of mechanical devices.
 
-Steffi: A skill we will need to acquire to successfully complete the verification and validation of the project is to be able to be accepting of critique and critical in our choices during the design process.  In order to truly be successful we will need to adapt to the information provided to us and not believe that there is only one way to perform our task otherwise we might overlook the best solution.
+Steffi: A skill we will need to acquire to successfully complete the verification and validation of the project is to be able to be accepting of critique and critical of our choices during the design process.  In order to truly be successful we will need to adapt to the information provided to us and not believe that there is only one way to perform our task otherwise we might overlook the best solution.
 
 Abdul: In terms of verifying and validating the lock mechanism, the team will need to consult with someone who is an expert in locks and their security. In addition to that, acquiring some structural knowledge from industry experts would be an asset specifically when verifying the structural integrity of our prototype. 
 
@@ -721,15 +720,15 @@ Abdul: In terms of verifying and validating the lock mechanism, the team will ne
   mastering the skill?  Of the identified approaches, which will each team
   member pursue, and why did they make this choice?
 
-Abi: One approach to learn this skill would be doing research on the internet, and another might be to ask for the help of an expert. We are not familiar with someone knowledgeable on this topic, and therefore we will be learning how to calculate battery life through internet research. 
+Abi: One approach to learning this skill would be doing research on the internet, and another might be to ask for the help of an expert. We are not familiar with someone knowledgeable on this topic, and therefore we will be learning how to calculate battery life through internet research. 
 
 Stephen: To acquire critical thinking skills we will need to think outside the box and ask others their thoughts so that we can gain multiple opinions and a different way of thinking. To acquire the technical knowledge about our device, many hours of research as well as talking with industry professionals will be needed.
 
-Elsa: To acquire or re-quire skills related to structure analysis of mechanical designs, the Team can review previous coursework in Materials related to stress and strain. We can also take advantage of McMaster resources for physical testing, including online databases and professors who have experience in the subject. 
+Elsa: To acquire or reacquire skills related to the structural analysis of mechanical designs, the Team can review previous coursework in Materials related to stress and strain. We can also take advantage of McMaster resources for physical testing, including online databases and professors who have experience in the subject. 
 
 Steffi: One approach to this is to look at how other designs have adapted dramatically to feedback and look out for ideas that might influence our design similarly.  The method that I believe we will use is to fully discuss the implications of any design changes and how they will play out so we can make educated decisions on how to move forward.
 
-Abdul: Coding in a new language is definitely not easy, however with the right research and open source documentation, we will be able to implement coding best practices as well as get a better understanding on any libraries that we can use. In terms of testing, taking advantage of any automated tools as well as talking to potential users and identifying their needs and getting feedback would be really insightful during our testing phases. Another approach during our testing phase would be to talk to industry experts and compare quality control standards to our product. 
+Abdul: Coding in a new language is definitely not easy, however with the right research and open-source documentation, we will be able to implement coding best practices as well as get a better understanding of any libraries that we can use. In terms of testing, taking advantage of any automated tools as well as talking to potential users and identifying their needs and getting feedback would be really insightful during our testing phases. Another approach during our testing phase would be to talk to industry experts and compare quality control standards to our product. 
 
 \end{enumerate}
 
