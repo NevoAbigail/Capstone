@@ -2,6 +2,8 @@
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage[raggedrightboxes]{ragged2e}
+
 
 \title{Problem Statement and Goals for SmartLock\\\progname}
 
@@ -29,7 +31,8 @@
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
 25-09-22 & Steffi & Completed\\
-19-11-22 & Steffi & Updates for Consistency\\
+19-11-22 & Steffi & Updates for grammar and terminology\\
+23-11-22 & Steffi & Updates for consistency across documentation\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -43,11 +46,11 @@
 
 \subsection{Problem}
 
-There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen, (the seat, front and back wheels and frame). 
+There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen (the seat, front and back wheels and frame). 
 
-Furthermore, the problem stretches beyond the locking mechanisms; bike locks can be bulky, heavy and dangerous to carry around and it can also be tedious to find and lock one’s bike to an external frame.  The combination of these issues can lead to individuals leaving their bikes without properly locking them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, indicating a rather expansive problem that needs to be solved [1,2]. 
+Furthermore, the problem stretches beyond the locking mechanisms; bike locks can be bulky, heavy and dangerous to carry around.  The combination of these issues can lead to individuals leaving their bikes without properly locking them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, indicating a rather expansive problem that needs to be solved [1, 2]. 
 
-Our team presents the SmartLock, which is a bike lock that is locked/unlocked through a cellphone application.  Users can secure their bikes automatically, eliminating the need for manual locking through keys and a combination.  The application includes a GPS component to locate the bike in case the user forgets where they parked it or in the event that it is stolen.  Additionally, the SmartLock is intended to be mounted permanently on the bike frame, eliminating the need to carry a lock.  The sleek design will ensure that the lock is unobtrusive while riding. 
+Our team presents the SmartLock, which is a bike lock that is locked/unlocked through a smartphone application.  Users can secure their bikes automatically, eliminating the need for manual locking through keys or a combination.  The application includes a geotagging component to locate the bike in case the user forgets where they locked (parked) it.  Additionally, the SmartLock is intended to be mounted permanently on a bike frame, eliminating the need to carry a lock altogether.  The sleek design will ensure that the lock is unobtrusive while riding. 
 
 
 \subsection{Inputs and Outputs}
@@ -62,7 +65,7 @@ Our team presents the SmartLock, which is a bike lock that is locked/unlocked th
 	    SignalUnlock (to unlock) & LatchUnlocked\\
 	    SignalOpened & LockOpened\\
 	    SignalClosed & LockClosed\\
-	    BatteryPower & Battery \% Status\\
+	    BatteryPower & BatteryPercentStatus\\
 	    GpsLocation & BikePosition\\
 	    \hline
     \end{tabular}
@@ -71,22 +74,41 @@ Our team presents the SmartLock, which is a bike lock that is locked/unlocked th
 
 \subsection{Stakeholders}
 
-Cyclists or aspiring cyclists interested in improving the efficiency, usability and security of locking their bike(s).
+Cyclists or aspiring cyclists who are interested in improving the efficiency, usability and security of locking/finding their bike(s).
 
+\newpage
 \subsection{Environment}
 
 Below is a list of the hardware and software needed to implement the solution to the problem.
-Hardware: physical lock, power source, motor/actuator, input device (Bluetooth/ antennae/ transmitter/ receiver), positioning sensors 
-Software: phone app
+~\newline
+Hardware:
+\begin{itemize}
+\item Physical Lock
+\item Lock Housing/Mount
+\item Chain (for external frame locking)
+\item Power Source
+\item Electromagnet
+\item Arduino with Bluetooth capabilities
+\item Positioning Sensors
+\end{itemize}
+
+~\newline
+Software: 
+\begin{itemize}
+\item Smartphone App
+\subitem - Flutter App UI code
+\subitem - Integrated C code to communicate with the Arduino via Bluetooth
+\end{itemize}
+
 
 \section{Goals}
 \begin{table}[hp]
   \begin{center}
-    \begin{tabular}{| p{0.5\linewidth} | p{0.5\linewidth} |}
+    \begin{tabular}{| p{0.52\linewidth} | p{0.6\linewidth} |}
     \hline
       \textbf{Goals} & \textbf{Measurability}\\
       \hline
-      Wireless communication and engagement/disengagement of bike lock  & Quality and distance of signal strength\\
+      Wireless communication and \newline engagement/disengagement of bike lock  & Quality and distance of signal strength\\
       \hline
       Effective bike lock  & Lock functions, X amount of force before failure\\
       \hline
@@ -96,6 +118,8 @@ Software: phone app
       \hline
       Easily mount on bike frame & Does not require special tools for mount/dismount\\
       \hline
+       Cross-platform implementation & Can be used on both an iPhone and an Android smartphone\\
+      \hline
     \end{tabular}
   \end{center}
 \end{table}
@@ -104,10 +128,10 @@ Software: phone app
 \begin{itemize}
 \item Integrating with fitness apps (ie. Strava) for increased capabilities
 \item Integrating the battery with a solar panel for self-charging to reduce user interaction with the lock further
-\item GPS location services
-\item Cross-platform app implementation for accessibility using an Android in addition to an IOS device
+\item GPS location services to track the bike if it stolen
 \end{itemize}
 
+\newpage
 \section{References}
 
 [1]“bicycle-thefts,” data.torontopolice.on.ca. https://data.torontopolice.on.ca/pages/bicycle-thefts (accessed Sep. 25, 2022).
