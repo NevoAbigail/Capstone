@@ -41,7 +41,8 @@
 14-10-22 & Steffi & Intro, Scope \& Purpose of Hazard Analysis \& System Boundaries and Components\\
 17-10-22 & Abi & Revisions to Safety Requirements\\
 19-10-22 & Abi & Added probability and severity ratings to FMEA \\
-19-11-22 & Steffi & Updates for Consistency\\
+19-11-22 & Steffi & Updates for grammar, formatting and terminology\\
+23-11-22 & Steffi & Updates for consistency across documentation\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -56,12 +57,11 @@
 \pagenumbering{arabic}
 
 \section{Introduction}
-The purpose of this document is to outline the hazards that may face the SmartLock.  We are defining a hazard to be anything that puts the efficacy of the SmartLock at risk of failure or places the user in danger. 
-Throughout this document, the potential hazards will be outlined, and through the use of hazard analysis techniques, we will aim to mitigate these risks. 
+This document aims to outline the hazards that may face the SmartLock.  We are defining a hazard to be anything that puts the efficacy of the SmartLock at risk of failure or places the user in danger.  Throughout this document, the potential hazards will be outlined, and through the use of hazard analysis techniques, we will aim to mitigate these risks. 
 
 \section{Scope and Purpose of Hazard Analysis}
 
-The scope of this project is to create a device that securely locks a bike where the lock can be engaged and disengaged via a phone and doesn’t impede the rider, causing a safety issue.  It is crucial to understand both all the requirements of what a project is supposed to accomplish, but also all the risks that may accompany those requirements – this is the purpose of the hazard analysis.  Furthermore, the analysis will aim to assess the system boundaries, critical assumptions and safety requirements in order to predict the effects of the potential hazards to preemptively add precautions. 
+This project's scope is to create a device that securely locks a bike, where the lock can be disengaged via a smartphone app and doesn’t impede the rider's ability to use the bike, causing a safety issue.  It is crucial to understand both, all the requirements of what the project is supposed to accomplish, but also all the risks that may accompany those requirements – this is the purpose of the hazard analysis.  Furthermore, the analysis will aim to assess the system boundaries, critical assumptions and safety requirements to predict the potential hazards' effects in order to preemptively add precautions. 
 
 
 \section{Definitions}
@@ -80,7 +80,7 @@ The scope of this project is to create a device that securely locks a bike where
   \hline
  Error & An error indicates a problem with the software that relates to the engagement for the lock\\ 
   \hline
- Conflicts & A conflict indicates trying to execute an action while the SmartLock is in the wrong state. Ie. trying to engage the lock when the mechanism is open\\ 
+ Conflicts & A conflict indicates that an action is trying to be executed in the wrong state, ie. trying to engage the lock when the mechanism is open\\ 
  \hline
 \end{tabular}
 \end{minipage}\\
@@ -91,21 +91,21 @@ The system can be broken into the following components and has the following bou
 Our physical components are the aspects that will be on the bike itself.
 \subsubsection{Locking Mechanism}
 The locking mechanism will be the component that ensures the security of the bike.
-\subsubsection{Closing Mechanism}
-The closing mechanism is the component that will both attach the bike to an external frame, as well as make sure that the wheels will stay connected to the bike when you leave it.
+\subsubsection{Opening/Closing Mechanism}
+The opening/closing mechanism is the component that will both attach the bike to an external frame and ensure that the wheels will stay connected to the bike when you leave it.
 \subsubsection{Sensors}
 The sensors will be used to indicate whether or not the lock is open/closed or engaged/disengaged. 
 \subsubsection{Battery}
-The battery will be used for the engagement/disengagement of the locking mechanism.  This is the only feature that it will be used for which will extend the life of this component.
+The battery will be used to turn on the electromagnet which allows for the disengagement of the locking mechanism.  It will also be used to power the Arduino (microcontroller) which will allow the smartphone app to communicate with the bike lock.
 \subsection {Software Components}
 The software components that we will be using are related to our smartphone app.
 \subsubsection {App}
-The app component itself will be used to communicate with the physical components to give the user information on the status of the lock and allow the user to change the engagement/disengagement status. 
-\subsubsection {Location Services}
-The location service component will be used to communicate to the app where the bike was located upon engaging the lock.
+The app component itself will be used to communicate with the physical components, via the Arduino, to give the user information on the status of the lock and battery and to allow the user to disengage the lock. 
+\subsubsection {Geotagging Location Services}
+The location service component will be used to communicate to the app where the bike was located upon engaging the lock, for the purpose of remembering where your bike was left.
 \subsection {Boundaries}
 \subsubsection{Bike Size}
-The boundary that we need to work with on the physical components is the standard sizes of bikes so that they can be mounted properly.
+The boundary that we need to work with on the physical components is the standard sizes of bikes so that the lock can be mounted properly.
 \subsubsection{Standard External Frames}
 The other physical boundary that we need to work within is the standard size/location of external frames which provides us with measurements for the open/closing mechanism that we must abide by.
 \subsubsection{Current Technology}
@@ -117,8 +117,8 @@ The software boundary that we must remain within is the bounds of current techno
 
 \item[CA\refstepcounter{canum}\thecanum\label{CA1}:] Assume operator is not tampering or purposefully damaging the product.
 \item[CA\refstepcounter{canum}\thecanum\label{CA2}:] Assume weather is typical of Canada (i.e., no natural disasters).
-\item[CA\refstepcounter{canum}\thecanum\label{CA3}:] Assume operator's smartphone (including all integrated technologies, like GPS) is functioning properly.
-\item[CA\refstepcounter{canum}\thecanum\label{CA4}:] Assume GPS and Bluetooth signals are receivable and transmittable; operator is in a location that can be properly triangulated (i.e., operator is not underground, etc.). 
+\item[CA\refstepcounter{canum}\thecanum\label{CA3}:] Assume operator's smartphone (including all integrated technologies, like Geotagging) is functioning properly.
+\item[CA\refstepcounter{canum}\thecanum\label{CA4}:] Assume Geotagging and Bluetooth signals are receivable and transmittable; operator is in a location that can be properly triangulated (i.e., operator is not underground, etc.). 
 \item[CA\refstepcounter{canum}\thecanum\label{CA5}:] Assume operator's bicycle has standard frame and dimensions, and functions properly.
 \item[CA\refstepcounter{canum}\thecanum\label{CA6}:] Assume operator's smartphone has power/is charged. 
 
@@ -126,43 +126,41 @@ The software boundary that we must remain within is the bounds of current techno
 
 
 \section{Failure Modes and Effects Analysis}
-Probability and Severity are rated on 1-10 scales, with 10 being the most probable/severe. 
-
+Likelihood and Severity are rated on a 1-10 scale, with 10 being the most probable/severe. 
 \begin{table}[H]
-
 \caption{Failure Modes and Effects Analysis}
 \tiny
-
-\begin{tabular}{| p{0.07\textwidth} | p{0.08\textwidth}  | p{0.1\textwidth} | p{0.15\textwidth} | p{0.115\textwidth} | p{0.09\textwidth} | p{0.08\textwidth} | p{0.04\textwidth} | p{0.067\textwidth} |p{0.046\textwidth} | }
+\begin{tabular}{| p{0.07\textwidth} | p{0.09\textwidth}  | p{0.1\textwidth} | p{0.16\textwidth} | p{0.13\textwidth} | p{0.1\textwidth} | p{0.08\textwidth} | p{0.04\textwidth} | p{0.04\textwidth} |p{0.023\textwidth} | }
 \hline
-\textbf{Design Function} & \textbf{Failure Mode} & \textbf{Failure Effects} & \textbf{Failure Causes} & \textbf{Detection} & \textbf{Recommended Actions} & \textbf{Design Controls} & \textbf{Safety Req.}  & \textbf{Probability} & \textbf{Severity}\\ \hline
+\textbf{Design Function} & \textbf{Failure Mode} & \textbf{Failure \newline Effects} & \textbf{Failure Causes} & \textbf{Detection} & \textbf{Recommended Actions} & \textbf{Design Controls} & \textbf{Safety Req.}  & \textbf{Likeli-hood} & \textbf{Sev-erity}\\ \hline
 
-The intended user engages and disengages the locking mechanism & Male and female locking ends are not secured together; the structural integrity of the lock is compromised & Bike not secured (vulnerable to theft or loss) by the intended user, an unintended user (thief) or independent lock failure & 1. Faulty electromagnetic coil \newline 2. Battery supply disrupted by faulty wire \newline 3. The battery can no longer supply voltage \newline 4. Misshapen mechanical locking component \newline 5. Improper use \newline 6. Water, cold temperature or dirt damage & Perform inspection of locking mechanism internals by opening it up with simple tools. Signs of deformation and/or breaking due to torsional shear stress may be visible & 1. Replace faulty electromagnetic coil \newline 2. Replace any faulty wires \newline 3. Replace faulty battery \newline 4. Replace misshapen mechanical locking component & Mechanism to manually disengage provided & \hyperref[SR1]{SR1},\hyperref[SR2]{SR2}, FR9 & 3 & 10  \\ \hline
+The \newline intended user \newline engages and \newline disengages the \newline locking \newline mechanism & Male and female \newline locking ends are not \newline secured \newline together; the structural integrity of the lock is compromised & Bike not \newline secured \newline (vulnerable to theft or loss) by the intended user, an unintended user (thief) or independent lock failure & 1. Faulty \newline electromagnetic coil \newline 2. Battery supply \newline disrupted by faulty wire \newline 3. The battery can no longer supply voltage \newline 4. Misshapen mechanical locking component \newline 5. Water, cold \newline temperature or dirt damage \newline 6. Improper use & Perform inspection of locking \newline mechanism \newline internals by \newline opening it up with simple tools. Signs of deformation and/or breaking due to torsional shear stress may be visible & Replace: \newline - faulty \newline electromagnetic coil \newline - faulty wires \newline - faulty battery \newline - misshapen mechanical locking component & Mechanism to manually disengage provided & \hyperref[SR1]{SR1}, %\hyperref[SR2]{SR2}, 
+FR9 & 3 & 10  \\ \hline
 
-Attaches bike to an external frame or bike rack & a) Lock does not fit around external frame  \newline b) Lock is broken along its body and cannot move as intended & Bike cannot be secured to an external frame (vulnerable to theft or loss) & 1. The lock is too short \newline 2. The lock is too rigid or not flexible enough to fit \newline 3. A piece of lock has become stuck, loose or fallen off \newline 4. The lock is too wide to fit through an external frame \newline 5. Improper use & 1. Attempt to fit the lock to an external frame.  \newline 2. Perform inspection of physical lock to detect any components compromising structural integrity or any signs of deformation or breaking due to bending stress & 1. Find a different external frame that fits the lock \newline 2. Repair lock with spare pieces, tightening loose pieces or lubricating moving parts & Lock will be designed with high flexibility & \hyperref[SR3]{SR3} & a) 4 b) 2 & a) 8 b) 10 \\ \hline
+Attaches bike to an external frame or bike rack & a) Lock does not fit around external frame  \newline b) Lock is broken along its body and cannot move as intended & Bike cannot be secured to an external frame (vulnerable to theft or loss) & The lock is: \newline - too short \newline - too rigid or not \newline flexible enough to fit \newline - broken: a piece of lock has become stuck, loose or fallen off \newline - too wide to fit through an external frame \newline - used improperly & 1. Attempt to fit the lock to an external frame \newline 2. Perform inspection of physical lock to detect any components compromising structural integrity or any signs of deformation or breaking due to bending stress & 1. Find a \newline different \newline external frame that fits the lock \newline 2. Repair lock with spare pieces, tightening loose pieces or lubricating moving parts & Lock will be designed with high flexibility & \hyperref[SR2]{SR2} & a) 4 b) 2 & a)8 b)10 \\ \hline
 
-Transmits and receives signal to engage/ disengage locking mechanism from the App to the lock & Locking mechanism fails to engage or disengage; lock remains in an undesired state & 1. If fails to engage, bike not secured (vulnerable to theft or loss) \newline 2. If fails to disengage, the bike cannot be detached from the external frame & 1. App malfunction; unable to prepare or receive signal \newline 2. Wireless connection from SmartLock to smartphone disrupted by external force \newline 3. Communication protocol error \newline 4. Battery supply disrupted by faulty wire \newline 5. The battery can no longer supply voltage to the transmitting/receiving unit & Locking mechanism is stuck in an undesired state after multiple attempts to engage or disengage & 1. Reboot app  \newline 2. Replace any faulty wires \newline 3. Replace faulty battery \newline 4. Manually move smartphone and SmartLock such that they are in closer proximity to each other & Long-lasting battery installed & NFR13, NFR14 & 3 & 10 \\ \hline
+Transmits and \newline receives signal to engage/ disengage locking mechanism from the app to the lock & Locking mechanism fails to \newline engage or \newline disengage; lock remains in an \newline undesired state & 1. If fails to engage, bike not secured (vulnerable to theft or loss) \newline 2. If fails to disengage, the bike cannot be detached from the external frame & 1. App malfunction; unable to prepare or receive signal \newline 2. Wireless connection from SmartLock to smartphone disrupted by external force \newline 3. Communication protocol error \newline 4. Battery supply \newline disrupted by faulty wire \newline 5. The battery can no longer supply \newline voltage to the transmitting/receiving unit & Locking \newline mechanism is stuck in an undesired state after multiple attempts to engage or disengage & 1. Reboot app  \newline 2. Replace any faulty wires \newline 3. Replace faulty battery \newline 4. Manually move \newline smartphone and SmartLock such that they are in closer proximity to each other & Long-lasting battery installed & NFR13, NFR14 & 3 & 10 \\ \hline
 
-Transmits, receives and displays status information (engaged/ disengaged, battery percentage) from the lock to the App & Status information not shown on App or is inaccurate & Accurate information not known; battery may be low or require replacement and/or bike may not be secured (vulnerable to theft or loss) & 1. Internal app malfunction or high latency \newline 2. Status information not transmitted or received (see ‘Transmits and receives engagement /disengagement signal from the App’ above) \newline 3. Smartphone malfunction or battery depletion \newline 4. Faulty status sensors & 1. The app appears to be malfunctioning (not loading, the screen is frozen or information appears to be inaccurate or lagging).  \newline 2. Status information is inaccurate upon inspection of the actual status of lock internals & 1. Reboot Smartphone \newline 2. Reboot App \newline 3. Replace faulty status sensors \newline 4. Charge smartphone & Ability to manually check status information & \hyperref[SR1]{SR1} & 3 & 7\\ \hline
+Transmits, receives \& \newline displays status \newline information (engaged/ \newline disengaged, battery \newline percentage) from the lock to the app & Status \newline information not shown on the app or is inaccurate & Accurate \newline information not known; battery may be low or require replacement and/or bike may not be secured \newline (vulnerable to theft or loss) & 1. Internal app malfunction or high latency \newline 2. Status information not transmitted or received (see ‘Transmits and receives engagement /disengagement signal from the App’ above) \newline 3. Smartphone malfunction or battery depletion \newline 4. Faulty status sensors & 1. The app appears to be malfunctioning (not loading, the screen is frozen or information appears to be inaccurate or lagging)  \newline 2. Status information is inaccurate upon inspection of the actual status of lock internals & 1. Reboot Smartphone \newline 2. Reboot App \newline 3. Replace faulty status sensors \newline 4. Charge smartphone & Ability to manually check status information & \hyperref[SR1]{SR1} & 3 & 7\\ \hline
 
-Withstands water from rainfall & Water appears to have permeated SmartLock & 1. Electronics damaged \newline 2. Locking mechanism damaged \newline 3. Mechanical components rusted & 1. Ineffective waterproofing (impermeable sealing) of locking mechanism, electronics and mechanical components \newline 2. Improper use (in inclement weather more severe than average rainfall) & Perform inspection of locking mechanism, electronics and mechanical components. Corrosion, damaged components or water observed. & Replace water-damaged components & 1. The system is well sealed against the environment. \newline 2. Aside from housing, the lock system is composed of materials which resist corrosion & \hyperref[SR4]{SR4}, NFR6, NFR7 & 8 & 8 \\ \hline
+Withstands water from rainfall & Water \newline appears to have \newline permeated the \newline SmartLock & 1. Electronics damaged \newline 2. Locking mechanism damaged \newline 3. Mechanical components rusted & 1. Ineffective \newline waterproofing \newline(permeable sealing) of locking mechanism, \newline electronics and \newline mechanical components \newline 2. Improper use (in inclement weather more severe than average rainfall) & Perform inspection of locking \newline mechanism, \newline electronics and mechanical \newline components. \newline Corrosion, damaged components or water observed. & Replace \newline water-damaged components & 1. The system is well sealed against the \newline environment. \newline 2. Aside from \newline housing, the lock system is composed of materials which resist corrosion & \hyperref[SR3]{SR3}, NFR6, NFR7 & 8 & 8 \\ \hline
 
-‘Geocaches’ location of bike and displays on App & Location information not shown on App or is inaccurate & Accurate location information not known; the user may not be able to locate bike & 1. Smartphone GPS software malfunction (inaccurate location recorded) \newline 2. Internal app malfunction  \newline 3. Smartphone battery depletion \newline 4. Location geocached somewhere with poor satellite triangulation capabilities or poor cellphone service \newline 5. Data sharing issue with smartphone GPS software & 1. The app appears to be malfunctioning (not loading, the screen is frozen or information appears to be inaccurate or lagging).  \newline 2. Geocached location is inaccurate when compared to the actual location \newline 3. Smartphone indicates battery or data sharing issue & 1. Reboot GPS software app \newline 2. Reboot smartphone \newline 3. Reboot App \newline 4. Charge smartphone \newline 5. Move to a location with better service and satellite triangulation capabilities & None & mitiga-tion is cover-ed by critical ass-ump-tions & 7 & 6\\ \hline
+‘Geotags’ location of bike and displays on app & Location information not shown on the app or is inaccurate & Accurate \newline location \newline information not known; the user may not be able to locate bike & 1. Smartphone geotag software malfunction (inaccurate location recorded) \newline 2. Internal app \newline malfunction  \newline 3. Smartphone battery depletion \newline 4. Location geocached somewhere with poor satellite triangulation capabilities or poor cellphone service \newline 5. Data sharing issue with smartphone geotag software & 1. The app appears to be \newline malfunctioning (not loading, the screen is frozen or lagging or information appears to be inaccurate).  \newline 2. Geocached \newline location is \newline inaccurate when compared to the actual location \newline 3. Smartphone indicates battery or data sharing issue & 1. Reboot GPS software app \newline 2. Reboot smartphone \newline 3. Reboot App \newline 4. Charge smartphone \newline 5. Move to a location with better service and satellite triangulation capabilities & None & mitiga-tion is cover-ed by critical ass-ump-tions & 7 & 6\\ \hline
 
-Contains and carries all physical lock components on the bike when not in use & Some or all physical lock components cannot safely fit or be mounted on the bike due to the absence of a proper storage system that accommodates all components & 1. Components must be placed in inappropriate storage locations such that they dangle off the bike or asymmetrically weigh down the bike \newline 2. Components must be carried separately by the user & 1. Physical lock component storage system lacks space for all components \newline 2. Broken or malfunctioning physical lock component storage system \newline 3. Physical lock components too large to be mounted safely on the bike & Physical lock components cannot be stored safely on the bike & Repair and/or expand faulty storage system & Initial check to ensure mounting system and corresponding components function as intended &  FR10 & 2 & 5\\ \hline
+Contains and \newline carries all physical lock \newline components on the bike when not in use & Some or all physical lock components cannot safely be mounted on the bike due to the absence of proper \newline storage that \newline accommodates all \newline components & 1. Components placed in \newline inappropriate storage \newline locations such that they dangle off the bike or asymmetrically weigh down the bike \newline 2. Components \newline aren't mounted to the bike& 1. Physical lock \newline component storage system lacks space for all components \newline 2. Broken or \newline malfunctioning physical lock component storage system \newline 3. Physical lock \newline components too large to be mounted safely on the bike & Physical lock \newline components cannot be stored safely on the bike & Repair and/or expand faulty storage system & Initial check to ensure mounting system and \newline corresponding components function as intended &  FR10 & 2 & 5\\ \hline
 \end{tabular}
 \end{table}
 
 
 
 \section{Safety and Security Requirements}
-\subsection{New Requirements}
+\subsection{New Requirements - October 2022}
 The following requirements must be added to the SRS document in the Non-Functional Requirements Category:
 \begin{itemize}
 \item[SR\refstepcounter{srnum}\thesrnum\label{SR1}:] Internal parts of locking mechanism shall be accessible and replaceable.
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] The locking mechanism shall be able to disengage manually (e.g., with a key), in addition to remotely.
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be adaptable and be able to fit a wide variety of external frames/bike racks.
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR4}:] Product shall be made from anti-corrosive materials. 
+%\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] The locking mechanism shall be able to disengage manually (e.g., with a key), in addition to remotely. %% THIS IS A STRETCH GOAL
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] Product shall be adaptable and be able to fit a wide variety of external frames/bike racks.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be made from anti-corrosive materials. %%SHOULD this be added as a stretch goal
 \end{itemize}
 
 \subsection{Existing Requirements}
@@ -178,6 +176,6 @@ The following requirements have already been included in the SRS document, and a
 
 
 \section{Roadmap}
-The safety requirements that will be implemented in the scope of Mechatronics Capstone 4TB6 are SR1 and SR3. They are vital to the functionality, safety and security of the SmartLock and are reasonably achievable given the constraints of the course, project and Team. The implementation of SR2 and SR4 will be postponed until after the course has been completed due to financial, temporal and accessibility reasons. 
+The safety requirements that will be implemented in the scope of Mechatronics Capstone 4TB6 are SR1 and SR2. They are vital to the functionality, safety and security of the SmartLock and are reasonably achievable given the constraints of the course, project and Team. The implementation of SR3 will be postponed until after the course has been completed due to financial, temporal and accessibility reasons. 
 
 \end{document}
