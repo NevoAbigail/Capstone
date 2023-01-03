@@ -46,8 +46,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+Jan 2, 2023 & 1.0 & Added Likely and Unlikely Changes\\
 \bottomrule
 \end{tabularx}
 
@@ -157,12 +156,20 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acBattery}:]  Depending on the battery life, showing battery percentage on the phone app, as required in FR11, might not be necessary. If the battery life is very long, then perhaps a warning that the battery is low is sufficient. 
+\item[\refstepcounter{acnum}\actheacnum\label{acAppStorage}:] Having never created an app like this before, the amount of storage needed for the smartphone application is unknown. NFR3 ensures ample space is provided, if any change, this requirement might be revised so that it be required that the app takes up even less storage. 
+\item[\refstepcounter{acnum}\actheacnum\label{acAesthetics}:] Even though aesthetics is a selling point of any product, it is not a priority for this product. As such, the requirement NFR4 regarding the visual appeal of the design is subject to change. 
+\item[\refstepcounter{acnum}\actheacnum\label{acAccuracy}:] The degree of accuracy mentioned in NFR8, NFR9, and NFR10 is not possible for the scope of this project.
+\item[\refstepcounter{acnum}\actheacnum\label{acMaintainability}:] Given that we will likely not be maintaining the system, requirements regarding maintainability will be difficult to test and verify. While products should be designed with maintainability in mind, it is not a priority for this project. Thus, requirements NFR17, NFR18, NFR19, NFR20 and NFR21 are subject to change. 
+\item[\refstepcounter{acnum}\actheacnum\label{acAndroid}:] Requiring an iOS application as stated in NFR22 and NFR23 was chosen given the team's skillset; however, the product's nature does not require the application to be iOS based. Given different preferences and/or skillset, this application could be substituted or extended to an Android application. Note that NFR23 is dependent on NFR22.
+
 \end{description}
+
+%\begin{description}
+%\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific hardware on which the software is running.
+%\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the initial input data.
+%\item ...
+%\end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
 
@@ -174,10 +181,21 @@ will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item ...
+
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucFun}:] These requirements are core to the functionality of the product. The product would not accomplish its purpose without meeting these requirements. Thus, these requirements are  unlikely to change: FR1, FR2, FR3, FR4, FR5, FR6, FR7, FR8, FR9 and FR13.
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucSell}:] These requirements are key selling features of the system, and are therefore unlikely to change: FR10 and FR11.
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucAcc}:] These requirements are necessary to ensure accessibility for all users: NFR1 and NFR2.
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucHoohah}:] Dependent on requirement \hyperref[FR10]{ FR10}, that the lock can be mounted on the bike's frame, \hyperref[NFR5]{NFR5} that the design must not impede normal bike function is necessary for the bike to function at all, and, if the bike does not function, the SmartLock product is useless. As such, this requirement is unlikely to change.
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucWeather}:] To maintain usability in imperfect weather conditions, requirements NFR6 and NFR7 and are therefore unlikely to change. 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucSmart}:] The following requirements must be satisfied to maintain an edge over typical, manually engaged/disengaged bike locks, and are therefore unlikely to change: NFR11, NFR12, NFR13, NFR14, NFR15 and NFR16.
+
 \end{description}
+
+%\begin{description}
+%\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
+%  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
+%\item ...
+%\end{description}
 
 \section{Module Hierarchy} \label{SecMH}
 
@@ -227,6 +245,8 @@ actually be implemented.
 The design of the system is intended to satisfy the requirements developed in
 the SRS. In this stage, the system is decomposed into modules. The connection
 between requirements and modules is listed in Table~\ref{TblRT}.
+
+For the MG section, you are just focusing on the software modules that implement the requirements.  You can point to the traceability matrix or graph that shows which modules implement which requirements.
 
 \section{Module Decomposition} \label{SecMD}
 
