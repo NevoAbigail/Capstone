@@ -43,11 +43,13 @@
 
 \section{Revision History}
 
-\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Developer} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+02-01-23 & 1.0 & Elsa & Likely and Unlikely Changes \\
+10-01-23 & 2.0 & Elsa & Modules \\
+15-01-23 & 3.0 & Elsa & Remaining Contents \\
+16-01-23 & 4.0 & Elsa & References \\
 \bottomrule
 \end{tabularx}
 
@@ -70,11 +72,9 @@ This section records information for easy reference.
   MG & Module Guide \\
   OS & Operating System \\
   R & Requirement\\
-  SC & Scientific Computing \\
   SRS & Software Requirements Specification\\
   \progname & Explanation of program name\\
   UC & Unlikely Change \\
-  \wss{etc.} & \wss{...}\\
   \bottomrule
 \end{tabular}\\
 
@@ -94,14 +94,14 @@ This section records information for easy reference.
 
 Decomposing a system into modules is a commonly accepted approach to developing
 software.  A module is a work assignment for a programmer or programming
-team~\citep{ParnasEtAl1984}.  We advocate a decomposition
-based on the principle of information hiding~\citep{Parnas1972a}.  This
+team (Parnas et al, 1984).  We advocate a decomposition
+based on the principle of information hiding (Parnas, 1972a).  This
 principle supports design for change, because the ``secrets'' that each module
 hides represent likely future changes.  Design for change is valuable in SC,
 where modifications are frequent, especially during initial development as the
 solution space is explored.  
 
-Our design follows the rules layed out by \citet{ParnasEtAl1984}, as follows:
+Our design follows the rules layed out by Parnas et Al (1984), as follows:
 \begin{itemize}
 \item System details that are likely to change independently should be the
   secrets of separate modules.
@@ -111,7 +111,7 @@ Our design follows the rules layed out by \citet{ParnasEtAl1984}, as follows:
 \end{itemize}
 
 After completing the first stage of the design, the Software Requirements
-Specification (SRS), the Module Guide (MG) is developed~\citep{ParnasEtAl1984}. The MG
+Specification (\href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}), the Module Guide (MG) is developed, (Parnas et Al, 1984). The MG
 specifies the modular structure of the system and is intended to allow both
 designers and maintainers to easily identify the parts of the software.  The
 potential readers of this document are as follows:
@@ -157,11 +157,19 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:]  The specific hardware on which the software is running. 
+\item[\refstepcounter{acnum}\actheacnum\label{acInput}:] The format of the initial input data and parameters on the App. 
+\item[\refstepcounter{acnum}\actheacnum\label{acOutput}:] The format of the output data on the App. 
+\item[\refstepcounter{acnum}\actheacnum\label{acEngage}:] The implementation of the transmission of the lock status signal (engaged status signal). 
+\item[\refstepcounter{acnum}\actheacnum\label{acDisengage}:] The implementation of the transmission of the ‘disengage’ signal. 
+\item[\refstepcounter{acnum}\actheacnum\label{acBatteryStatus}:] How the battery status calculation is defined within the App. 
+\item[\refstepcounter{acnum}\actheacnum\label{acPowerSignal}:] How the Arduino allows/disallows power to the load (electromagnet) I.e., the implementation of the switch (transistor). 
+\item[\refstepcounter{acnum}\actheacnum\label{acGeocaching}:] The implementation of the location determinant feature. 
+\item[\refstepcounter{acnum}\actheacnum\label{acBattery}:] The size of the battery. 
+\item[\refstepcounter{acnum}\actheacnum\label{acMagnet}:] The size of the electromagnet. 
+\item[\refstepcounter{acnum}\actheacnum\label{acLockingMechanism}:] The implementation of the locking mechanism. 
+\item[\refstepcounter{acnum}\actheacnum\label{acLockFrame}:] The implementation of the lock frame. 
+
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -174,9 +182,14 @@ will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item ...
+
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucIO}:] The I/O devices (iPhone or android smartphone). 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucCircuit}:] The circuit devices (Arduino, battery and electromagnet). 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucOutput}:] Output data are displayed to the output device (App). 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucVerify}:] Output data can be verified by checking the lock frame. 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucGoal}:] The goal of the system (wirelessly and hands-free disengage the bike lock). 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucInput}:] There will always be a source of input data external to the software.
+
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
@@ -188,9 +201,19 @@ actually be implemented.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
-\end{description}
+\item [\refstepcounter{mnum} \mthemnum \label{mIP}:] Input Parameters Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mOP}:] Output Parameters Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mESS}:] Engage Status Signal Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mDS}:] Disengage Signal Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mBS}:] Battery Status Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mLPS}:] Load Power Signal Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mL}:] Location Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mB}:] Battery Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mEM}:] Electromagnet Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mLM}:] Locking Mechanism Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mLF}:] Lock Frame Module 
 
+\end{description}
 
 \begin{table}[h!]
 \centering
@@ -202,19 +225,19 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
+& Output Parameters Module \\
+& Engage Status Signal Module \\
+& Disengage Signal Module \\
+& Battery Status Module \\
+& Location Module \\ 
+& Lock Frame Module \\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Load Power Signal Module \\
+& Battery Module \\
+& Electromagnet Module \\
+& Locking Mechanism Module \\
 \bottomrule
 
 \end{tabular}
@@ -225,13 +248,13 @@ actually be implemented.
 \section{Connection Between Requirements and Design} \label{SecConnection}
 
 The design of the system is intended to satisfy the requirements developed in
-the SRS. In this stage, the system is decomposed into modules. The connection
+the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS}. In this stage, the system is decomposed into modules. The connection
 between requirements and modules is listed in Table~\ref{TblRT}.
 
 \section{Module Decomposition} \label{SecMD}
 
 Modules are decomposed according to the principle of ``information hiding''
-proposed by \citet{ParnasEtAl1984}. The \emph{Secrets} field in a module
+proposed by Parnas et al, (1984). The \emph{Secrets} field in a module
 decomposition is a brief statement of the design decision hidden by the
 module. The \emph{Services} field specifies \emph{what} the module will do
 without documenting \emph{how} to do it. For each module, a suggestion for the
@@ -249,10 +272,8 @@ to be implemented.
 \begin{description}
 \item[Secrets:]The data structure and algorithm used to implement the virtual
   hardware.
-\item[Services:]Serves as a virtual hardware used by the rest of the
-  system. This module provides the interface between the hardware and the
-  software. So, the system can use it to display outputs or to accept inputs.
-\item[Implemented By:] OS
+\item[Services:]Serves as virtual hardware used by the rest of the system. This module provides the interface between the hardware and the software. So, the system can use it to display outputs or accept inputs.
+\item[Implemented By:] App OS
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
@@ -267,21 +288,57 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{Input Parameters Module (\mref{mIP})}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
-\item[Type of Module:] [Record, Library, Abstract Object, or Abstract Data Type]
-  [Information to include for leaf modules in the decomposition by secrets tree.]
+\item[Secrets:]The data structure for input parameters and how the values are inputted and verified. The load and verify secrets are isolated to their own access programs, found in their respective submodules. 
+\item[Services:]Receives input from the user, stores input and verifies that the input parameters comply with physical and software constraints. Throws an error if a parameter violates a physical constraint. Throws a warning if a parameter violates a software constraint. Stored parameters can be read individually, but write access is only to redefine the entire set of inputs. 
+\item[Implemented By:]App
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Output Parameters Module (\mref{mOP})}
+\begin{description}
+\item[Secrets:]The format and structure of the output data.
+\item[Services:]Outputs the results of the battery status calculations, the engaged status signal and the location data. 
+\item[Implemented By:]The App
+\end{description}
 
+\subsubsection{Engage Status Signal Module (\mref{mESS})}
+\begin{description}
+\item[Secrets:]The determination and transmission of the ‘Engage Status’ signal, which tells the user whether the locking mechanism is engaged or disengaged.
+\item[Services:]The Arduino determines the status of the locking mechanism, then wirelessly transmits this data to the App as a signal so it can be displayed to the user as the ‘Engage Status’.
+\item[Implemented By:]The App and the Arduino
+\end{description}
 
-\subsection{Software Decision Module}
+\subsubsection{Disengage Signal Module (\mref{mDS})}
+\begin{description}
+\item[Secrets:]The determination and transmission of the ‘Disengage’ signal, which disengages the locking mechanism. 
+\item[Services:]The user inputs the command to disengage the locking mechanism on the GUI. The App then wirelessly transits the ‘Disengage’ signal, which is received by the Arduino. 
+\item[Implemented By:]The App and the Arduino
+\end{description}
+
+\subsubsection{Battery Status Module (\mref{mBS})}
+\begin{description}
+\item[Secrets:]The determination of the current level of the battery to inform the user when replacement is required.
+\item[Services:]The battery level is calculated within the App based on some inherent battery properties. It is then displayed on the GUI as ‘Battery Status’. 
+\item[Implemented By:]The App
+\end{description}
+
+\subsubsection{Location Module (\mref{mL})}
+\begin{description}
+\item[Secrets:]The implementation of the location determinant.
+\item[Services:]The algorithm that governs the geocaching of the bike’s location upon locking.
+\item[Implemented By:]The App
+\end{description}
+
+\subsubsection{Lock Frame Module (\mref{mLF})}
+\begin{description}
+\item[Secrets:]The design of the physical ‘lock frame’ that connects the bike and the external frame it is being ‘locked’ to.
+\item[Services:]Is the interface that connects the user, the App and the locking mechanism that allows the user to utilize the entire system.
+\item[Implemented By:]The Mechanical System
+\end{description}
+
+\subsection{Electrical/Mechanical/Software Decision Module}
 
 \begin{description}
 \item[Secrets:] The design decision based on mathematical theorems, physical
@@ -294,7 +351,33 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Load Power Signal Module (\mref{mLPS})}
+\begin{description}
+\item[Secrets:]How the Arduino allows and disallows power to the load.
+\item[Services:]The implementation, logic and transmission of the power signal sent from the Arduino to the transistor, which acts as a switch to allow power to the electromagnet.
+\item[Implemented By:]The Arduino
+\end{description}
+
+\subsubsection{Battery Module (\mref{mB})}
+\begin{description}
+\item[Secrets:]The specifications of the circuit power supply.
+\item[Services:]The type and size of the battery which supplies power to the Arduino and the electromagnet. 
+\item[Implemented By:]The Electrical Circuit
+\end{description}
+
+\subsubsection{Electromagnet Module (\mref{mEM})}
+\begin{description}
+\item[Secrets:]The specifications of the component of the circuit responsible for moving the locking mechanism.
+\item[Services:]The type and size of the electromagnet, which must provide a magnetic force strong enough to move the locking mechanism into its desired position for disengagement.
+\item[Implemented By:]The Electrical Circuit
+\end{description}
+
+\subsubsection{Locking Mechanism Module (\mref{mLM})}
+\begin{description}
+\item[Secrets:]The design of the moving part that engages and disengages the lock frame.
+\item[Services:]Responds to the magnetic force supplied by the electromagnet in such a way that it engages and disengages the lock frame.
+\item[Implemented By:]The Mechanical System
+\end{description}
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -302,24 +385,24 @@ This section shows two traceability matrices: between the modules and the
 requirements and between the modules and the anticipated changes.
 
 % the table should use mref, the requirements should be named, use something
-% like fref
+% like fref --> individual FR's
 \begin{table}[H]
 \centering
 \begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+FR1 & \mref{mLF}\\
+FR2 & \mref{mHH}, \mref{mIP}, \mref{mDS}, \mref{mLPS}, \mref{mB}, \mref{mEM}, \mref{mLM}\\
+FR3 & \mref{mHH}, \mref{mESS}, \mref{mB}\\
+FR4 & \mref{mHH}, \mref{mESS}, \mref{mB}\\
+FR5 & \mref{mHH}, \mref{mIP}, \mref{mL}, \mref{mB}\\
+FR6 & \mref{mB}, \mref{mEM}, \mref{mLM}, \mref{mLF}\\
+FR7 & \mref{mIP}, \mref{mDS}\\
+FR8 & \mref{mLF}\\
+FR9 & \mref{mHH}, \mref{mOP}, \mref{mBS}, \mref{mB}\\
+FR10 & \mref{mHH}, \mref{mOP}, \mref{mL}\\
+FR11 & \mref{mHH}, \mref{mB}, \mref{mEM}, \mref{mLM}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -333,17 +416,17 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \textbf{AC} & \textbf{Modules}\\
 \midrule
 \acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{acInput} & \mref{mIP}\\
+\acref{acOutput} & \mref{mOP}\\
+\acref{acEngage} & \mref{mESS}\\
+\acref{acDisengage} & \mref{mDS}\\
+\acref{acBatteryStatus} & \mref{mBS}\\
+\acref{acPowerSignal} & \mref{mLPS}\\
+\acref{acGeocaching} & \mref{mL}\\
+\acref{acBattery} & \mref{mB}\\
+\acref{acMagnet} & \mref{mEM}\\
+\acref{acLockingMechanism} & \mref{mLM}\\
+\acref{acLockFrame} & \mref{mLF}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -353,7 +436,7 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \section{Use Hierarchy Between Modules} \label{SecUse}
 
 In this section, the uses hierarchy between modules is
-provided. \citet{Parnas1978} said of two programs A and B that A {\em uses} B if
+provided. Parnas, (1978), said of two programs A and B that A {\em uses} B if
 correct execution of B may be necessary for A to complete the task described in
 its specification. That is, A {\em uses} B if there exist situations in which
 the correct functioning of A depends upon the availability of a correct
@@ -365,8 +448,8 @@ because they use modules from the lower levels.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
-\caption{Use hierarchy among modules}
+\includegraphics[width=1\textwidth]{DAG.png}
+\caption{Use Hierarchy Among Modules}
 \label{FigUH}
 \end{figure}
 
@@ -376,14 +459,5 @@ because they use modules from the lower levels.
 \bibliography{../../../refs/References}
 
 \newpage{}
-\section*{Appendix --- Reflection}
-
-The information in this section will be used to evaluate the team members on the
-graduate attribute of Lifelong Learning.  Please answer the following questions:
-
-\begin{enumerate}
-  \item 
-  \item 
-\end{enumerate}
 
 \end{document}
