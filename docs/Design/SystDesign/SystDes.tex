@@ -44,10 +44,9 @@
 \section{Revision History}
 
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\toprule {\bf Date} & {\bf Version} & {\bf Developer}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+January 16, 2023 & 1.0 & Steffi\\
 \bottomrule
 \end{tabularx}
 
@@ -117,15 +116,54 @@ your system and the environment around it.)}
   requirements, a specific design decision may be made to satisfy those
   requirements with a password.}
 
+\newpage
 \section{System Variables}
 
-\wss{Include this section for Mechatronics projects}
+%\wss{Include this section for Mechatronics projects}
 
 \subsection{Monitored Variables}
 
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.23\textwidth} | p{0.54\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
+ \hline
+ Variable Name & Description & Type & Units \\ 
+ \hline
+ m\_SignalEngaged & Monitors whether or not the locking mechanism is engaged & Digital & Boolean \\ 
+  \hline
+ m\_SignalDisengaged & Monitors whether or not the locking mechanism is disengaged & Digital & Boolean \\ 
+  \hline
+ m\_SignalClosed& Monitors whether or not the physical mechanism is closed & Digital & Boolean \\ 
+  \hline
+ m\_Location & Monitors the location of the bike when it is locked & Analog & Coordinates \\ 
+  \hline
+ m\_BatteryPower & Monitors the current battery percentage & Analog & Percentage \\ 
+ \hline
+\end{tabular}
+\end{minipage}\\
+
 \subsection{Controlled Variables}
 
-\subsection{Constants Variables}
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
+ \hline
+ Variable Name & Description & Type & Units \\ 
+ \hline
+ c\_LockEngaged & Engages the lock & Digital & Boolean \\ 
+  \hline
+ c\_LocklDisengaged & Disengages the lock & Digital & Boolean \\ 
+  \hline
+ c\_LockClosed& Indicates to the user that the latch is closed & Digital & Boolean \\ 
+  \hline
+ c\_BikePosition & Marks the location of the bike when it is locked & Analog & Coordinates \\ 
+  \hline
+ c\_BatteryPercentStatus & Indicates what the percentage of the battery is & Analog & Percentage \\ 
+ \hline
+\end{tabular}
+\end{minipage}\\
+
+\subsection{Constants Variables - NA}
 
 \section{User Interfaces}
 
@@ -153,27 +191,70 @@ circuit diagrams, etc}
 
 \section{Timeline}
 
-\wss{Schedule of tasks and who is responsible}
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.12\textwidth} | p{0.38\textwidth} | p{0.50\textwidth} |}
+ \hline
+ Date & Description & Group Member Assigned\\ 
+ \hline
+ January 16 & Housing Design & Abi, Elsa \& Steffi\\ 
+ \hline
+ January 18 & Design Documentation & MG - Elsa \newline MIS - Abi \& Anthony \newline SystDes - Steffi\\ 
+  \hline
+  January 22 & CAD of Housing Design & Steffi\\ 
+  \hline
+    January 22 & Circuit & Stephen\\ 
+  \hline
+    January 22 & App & Anthony\\ 
+    \hline
+    January 22 & Arduino Coded & Abi\\ 
+  \hline
+   January 25 & Arduino and Circuit Testing & Abi \& Stephen\\ 
+  \hline
+   January 29 & Housing 3D Printed & Abdul\\ 
+  \hline
+    February 1& Assemble Housing and Circuit & Steffi \& Stephen\\ 
+  \hline
+   February 1& All Documentation has been updated to reflect current project & Elsa\\ 
+  \hline
+      February 4 & Rev 0 Testing & Everyone\\ 
+  \hline
+  February 6 & Rev 0 Demonstration & App \& Arduino - Anthony \& Abi \newline Circuit - Stephen \newline Housing - Steffi \& Elsa \newline Documentation Elsa \& Steffi\\
+  \hline
+  March 8 & V \& V Report Rev 0 & Everyone \newline(Reqs divided by area of expertise on Rev 0 Demonstration)\\
+  \hline
+ March 20 & Final Demonstration & Everyone \newline(Divided by areas of work)\\
+ \hline
+ April 5 & Final Documentation & Everyone \newline(Divided by areas of work)\\
+ \hline
+ TBD & EXPO & Everyone (Divided by areas of work)\\
+ \hline
+\end{tabular}
+\end{minipage}\\
+
+
+
+
+%\wss{Schedule of tasks and who is responsible}
 
 % \bibliographystyle {plainnat}
 % \bibliography{../../../refs/References}
 
 \newpage{}
+\section{Appendix}
 
-\appendix
-
-\section{Interface}
+\subsection{Interface}
 
 \wss{Include additional information related to the appearance of, and
 interaction with, the user interface}
 
-\section{Mechanical Hardware}
+\subsection{Mechanical Hardware}
 
-\section{Electrical Components}
+\subsection{Electrical Components}
 
-\section{Communication Protocols}
+\subsection{Communication Protocols}
 
-\section{Reflection}
+\subsection{Reflection}
 
 The information in this section will be used to evaluate the team members on the
 graduate attribute of Problem Analysis and Design.  Please answer the following questions:
