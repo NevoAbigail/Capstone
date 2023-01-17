@@ -161,7 +161,7 @@ change.
 \item[\refstepcounter{acnum}\actheacnum\label{acInput}:] The format of the initial input data and parameters on the App. 
 \item[\refstepcounter{acnum}\actheacnum\label{acOutput}:] The format of the output data on the App. 
 \item[\refstepcounter{acnum}\actheacnum\label{acEngage}:] The implementation of the transmission of the lock status signal (engaged status signal). 
-\item[\refstepcounter{acnum}\actheacnum\label{acDisengage}:] The implementation of the transmission of the ‘disengage’ signal. 
+\item[\refstepcounter{acnum}\actheacnum\label{acWireless}:] The implementation of the transmission of the ‘disengage’ signal. 
 \item[\refstepcounter{acnum}\actheacnum\label{acBatteryStatus}:] How the battery status calculation is defined within the App. 
 \item[\refstepcounter{acnum}\actheacnum\label{acPowerSignal}:] How the Arduino allows/disallows power to the load (electromagnet) I.e., the implementation of the switch (transistor). 
 \item[\refstepcounter{acnum}\actheacnum\label{acGeocaching}:] The implementation of the location determinant feature. 
@@ -204,7 +204,7 @@ actually be implemented.
 \item [\refstepcounter{mnum} \mthemnum \label{mIP}:] Input Parameters Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mOP}:] Output Parameters Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mESS}:] Engage Status Signal Module 
-\item [\refstepcounter{mnum} \mthemnum \label{mDS}:] Disengage Signal Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mWSC}:] Wireless Signal Connection Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mBS}:] Battery Status Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mLPS}:] Load Power Signal Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mL}:] Location Module 
@@ -228,7 +228,7 @@ actually be implemented.
 \multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
 & Output Parameters Module \\
 & Engage Status Signal Module \\
-& Disengage Signal Module \\
+& Wireless Signal Connection Module \\
 & Battery Status Module \\
 & Location Module \\ 
 & Lock Frame Module \\
@@ -306,14 +306,17 @@ to be implemented.
 \subsubsection{Engage Status Signal Module (\mref{mESS})}
 \begin{description}
 \item[Secrets:]The determination and transmission of the ‘Engage Status’ signal, which tells the user whether the locking mechanism is engaged or disengaged.
-\item[Services:]The Arduino determines the status of the locking mechanism, then wirelessly transmits this data to the App as a signal so it can be displayed to the user as the ‘Engage Status’.
+\item[Services:]The Arduino determines the status of the locking mechanism, then wirelessly 
+ this data to the App as a signal so it can be displayed to the user as the ‘Engage Status’.
 \item[Implemented By:]The App and the Arduino
 \end{description}
 
-\subsubsection{Disengage Signal Module (\mref{mDS})}
+\subsubsection{Wireless Signal Connection Module (\mref{mWSC})}
 \begin{description}
-\item[Secrets:]The determination and transmission of the ‘Disengage’ signal, which disengages the locking mechanism. 
-\item[Services:]The user inputs the command to disengage the locking mechanism on the GUI. The App then wirelessly transmits the ‘Disengage’ signal, which is received by the Arduino. 
+
+\item[Secrets:]How the wireless connection between the Arduino and App is established.
+\item[Services:]The user inputs the command to disengage the locking mechanism on the GUI. The App then wirelessly connects to the Arduino in order to send and receive wireless signals.
+
 \item[Implemented By:]The App and the Arduino
 \end{description}
 
@@ -354,8 +357,8 @@ to be implemented.
 \subsubsection{Load Power Signal Module (\mref{mLPS})}
 \begin{description}
 \item[Secrets:]How the Arduino allows and disallows power to the load.
-\item[Services:]The implementation, logic and transmission of the power signal sent from the Arduino to the transistor, which acts as a switch to allow power to the electromagnet.
-\item[Implemented By:]The Arduino
+\item[Services:]The implementation, logic and transmission of the power signal sent from the App to the Arduino and then to the transistor, which acts as a switch to allow power to the electromagnet.
+\item[Implemented By:]The App and The Arduino
 \end{description}
 
 \subsubsection{Battery Module (\mref{mB})}
@@ -419,7 +422,7 @@ FR11 & \mref{mHH}, \mref{mB}, \mref{mEM}, \mref{mLM}\\
 \acref{acInput} & \mref{mIP}\\
 \acref{acOutput} & \mref{mOP}\\
 \acref{acEngage} & \mref{mESS}\\
-\acref{acDisengage} & \mref{mDS}\\
+\acref{acWireless} & \mref{mWSC}\\
 \acref{acBatteryStatus} & \mref{mBS}\\
 \acref{acPowerSignal} & \mref{mLPS}\\
 \acref{acGeocaching} & \mref{mL}\\
