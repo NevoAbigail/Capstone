@@ -53,8 +53,8 @@ urlcolor=cyan          % color of external links
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+16/01/23 & 1.0 & Abi started M4, M5, M7\\
+16/01/23  & 1.1 & Abi finished M4, M5, M7, Intro\\
 \bottomrule
 \end{tabularx}
 
@@ -62,9 +62,9 @@ Date 2 & 1.1 & Notes\\
 
 \section{Symbols, Abbreviations and Acronyms}
 
-See SRS Documentation at \wss{give url}
+See SRS Documentation \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{here}.
 
-\wss{Also add any additional symbols, abbreviations or acronyms}
+%\wss{Also add any additional symbols, abbreviations or acronyms}
 
 \newpage
 
@@ -77,11 +77,15 @@ See SRS Documentation at \wss{give url}
 \section{Introduction}
 
 The following document details the Module Interface Specifications for
-\wss{Fill in your project name and description}
+SmartLock, a bluetooth-driven bike lock brough to you by the Locked \& Loaded team. The SmartLock allows users to unlock their bike remotely using Bluetooth. 
+
+%\wss{Fill in your project name and description}
 
 Complementary documents include the System Requirement Specifications
 and Module Guide.  The full documentation and implementation can be
-found at \url{...}.  \wss{provide the url for your repo}
+found in \href{https://github.com/NevoAbigail/Capstone}{the GitHub repo}. % \wss{provide the url for your repo}
+
+Note that not every module documented in the Module Guide has a corresponding section in this document, as an MIS was only completed for every software module, and not those modules with a hardware implementation. 
 
 \section{Notation}
 
@@ -131,21 +135,22 @@ The following table is taken directly from the Module Guide document for this pr
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding} & ~ \\
+{Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding} & Input Parameters\\
-& Output Format\\
-& Output Verification\\
-& Temperature ODEs\\
-& Energy Equations\\ 
-& Control Module\\
-& Specification Parameters Module\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
+& Output Parameters Module \\
+& Engage Status Signal Module \\
+& Disengage Signal Module \\
+& Battery Status Module \\
+& Location Module \\ 
+& Lock Frame Module \\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision} & {Sequence Data Structure}\\
-& ODE Solver\\
-& Plotting\\
+\multirow{3}{0.3\textwidth}{Software Decision Module} & Load Power Signal Module \\
+& Battery Module \\
+& Electromagnet Module \\
+& Locking Mechanism Module \\
 \bottomrule
 
 \end{tabular}
@@ -155,6 +160,10 @@ The following table is taken directly from the Module Guide document for this pr
 
 \newpage
 ~\newpage
+
+
+
+
 
 \section{MIS of \wss{Module Name}} \label{Module} \wss{Use labels for
   cross-referencing}
@@ -208,17 +217,11 @@ The following table is taken directly from the Module Guide document for this pr
 
 \noindent \wss{accessProg}():
 \begin{itemize}
+\item inputs:
 \item transition: \wss{if appropriate} 
 \item output: \wss{if appropriate} 
 \item exception: \wss{if appropriate} 
 \end{itemize}
-
-\wss{A module without environment variables or state variables is unlikely to
-  have a state transition.  In this case a state transition can only occur if
-  the module is changing the state of another module.}
-
-\wss{Modules rarely have both a transition and an output.  In most cases you
-  will have one or the other.}
 
 \subsubsection{Local Functions}
 
@@ -226,6 +229,189 @@ The following table is taken directly from the Module Guide document for this pr
   They are not necessarily something that is going to be implemented
   explicitly.  Even if they are implemented, they are not exported; they only
   have local scope.}
+
+
+
+
+
+\section{MIS of M4} \label{EngageStatus} 
+
+\subsection{Engage Status Signal Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Engage Status Signal Module (M4) is responsible for trasmitting the engagement status of the lock from the Arduino to the mobile app. If the status reads "engaged", then the Arduino is not currently sending a high signal to the transistor, and the electromagnet remains off, meaning the latch in the locking mechanism is shut. Therefore, if the pin is in the lock, it will not be able to move. If the status reads "disengaged", then the Arduino is currently writing a high signal to the transistor, and the electromagnet is on, opening the latch in the locking mechanism, and allowing the pin to move freely (in or out of the lock). 
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None. 
+
+\subsubsection{Environment Variables}
+
+%\wss{This section is not necessary for all modules.  Its purpose is to capture
+%  when the module has external interaction with the environment, such as for a
+%  device driver, screen interface, keyboard, file, etc.}
+
+\begin{itemize}
+\item e\_BTService, type: BLEService
+\item e\_DisengageCharacteristic; type: BLEByteCharacteristic
+\end{itemize}
+
+Note that the environment variables are the same as that of M5, as an established Bluetooth connection is a prerequisite of M4, and these variables must still be used to keep the BlueTooth connection active. 
+
+\subsubsection{Assumptions}
+
+%\wss{Try to minimize assumptions and anticipate programmer errors via
+%  exceptions, but for practical purposes assumptions are sometimes appropriate.}
+
+This module assumes there is a successful BlueTooth connection established between the Arduino and the mobile app. 
+
+\subsubsection{Access Routine Semantics}
+
+
+\noindent readEngagementStatus():
+
+This access routine will be implemented on the mobile app, and will read the current value of  e\_DisengageCharacteristic.
+
+\begin{itemize}
+\item inputs
+\item transition: %\wss{if appropriate} 
+\item output: e\_DisengageCharacteristic
+\item exception:  
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+
+\section{MIS of M5 \label{WirelessSignalConnection}} 
+
+\subsection{Wireless Signal Connection Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Wireless Signal Connection Module (M5) is responsible for establishing a BlueTooth connection between the Arduino and the mobile app.
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+\item e\_BTService, type: BLEService
+\item e\_DisengageCharacteristic; type: BLEByteCharacteristic
+\end{itemize}
+
+
+\subsubsection{Assumptions}
+
+\begin{itemize}
+\item Arduino is powered on.
+\end{itemize}
+
+\subsubsection{Access Routine Semantics}
+
+\noindent BTconnect():
+
+This routine creates a BlueTooth connection between the mobile app and the Arduino so that they can send and receive signals from each other. This routine will need an implementation both for the Arduino, and for the mobile app, where the Arduino will act as the peripheral device, and the mobile app will act as the central device. 
+
+\begin{itemize} 
+\item inputs: none
+\item transition: loadPower(), the access routine of M7, upon successful connection
+\item output: none
+\item exception: connection status will appear on the mobile app. Therefore, the user will be aware of the connection status, whether that be successful or unsuccessful. 
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+
+
+
+\section{MIS of M7  \label{LoadPowerSignal}}
+
+\subsection{Load Power Signal Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Load Power Signal Module (M7) is responsible for sending a high power/ON signal to the transistor once a disengage signal is written to the Arduino. An ON signal to the transistor acts as a switch ON, and will power the electromagnet to disengage the lock. 
+
+\subsection{Uses}
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+\subsubsection{Environment Variables}
+
+\begin{itemize}
+\item e\_BTService, type: BLEService
+\item e\_DisengageCharacteristic; type: BLEByteCharacteristic
+\end{itemize}
+
+Note that the environment variables are the same as that of M5, as an established Bluetooth connection is a prerequisite of M7, and these variables must still be used to keep the BlueTooth connection active. 
+
+\subsubsection{Assumptions}
+
+Assumes M5 has been successfully completed; there is an established BlueTooth connection between the Arduino and the mobile app.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent loadPower():
+
+This access routine is responsible for recieving the signal to disengage the lock, and then, should this signal be received, sending a HIGH signal to the transistor. This will be implemented on the Arduino. 
+
+\begin{itemize}
+\item inputs: e\_DisengageCharacteristic
+\item transition: none 
+\item output: if e\_DisengageCharacteristic has a nonzero value (i.e., the disengage button on the app GUI is pressed), write a HIGH signal to the Arduino pin wired to the corresponding transistor terminal for five seconds (enough time to pull the pin out of the lock, or in other words, unlock your bike). 
+\item exception: none 
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+
 
 \newpage
 
