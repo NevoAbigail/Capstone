@@ -273,7 +273,7 @@ to be implemented.
 \item[Secrets:]The data structure and algorithm used to implement the virtual
   hardware.
 \item[Services:]Serves as virtual hardware used by the rest of the system. This module provides the interface between the hardware and the software. So, the system can use it to display outputs or accept inputs.
-\item[Implemented By:] App OS
+\item[Implemented By:]App OS
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
@@ -291,8 +291,8 @@ to be implemented.
 \subsubsection{Input Parameters Module (\mref{mIP})}
 
 \begin{description}
-\item[Secrets:]The data structure for input parameters and how the values are inputted and verified. The load and verify secrets are isolated to their own access programs, found in their respective submodules. 
-\item[Services:]Receives input from the user, stores input and verifies that the input parameters comply with physical and software constraints. Throws an error if a parameter violates a physical constraint. Throws a warning if a parameter violates a software constraint. Stored parameters can be read individually, but write access is only to redefine the entire set of inputs. 
+\item[Secrets:]The data structure for input parameters and how the values are inputted. The load and verify secrets are isolated to their own access programs, found in their respective submodules. 
+\item[Services:]Receives input from the user, stores input and verifies that the input parameters comply with physical and software constraints. There is no need for input verification because the user's input options are restricted such that they cannot be invalid.
 \item[Implemented By:]App
 \end{description}
 
@@ -300,7 +300,7 @@ to be implemented.
 \begin{description}
 \item[Secrets:]The format and structure of the output data.
 \item[Services:]Outputs the results of the battery status calculations, the engaged status signal and the location data. 
-\item[Implemented By:]The App
+\item[Implemented By:]App
 \end{description}
 
 \subsubsection{Engage Status Signal Module (\mref{mESS})}
@@ -308,7 +308,7 @@ to be implemented.
 \item[Secrets:]The determination and transmission of the ‘Engage Status’ signal, which tells the user whether the locking mechanism is engaged or disengaged.
 \item[Services:]The Arduino determines the status of the locking mechanism, then wirelessly 
  this data to the App as a signal so it can be displayed to the user as the ‘Engage Status’.
-\item[Implemented By:]The App and the Arduino
+\item[Implemented By:]App and Arduino
 \end{description}
 
 \subsubsection{Wireless Signal Connection Module (\mref{mWSC})}
@@ -317,28 +317,28 @@ to be implemented.
 \item[Secrets:]How the wireless connection between the Arduino and App is established.
 \item[Services:]The user inputs the command to disengage the locking mechanism on the GUI. The App then wirelessly connects to the Arduino in order to send and receive wireless signals.
 
-\item[Implemented By:]The App and the Arduino
+\item[Implemented By:]App and Arduino
 \end{description}
 
 \subsubsection{Battery Status Module (\mref{mBS})}
 \begin{description}
 \item[Secrets:]The determination of the current level of the battery to inform the user when replacement is required.
 \item[Services:]The battery level is calculated within the App based on some inherent battery properties. It is then displayed on the GUI as ‘Battery Status’. 
-\item[Implemented By:]The App
+\item[Implemented By:]App
 \end{description}
 
 \subsubsection{Location Module (\mref{mL})}
 \begin{description}
 \item[Secrets:]The implementation of the location determinant.
 \item[Services:]The algorithm that governs the geocaching of the bike’s location upon locking.
-\item[Implemented By:]The App
+\item[Implemented By:]App
 \end{description}
 
 \subsubsection{Lock Frame Module (\mref{mLF})}
 \begin{description}
 \item[Secrets:]The design of the physical ‘lock frame’ that connects the bike and the external frame it is being ‘locked’ to.
 \item[Services:]Is the interface that connects the user, the App and the locking mechanism that allows the user to utilize the entire system.
-\item[Implemented By:]The Mechanical System
+\item[Implemented By:]Mechanical System
 \end{description}
 
 \subsection{Electrical/Mechanical/Software Decision Module}
@@ -358,28 +358,28 @@ to be implemented.
 \begin{description}
 \item[Secrets:]How the Arduino allows and disallows power to the load.
 \item[Services:]The implementation, logic and transmission of the power signal sent from the App to the Arduino and then to the transistor, which acts as a switch to allow power to the electromagnet.
-\item[Implemented By:]The App and The Arduino
+\item[Implemented By:]App and Arduino
 \end{description}
 
 \subsubsection{Battery Module (\mref{mB})}
 \begin{description}
 \item[Secrets:]The specifications of the circuit power supply.
 \item[Services:]The type and size of the battery which supplies power to the Arduino and the electromagnet. 
-\item[Implemented By:]The Electrical Circuit
+\item[Implemented By:]Electrical Circuit
 \end{description}
 
 \subsubsection{Electromagnet Module (\mref{mEM})}
 \begin{description}
 \item[Secrets:]The specifications of the component of the circuit responsible for moving the locking mechanism.
 \item[Services:]The type and size of the electromagnet, which must provide a magnetic force strong enough to move the locking mechanism into its desired position for disengagement.
-\item[Implemented By:]The Electrical Circuit
+\item[Implemented By:]Electrical Circuit
 \end{description}
 
 \subsubsection{Locking Mechanism Module (\mref{mLM})}
 \begin{description}
 \item[Secrets:]The design of the moving part that engages and disengages the lock frame.
 \item[Services:]Responds to the magnetic force supplied by the electromagnet in such a way that it engages and disengages the lock frame.
-\item[Implemented By:]The Mechanical System
+\item[Implemented By:]Mechanical System
 \end{description}
 
 \section{Traceability Matrix} \label{SecTM}
@@ -396,12 +396,12 @@ requirements and between the modules and the anticipated changes.
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
 FR1 & \mref{mLF}\\
-FR2 & \mref{mHH}, \mref{mIP}, \mref{mDS}, \mref{mLPS}, \mref{mB}, \mref{mEM}, \mref{mLM}\\
+FR2 & \mref{mHH}, \mref{mIP}, \mref{mWSC}, \mref{mLPS}, \mref{mB}, \mref{mEM}, \mref{mLM}\\
 FR3 & \mref{mHH}, \mref{mESS}, \mref{mB}\\
 FR4 & \mref{mHH}, \mref{mESS}, \mref{mB}\\
 FR5 & \mref{mHH}, \mref{mIP}, \mref{mL}, \mref{mB}\\
 FR6 & \mref{mB}, \mref{mEM}, \mref{mLM}, \mref{mLF}\\
-FR7 & \mref{mIP}, \mref{mDS}\\
+FR7 & \mref{mIP}, \mref{mWSC}\\
 FR8 & \mref{mLF}\\
 FR9 & \mref{mHH}, \mref{mOP}, \mref{mBS}, \mref{mB}\\
 FR10 & \mref{mHH}, \mref{mOP}, \mref{mL}\\
