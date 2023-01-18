@@ -54,7 +54,8 @@ urlcolor=cyan          % color of external links
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 16/01/23 & 1.0 & Abi started M4, M5, M7\\
-16/01/23  & 1.1 & Abi finished M4, M5, M7, Intro\\
+17/01/23  & 1.1 & Abi finished M4, M5, M7, Intro\\
+18/01/23 & 1.2 & Anthony finished M2,3,6,8\\
 \bottomrule
 \end{tabularx}
 
@@ -89,38 +90,7 @@ Note that not every module documented in the Module Guide has a corresponding se
 
 \section{Notation}
 
-\wss{You should describe your notation.  You can use what is below as
-  a starting point.}
-
-The structure of the MIS for modules comes from \citet{HoffmanAndStrooper1995},
-with the addition that template modules have been adapted from
-\cite{GhezziEtAl2003}.  The mathematical notation comes from Chapter 3 of
-\citet{HoffmanAndStrooper1995}.  For instance, the symbol := is used for a
-multiple assignment statement and conditional rules follow the form $(c_1
-\Rightarrow r_1 | c_2 \Rightarrow r_2 | ... | c_n \Rightarrow r_n )$.
-
-The following table summarizes the primitive data types used by \progname. 
-
-\begin{center}
-\renewcommand{\arraystretch}{1.2}
-\noindent 
-\begin{tabular}{l l p{7.5cm}} 
-\toprule 
-\textbf{Data Type} & \textbf{Notation} & \textbf{Description}\\ 
-\midrule
-character & char & a single symbol or digit\\
-integer & $\mathbb{Z}$ & a number without a fractional component in (-$\infty$, $\infty$) \\
-natural number & $\mathbb{N}$ & a number without a fractional component in [1, $\infty$) \\
-real & $\mathbb{R}$ & any number in (-$\infty$, $\infty$)\\
-\bottomrule
-\end{tabular} 
-\end{center}
-
-\noindent
-The specification of \progname \ uses some derived data types: sequences, strings, and
-tuples. Sequences are lists filled with elements of the same data type. Strings
-are sequences of characters. Tuples contain a list of values, potentially of
-different types. In addition, \progname \ uses functions, which
+\progname \ uses functions, which
 are defined by the data types of their inputs and outputs. Local functions are
 described by giving their type signature followed by their specification.
 
@@ -141,7 +111,7 @@ The following table is taken directly from the Module Guide document for this pr
 \multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
 & Output Parameters Module \\
 & Engage Status Signal Module \\
-& Disengage Signal Module \\
+& Wireless Signal Connection Module \\
 & Battery Status Module \\
 & Location Module \\ 
 & Lock Frame Module \\
@@ -165,16 +135,11 @@ The following table is taken directly from the Module Guide document for this pr
 
 
 
-\section{MIS of \wss{Module Name}} \label{Module} \wss{Use labels for
-  cross-referencing}
+\section{MIS of M2} \label{InputParameters} 
 
-\wss{You can reference SRS labels, such as R\ref{R_Inputs}.}
+\subsection{Input Parameter Module}
 
-\wss{It is also possible to use \LaTeX for hypperlinks to external documents.}
-
-\subsection{Module}
-
-\wss{Short name for the module}
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Input Parameter Module (M2) is responsible for receiving input from the user. Parameters include input to unlock the bike as well as request the current geo location of the user. 
 
 \subsection{Uses}
 
@@ -183,52 +148,93 @@ The following table is taken directly from the Module Guide document for this pr
 
 \subsubsection{Exported Constants}
 
+N/A
+
 \subsubsection{Exported Access Programs}
 
-\begin{center}
-\begin{tabular}{p{2cm} p{4cm} p{4cm} p{2cm}}
-\hline
-\textbf{Name} & \textbf{In} & \textbf{Out} & \textbf{Exceptions} \\
-\hline
-\wss{accessProg} & - & - & - \\
-\hline
-\end{tabular}
-\end{center}
+N/A
 
 \subsection{Semantics}
 
 \subsubsection{State Variables}
 
-\wss{Not all modules will have state variables.  State variables give the module
-  a memory.}
+\begin{itemize}
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
 
 \subsubsection{Environment Variables}
 
-\wss{This section is not necessary for all modules.  Its purpose is to capture
-  when the module has external interaction with the environment, such as for a
-  device driver, screen interface, keyboard, file, etc.}
+
+\begin{itemize}
+\item engageButton, type: Floating Action Button, Screen Interface
+\item locationButton, type: Floating Action Button, Screen Interface
+\end{itemize}
+
 
 \subsubsection{Assumptions}
-
-\wss{Try to minimize assumptions and anticipate programmer errors via
-  exceptions, but for practical purposes assumptions are sometimes appropriate.}
+None.
 
 \subsubsection{Access Routine Semantics}
 
-\noindent \wss{accessProg}():
+None.
+
+\subsubsection{Local Functions}
+
+None.
+
+
+\section{MIS of M3} \label{OutputParameters} 
+
+\subsection{Output Parameter Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Output Parameter Module (M3) is responsible for displaying the battery status, location, and the engaged status signal. In this module, there are submodules to store the current location requested by the user. 
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
 \begin{itemize}
-\item inputs:
-\item transition: \wss{if appropriate} 
-\item output: \wss{if appropriate} 
-\item exception: \wss{if appropriate} 
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent loadScreen():
+This routine oversees the layout and UserInterface architecture. It ensures all buttons, labels, and images fall within the constraints of any mobile device. 
+\begin{itemize}
+\item inputs: engageButton, locationButton
+\item transition: none
+\item output: none
+\item exception: none
 \end{itemize}
 
 \subsubsection{Local Functions}
 
-\wss{As appropriate} \wss{These functions are for the purpose of specification.
-  They are not necessarily something that is going to be implemented
-  explicitly.  Even if they are implemented, they are not exported; they only
-  have local scope.}
+None.
 
 
 
@@ -355,6 +361,58 @@ This routine creates a BlueTooth connection between the mobile app and the Ardui
 None.
 
 
+\section{MIS of M6} \label{BatteryStatus} 
+
+\subsection{Battery Status Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Battery Status Module (M6) is responsible for calculating the battery status. In this module, there are submodules to calculate the amount of battery left.
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getBatteryStatus():
+This routine gets the battery amount remaining.
+\begin{itemize}
+\item inputs: batteryCalculator()
+\item transition: none
+\item output: none
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+\noindent batteryCalculator():
+This function is used to calculate the amount of battery remaining. The output is used in the getBatteryStatus function.
+
+
 
 
 \section{MIS of M7  \label{LoadPowerSignal}}
@@ -413,15 +471,78 @@ None.
 
 
 
+
+\section{MIS of M8} \label{Location} 
+
+\subsection{Location Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Location Module (M8) is responsible for gathering the location data requested by the user. In this module, there are submodules to store the current location requested by the user.
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent updateLocation():
+This routine writes to the local json file to store the last location requested by the user.
+\begin{itemize}
+\item inputs: locationButton()
+\item transition: none
+\item output: none
+\item exception: none
+\end{itemize}
+
+\noindent getLocation():
+This routine reads from the local json file to get the last location requested by the user
+\begin{itemize}
+\item inputs: none
+\item transition: none
+\item output: storedLocation
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+
 \newpage
 
 \bibliographystyle {plainnat}
 \bibliography {../../../refs/References}
 
-\newpage
+%\newpage
 
-\section{Appendix} \label{Appendix}
+%\section{Appendix} \label{Appendix}
 
-\wss{Extra information if required}
+%\wss{Extra information if required}
 
 \end{document}
