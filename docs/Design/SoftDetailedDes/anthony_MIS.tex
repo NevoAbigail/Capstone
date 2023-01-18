@@ -1,0 +1,217 @@
+\section{MIS of M2} \label{InputParameters} 
+
+\subsection{Input Parameter Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Input Parameter Module (M2) is responsible for receiving input from the user. Parameters include input to unlock the bike as well as request the current geo location of the user. 
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
+
+\subsubsection{Environment Variables}
+
+
+\begin{itemize}
+\item engageButton, type: Floating Action Button, Screen Interface
+\item locationButton, type: Floating Action Button, Screen Interface
+\end{itemize}
+
+
+\subsubsection{Assumptions}
+None.
+
+\subsubsection{Access Routine Semantics}
+
+None.
+
+\subsubsection{Local Functions}
+
+None.
+
+
+\section{MIS of M3} \label{OutputParameters} 
+
+\subsection{Output Parameter Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Output Parameter Module (M3) is responsible for displaying the battery status, location, and the engaged status signal. In this module, there are submodules to store the current location requested by the user. 
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent loadScreen():
+This routine oversees the layout and UserInterface architecture. It ensures all buttons, labels, and images fall within the constraints of any mobile device. 
+\begin{itemize}
+\item inputs: engageButton, locationButton
+\item transition: none
+\item output: none
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
+
+
+\section{MIS of M6} \label{BatteryStatus} 
+
+\subsection{Battery Status Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Battery Status Module (M6) is responsible for calculating the battery status. In this module, there are submodules to calculate the amount of battery left.
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+None.
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent getBatteryStatus():
+This routine gets the battery amount remaining.
+\begin{itemize}
+\item inputs: batteryCalculator()
+\item transition: none
+\item output: none
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+\noindent batteryCalculator():
+This function is used to calculate the amount of battery remaining. The output is used in the getBatteryStatus function.
+
+
+
+\section{MIS of M8} \label{Location} 
+
+\subsection{Location Module}
+
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Location Module (M8) is responsible for gathering the location data requested by the user. In this module, there are submodules to store the current location requested by the user.
+
+\subsection{Uses}
+
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+N/A
+
+\subsubsection{Exported Access Programs}
+
+N/A
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{itemize}
+\item storedLocation, type: Location object, package: location
+\end{itemize}
+
+
+\subsubsection{Environment Variables}
+
+None.
+
+
+\subsubsection{Assumptions}
+
+None.
+
+\subsubsection{Access Routine Semantics}
+
+\noindent updateLocation():
+This routine writes to the local json file to store the last location requested by the user.
+\begin{itemize}
+\item inputs: locationButton()
+\item transition: none
+\item output: none
+\item exception: none
+\end{itemize}
+
+\noindent getLocation():
+This routine reads from the local json file to get the last location requested by the user
+\begin{itemize}
+\item inputs: none
+\item transition: none
+\item output: storedLocation
+\item exception: none
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+None.
+
