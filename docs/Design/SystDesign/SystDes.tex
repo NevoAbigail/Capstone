@@ -65,8 +65,14 @@ This section records information for easy reference.
   \toprule		
   \textbf{symbol} & \textbf{description}\\
   \midrule 
-  \progname & Explanation of program name\\
-  \wss{...} & \wss{...}\\
+  SRS & Software Requirements Specification\\
+  FR & Functional Requirements\\
+  NFR & Nonfunctional Requirements\\
+  LC & Likely Changes\\
+  ULC & Unlikely Changes\\
+  SC & System Contraints\\
+  A & Assumptions\\
+  MV & Monitored Variables\\
   \bottomrule
 \end{tabular}\\
 
@@ -86,13 +92,21 @@ This section records information for easy reference.
 
 \section{Introduction}
 
-\wss{Include references to your other documentation}
+For more information on the project breakdown, planning or delivery refer to the following documentation:
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/ProblemStatementAndGoals/ProblemStatement.pdf}{Problem Statement and Goals},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/DevelopmentPlan/DevelopmentPlan.pdf}{Development Plan},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{SRS},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{HA},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG},
+ \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftDetailedDes/MIS.pdf}{MIS}.
+%\wss{Include references to your other documentation}
 
 \section{Purpose}
+The purpose of this documentation is to break down the components that will come together to create the final product, as well as how they interact and why they are used. This document will show everything that the SmartLock is made from and when it will be assembled in order to provide transparency throughout the entire design project.
 
-\wss{Purpose of your design documentation}
+%\wss{Purpose of your design documentation}
 
-\wss{Point to your other design documents}
+%\wss{Point to your other design documents}
 
 \section{Scope}
 
@@ -199,22 +213,61 @@ The hardware will be mounted to the bike, which will require user interaction up
 
 \section{Design of Hardware}
 
-\wss{Most relevant for mechatronics projects}
-\wss{Show what will be acquired}
-\wss{Show what will be built, with detail on fabrication and materials}
-\wss{Include appendices as appropriate, possibly with sketches, drawings, CAD, etc}
+The following is a list of the hardware components that will be acquired to build the SmartLock:
+\begin{itemize}
+\item Arduino
+\item Locking Cable
+\item Bike Attachment
+\end{itemize}
+
+The following is a list of the hardware components that will be built for the SmartLock:
+\begin{itemize}
+\item Circuit (discussed below)
+\item Lock Housing (CAD)
+\item Locking Mechanism (CAD)
+\end{itemize}
+
+%\wss{Most relevant for mechatronics projects}
+%\wss{Show what will be acquired}
+%\wss{Show what will be built, with detail on fabrication and materials}
+%\wss{Include appendices as appropriate, possibly with sketches, drawings, CAD, etc}
 
 \section{Design of Electrical Components}
 
-\wss{Most relevant for mechatronics projects}
-\wss{Show what will be acquired}
-\wss{Show what will be built, with detail on fabrication and materials}
-\wss{Include appendices as appropriate, possibly with sketches, drawings,
-circuit diagrams, etc}
+The following is a list of the electrical components that will be used in combination with the aforementioned Arduino to make up the circuitry used to control the SmartLock:
+\begin{itemize}
+\item Battery
+\subitem - Needs to be acquired
+\item Transistor
+\subitem - Previously owned
+\item Wiring
+\subitem - Previously owned
+\item Magnet
+\subitem - Needs to be acquired
+\item Charging board (maybe)
+\subitem - Needs to be acquired
+\item Resistors (maybe)
+\subitem - Previously owned
+\end{itemize}
+
+
+%\wss{Most relevant for mechatronics projects}
+%\wss{Show what will be acquired}
+%\wss{Show what will be built, with detail on fabrication and materials}
+%\wss{Include appendices as appropriate, possibly with sketches, drawings, circuit diagrams, etc}
 
 \section{Design of Communication Protocols}
 
-\wss{If appropriate}
+In order for the SmartLock to work there are signals that have to be used to communicate between the application and the physical lock. 
+The features of our lock include: 
+\begin{itemize}
+\item Locking the bike from the application
+\subitem - A Bluetooth microcontroller is utilized so that the application is able to communicate with the physical device
+\subitem - The microcontroller is wired directly to an electromagnet that controls the disengagement of the lock
+\item Geotagging the location of the bike
+\subitem - Integration with Google Maps will be used to save the coordinates of the locked bike
+\end{itemize}
+%\wss{If appropriate}
 
 \section{Timeline}
 
@@ -242,7 +295,7 @@ circuit diagrams, etc}
   \hline
     February 1& Assemble Housing and Circuit & Steffi \& Stephen\\ 
   \hline
-   February 1& All Documentation has been updated to reflect current project including Git issues \& battery calculations& Elsa\\ 
+   February 1& All Documentation has been updated to reflect the current project including Git issues \& battery calculations& Elsa\\ 
   \hline
       February 4 & Rev 0 Testing & Everyone\\ 
   \hline
@@ -289,10 +342,22 @@ graduate attribute of Problem Analysis and Design.  Please answer the following 
 \begin{enumerate}
   \item What are the limitations of your solution?  Put another way, given
   unlimited resources, what could you do to make the project better? (LO\_ProbSolutions)
+  
+  Given unlimited resources our bike lock would function without any human exertion, ie. mechanics, specifically, motors would work to open and close the lock eliminating the need for the user to touch the lock at all. They would simply have to touch a button on their phone. Additionally, there would be separate components to ensure the locking of the wheels to the frame and the frame to an external secure location.  Finally, with unlimited resources, there would be a way to ensure the seat of the bike could not be removed either.
+  
   \item Give a brief overview of other design solutions you considered.  What
   are the benefits and tradeoffs of those other designs compared with the chosen
   design?  From all the potential options, why did you select documented design?
   (LO\_Explores)
+  
+  All of our solutions were fairly similar given that there are only so many different ways to lock a bike. The main differences came from various housing alternatives and "chain" variations. Our original idea functioned more similarly to the ideal situation described above, but in scaling our project to be realistic we had to eliminate and restructure our ideas.  
+  
+  Some of our other ideas were: 
+  \begin{itemize}
+\item A foldable chain that could be folded up small and compressed to the bike while riding
+
+\end{itemize}
+  
 \end{enumerate}
 
 \end{document}
