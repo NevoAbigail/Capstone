@@ -158,7 +158,7 @@ In the case of an undesired or unexpected event, the lock will stay in the locke
 
 \begin{minipage}{\textwidth}
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{| p{0.50\textwidth} | p{0.50\textwidth} | }
+\begin{tabular}{| p{0.48\textwidth} | p{0.52\textwidth} | }
  \hline
  Requirement/Constraint & Design Description\\ 
  \hline
@@ -168,60 +168,28 @@ In the case of an undesired or unexpected event, the lock will stay in the locke
  \hline
  SC5:  The project must be locked on existing external locking frames or racks &Current market bike lock cable is being used to ensure compatibility\\
  \hline
-FR2: LockDisengage input must disengage the lock on the bike.&f\\
+FR2: LockDisengage input must disengage the lock on the bike & Using an electromagnet for locking allows for a easier connection to a microcontroller that can communicate with a phone app\\
  \hline
-FR3: When lock is engaged, change lock status to engaged.&f\\
+FR3,4,7: The application has to show the status of the electromagnet and battery as well as display the location&The UI was designed so that this information is easy to see, these are requirements to make the lock secure but they relate to the user experience\\
  \hline
-FR4: When lock is disengaged, change lock status to disengaged.&f\\
+FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged& Using simple pieces without a lot of components that can break off makes it more sturdy, and using a market bike cable makes sure it is strong enough not to be broken\\
  \hline
-FR7: Location (coordinates) of the user’s phone must be able to be saved in the smartphone application as UserPosition. &f\\
+FR9: Lock must only be engaged/disengaged by the intended user(s)& The application is password protected\\
  \hline
-FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. &f\\
+NFR1: Can be used by people of any language&Language choice can be selected on the app\\
  \hline
-FR9: Lock must only be engaged/disengaged by the intended user(s).&f\\
+NFR2, 12: Can reasonably be used without instructions or extra force& Uses similar mechanics of inserting a pin that traditional bike locks use\\
  \hline
-FR10: The lock can be mounted to the bike’s frame. &f\\
+NFR5: The design must not impede normal bike functions& Attaches to the bike using current market mounts so that it is small and out of the way\\
  \hline
-FR11: Battery percentage must be shown on the phone app.&f\\
+NFR6,7: The lock must be waterproofed to withstand normal rainfall & All circuitry is encased and the materials are waterproof\\
  \hline
-FR12: Location (coordinates) of the bike must be shown on the app as BikePosition. Rationale: The user must be able to view the location of their bike so that they can find their bike. &f\\
+NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock &The phone will accept face or touch id as a password form and then one button click will unlock the bike \\
  \hline
-FR13: Battery must output enough power to engage/disengage the lock. &f\\
+NFR14: Batteries must be accessible to replace or chargeable&A chargeable battery was used for user ease and less waste\\
  \hline
-NFR1: Can be used by people of any language.&f\\
+NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-platform development\\
  \hline
-NFR2: Can reasonably be used without requiring an instruction manual.&f\\
- \hline
-NFR5: The design must not impede normal bike functions.&f\\
- \hline
-NFR6: The lock must be waterproofed to withstand normal rainfall.&f\\
- \hline
-NFR7: The lock must be waterproofed to withstand normal splashing while riding. &f\\
- \hline
-NFR8: Accuracy of bike lock status must be above 95\%.&f\\
- \hline
-NFR9: Where location services are available, the accuracy of location coordinates must be within 10M. &f\\
- \hline
-NFR10: Battery percentage must be calculated accurately within 10\%. &f\\
- \hline
-NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock. &f\\
- \hline
-NFR12: Opening and closing lock must require similar force to a typical keyed/combo. &f\\
- \hline
-NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged. &f\\
- \hline
-NFR14: Batteries must be accessible to replace or chargeable.&f\\
- \hline
-NFR15: The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. &f\\
- \hline
-NFR16: The lock can be used for many different models of mountain, city, and road bikes. &f\\
- \hline
-NFR22: The app should run on iOS and Android.&f\\
- \hline
-NFR23: The app should be easily maintained through iOS updates.&f\\
- \hline
-
-
 \end{tabular}
 \end{minipage}\\
 
