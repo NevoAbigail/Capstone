@@ -82,7 +82,7 @@ This section records information for easy reference.
 
 \newpage
 
-\listoftables
+%\listoftables
 
 \listoffigures
 
@@ -145,7 +145,86 @@ In the case of an undesired or unexpected event, the lock will stay in the locke
 
 \subsection{Component Diagram}
 
-\subsection{Connection Between Requirements and Design} \label{SecConnection}
+ \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.8\linewidth]{component diagram.png}
+ }
+ \caption{\label{component diagram} Component Diagram}
+ \end{center}
+ \end{figure}
+
+\subsection{Connection Between Requirements and Design} %\label{SecConnection}
+
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.50\textwidth} | p{0.50\textwidth} | }
+ \hline
+ Requirement/Constraint & Design Description\\ 
+ \hline
+ SC2:  The materials and resources used to design and build the project must be accessible to students& Rev 0 will be primarily made from 3D printed materials, with an option to move to machining for Rev 1\\
+ \hline
+ SC4:  The project must be mounted on existing bike designs & Current market bike lock mount is being used to ensure compatibility\\
+ \hline
+ SC5:  The project must be locked on existing external locking frames or racks &Current market bike lock cable is being used to ensure compatibility\\
+ \hline
+FR2: LockDisengage input must disengage the lock on the bike.&f\\
+ \hline
+FR3: When lock is engaged, change lock status to engaged.&f\\
+ \hline
+FR4: When lock is disengaged, change lock status to disengaged.&f\\
+ \hline
+FR7: Location (coordinates) of the user’s phone must be able to be saved in the smartphone application as UserPosition. &f\\
+ \hline
+FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. &f\\
+ \hline
+FR9: Lock must only be engaged/disengaged by the intended user(s).&f\\
+ \hline
+FR10: The lock can be mounted to the bike’s frame. &f\\
+ \hline
+FR11: Battery percentage must be shown on the phone app.&f\\
+ \hline
+FR12: Location (coordinates) of the bike must be shown on the app as BikePosition. Rationale: The user must be able to view the location of their bike so that they can find their bike. &f\\
+ \hline
+FR13: Battery must output enough power to engage/disengage the lock. &f\\
+ \hline
+NFR1: Can be used by people of any language.&f\\
+ \hline
+NFR2: Can reasonably be used without requiring an instruction manual.&f\\
+ \hline
+NFR5: The design must not impede normal bike functions.&f\\
+ \hline
+NFR6: The lock must be waterproofed to withstand normal rainfall.&f\\
+ \hline
+NFR7: The lock must be waterproofed to withstand normal splashing while riding. &f\\
+ \hline
+NFR8: Accuracy of bike lock status must be above 95\%.&f\\
+ \hline
+NFR9: Where location services are available, the accuracy of location coordinates must be within 10M. &f\\
+ \hline
+NFR10: Battery percentage must be calculated accurately within 10\%. &f\\
+ \hline
+NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock. &f\\
+ \hline
+NFR12: Opening and closing lock must require similar force to a typical keyed/combo. &f\\
+ \hline
+NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged. &f\\
+ \hline
+NFR14: Batteries must be accessible to replace or chargeable.&f\\
+ \hline
+NFR15: The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. &f\\
+ \hline
+NFR16: The lock can be used for many different models of mountain, city, and road bikes. &f\\
+ \hline
+NFR22: The app should run on iOS and Android.&f\\
+ \hline
+NFR23: The app should be easily maintained through iOS updates.&f\\
+ \hline
+
+
+\end{tabular}
+\end{minipage}\\
+
 
 \wss{The intention of this section is to document decisions that are made
   ``between'' the requirements and the design.  To satisfy some requirements,
@@ -249,6 +328,8 @@ The following is a list of the hardware components that will be built for the Sm
 \item Locking Mechanism (CAD)
 \end{itemize}
 
+See Appendix for hardware components both purchased and 3D printed
+
 %\wss{Most relevant for mechatronics projects}
 %\wss{Show what will be acquired}
 %\wss{Show what will be built, with detail on fabrication and materials}
@@ -272,6 +353,7 @@ The following is a list of the electrical components that will be used in combin
 \subitem - Previously owned
 \end{itemize}
 
+See the Appendix for visualizations of the components and circuit diagrams
 
 %\wss{Most relevant for mechatronics projects}
 %\wss{Show what will be acquired}
@@ -348,7 +430,7 @@ The features of our lock include:
 
 \subsection{Mechanical Hardware}
 
- \begin{figure}[h!]
+ \begin{figure}[ht]
  \begin{center}
  {
   \includegraphics[width=0.4\linewidth]{1.png}
@@ -358,6 +440,23 @@ The features of our lock include:
  \end{center}
  \end{figure}
  
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.2\linewidth]{BikeLock.png}
+ }
+ \caption{\label{BikeLock} Bike Lock Cable and Mount Attachment}
+ \end{center}
+ \end{figure}
+ 
+ \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.3\linewidth]{arduino.png}
+ }
+ \caption{\label{Arduino} Arduino}
+ \end{center}
+ \end{figure}
  \newpage
 
 \subsection{Electrical Components}
@@ -380,14 +479,6 @@ The features of our lock include:
  \end{center}
  \end{figure}
  
-  \begin{figure}[ht]
- \begin{center}
- {
-  \includegraphics[width=0.5\linewidth]{arduino.png}
- }
- \caption{\label{Arduino} Arduino}
- \end{center}
- \end{figure}
  
   \begin{figure}[ht]
  \begin{center}
@@ -433,7 +524,7 @@ graduate attribute of Problem Analysis and Design.  Please answer the following 
 \item Individual locking units for each component
 \end{itemize}
 
-We landed on our final design because it uses components that are familiar to the average bike rider, it allows for the bike to be varying distances from a frame and it only involves one locking mechanism which is simpler, less bulky and easier to use. Additionally, we opted against the motor as a way to eliminate physical intervention because it would require much more battery and replacing or charging the battery that often would be more inconvenient than using your hands to insert the lock 
+We landed on our final design because it uses components that are familiar to the average bike rider, it allows for the bike to be varying distances from a frame and it only involves one locking mechanism which is simpler, less bulky and easier to use. Additionally, we opted against the motor as a way to eliminate physical intervention because it would require much more battery and replacing or charging the battery that often would be more inconvenient than using your hands to insert the lock.
 
 
   
