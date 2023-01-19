@@ -110,16 +110,38 @@ The purpose of this documentation is to break down the components that will come
 
 \section{Scope}
 
-\wss{Include a figure that show the System Context (showing the boundary between
-your system and the environment around it.)}
+This lock and application are designed for the use of the average bike rider. It is simple and easy to use and locks the primary components of the bike so that the user can be confident in its security. 
+
+ \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.9\linewidth]{System Context.png}
+ }
+ \caption{\label{System Context} System Context}
+ \end{center}
+ \end{figure}
+
+
+%\wss{Include a figure that show the System Context (showing the boundary betweenyour system and the environment around it.)}
 
 \section{Project Overview}
 
 \subsection{Normal Behaviour}
 
+The normal behaviour that is expected with the SmartLock is multistep:
+\begin{enumerate}
+\item After the first purchase of the SmartLock the user will have to attach the lock to the bike, and download the application from the AppStore or Google Play and pair the application with the physical device (this only happens once)
+\item The user will put the cable around the wheel and external frame and then push the pin into the locking hole
+\item The user will be able to geotag the location of the locked bike on the application
+\item The user will be able to disengage the lock on the application so that they can remove the pin from the hole and release the bike
+\item The application will warn the user when there is low battery so that the lock can be recharged
+\end{enumerate}
+
 \subsection{Undesired Event Handling}
 
-\wss{How you will approach undesired events}
+In the case of an undesired or unexpected event, the lock will stay in the locked position and the application will block the unlocking process. While this does inhibit the user's ability to be able to use their bike, it does prevent the bike from being stolen which is more important in an uncertain situation. The user will be able to reset the lock to eliminate the stimulus that caused the event and be able to use their app as normal after.
+
+%\wss{How you will approach undesired events}
 
 \subsection{Component Diagram}
 
@@ -312,9 +334,6 @@ The features of our lock include:
 \end{tabular}
 \end{minipage}\\
 
-
-
-
 %\wss{Schedule of tasks and who is responsible}
 
 % \bibliographystyle {plainnat}
@@ -323,16 +342,70 @@ The features of our lock include:
 \newpage{}
 \section{Appendix}
 
-\subsection{Interface - included in section 8}
+\subsection{Interface - Included in Section 8}
 
 %\wss{Include additional information related to the appearance of, and interaction with, the user interface}
 
 \subsection{Mechanical Hardware}
 
+ \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.4\linewidth]{1.png}
+  \includegraphics[width=0.4\linewidth]{2.png}
+ }
+ \caption{\label{Locking Mechanism Components} Locking Mechanism Components Disassembled and Assembled}
+ \end{center}
+ \end{figure}
+ 
+ \newpage
+
 \subsection{Electrical Components}
 
-\subsection{Communication Protocols}
+ \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{6.png}
+ }
+ \caption{\label{Circuit} Circuit without the Arduino}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{8.png}
+ }
+ \caption{\label{Rechargeable Battery} Rechargeable Battery}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{arduino.png}
+ }
+ \caption{\label{Arduino} Arduino}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{10.png}
+ }
+ \caption{\label{Circuit Diagram} Circuit Diagram}
+ \end{center}
+ \end{figure}
+ 
+ \newpage
+    
+ \newpage
+ 
+\subsection{Communication Protocols - Included in Section 11}
+
 %Communication protocols are if you are broadcasting or receiving messages.  If your project doesn't do this, then you don't need to worry about this section.
+
 
 \subsection{Reflection}
 
@@ -355,8 +428,14 @@ graduate attribute of Problem Analysis and Design.  Please answer the following 
   Some of our other ideas were: 
   \begin{itemize}
 \item A foldable chain that could be folded up small and compressed to the bike while riding
-
+\item A circular arm for locking
+\item An extendable arm so that you could be multiple distances
+\item Individual locking units for each component
 \end{itemize}
+
+We landed on our final design because it uses components that are familiar to the average bike rider, it allows for the bike to be varying distances from a frame and it only involves one locking mechanism which is simpler, less bulky and easier to use. Additionally, we opted against the motor as a way to eliminate physical intervention because it would require much more battery and replacing or charging the battery that often would be more inconvenient than using your hands to insert the lock 
+
+
   
 \end{enumerate}
 
