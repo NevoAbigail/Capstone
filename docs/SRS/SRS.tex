@@ -175,6 +175,7 @@
 04-10-22 & Steffi & Added Reflections and Section 3 Removed unnecessary subsections from Section 4 added traceability\\
 14-10-22 & Abi & Fixed System Constraint numbering\\
 19-11-22 & Steffi & Updates for Consistency\\
+26-01-23 & Elsa & Updates as per Peer Reviews and Further Consistency\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -280,15 +281,15 @@ The SmartLock project will be designed to perform the following functions for th
 
 \begin{enumerate}
 \item Wireless communication from the smartphone to the lock and vice versa. 
-\item Display of lock and battery status information on the app. 
-\item Display of location on the app. 
+\item Display of lock and battery status information on the App. 
+\item Display of location on the App. 
 \item Store and use a replaceable battery. 
 \item House a mechanical lock frame. 
 \item Perform electrical engagement/disengagement of a locking mechanism. 
 \item Be waterproof. 
 \end{enumerate}
 
-Not included in the project scope will be Bluetooth wireless connective capabilities, a fully autonomous locking mechanism (one that will both open/close and engage/disengage the lock wirelessly) and a rechargeable battery. We will also be ignoring extreme weather and temperature conditions and their impact on the material properties.
+Not included in the project scope will be a fully autonomous lock frame, (only the disengagement function will be automated), and a rechargeable battery. We will also be ignoring extreme weather and temperature conditions and their impact on the material properties.
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader}
 
@@ -328,14 +329,14 @@ This section provides general information about the system. It identifies the in
 \begin{itemize}
 \item Develop a mechanism(s) that closes around the wheels and connects to an external frame
 \item Developing a functional lock so that users can feel secure in leaving their bike
-\item Developing an app that is user-friendly that disengages the lock and stores the location of the locked bike
+\item Developing an App that is user-friendly that disengages the lock and stores the location of the locked bike
 \end{itemize}
 \end{itemize}
 
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
 
-The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the app, and the use time of the app when locking your bike is short. 
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the App, and the use time of the App when locking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -368,11 +369,11 @@ The system has the following constraints.
 \end{itemize}
 
 \subsection{Normal Use Cases}
-In general, for a normal use case, the SmartLock system must be able to engage/disengage the SmartLock remotely through the SmartLock mobile interface after which the user must be able to open/close the SmartLock.  The SmartLock must also be able to send "bike parked” location coordinates as well as current SmartLock statuses back to the mobile application. 
+In general, for a normal use case, the user will manually close the lock frame. Then, the SmartLock system must be able to disengage the SmartLock remotely through the SmartLock mobile interface after which the user must be able to open the SmartLock.  The SmartLock must also be able to send "bike parked” location coordinates as well as current SmartLock statuses back to the mobile application. 
 \subsubsection{Lock is Engaged/Disengaged}
-The lock is to be engaged/disengaged through the SmartLock mobile application.  Given that the user is within range of the system, the SmartLock is designed to receive the corresponding signal request from the user’s smartphone and perform the corresponding action of engaging/disengaging the lock.  The system then sends the current engaged/disengaged status to the mobile application for the user to view.
+The lock is to be disengaged through the SmartLock mobile application.  Given that the user is within range of the system, the SmartLock is designed to receive the corresponding signal request from the user’s smartphone and perform the corresponding action of disengaging the lock.  The system then sends the current engaged/disengaged status to the mobile application for the user to view.
 \subsubsection{Lock is Open/Closed}
-Once the request to engage/disengage the lock is sent, the system is not designed to perform the swing action of the lock.  The system is designed to accept the user’s manual input of swinging the lock to the desired open/closed position.  The system then sends the current open/closed status to the mobile application for the user to view. 
+Once the request to disengage the lock is sent, the system is not designed to perform the swing action of the lock. The system is designed to accept the user’s manual input of swinging the lock to the desired open/closed position.  
 \subsubsection{SmartLock location is requested}
 The user’s smartphone's current coordinates can be requested through the mobile application by the user.  When the user is near the lock, then they can tag their coordinates, for later use if they forget where their bike is locked.  
 
@@ -396,7 +397,6 @@ The terms listed below will be used throughout the scope of this document and sh
 \item Team: The authors of this document.
 \item App: The mobile application used to communicate with the lock.
 \item Open/Close: The process of physically moving the lock frame into a state where it can be latched onto something else. 
-\item Open/Close Status: The current state of the lock frame. 
 \item Engage/Disengage: The automated process to actuate the lock to secure the frame. 
 \item Wireless Signalling: The means of communication between the lock and the mobile application. 
 \item Battery: The power source used to power the motor for engaging and disengaging. 
@@ -404,9 +404,9 @@ The terms listed below will be used throughout the scope of this document and sh
 \item Git: The platform used to store the documentation and software and track changes made to the files. 
 \item XCode and Flutter: The IDE used to develop the mobile application. 
 \item Cross-Platform Development: The means of developing the mobile application on both iOS and Android devices. 
-\item Transmitter: The device is used to send signals to and from the app to give status information and to send the engagement and disengagement signals. 
+\item Transmitter: The device is used to send signals to and from the App to give status information and to send the engagement and disengagement signals. 
 \item GPS: The satellite-based navigation system used to locate the bike. 
-\item Receiver: The device used to receive the signals from the app for engagement and disengagement. 
+\item Receiver: The device used to receive the signals from the App for engagement and disengagement. 
 \item Microcontroller: The programmable device used to control the motor. 
 \end{itemize}
 ~\newpage
@@ -428,7 +428,7 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \item A1: The user’s smartphone will always be able to connect to the project (wireless connection works as intended).
 	\begin {itemize}
-		\item Dependencies: All users have modern phones that can operate the application. The phones will also have functional location settings.  
+		\item Dependencies: All users have modern phones that can operate the App. The phones will also have functional location settings.  
 	\end {itemize}
 	
 \item A2: Users will have no limiting physical disabilities.
@@ -450,6 +450,12 @@ The terms listed below will be used throughout the scope of this document and sh
 	\begin {itemize}
 		\item Dependencies: The battery's power does not decrease over time.
 	\end {itemize}
+	
+\item A6: The user is responsible for manually locking and unlocking the lock frame. The locking mechanism will be automatically engaged when the lock frame is locked.
+	\begin {itemize}
+		\item Dependencies: The user is physically capable of putting into place and removing the lock frame.
+	\end {itemize}
+
 
 \end{itemize}
 
@@ -569,41 +575,36 @@ This section provides the functional requirements, the business tasks that the s
 \subsubsection{User Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR1}:] LockEngage input must engage the lock on the bike.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the lock button to engage the lock, the bike lock must engage.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR2}:] LockDisengage input must disengage the lock on the bike.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When you press the unlock button to disengage the lock, the bike lock must be disengaged.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR3}:] When lock is engaged, change lock status to engaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give correct status as engaged when engaged.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR4}:] When lock is disengaged, change lock status to disengaged.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Lock must give the correct status as disengaged when disengaged.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR5}:] Moving locking bar closed must move OpenClosedstatus to Closed.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Closing the lock must result in the status of the lock changing to closed.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR6}:] Moving locking bar open must move OpenClosedstatus to open.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR7}:] Location (coordinates) of the user’s phone must be able to be saved in the smartphone application as UserPosition.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The smartphone app needs to save the location of the phone when locking the bike for the user to locate their bike later.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR8}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRDisengage}:] LockDisengage input must disengage the lock on the bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: When the unlock button of the App is pressed to disengage the lock, the bike lock must be disengaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRLockStatusEngaged}:] When the lock is engaged, the lock status must read engaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The App must output the correct status as engaged when engaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRLockStatusDisengaged}:] When the lock is disengaged, the lock status must read disengaged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The App must output the correct status as disengaged when disengaged.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRUserPos}:] The location of the user’s phone must be saved in the smartphone application as UserPosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The smartphone app must save the location of the phone so it can be displayed.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRSturdy}:] Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once it is engaged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock is not resistant to external forces it will not be an effective lock. If the lock could be opened by the average human when engaged, then the lock would not prevent theft and be rendered useless.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over 50 trials. 
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR9}:] Lock must only be engaged/disengaged by the intended user(s).
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the app can engage/disengage the lock on your bike.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Apply a force between 200-400N, which is the \href{https://www.tandfonline.com/doi/pdf/10.1080/10803548.2004.11076594?cookieSet=1}{average human's arm strength}, to pry open the lock over fifty trials. 
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRCorrectUser}:] The lock must only be engaged/disengaged by the intended user(s).
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Not everyone with the App can engage/disengage the lock on your bike to provide added security.
 \end{itemize}
 
 \subsubsection{Bike Input Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR10}:] The lock can be mounted to the bike's frame.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRBikeFrame}:] The lock can be mounted to the bike's frame.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the lock can not be mounted to the user's bike it will not be effective as a lock.
 \end{itemize}
 
 \subsubsection{Output Related}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR11}:] Battery percentage must be shown on the phone app.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: User must be able to view the battery percentage of the bike lock
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR12}:] Location (coordinates) of the bike must be shown on the app as BikePosition.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The user must be able to view the location of their bike so that they can find their bike.
-\item[FR\refstepcounter{reqnum}\thereqnum\label{FR13}:] Battery must output enough power to engage/disengage the lock.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRBatteryLevelDisplay}:] Battery level must be displayed on the App.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The user must be able to view the battery level in order to know when the battery requires replacement.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRLocDisplay}:] The location of the bike must be shown on the App as BikePosition.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The user must be able to view the location of their bike so that they can find their bike upon returning to it.
+\item[FR\refstepcounter{reqnum}\thereqnum\label{FRPower}:] The battery must output enough power to disengage the lock.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The locking system will not be functional if the battery is not able to disengage the lock.
 \end{itemize}
 
@@ -612,87 +613,81 @@ This section provides the functional requirements, the business tasks that the s
 \subsubsection{Smart Phone}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR1}:] Can be used by people of any language.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be accessible to people who can not read English.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users who do not know English.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR2}:] Can reasonably be used without requiring an instruction manual.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock and app must be easy to use with a minimal learning curve for it to be useful.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: App will be verified by test users, and the learning period for the app will be tracked
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR3}:] App storage under 50 megabytes. A small mobile app should not take up significant space on the user's phone.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: We want our app to fit on anyone's phone, and use up minimal storage.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRInst}:] Can reasonably be used without requiring an instruction manual.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The system must be easy to use with a minimal learning curve for it to be useful.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The App will be verified by test users, and the learning period will be tracked
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRStor}:] App storage must be under fifty megabytes. A small mobile app should not take up significant space on the user's phone.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The App should fit on anyone's phone, and use up minimal storage.
 \end{itemize}
 
 \subsubsection{Physical Design}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR4}:] The design must be visual appealing.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be visually appealing for it to be a desirable product.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The design will be verified with test users who will rank visual how appealing the lock is.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR5}:] The design must not impede normal bike functions.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock will not be used if it negatively impacts the normal function of the bike.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRVisual}:] The design must be visually appealing.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The lock must be visually appealing in order for it to be a desirable product.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The design will be verified by test users who will rank how visually  appealing the lock is.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRFunc}:] The design must not impede normal bike functions.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The lock will not be used if it negatively impacts the normal function of the bike.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by mounting it on test users' bikes, then having them use the bike.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR6}:] The lock must be waterproofed to withstand normal rainfall.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be left in the rain without it breaking.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by leaving the bike with the lock out in the rain.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR7}:] The lock must be waterproofed to withstand normal splashing while riding.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Our lock must be able to be splashed without it breaking
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by splashing it to simulate a splash from riding through a puddle.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRHarm}:] The design must not inflict harm to the user in any way, such as clamping down on a finger, or moving at a force or speed that could cause injury. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It is undesireable for the lock to inflict harm to the user.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Lock will be verified by ensuring there are no automatically moving parts that can come into contact with the user, (i.e. they are hidden). 
 
 \end{itemize}
 
 \subsubsection{Accuracy}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR8}:] Accuracy of bike lock status must be above 95\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the classic confidence interval used. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRAccuracyStatus}:] The accuracy of the bike lock status must be above 95\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the most common confidence interval used. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The status will be manually verified over 100 trials. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR9}:] Where location services are available, the accuracy of location coordinates must be within 10M.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: For the locating feature to be useful, it must be accurate. The figure of 10M was obtained since a bike within a distance of 10M will be visible. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over 50 trials. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR10}:] Battery percentage must be calculated accurately within 10\%.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: To avoid the case where the user uses the lock and it dies while it must be locked, battery percentage must be accurate. The average user would replace their battery when it only has 10\% charge left.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRAccuracyPos}:] Where location services are available, the accuracy of location coordinates must be within 10m.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: For the locating feature to be useful, it must be accurate. The figure of 10m was obtained since a bike within a distance of 10m will be visible. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over fifty trials. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryLevel}:] Battery level must be calculated accurately within 10\%.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: To avoid a situation where the battery dies unbeknownst to the user, the battery level must be accurate. The average user would replace their battery when it only has 10\% charge left.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe the battery charge shown right before the battery dies. 
 \end{itemize}
 
 \subsubsection{Usability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR11}:] iPhone app locking must be quicker to use than a typical keyed/combo bike lock.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If using the SmartLock takes longer than a typical lock, it is no longer more convenient than a typical lock, which is a key selling feature. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Time use of both the SmartLock and compare to timed use of key and combo lock by the average user. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR12}:] Opening and closing lock must require similar force to a typical keyed/combo.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRCompQuick}:]  The SmartLock must be quicker to use than a typical keyed or combination bike lock.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If using the SmartLock takes longer than a typical lock, it is no more convenient than a typical lock, which is a key selling feature. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The use of both the SmartLock and a key and combination lock by the average user will be timed and compared. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRCompForce}:] Opening and closing the lock frame must require similar force to a typical keyed or combination lock.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If opening and closing the lock takes more strength than a typical lock, it is no longer convenient for the user. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Ask for regular use of typical bike locks to use SmartLock and compare force. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR13}:] Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Measure the force required to use a typical keyed and combination lock, then measure force required for the SmartLock and compare.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryLife}:] The battery must last for greater than one month and/or sixty rides before needing to be replaced or charged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It would be inconvenient to ask for the user to replace the batteries more frequently than this.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR14}:] Batteries must be accessible to replace or chargeable.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryAccess}:] Batteries must be accessible to replace or chargeable.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the batteries are not accessible to replace or charge, then when the battery dies initially, the user can no longer use the SmartLock.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR15}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and does not take more than 20 minutes. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRTools}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and doing so does not take more than twenty minutes. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Required for convenience for user. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR16}:] The lock can be used for many different models of mountain, city, and road bikes. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The SmartLock must fit a wide variety of bikes so that user's can use the SmartLock with their bike, no matter what that might be.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare the dimensions of a typical bike frame/dimensions found online with the dimensions/shape of SmartLock to ensure the lock can be used. 
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRModels}:] The lock can be used for many different models of mountain, city, and road bikes. 
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The SmartLock must fit a wide variety of bikes so that is is accessible to be used with most users' bikes.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Test the SmartLock on as many different bikes as accessible. Ensure that this range includes all typical bike frame dimensions and shapes. For those not accessible, compare the dimensions of a typical bike frame, (frame length of 17 inches), with the dimensions/shape of the SmartLock to ensure the lock can be used. 
 \end{itemize}
 
 \subsubsection{Maintainability}
+Changes to the items below should take less than X\_FRACTION of total development time.
+\\ Rationale: This rationale applies to all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR17}:] Changes to the items below should take less than X\_FRACTION of total development time.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: This rationale applies to all of the requirements in this subsection. In order for the lock to be used for a long period of time, when it breaks or needs improvements, maintenance must be able to be made. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR18}:] GUI\_FRACTION, Making changes to the GUI.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR19}:] CONTROLLER\_FRACTION, Motor/Battery Controller Software.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR20}:] ELCTRICAL\_FRACTION, Electrical Circuit.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR21}:] MECHANICAL\_FRACTION, Mechanical physical design.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRGUI}:] GUI\_FRACTION, Making changes to the GUI.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRController}:] CONTROLLER\_FRACTION, Arduino/Electromagnet Controller Software.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRCircuit}:] ELCTRICAL\_FRACTION, Electrical Circuit.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRMech}:] MECHANICAL\_FRACTION, Mechanical physical design.
 \end{itemize}
 
 \subsubsection{Portability}
 \begin{itemize}
 \setlength{\itemindent}{.5in}
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR22}:] The app should run on iOS and Android.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Most smartphones use these platforms, allowing us to be accessible to the majority of people.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFR23}:] The app should be easily maintained through iOS updates.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The app should be able to be used even when a user updates their phone, and hence should be maintained through iOS updates.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: maintenance to the app in preparation for iOS updates must be less than the initial development time. Maintenance will be done for every iOS update to ensure the app runs on the updated iOS.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRPortability}:] The App should run on iOS and Android.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Most smartphones use these platforms, allowing the system to be accessible to the majority of people.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRUpdates}:] The App should be easily maintained through smartphone software updates.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The App should be able to be used even when a user updates their phone.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Maintenance to the App in preparation for OS updates must be less than the initial development time. Maintenance will be done for every OS update to ensure the App runs on the updated OS for both iPhone and Android smartphones.
 
 
 \end{itemize}
@@ -709,12 +704,11 @@ This section provides the functional requirements, the business tasks that the s
 
 \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:]  Depending on the battery life, showing battery percentage on the phone app, as required in \hyperref[FR11]{FR11}, might not be necessary. If the battery life is very long, then perhaps a warning that the battery is low is sufficient. 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Having never created an app like this before, the amount of storage needed for the smartphone application is unknown. Requirement \hyperref[NFR3]{NFR3} provides ample space, if any change, this requirement might be revised so that it be required that the app takes up even less storage. 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Even though aesthetics is a selling point of any product, it is not a priority for this product. As such, the requirement \hyperref[NFR4]{NFR4} is subject to change. 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] The degree of accuracy mentioned in \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, and \hyperref[NFR10]{NFR10}
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Given that we will likely not be maintaining the system, requirements regarding maintainability will be difficult to test and verify. While products should be designed with maintainability in mind, it is not a priority for this project. Thus, requirements \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21} are subject to change. 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Requiring an iOS application as stated in \hyperref[NFR22]{NFR22} and \hyperref[NFR23]{NFR23} was chosen given the team's skillset; however, the product's nature does not require the application to be iOS based. Given different preferences and/or skillset, this application could be substituted or extended to an Android application. Note that \hyperref[NFR23]{NFR23} is dependent on \hyperref[NFR22]{NFR22}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:]  Depending on the battery life, showing battery level on the App, as required in \hyperref[FRBatteryLevelDisplay]{FR8}, might not be necessary. If the battery life is very long, then perhaps a warning that the battery is low is sufficient. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Having never created an app like this before, the amount of storage needed for the App is unknown. Requirement \hyperref[NFRStor]{NFR2} provides ample space, if any change, this requirement might be revised so that it be required that the App takes up even less storage. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Even though aesthetics is a selling point of any product, it is not a priority for this product. As such, the requirement \hyperref[NFRVisual]{NFR3} is subject to change. 
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] The degree of accuracy mentioned in \hyperref[NFRAccuracyStatus]{NFR6}, \hyperref[NFRAccuracyPos]{NFR7}, and \hyperref[NFRBatteryLevel]{NFR8}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] Given that we will likely not be maintaining the system, requirements regarding maintainability will be difficult to test and verify. While products should be designed with maintainability in mind, it is not a priority for this project. Thus, requirements \hyperref[NFRGUI]{NFR15}, \hyperref[NFRController]{NFR16}, \hyperref[NFRCircuit]{NFR17}, \hyperref[NFRMech]{NFR18} are subject to change. 
 
 \end{itemize}
 
@@ -722,15 +716,11 @@ This section provides the functional requirements, the business tasks that the s
 
 \noindent \begin{itemize}
 
-%\item[LC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] \plt{Give
- %   the unlikely changes.  The design can assume that the changes listed will
- %   not occur.}
-
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are core to the functionality of the product. The product would not accomplish its purpose without meeting these requirements. Thus, these requirements are  unlikely to change: \hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR7]{FR7}, \hyperref[FR8]{FR8}, \hyperref[FR9]{FR9}, \hyperref[FR13]{FR13}
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are key selling features of the system, and are therefore unlikely to change: \hyperref[FR10]{FR10}, \hyperref[FR11]{FR11}
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are necessary to ensure accessibility for all users: \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] Dependent on requirement \hyperref[FR10]{ FR10}, that the lock can be mounted on the bike's frame, \hyperref[NFR5]{NFR5} that the design must not impede normal bike function is necessary for the bike to function at all, and, if the bike does not function, the SmartLock product is useless. As such, this requirement is unlikely to change.
-\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] To maintain usability in imperfect weather conditions, requirements \hyperref[NFR6]{NFR6} and \hyperref[NFR7]{NFR7}, and are therefore unlikely to change. \item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] The following requirements must be satisfied to maintain an edge over typical, manually engaged/disengaged bike locks, and are therefore unlikely to change: \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR14]{NFR14}, \hyperref[NFR13]{NFR13}, \hyperref[NFR15]{NFR15}, \hyperref[NFR16]{NFR16}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are core to the functionality of the product. The product would not accomplish its purpose without meeting these requirements. Thus, these requirements are  unlikely to change: \hyperref[FRDisengage]{FR1}, \hyperref[FRLockStatusEngaged]{FR2}, \hyperref[FRLockStatusDisengaged]{FR3}, \hyperref[FRUserPos]{FR4}, \hyperref[FRSturdy]{FR5}, \hyperref[FRCorrectUser]{FR6}, \hyperref[FRPower]{FR10}.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are key selling features of the system, and are therefore unlikely to change: \hyperref[FRBikeFrame]{FR7}, \hyperref[FRBatteryLevelDisplay]{FR8}.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] These requirements are necessary to ensure accessibility for all users: \hyperref[NFRInst]{NFR1}.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] Dependent on requirement \hyperref[FRBikeFrame]{FR7}, that the lock can be mounted on the bike's frame, \hyperref[NFRFunc]{NFR4} that the design must not impede normal bike function is necessary for the bike to function at all, and, if the bike does not function, the SmartLock product is useless. As such, this requirement is unlikely to change.
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{LC_meaningfulLabel}:] The following requirements must be satisfied to maintain an edge over typical, manually engaged/disengaged bike locks, and are therefore unlikely to change: \hyperref[NFRCompQuick]{NFR9}, \hyperref[NFRCompForce]{NFR10}, \hyperref[NFRBatteryLife]{NFR11},  \hyperref[NFRBatteryAccess]{NFR12}, \hyperref[NFRTools]{NFR13}, \hyperref[NFRModels]{NFR14}.
 
 \end{itemize}
 
@@ -741,19 +731,14 @@ The following list will take the following form:
 \\
 /monitored variables and vice versa
 \\
- \hyperref[FR1]{FR1}: \hyperref[FR3]{FR3}, \hyperref[FR7]{FR7}, \hyperref[NFR8]{NFR8}, MV1
- \\  \hyperref[FR2]{FR2}: \hyperref[FR4]{FR4}, MV2
-\\  \hyperref[FR5]{FR5}: MV4, A2
-\\  \hyperref[FR6]{FR6}: MV3, A2
-\\  \hyperref[FR8]{FR8}: \hyperref[FR12]{FR12}, \hyperref[NFR9]{NFR9}, MV4
-\\  \hyperref[FR10]{FR10}: \hyperref[NFR15]{FR15}, \hyperref[NFR16]{FR16},SC4
-\\  \hyperref[FR11]{FR11}: \hyperref[FR13]{FR13},\hyperref[NFR10]{NFR10}, MR6
-\\  \hyperref[NFR1]{NFR1}: \hyperref[NFR2]{NFR2}
-\\  \hyperref[NFR3]{NFR3}: \hyperref[NFR22]{NFR22}, \hyperref[NFR23]{NFR23}
-\\  \hyperref[NFR4]{NFR4}: \hyperref[NFR5]{NFR5}
-\\  \hyperref[NFR6]{NFR6}: \hyperref[NFR7]{NFR7}, A3
- \\  \hyperref[NFR11]{NFR11}: \hyperref[NFR12]{NFR12},A1
- \\  \hyperref[NFR13]{NFR13}: A4, A5
+ \\  \hyperref[FRDisengage]{FR1}: \hyperref[FRLockStatusDisengaged]{FR3}, MV2
+\\  \hyperref[FRSturdy]{FR5}: \hyperref[FRLocDisplay]{FR9}, \hyperref[NFRAccuracyPos]{NFR7}, MV4
+\\  \hyperref[FRBikeFrame]{FR7}: \hyperref[NFRTools]{FR13}, \hyperref[NFRModels]{FR14}, SC4
+\\  \hyperref[FRBatteryLevelDisplay]{FR8}: \hyperref[FRPower]{FR10},\hyperref[NFRBatteryLevel]{NFR8}, MR6
+\\  \hyperref[NFRStor]{NFR2}: \hyperref[NFRGUI]{NFR15}
+\\  \hyperref[NFRVisual]{NFR3}: \hyperref[NFRFunc]{NFR4}
+ \\  \hyperref[NFRCompQuick]{NFR9}: \hyperref[NFRBatteryLife]{NFR11}, A1
+ \\  \hyperref[NFRTools]{NFR13}: A4, A5
 \section{Development Plan: Prioritizing and Phasing of Requirements}
 
 %\plt{This section is optional.  It is used to explain the plan for developing
@@ -766,33 +751,33 @@ The following list will take the following form:
 
 \subsection{Phase 1}
 Phase 1 consists of implementing requirements that, together, make up the minimum viable product: a lock that can be engaged remotely. These requirements are the highest priority and should be completed first, throughout November and December. These requirements include:
-\hyperref[FR1]{FR1}, \hyperref[FR2]{FR2}, \hyperref[FR3]{FR3}, \hyperref[FR4]{FR4}, \hyperref[FR5]{FR5}, \hyperref[FR6]{FR6}, \hyperref[FR9]{FR9}, \hyperref[NFR22]{NFR22}
+\hyperref[FRDisengage]{FR1}, \hyperref[FRLockStatusEngaged]{FR2}, \hyperref[FRLockStatusDisengaged]{FR3}, \hyperref[FRCorrectUser]{FR6}.
 
 \subsection{Phase 2}
 Phase 2 consists of requirements informing the design of the minimum viable product of the physical bike lock. These are the second highest priority but will be completed in parallel with Phase 1 requirements. These requirements include:
-\hyperref[FR8]{FR8}, \hyperref[FR10]{FR10}, \hyperref[FR13]{FR13}, \hyperref[NFR5]{NFR5}, \hyperref[NFR12]{NFR12}, \hyperref[NFR15]{NFR15},\hyperref[NFR16]{NFR16}
+\hyperref[FRSturdy]{FR5}, \hyperref[FRBikeFrame]{FR7}, \hyperref[FRPower]{FR10}, \hyperref[NFRFunc]{NFR4}, \hyperref[NFRBatteryLife]{NFR11}, \hyperref[NFRTools]{NFR13},\hyperref[NFRModels]{NFR14}.
 
 \subsection{Phase 3}
 Phase 3 consists of requirements regarding the locating feature. These are lower priorities, but key selling features. These requirements will be completed after Phase 1 and Phase 2, in January. These requirements include:
-\hyperref[FR7]{FR7}, \hyperref[FR12]{FR12}
+\hyperref[FRUserPos]{FR4}, \hyperref[FRLocDisplay]{FR9}.
 
 \subsection{Phase 4}
 Phase 4 consists of requirements that ensure the accuracy, usability, and accessibility of features. This phase will be completed after Phase 3, likely in February. These requirements include:
-\hyperref[FR11]{FR11}, \hyperref[NFR1]{NFR1}, \hyperref[NFR2]{NFR2}, \hyperref[NFR3]{NFR3}, \hyperref[NFR6]{NFR6}, \hyperref[NFR7]{NFR7}, \hyperref[NFR8]{NFR8}, \hyperref[NFR9]{NFR9}, \hyperref[NFR10]{NFR10}, \hyperref[NFR11]{NFR11}, \hyperref[NFR12]{NFR12}, \hyperref[NFR13]{NFR13}, \hyperref[NFR14]{NFR14}
+\hyperref[FRBatteryLevelDisplay]{FR8}, \hyperref[NFRInst]{NFR1}, \hyperref[NFRStor]{NFR2},  \hyperref[NFRHarm]{NFR5}, \hyperref[NFRAccuracyStatus]{NFR6}, \hyperref[NFRAccuracyPos]{NFR7}, \hyperref[NFRBatteryLevel]{NFR8}, \hyperref[NFRCompQuick]{NFR9}, \hyperref[NFRBatteryLife]{NFR11}, \hyperref[NFRBatteryLife]{NFR11}, \hyperref[NFRBatteryAccess]{NFR12}.
 
 \subsection{Phase 5}
-Phase 5 consists of requirements regarding the aesthetics of the product, and is the lowest priority. These requirements include: \hyperref[NFR4]{NFR4}
+Phase 5 consists of requirements regarding the aesthetics of the product, and is the lowest priority. These requirements include: \hyperref[NFRVisual]{NFR3}.
 
 \subsection{Phase 6}
-Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFR17]{NFR17}, \hyperref[NFR18]{NFR18}, \hyperref[NFR19]{NFR19}, \hyperref[NFR20]{NFR20}, \hyperref[NFR21]{NFR21}
+Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFRGUI]{NFR15}, \hyperref[NFRController]{NFR16}, \hyperref[NFRCircuit]{NFR17}, \hyperref[NFRMech]{NFR18}.
 
 \section{Values of Auxiliary Constants}
 
 \begin{itemize}
-\setlength{\itemindent}{0.5in} \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFR18]{NFR18}
-\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFR19]{NFR19}
-\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFR20]{NFR20}
-\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFR21]{NFR20}
+\setlength{\itemindent}{0.5in} \item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] GUI\_CONSTANT = 0.3, \hyperref[NFRGUI]{NFR15}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] CONTROLLER\_CONSTANT = 0.3, \hyperref[NFRController]{NFR16}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] ELECTRICAL\_CONSTANT = 0.3, \hyperref[NFRCircuit]{NFR17}
+\item[CONST\refstepcounter{constnum}\theconstnum\label{LC_meaningfulLabel}:] MECHANICAL\_CONSTANT = 0.3, \hyperref[NFRMech]{NFR18}
 \end{itemize}
 
 \newpage
@@ -817,13 +802,9 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
   \hline
  m\_SignalDisengaged & Monitors whether or not the locking mechanism is disengaged & Digital & Boolean \\ 
   \hline
- m\_SignalOpen & Monitors whether or not the physical mechanism is open & Digital & Boolean \\ 
+ m\_Location & Monitors the location of the bike & Analog & Coordinates \\ 
   \hline
- m\_SignalClosed& Monitors whether or not the physical mechanism is closed & Digital & Boolean \\ 
-  \hline
- m\_Location & Monitors the location of the bike when it is locked & Analog & Coordinates \\ 
-  \hline
- m\_BatteryPower & Monitors the current battery percentage & Analog & Percentage \\ 
+ m\_BatteryPower & Monitors the current battery level & Analog & Level \\ 
  \hline
 \end{tabular}
 \end{minipage}\\
@@ -835,8 +816,6 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 \begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
- \hline
- c\_LockEngaged & Engages the lock & Digital & Boolean \\ 
   \hline
  c\_LocklDisengaged & Disengages the lock & Digital & Boolean \\ 
   \hline
@@ -846,7 +825,7 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
   \hline
  c\_BikePosition & Marks the location of the bike when it is locked & Analog & Coordinates \\ 
   \hline
- c\_BatteryPercentStatus & Indicates what the percentage of the battery is & Analog & Percentage \\ 
+ c\_BatteryLevelStatus & Indicates the level of the battery & Analog & Level \\ 
  \hline
 \end{tabular}
 \end{minipage}\\
@@ -926,12 +905,12 @@ Elsa:
  \\
  Anthony: 
  \\
- The mobile application will be developed using XCode Ver.14.0, utilizing the Swift programming language for iOS Development. For linting, SwiftLint will be implemented as it is commonly used in the industry for iOS development utilizing XCode. Basic background in programming is a required skill needed to be able to effectively learn the IDE and programming language.
+ The App will be developed using XCode Ver.14.0, utilizing the Swift programming language for iOS Development. For linting, SwiftLint will be implemented as it is commonly used in the industry for iOS development utilizing XCode. Basic background in programming is a required skill needed to be able to effectively learn the IDE and programming language.
   \\
 \\
 Abdul:
 \\ 
- Being on the app development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the mobile application for the SmartLock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
+ Being on the App development sub-team, I will be required to acquire a working knowledge of the Swift programming language to develop the App for the SmartLock System.  In addition to that, I would need to research Bluetooth technology and its integration within our system.
  \\
 \\
 Stephen:
