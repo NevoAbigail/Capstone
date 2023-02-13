@@ -82,7 +82,7 @@ This section records information for easy reference.
 
 \newpage
 
-\listoftables
+%\listoftables
 
 \listoffigures
 
@@ -102,7 +102,7 @@ For more information on the project breakdown, planning or delivery refer to the
 %\wss{Include references to your other documentation}
 
 \section{Purpose}
-The purpose of this documentation is to break down the components that will come together to create the final product, as well as how they interact and why they are used. This document will show everything that the SmartLock is made from and when it will be assembled in order to provide transparency throughout the entire design project.
+The purpose of this documentation is to break down all of the components that will come together to create the final product, as well as how they interact and why they are used. This document will show everything that the SmartLock is made from and when it will be assembled in order to provide transparency throughout the entire design project.
 
 %\wss{Purpose of your design documentation}
 
@@ -110,27 +110,96 @@ The purpose of this documentation is to break down the components that will come
 
 \section{Scope}
 
-\wss{Include a figure that show the System Context (showing the boundary between
-your system and the environment around it.)}
+This lock and application are designed for the use of the average bike rider. It is simple and easy to use and locks the primary components of the bike so that the user can be confident in its security. 
+
+ \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.9\linewidth]{System Context.png}
+ }
+ \caption{\label{System Context} System Context}
+ \end{center}
+ \end{figure}
+
+
+%\wss{Include a figure that show the System Context (showing the boundary betweenyour system and the environment around it.)}
 
 \section{Project Overview}
 
 \subsection{Normal Behaviour}
 
+The normal behaviour that is expected with the SmartLock is multistep:
+\begin{enumerate}
+\item After the first purchase of the SmartLock the user will have to attach the lock to the bike, and download the application from the AppStore or Google Play and pair the application with the physical device (this only happens once)
+\item The user will put the cable around the wheel and external frame and then push the pin into the locking hole
+\item The user will be able to geotag the location of the locked bike on the application
+\item The user will be able to disengage the lock on the application so that they can remove the pin from the hole and release the bike
+\item The application will warn the user when there is low battery so that the lock can be recharged
+\end{enumerate}
+
 \subsection{Undesired Event Handling}
 
-\wss{How you will approach undesired events}
+In the case of an undesired or unexpected event, the lock will stay in the locked position and the application will block the unlocking process. While this does inhibit the user's ability to be able to use their bike, it does prevent the bike from being stolen which is more important in an uncertain situation. The user will be able to reset the lock to eliminate the stimulus that caused the event and be able to use their app as normal after.
+
+%\wss{How you will approach undesired events}
 
 \subsection{Component Diagram}
 
-\subsection{Connection Between Requirements and Design} \label{SecConnection}
+ \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.8\linewidth]{component diagram.png}
+ }
+ \caption{\label{component diagram} Component Diagram}
+ \end{center}
+ \end{figure}
 
-\wss{The intention of this section is to document decisions that are made
-  ``between'' the requirements and the design.  To satisfy some requirements,
-  design decisions need to be made.  Rather than make these decisions implicit,
-  they are explicitly recorded here.  For instance, if a program has security
-  requirements, a specific design decision may be made to satisfy those
-  requirements with a password.}
+\subsection{Connection Between Requirements and Design} %\label{SecConnection}
+
+\begin{minipage}{\textwidth}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.48\textwidth} | p{0.52\textwidth} | }
+ \hline
+ Requirement/Constraint & Design Description\\ 
+ \hline
+ SC2:  The materials and resources used to design and build the project must be accessible to students& Rev 0 will be primarily made from 3D printed materials, with an option to move to machining for Rev 1\\
+ \hline
+ SC4:  The project must be mounted on existing bike designs & Current market bike lock mount is being used to ensure compatibility\\
+ \hline
+ SC5:  The project must be locked on existing external locking frames or racks &Current market bike lock cable is being used to ensure compatibility\\
+ \hline
+FR2: LockDisengage input must disengage the lock on the bike & Using an electromagnet for locking allows for a easier connection to a microcontroller that can communicate with a phone app\\
+ \hline
+FR3,4,7: The application has to show the status of the electromagnet and battery as well as display the location&The UI was designed so that this information is easy to see, these are requirements to make the lock secure but they relate to the user experience\\
+ \hline
+FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged& Using simple pieces without a lot of components that can break off makes it more sturdy, and using a market bike cable makes sure it is strong enough not to be broken\\
+ \hline
+FR9: Lock must only be engaged/disengaged by the intended user(s)& The application is password protected\\
+ \hline
+NFR1: Can be used by people of any language&Language choice can be selected on the app\\
+ \hline
+NFR2, 12: Can reasonably be used without instructions or extra force& Uses similar mechanics of inserting a pin that traditional bike locks use\\
+ \hline
+NFR5: The design must not impede normal bike functions& Attaches to the bike using current market mounts so that it is small and out of the way\\
+ \hline
+NFR6,7: The lock must be waterproofed to withstand normal rainfall & All circuitry is encased and the materials are waterproof\\
+ \hline
+NFR11: iPhone app locking must be quicker to use than a typical keyed/combo bike lock &The phone will accept face or touch id as a password form and then one button click will unlock the bike \\
+ \hline
+NFR14: Batteries must be accessible to replace or chargeable&A chargeable battery was used for user ease and less waste\\
+ \hline
+NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-platform development\\
+ \hline
+\end{tabular}
+\end{minipage}\\
+
+
+%\wss{The intention of this section is to document decisions that are made
+ % ``between'' the requirements and the design.  To satisfy some requirements,
+  %design decisions need to be made.  Rather than make these decisions implicit,
+  %they are explicitly recorded here.  For instance, if a program has security
+  %requirements, a specific design decision may be made to satisfy those
+  %requirements with a password.}
 
 \newpage
 \section{System Variables}
@@ -227,6 +296,8 @@ The following is a list of the hardware components that will be built for the Sm
 \item Locking Mechanism (CAD)
 \end{itemize}
 
+See Appendix for hardware components both purchased and 3D printed
+
 %\wss{Most relevant for mechatronics projects}
 %\wss{Show what will be acquired}
 %\wss{Show what will be built, with detail on fabrication and materials}
@@ -242,6 +313,8 @@ The following is a list of the electrical components that will be used in combin
 \subitem - Previously owned
 \item Wiring
 \subitem - Previously owned
+\item Breadboard
+\subitem - Previously owned
 \item Magnet
 \subitem - Needs to be acquired
 \item Charging board (maybe)
@@ -250,6 +323,7 @@ The following is a list of the electrical components that will be used in combin
 \subitem - Previously owned
 \end{itemize}
 
+See the Appendix for visualizations of the components and circuit diagrams
 
 %\wss{Most relevant for mechatronics projects}
 %\wss{Show what will be acquired}
@@ -312,9 +386,6 @@ The features of our lock include:
 \end{tabular}
 \end{minipage}\\
 
-
-
-
 %\wss{Schedule of tasks and who is responsible}
 
 % \bibliographystyle {plainnat}
@@ -323,16 +394,79 @@ The features of our lock include:
 \newpage{}
 \section{Appendix}
 
-\subsection{Interface - included in section 8}
+\subsection{Interface - Included in Section 8}
 
 %\wss{Include additional information related to the appearance of, and interaction with, the user interface}
 
 \subsection{Mechanical Hardware}
 
+ \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.4\linewidth]{1.png}
+  \includegraphics[width=0.4\linewidth]{2.png}
+ }
+ \caption{\label{Locking Mechanism Components} Locking Mechanism Components Disassembled and Assembled}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.2\linewidth]{BikeLock.png}
+ }
+ \caption{\label{BikeLock} Bike Lock Cable and Mount Attachment}
+ \end{center}
+ \end{figure}
+ 
+ \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.3\linewidth]{arduino.png}
+ }
+ \caption{\label{Arduino} Arduino}
+ \end{center}
+ \end{figure}
+ \newpage
+
 \subsection{Electrical Components}
 
-\subsection{Communication Protocols}
+ \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{6.png}
+ }
+ \caption{\label{Circuit} Circuit without the Arduino}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{8.png}
+ }
+ \caption{\label{Rechargeable Battery} Rechargeable Battery}
+ \end{center}
+ \end{figure}
+ 
+ 
+  \begin{figure}[ht]
+ \begin{center}
+ {
+  \includegraphics[width=0.5\linewidth]{10.png}
+ }
+ \caption{\label{Circuit Diagram} Circuit Diagram}
+ \end{center}
+ \end{figure}
+ 
+ \newpage
+    
+ \newpage
+ 
+\subsection{Communication Protocols - Included in Section 11}
+
 %Communication protocols are if you are broadcasting or receiving messages.  If your project doesn't do this, then you don't need to worry about this section.
+
 
 \subsection{Reflection}
 
@@ -355,8 +489,14 @@ graduate attribute of Problem Analysis and Design.  Please answer the following 
   Some of our other ideas were: 
   \begin{itemize}
 \item A foldable chain that could be folded up small and compressed to the bike while riding
-
+\item A circular arm for locking
+\item An extendable arm so that you could be multiple distances
+\item Individual locking units for each component
 \end{itemize}
+
+We landed on our final design because it uses components that are familiar to the average bike rider, it allows for the bike to be varying distances from a frame and it only involves one locking mechanism which is simpler, less bulky and easier to use. Additionally, we opted against the motor as a way to eliminate physical intervention because it would require much more battery and replacing or charging the battery that often would be more inconvenient than using your hands to insert the lock.
+
+
   
 \end{enumerate}
 
