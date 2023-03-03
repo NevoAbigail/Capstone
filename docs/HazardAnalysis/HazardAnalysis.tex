@@ -43,6 +43,7 @@
 19-10-22 & Abi & Added probability and severity ratings to FMEA \\
 19-11-22 & Steffi & Updates for grammar, formatting and terminology\\
 23-11-22 & Steffi & Updates for consistency across documentation\\
+03-03-23 & Abi & Updating according to revised SRS\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -157,25 +158,30 @@ Contains and \newline carries all physical lock \newline components on the bike 
 \subsection{New Requirements - October 2022}
 The following requirements must be added to the SRS document in the Non-Functional Requirements Category:
 \begin{itemize}
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR1}:] Internal parts of locking mechanism shall be accessible and replaceable.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR1}:] Internal parts of locking mechanism shall be accessible and replaceable (see NFR12 in SRS). 
 %\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] The locking mechanism shall be able to disengage manually (e.g., with a key), in addition to remotely. %% THIS IS A STRETCH GOAL
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] Product shall be adaptable and be able to fit a wide variety of external frames/bike racks.
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be made from anti-corrosive materials. %%SHOULD this be added as a stretch goal
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR2}:] Product shall be adaptable and be able to fit a wide variety of external frames/bike racks (see NFR14 in SRS).
 \end{itemize}
 
 \subsection{Existing Requirements}
 
 The following requirements have already been included in the SRS document, and are restated here for convenience: \\
 
- \noindent FR9: Lock must only be engaged/disengaged by the intended user(s). \newline 
- FR10: The lock can be mounted to the bike's frame. \newline
- NFR6: The lock must be waterproofed to withstand normal rainfall. \\
- NFR7: The lock must be waterproofed to withstand normal splashing while riding. \\
- NFR13: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged. \\
- NFR14: Batteries must be accessible to replace or chargeable. \\
+ \noindent FR6: Lock must only be engaged/disengaged by the intended user(s). \newline 
+ FR7: The lock can be mounted to the bike's frame. \newline
+ NFR11: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged. \\
 
 
 \section{Roadmap}
-The safety requirements that will be implemented in the scope of Mechatronics Capstone 4TB6 are SR1 and SR2. They are vital to the functionality, safety and security of the SmartLock and are reasonably achievable given the constraints of the course, project and Team. The implementation of SR3 will be postponed until after the course has been completed due to financial, temporal and accessibility reasons. 
+The safety requirements that will be implemented in the scope of Mechatronics Capstone 4TB6 are SR1 and SR2. They are vital to the functionality, safety and security of the SmartLock and are reasonably achievable given the constraints of the course, project and Team. 
+
+Other requirements were identified as being important for a high-quality project, but the team has decided it is not feasible to implement them within the time frame or resources of the project, and are therefore out of our scope. These requirements are:
+
+\begin{itemize}
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be made from anti-corrosive materials. %%SHOULD this be added as a stretch goal
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR4}:] The lock must be waterproofed to withstand normal rainfall.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR5}:] The lock must be waterproofed to withstand normal splashing while riding.
+\end{itemize}
+ 
 
 \end{document}

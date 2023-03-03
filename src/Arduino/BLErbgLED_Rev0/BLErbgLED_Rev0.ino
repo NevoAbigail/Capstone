@@ -150,8 +150,9 @@ void loop() {
                     digitalWrite(GREEN_PIN, LOW);         // LOW will turn the LED on
                     digitalWrite(TRANSISTOR_OUT, HIGH); //sets the digital pin 13 on
 
-                    delay(15000); //waits for 10 seconds 
-                    digitalWrite(TRANSISTOR_OUT,LOW); //sets the digital pin 13 off
+                    //delay(15000); //waits for 10 seconds 
+                    //digitalWrite(GREEN_PIN, HIGH);
+                    //digitalWrite(TRANSISTOR_OUT,LOW); //sets the digital pin 13 off
                 } else {                              // a zero value
                     Serial.println(F("GREEN LED off"));
                     digitalWrite(GREEN_PIN, HIGH);          // HIGH will turn the LED off

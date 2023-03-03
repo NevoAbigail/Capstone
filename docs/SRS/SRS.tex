@@ -176,6 +176,7 @@
 14-10-22 & Abi & Fixed System Constraint numbering\\
 19-11-22 & Steffi & Updates for Consistency\\
 26-01-23 & Elsa & Updates as per Peer Reviews and Further Consistency\\
+03-03-23 & Abi & Ensure consistency w VnVPlan
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -286,7 +287,6 @@ The SmartLock project will be designed to perform the following functions for th
 \item Store and use a replaceable battery. 
 \item House a mechanical lock frame. 
 \item Perform electrical engagement/disengagement of a locking mechanism. 
-\item Be waterproof. 
 \end{enumerate}
 
 Not included in the project scope will be a fully autonomous lock frame, (only the disengagement function will be automated), and a rechargeable battery. We will also be ignoring extreme weather and temperature conditions and their impact on the material properties.
@@ -366,10 +366,16 @@ The system has the following constraints.
 		\item Justification: The team does not have the ability to design a custom bike rack to lock the project to. 
 	\end{itemize} 
 	
-	\item[SC\refstepcounter{scnum}\thescnum\label{SC6}:] The App must be developed for iPhone and Android.
+\item[SC\refstepcounter{scnum}\thescnum\label{SC6}:] The App must be developed for iPhone and Android.
 	\begin{itemize}
 		\item Justification: The team does not have the ability to expand to other OS's.
 	\end{itemize} 
+
+\item[SC\refstepcounter{scnum}\thescnum\label{SC7}:] Location accuracy of the geotag feature is constrained by the accuracy of the user's phone.
+	\begin{itemize}
+		\item Justification: The mobile app will geotag the location of the user through the mobile phone's GPS, not through any location service directly developed for the app, and therefore, this product has no control of the location accuracy.
+	\end{itemize}
+
 
 \end{itemize}
 
@@ -472,75 +478,6 @@ The terms listed below will be used throughout the scope of this document and sh
 
 \subsubsection{Theoretical Models}\label{sec_theoretical}
 
-\noindent
-\deftheory
-% #2 refname of theory
-% #3 label
-{Torque of a Motor}
-% #4 equation
-{
-  ${\bf T = F \cdot d} = {\bf I  \cdot  k_T}$
-}
-
-% #5 description
-{
-The above equation gives the torque $T$ (\si{\newton\metre}) required to actuate the opening and closing mechanism of the lock through the motor. Torque is equal to the force $F$ (\si{\newton}) to open or close the lock, multiplied by the distance $d$ (\si{\metre}) from the motor's axis of rotation. To extract current, torque is also equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the motor's torque Constant $k_T$ (\si{\newton\metre\per\ampere}).  
-
-The net force will be calculated once the design is finalized. The distance and torque constant will be dependent on the motor. These equations will be used to calculate the current required from the battery. They must be computed twice; once for engaging, and again for disengaging. 
-}
-% #6 Notes
-{
-None.
-}
-% #7 Source
-{
-  \url{https://www.motioncontroltips.com/faq-whats-the-relationship-between-current-and-dc-motor-output-torque/ }
-}
-% #8 Referenced by
-{
-  None
-}
-% #9 Preconditions
-{
-None
-}
-% #1 derivation - not applicable by default
-{}
-
-\noindent
-\deftheory
-% #2 refname of theory
-% #3 label
-{Ohm's Law}
-% #4 equation
-{
-  $V = I \cdot R$
-}
-
-% #5 description
-{
-The above equation gives the voltage $V$ (\si{\volt}), which is equal to the load (motor) current $I$ (\si{\ampere}) multiplied by the resistance $R$ (\si{\ohm}) of the motor. This can be used to find the rating of the battery needed to power the motor. This calculation must also be done twice as outlined above.
-}
-% #6 Notes
-{
-None.
-}
-% #7 Source
-{
-
-}
-% #8 Referenced by
-{
-None
-}
-% #9 Preconditions
-{
-None
-}
-% #1 derivation - not applicable by default
-{}
-
-~\newline
 
 \noindent
 \deftheory
@@ -651,9 +588,7 @@ This section provides the functional requirements, the business tasks that the s
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRAccuracyStatus}:] The accuracy of the bike lock status must be above 95\%.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: The status must report the correct status in order to function optimally. The figure of 95\% was taken as it is the most common confidence interval used. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The status will be manually verified over 100 trials. 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRAccuracyPos}:] Where location services are available, the accuracy of location coordinates must be within 10m.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: For the locating feature to be useful, it must be accurate. The figure of 10m was obtained since a bike within a distance of 10m will be visible. 
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: The accuracy of location coordinates will be manually verified over fifty trials. 
+ 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryLevel}:] Battery level must be calculated accurately within 10\%.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: To avoid a situation where the battery dies unbeknownst to the user, the battery level must be accurate. The average user would replace their battery when it only has 10\% charge left.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Observe the battery charge shown right before the battery dies. 
@@ -670,8 +605,8 @@ This section provides the functional requirements, the business tasks that the s
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Verification: Measure the force required to use a typical keyed and combination lock, then measure force required for the SmartLock and compare.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryLife}:] The battery must last for greater than one month and/or sixty rides before needing to be replaced or charged.
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: It would be inconvenient to ask for the user to replace the batteries more frequently than this.
-\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryAccess}:] Batteries must be accessible to replace or chargeable.
-\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the batteries are not accessible to replace or charge, then when the battery dies initially, the user can no longer use the SmartLock.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRBatteryAccess}:] Batteries and other internal components must be accessible to replace and/or chargeable.
+\\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: If the batteries are not accessible to replace or charge, then when the battery dies initially, the user can no longer use the SmartLock. The ability to replace internal components is vital for maintainability.
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRTools}:] The lock must be easily mounted on the bike frame. It does not require special tools (those not found in a typical toolbox, such as power tools) to be installed and doing so does not take more than twenty minutes. 
 \\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ \-\ Rationale: Required for convenience for user. 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum\label{NFRModels}:] The lock can be used for many different models of mountain, city, and road bikes. 
@@ -779,7 +714,7 @@ Phase 4 consists of requirements that ensure the accuracy, usability, and access
 Phase 5 consists of requirements regarding the aesthetics of the product, and is the lowest priority. These requirements include: \hyperref[NFRVisual]{NFR3}.
 
 \subsection{Phase 6}
-Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFRGUI]{NFR15}, \hyperref[NFRController]{NFR16}, \hyperref[NFRCircuit]{NFR17}, \hyperref[NFRMech]{NFR18}.
+Phase 6 consists of requirements that ensure maintainability, which is likely outside of the scope of this project. These requirements include: \hyperref[NFRGUI]{NFR15}, \hyperref[NFRController]{NFR16}, \hyperref[NFRCircuit]{NFR17}, \hyperref[NFRMech]{NFR18}, \hyperref[NFRUpdates]{NFR20}.
 
 \section{Values of Auxiliary Constants}
 
