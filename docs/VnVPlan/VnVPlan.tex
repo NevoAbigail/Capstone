@@ -283,6 +283,20 @@ Output/Results: A pass/fail as well as a score from 1-4 for the following cases;
 
 How the test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
 
+\item{EffectiveLockSimulation
+
+FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+
+Control: Manual
+
+Initial State: Lock frame and mechanism simulated in CAD.
+
+Input/Condition: Perform strength/durability simulation on lock frame and mechanism in CAD. 
+
+Output/Results: A pass/fail if the simulation meets the 200-400 N threshold. 
+
+How the test will be performed: CAD simulation
+
 \item{Security
 
 FR6: Lock must only be engaged/disengaged by the intended user(s). }
@@ -606,7 +620,7 @@ How the test will be performed: Apply input condition and observe the expected o
   \hline
  LockLocation & FR4 &  \\ 
   \hline
- EffectiveLock & FR5 &  \\ 
+ EffectiveLock, EffectiveLockSimulation & FR5 &  \\ 
   \hline
  Security & FR6 &  \\ 
   \hline
