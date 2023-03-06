@@ -2,7 +2,12 @@
 
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{caption}
+\usepackage{float}
 \usepackage{hyperref}
+\usepackage{pdflscape}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -107,15 +112,36 @@ Expected Results: Perform the following user tests and achieve an average score 
 Actual Results:
 
 Three test subjects’ scores from 1-4 out of 50 trials: 
-
-1- 1:0, 2:0, 3:1, 4:49 -- 98\% four 
-
-2 – 1:0, 2:0, 3:2, 4:48 -- 96\% four 
-
-3 – 1:0, 2:1, 3:3, 4:46 -- 92\% four
+ \begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.8\linewidth]{EffectiveLockChart}
+ }
+ \caption{\label{EffectiveLockChart} EffectiveLockChart}
+ \end{center}
+ \end{figure}
 
 Therefore, result of pass due to average engagement without breaking of 95\% of the time when the test force was applied. 
 
+ \begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.65\linewidth]{EffectiveLockGraph}
+ }
+ \caption{\label{EffectiveLockGraph} EffectiveLockGraph}
+ \end{center}
+ \end{figure}
+  \begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=0.65\linewidth]{EffectiveLockGraph2}
+ }
+ \caption{\label{EffectiveLockGraph2} EffectiveLock Percentage of Tests Resulting in a result of 4}
+ \end{center}
+ \end{figure}
+
+~\newpage
+~\newpage
 \item{EffectiveLockSimulation
 
 FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
@@ -253,66 +279,27 @@ NFR8: The SmartLock must be quicker to use than a typical keyed or combination b
 
 Expected Results: The SmartLock must be quicker to use than both a  sample keyed and combination lock. One test user will attempt three times each to lock and unlock typical keyed and combination as well as the SmartLock. All tests must be faster for the SmartLock.
 
-Actual Results: THINK WE NEED A TABLE HERE
+Actual Results:
 
-Keyed lock time: 
 
-1- 28.75 s 
+\begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=1\linewidth]{QuickLockChart}
+ }
+ \caption{\label{QuickLockChart} QuickLockChart}
+ \end{center}
+ \end{figure}
+ \begin{figure}[h!]
+ \begin{center}
+ {
+ \includegraphics[width=1\linewidth]{QuickLockGraph}
+ }
+ \caption{\label{QuickLockGraph} QuickLockGraph}
+ \end{center}
+ \end{figure}
 
-2- 26.65 s 
-
-3- 30.00 s 
-
- 
-
-Keyed Unlock time: 
-
-1- 24.52 s 
-
-2- 20.43 s 
-
-3- 21.75 s 
-
- 
-
-Combo lock time: 
-
-1- 15.60 s 
-
-2- 18.45 s 
-
-3- 16.30 s 
-
- 
-
-Combo Unlock time: 
-
-1- 18.21 s 
-
-2- 18.63 s 
-
-3- 19.20 s 
-
- 
-
-SmartLock lock time: 
-
-1-6.98+ 
-
-2- 
-
-3- 
-
- 
-
-SmartLock unlock time: 
-
-1- 
-
-2- 
-
-3-  
-
+~\newpage
 \item{UseForce
 
 NFR9: Opening and closing lock must require similar force to a typical keyed/combo.  }
@@ -494,6 +481,61 @@ Changes due to \nameref{User Testing} are summarized below:
 \section{Automated Testing}
 		
 \section{Trace to Requirements}
+
+\begin{minipage}{\textwidth}
+\footnotesize
+\captionof{table}{Traceability Table}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.3\textwidth} | p{0.4\textwidth} | p{0.4\textwidth} |}
+ \hline
+ Test Case & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{Functional Requirement(s)} & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{Non-Functional Requirement(s)} \\ 
+ \hline
+ DisengageLock & FR1 &  \\ 
+  \hline
+ LockLocation & FR4 &  \\ 
+  \hline
+ EffectiveLock, EffectiveLockSimulation & FR5 &  \\ 
+  \hline
+ Security & FR6 &  \\ 
+  \hline
+ LockMount & FR7 &  \\ 
+  \hline
+ BatteryPercentage & FR8 &  \\ 
+  \hline
+ LocationOnApp & FR9 &  \\ 
+  \hline
+ PowerOutput & FR10 &  \\ 
+  \hline
+ LimitedInstructions & & NFR1 \\
+ \hline
+  AppStorage & & NFR2 \\
+ \hline
+  VisualAppeal & & NFR3 \\
+ \hline
+  NormalBikeFunction & & NFR4 \\
+ \hline
+  Safety & & NFR5 \\
+ \hline
+  BatteryAccuracy & & NFR7 \\
+ \hline
+  QuickLock & & NFR8 \\
+ \hline
+ UseForce & & NFR9 \\
+ \hline
+ BatteryLike & & NFR10 \\
+ \hline
+  ComponentAccessibility & & NFR11 \\
+ \hline
+  NoSpecialTools & & NFR12 \\
+ \hline
+  BikeVersatility & & NFR13 \\
+ \hline
+  AppOS & & NFR18 \\
+ \hline
+ \end{tabular}
+\end{minipage}\\
+
+Note: FR 2-3 and NFR 6, 14-17 and 19 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 		
 \section{Trace to Modules}		
 
