@@ -66,13 +66,340 @@ This document ...
 
 \section{Functional Requirements Evaluation}
 
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ cell1 & cell2 & cell3 \\ 
+ cell4 & cell5 & cell6 \\ 
+ cell7 & cell8 & cell9 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+EDIT THIS This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's needs. these aspects include smartphone app features, physical design attributes, accuracy, and the usability of our product. Note that each requirement references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+
+\subsubsection{Area of Testing: User Input Related}
+
+\begin{enumerate}
+
+\item{DisengageLock: 
+
+FR1: LockDisengage input must disengage the lock on the bike. } 
+
+Expected Results: The lock will successfully disengage upon receiving the DisengageLock Signal. 
+
+Actual Result: Pass -- The lock successfully disengaged upon receiving the DisengageLock Signal. 
+ 
+\item{LockLocation: 
+
+FR4: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
+
+Expected Results: Pass/fail if the App places a geotag within 10 metres of the Users current location 
+
+Actual Result:
+
+\item{EffectiveLock
+
+FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+
+Expected Results: Perform the following user tests and achieve an average score at or above 90\%. Optional scores of 1-4 for the following cases: a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged without breaking. 
+
+Actual Results:
+
+Three test subjects’ scores from 1-4 out of 50 trials: 
+
+1- 1:0, 2:0, 3:1, 4:49 -- 98\% four 
+
+2 – 1:0, 2:0, 3:2, 4:48 -- 96\% four 
+
+3 – 1:0, 2:1, 3:3, 4:46 -- 92\% four
+
+Therefore, result of pass due to average engagement without breaking of 95\% of the time when the test force was applied. 
+
+\item{EffectiveLockSimulation
+
+FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+
+Expected Results: A pass/fail if the simulation meets the 200-400 N threshold. 
+
+Actual Results:
+
+\item{Security
+
+FR6: Lock must only be engaged/disengaged by the intended user(s). }
+
+Expected Results: A Bluetooth developer app is downloaded on an unintended user’s phone. The unintended user will be able to connect to the Arduino but not be able to disengage the lock. 
+
+Actual Results: Pass -- The unintended user was able to connect to the device but not able to unlock the device. 
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Bike Input Related}
+
+\begin{enumerate}
+
+\item{LockMount
+
+FR7: The lock can be mounted to the bike’s frame. }
+
+Expected Results: A pass/fail per bike tested if the lock is/isn’t able to be mounted onto the bike as intended. A score from 0-the number of bikes tested will be given.  
+
+Actual Results: Three test subjects’ results for the number of bikes where successful lock mounting occurred: 
+
+1 – 3/3 
+
+2 – 3/3 
+
+3 – 3/3 
+
+Therefore, of nine bikes tested, all passed. 
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Output Related}
+
+\begin{enumerate}
+
+\item{BatteryPercentage
+
+FR8: Battery percentage must be shown on the phone app. }
+
+Expected Results: The user must be able to view the battery percentage of the lock.
+
+Actual Results:
+
+\item{LocationOnApp
+
+FR9: Location (coordinates) of the bike must be shown on the app as BikePosition.}
+
+Expected Results: The user must be able to view the saved coordinates 
+
+Actual Results:
+
+\item{PowerOutput
+
+FR10: Battery must output enough power to engage the lock. }
+
+Expected Results: Circuit connected. Battery is successfully able to meet the threshold voltage of the electromagnet to engage the locking mechanism.  
+
+Actual Results: Pass -- The battery successfully supplied enough voltage to engage the locking mechanism in 5/5 tests. 
+
+Note: During one test where the Arduino was powered on for more than an hour, the battery was supplying the correct voltage, however, the Arduino became fried and defective, and the locking mechanism was not engaged successfully. Moreover, it was determined that the failed test was due to the Arduino shorting, so it was not counted as a failed PowerOutput test.
+
+\end{enumerate}
+
 \section{Nonfunctional Requirements Evaluation}
 
-\subsection{Usability}
-		
-\subsection{Performance}
+EDIT THIS: This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's needs. these aspects include smartphone app features, physical design attributes, accuracy, and the usability of our product. Note that each requirement references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
 
-\subsection{etc.}
+\subsubsection{Area of Testing: Smart Phone}
+
+\begin{enumerate}
+
+\item{LimitedInstructions
+
+NFR1: Can reasonably be used without requiring an instruction manual. }
+
+Expected Results: The lock is successfully engaged, and the bike is securely locked by all test users.
+
+Actual Results: GRAPH
+
+\item{AppStorage
+
+NFR2: App storage under 50 megabytes. A small mobile app should not take up significant space on the user’s phone.  }
+
+Expected Results: App storage is less than 50 MB. 
+
+Actual Results: Pass -- App storage does not exceed 50 MB. 
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Physical Lock}
+\begin{enumerate}
+
+\item{VisualAppeal
+
+NFR3: The design must be visually appealing. }
+
+Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{Survey}. Visual appeal is rated 7 or higher (on a scale of 1-10).
+
+Actual Results: GRAPH
+
+\item{NormalBikeFunction
+
+NFR4: The lock must not impede normal bike functions. }
+
+Expected Results: The SmartLock does not impede normal bike functionality and operation. 
+
+Actual Results: Pass -- The SmartLock does not impede normal bike functionality and operation. 
+
+\item{Safety
+
+NFR5: The design must not inflict harm to the user in any way, such as clamping down on a finger, or moving at a force or speed that could cause injury. }
+
+Expected Results: The design must not inflict harm to the user in any way, such as clamping down on a finger, or moving at a force or speed that could cause injury. 
+
+Actual Results: Pass -- User is not harmed or pinched when SmartLock is in use. 
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Usability}
+
+\begin{enumerate}
+
+\item{QuickLock
+
+NFR8: The SmartLock must be quicker to use than a typical keyed or combination bike lock.  }
+
+Expected Results: The SmartLock must be quicker to use than both a  sample keyed and combination lock. One test user will attempt three times each to lock and unlock typical keyed and combination as well as the SmartLock. All tests must be faster for the SmartLock.
+
+Actual Results: THINK WE NEED A TABLE HERE
+
+Keyed lock time: 
+
+1- 28.75 s 
+
+2- 26.65 s 
+
+3- 30.00 s 
+
+ 
+
+Keyed Unlock time: 
+
+1- 24.52 s 
+
+2- 20.43 s 
+
+3- 21.75 s 
+
+ 
+
+Combo lock time: 
+
+1- 15.60 s 
+
+2- 18.45 s 
+
+3- 16.30 s 
+
+ 
+
+Combo Unlock time: 
+
+1- 18.21 s 
+
+2- 18.63 s 
+
+3- 19.20 s 
+
+ 
+
+SmartLock lock time: 
+
+1-6.98+ 
+
+2- 
+
+3- 
+
+ 
+
+SmartLock unlock time: 
+
+1- 
+
+2- 
+
+3-  
+
+\item{UseForce
+
+NFR9: Opening and closing lock must require similar force to a typical keyed/combo.  }
+
+Expected Results: The amount of force required to open and close the lock frame is comparable to that of a typical keyed or combination lock. Test users score the force required out of 5 where 5 is the maximum amount of force they can physically provide and 1 is the minimum amount of force they can physically provide. The SmartLock should not vary more than 1 score unit from the most different score in each test. 
+
+Actual Results: Three tests subjects’ results for the amount of force required to open and close the lock frame for the SmartLock, a typical keyed lock and a combination lock respectively out of 5: 
+
+1- 2, 1, 2 
+
+2- 3, 3, 3 
+
+3- 1, 1, 2 
+
+Therefore, the SmartLock did not vary more than one score unit from the most different score in each test. 
+
+\item{BatteryLife
+
+NFR10: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  }
+
+Expected Results: The battery lasts for longer than 1 month and/or 60 rides before needing to be replaced or charged. 
+
+Actual Results: Pass -- The battery lasted longer than 1 month before needing to be replaced or charged. 
+
+\item{ComponentAccessibility
+
+NFR11: Batteries and other internal components must be accessible to replace and/or chargeable. }
+
+Expected Results: The battery can be replaced, and internal components can be accessed, as intended.
+
+Actual Results: Pass -- Three test users were able to access and replace the battery and all other internal components.  
+
+\item{NoSpecialTools
+
+NFR12: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install. }
+
+Expected Results: The lock is easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install.  
+
+Actual Results: Three test subjects’ results for three individual tests for the time to mount the lock on their bike frame without the use of special tools.  
+
+1- 6, 5, 4 min 
+
+2- 7, 7, 4 min 
+
+3 – 5, 3, 3 min 
+
+Therefore, all tests were successful and completed within twenty minutes. 
+
+\item{BikeVersatility
+
+NFR13: The lock can be used for many different models of mountain, city, and road bikes.  }
+
+Expected Results: The SmartLock can be mounted on three different categories of bikes (road, hybrid and mountain) successfully by each test user.  
+
+Actual Results: Three test subjects’ results for the number of bikes where successful lock mounting occurred: 
+
+1 – 3/3 
+
+2 – 3/3 
+
+3 – 3/3 
+
+Therefore, of nine bikes from three different types of bikes (road, hybrid and mountain) tested, all passed. 
+
+\item{AppOS
+
+NFR18: The App should run on iOS and Android.  }
+
+Expected Results: App operates on iOS and Android. 
+
+Actual Results: Pass -- App operates successfully on iOS and Android as expected. 
+
+\end{enumerate}
+
+\subsubsection{Area of Testing: Accuracy}
+
+\begin{enumerate}
+
+\item{BatteryAccuracy
+
+NFR7: Battery percentage must be calculated accurately within 10\%. }
+
+Expected Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
+
+Actual Results:
+
+\end{enumerate}
 	
 \section{Comparison to Existing Implementation}	
 
