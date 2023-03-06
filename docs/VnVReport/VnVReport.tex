@@ -184,7 +184,7 @@ Expected Results: Circuit connected. Battery is successfully able to meet the th
 
 Actual Results: Pass -- The battery successfully supplied enough voltage to engage the locking mechanism in 5/5 tests. 
 
-Note: During one test where the Arduino was powered on for more than an hour, the battery was supplying the correct voltage, however, the Arduino became fried and defective, and the locking mechanism was not engaged successfully. Moreover, it was determined that the failed test was due to the Arduino shorting, so it was not counted as a failed PowerOutput test.
+Note: During one test where the Arduino was powered on for more than an hour, the battery was supplying the correct voltage, however, the Arduino became fried and defective, and the locking mechanism was not engaged successfully. Moreover, it was determined that the failed test was due to the Arduino frying, so it was not counted as a failed PowerOutput test.
 
 \end{enumerate}
 
@@ -407,12 +407,89 @@ This section will not be appropriate for every project.
 
 \section{Unit Testing}
 
+\subsection{Physical Locking Mechanism}
+\begin{enumerate}
+    \item When small pin in "locked" position, large pin cannot be pulled out.
+
+    Result: PASS
+\end{enumerate}
+
+\subsection{Microcontroller}
+\begin{enumerate}
+    \item When Arduino receives signal from Bluetooth development app "nRF Connect", on-board LED turns on.
+
+    PASS
+
+    \item When Arduino receives signal from Bluetooth development app "nRF Connect", high voltage signal is sent to desired pin.
+
+    PASS -- validated using multimeter.
+\end{enumerate}
+
+\subsection{Circuit}
+\begin{enumerate}
+    \item When high power signal is transmitted to gate of transistor from power source (NOT Arduino), LED connected to drain of transistor turns on.
+
+    PASS
+    \item When high power signal is transmitted to gate of transistor from power source (NOT Arduino), solenoid connected to drain of transistor is enabled.
+
+    PASS
+    \item When high power signal is transmitted to gate of transistor from Arduino, solenoid connected to drain of transistor is enabled.
+
+    PASS
+\end{enumerate}
+
+\subsection{Mobile App}
+\begin{enumerate}
+    \item Able to connect to Arduino from mobile app.
+
+    PASS
+    \item Arduino recieves signals transmitted to it from the mobile app.
+
+    PASS -- validated using the on-board Arduino LEDs.
+\end{enumerate}
+
+\section{User Testing}
+\label{User Testing}
+
+8 users were asked to try the SmartLock, and were asked several questions about their experience. These questions can be found in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, and are also reiterated here, with the common answers we received.
+
+\begin{enumerate}
+    \item How long does it take you to open the lock? Is a 15-second window too short? Too long?
+
+    15 seconds was found to be just slightly too long of an unlock window. It was found that 10 seconds was enough time to pull the pin out of the body of the lock. This change will be implemented. 
+    
+    \item Is the app intuitive to use? Would you change any features or any part of the app design?
+
+    Many users commented on the confusing nature of listing all active Bluetooth devices in the area, rather than only the SmartLock. In order to limit this confusion, the list of Bluetooth devices will be filtered so that only the SmartLock appears.
+    
+    \item How did you like the whole product use experience? Is the locking/unlocking process smooth, convenient, and efficient?
+
+    Especially due to the current cold weather, users enjoyed not needing to fiddle with a key or combination lock, and just being able to press a button to unlock their bike. 
+    
+    \item Was any aspect of using the product confusing?
+
+    Again, users commented on the listing of all Bluetooth devices as being confusing. Users also mentioned that it was not clear that the lock would only be disengaged for a limited period of time after pressing "Unlock". This concept must be clarified either within the app, or in a seperate instruction manual.
+    
+    \item Would you be comfortable using this product to lock your bike? What would make you feel more secure?
+
+    Due to all of the internal components currently being not secured properly, and the solenoid being exposed to the outside, most users said they were not comfortable using the SmartLock. In order to make the lock more secure, the housing could be redesigned to hold all of the components internally. 
+    
+\end{enumerate}
+
 \section{Changes Due to Testing}
 
-\wss{This section should highlight how feedback from the users and from 
-the supervisor (when one exists) shaped the final product.  In particular 
-the feedback from the Rev 0 demo to the supervisor (or to potential users) 
-should be highlighted.}
+%\wss{This section should highlight how feedback from the users and from 
+%the supervisor (when one exists) shaped the final product.  In particular 
+%the feedback from the Rev 0 demo to the supervisor (or to potential users) 
+%should be highlighted.}
+
+Changes due to \nameref{User Testing} are summarized below:
+
+\begin{enumerate}
+    \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 15 seconds.
+    \item Filter the Bluetooth devices shown so that only SmartLock appears. Alternatively, make the mobile app only able to connect to the SmartLock.
+    \item Redesign lock housing so that all components fit internally properly and securely. 
+\end{enumerate}
 
 \section{Automated Testing}
 		
