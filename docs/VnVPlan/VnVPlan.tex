@@ -226,34 +226,6 @@ Output/ Results: Pass/fail if the lock is successfully disengaged
 
 How the test will be performed: The bike lock will be engaged. The user will use the App to disengage the lock. If successful, the lock becomes disengaged. 
 
-\item{EngageLockStatus: 
-
-FR2: When the lock is engaged, change lock status to engaged. } 
-
-Control: Automatic 
-
-Initial State: Bike lock is engaged 
-
-Input/ Condition: Signal from the microcontroller to App stating lock is engaged 
-
-Output/ Results: Pass/fail if App correctly displays lock is engaged 
-
-How the test will be performed: The bike lock will be engaged.  
-
- \item{DisengageLockStatus: 
- 
- FR3: When the lock is disengaged, change lock status to disengaged. } 
-
-Control: Automatic 
-
-Initial State: Bike lock is disengaged 
-
-Input/ Condition: Signal from the microcontroller to App stating the lock is disengaged 
-
-Output/ Results: Pass/fail if App correctly displays lock is disengaged 
-
-How the test will be performed: The bike lock will be disengaged. 
-
  
 \item{LockLocation: 
 
@@ -281,7 +253,7 @@ Input/Condition: A prying, pulling, kicking, etc. force between 200-400N (which 
 
 Output/Results: A pass/fail as well as a score from 1-4 for the following cases; a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged without breaking.
 
-How the test will be performed: A test group of 2-3+ adults, completing 50+ trials, each giving the required input forces.
+How the test will be performed: A test group of 2-3+ adults, completing 3 trials, each giving the required input forces.
 
 \item{EffectiveLockSimulation
 
@@ -329,7 +301,7 @@ Input/Condition: Users apply force to mount the SmartLock.
 
 Output/Results: A pass/fail for each bike if the lock is/isn’t able to mount onto the bike as intended. A score from 0-the number of bikes tested will also be given.
 
-How the test will be performed: Users will attempt to mount the SmartLock onto 1-3 bikes each from 3-5 categories of bikes including (adult standard/hybrid, road, mountain, and kids standard/hybrid).
+How the test will be performed: Users will attempt to mount the SmartLock onto 1-3 bikes each.
 
 \end{enumerate}
 
@@ -345,11 +317,11 @@ Control: Manual
 
 Initial State: Phone on with App downloaded and open 
 
-Input/Condition: Observation of the app 
+Input/Condition: Observation of the app
 
-Output/Results: The user must be able to view the battery percentage of the lock 
+Output/Results: The user must be able to view the battery percentage of the lock.
 
-How the test will be performed: Apply input condition, observe the expected output
+How the test will be performed: Apply input condition, observe the expected output.
 
 \item{LocationOnApp
 
@@ -550,7 +522,7 @@ Input/Condition: A group of test users with an average understanding of how to u
 
 Output/Results: The System can be mounted on all three bike models successfully by each test user. 
 
-How the test will be performed: Three users attempt to install the System, following the procedure outlined in the instructions.  
+How the test will be performed: Three users each attempt to install the System on three different types of bike, following the procedure outlined in the instructions.  
 
 \item{AppOS
 
@@ -570,21 +542,6 @@ How the test will be performed: Perform the input condition and observe outcome 
 \subsubsection{Area of Testing: Accuracy}
 
 \begin{enumerate}
-
-\item{LockStatusAccuracy
-
-NFR6: Accuracy of bike lock status must be above 95\%. }
-
-Control: Manual 
-
-Initial State: Locking mechanism, electronics, and housing assembled operationally and within range.
-
-Input/Condition: Engage/disengage the lock 100 times. 
-
-Output/Results: Ensure engage/disengage status matches the current physical state.
-
-How the test will be performed: apply input condition, observe the expected output
-
 
 \item{BatteryAccuracy
 
@@ -614,10 +571,6 @@ How the test will be performed: Apply input condition and observe the expected o
  \hline
  DisengageLock & FR1 &  \\ 
   \hline
- EngageLockStatus & FR2 &  \\
-  \hline
- DisengageLockStatus & FR3 &  \\  
-  \hline
  LockLocation & FR4 &  \\ 
   \hline
  EffectiveLock, EffectiveLockSimulation & FR5 &  \\ 
@@ -642,8 +595,6 @@ How the test will be performed: Apply input condition and observe the expected o
  \hline
   Safety & & NFR5 \\
  \hline
-  LockStatusAccuracy & & NFR6 \\
- \hline
   BatteryAccuracy & & NFR7 \\
  \hline
   QuickLock & & NFR8 \\
@@ -663,7 +614,7 @@ How the test will be performed: Apply input condition and observe the expected o
  \end{tabular}
 \end{minipage}\\
 
-Note: NFR 14-17 and 19 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
+Note: FR 2-3 and NFR 6, 14-17 and 19 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 
 \section{Unit Test Description}
 \label{Section 6}
