@@ -373,10 +373,6 @@ Expected Results: App operates on iOS and Android.
 Actual Results: Pass -- App operates successfully on iOS and Android as expected. 
 
 \end{enumerate}
-	
-\section{Comparison to Existing Implementation - NA}	
-
-This section will not be appropriate for every project.
 
 \section{Unit Testing}
 
@@ -463,8 +459,6 @@ Changes due to \nameref{User Testing} are summarized below:
     \item Filter the Bluetooth devices shown so that only SmartLock appears. Alternatively, make the mobile app only able to connect to the SmartLock.
     \item Redesign lock housing so that all components fit internally properly and securely. 
 \end{enumerate}
-
-\section{Automated Testing - NA}
 		
 \section{Trace to Requirements}
 
@@ -580,7 +574,6 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
 
 Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 
-\section{Code Coverage Metrics - NA}
 
 \bibliographystyle{plainnat}
 \bibliography{../../refs/References}
@@ -602,7 +595,11 @@ graduate attribute of Reflection.  Please answer the following question:
   evidence that demonstrates the required quality?  (It is expected that most
   teams will have had to deviate from their original VnV Plan.)
   
-  Elsa: The VnVPlan was different than the actual VnV because several of the tests were initially hoped to be broader, however the group decided to utilize our time more effectively by making the tests more concise but still useful. This is because we realized we could not conduct 100 user test trials to be mindful of our test subject's time, but we did not anticipate this ahead of time.
+  The VnVPlan was different than the actual VnV because several of the tests were initially hoped to be broader, however the group decided to utilize our time more effectively by making the tests more concise but still useful. In other words--we had to limit our scope. For example, instead of conducting surveys over 50 or 100 people, we limited our user testing to less than 10. We overestimated how much time we would have to complete testing, and were not thinking about completing the tests realistically. 
+
+Some of our tests were also not extremely founded or based in reality. For example, we said in the VnV Plan we would test the durability of the product by dropping/kicking/hitting it, but in reality, we obviously don't want to accidentally break our project in doing so. Instead, we used a CAD simulation to show how strong the SmartLock is, and didn't have to physically try to break the product. 
+
+In future projects, when creating the VnV plan, it would be helpful to realistically think about what your team can accomplish in your time frame, and with the current resources you have access to. If you say, "apply a force of XX N", take the time to think through how you will apply this force, how you will know if the correct amount of force is being applied, and also why this is the specific amount of force necessary to test. Further, think about the consequences if the test fails--if you try to test the limits of your product and it breaks, what happens then? Is there an alternative simulation/test that can be completed instead?
 \end{enumerate}
 
 \end{document}
