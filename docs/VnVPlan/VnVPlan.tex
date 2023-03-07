@@ -43,6 +43,7 @@
 02-11-22 & Abdul & Section 4 \& Reflection\\
 19-11-22 & Steffi & Updates for Consistency\\
 03-03-23 & Abi & Revisions to ensure consistency with SRS, TA and peer feedback\\
+06-03-23 & Elsa & Further revisions to ensure consistency\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -227,7 +228,7 @@ How the test will be performed: The bike lock will be engaged. The user will use
  
 \item{LockLocation: 
 
-FR4: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
+FR2: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
 
 Control: Automatic 
 
@@ -241,7 +242,7 @@ How the test will be performed: The Bike lock will be engaged on the App. The Ap
 
 \item{EffectiveLock
 
-FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+FR3: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
 
 Control: Manual
 
@@ -255,7 +256,7 @@ How the test will be performed: A test group of 2-3+ adults, completing 3 trials
 
 \item{EffectiveLockSimulation
 
-FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+FR3: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
 
 Control: Manual
 
@@ -269,7 +270,7 @@ How the test will be performed: CAD simulation
 
 \item{Security
 
-FR6: Lock must only be engaged/disengaged by the intended user(s). }
+FR4: Lock must only be engaged/disengaged by the intended user(s). }
 
 Control: Manual
 
@@ -289,7 +290,7 @@ How the test will be performed: A test group will attempt to connect via Bluetoo
 
 \item{LockMount
 
-FR7: The lock can be mounted to the bike’s frame. }
+FR5: The lock can be mounted to the bike’s frame. }
 
 Control: Manual
 
@@ -309,7 +310,7 @@ How the test will be performed: Users will attempt to mount the SmartLock onto 1
 
 \item{BatteryPercentage
 
-FR8: Battery percentage must be shown on the phone app. }
+FR6: Battery percentage must be shown on the phone app. }
 
 Control: Manual 
 
@@ -323,7 +324,7 @@ How the test will be performed: Apply input condition, observe the expected outp
 
 \item{LocationOnApp
 
-FR9: Location (coordinates) of the bike must be shown on the app as BikePosition.}
+FR7: Location (coordinates) of the bike must be shown on the app as BikePosition.}
 
 Control: Manual 
 
@@ -337,7 +338,7 @@ How the test will be performed: apply input condition, observe the expected outp
 
 \item{PowerOutput
 
-FR10: Battery must output enough power to engage the lock. }
+FR8: Battery must output enough power to engage the lock. }
 
 Control: Manual 
 
@@ -431,6 +432,25 @@ Output/Results: User is not harmed or pinched.
 
 How the test will be performed: apply input condition, observe the expected output
 
+\end{enumerate}
+
+\subsubsection{Area of Testing: Accuracy}
+
+\begin{enumerate}
+
+\item{BatteryAccuracy
+
+NFR6: Battery percentage must be calculated accurately within 10\%. }
+
+Control: Manual
+
+Initial State: Full device assembled, battery percentage calculated is 1\%. 
+
+Input/Condition: Engage/disengage the lock until the battery dies.
+
+Output/Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
+
+How the test will be performed: Apply input condition and observe the expected output
 
 \end{enumerate}
 
@@ -440,7 +460,7 @@ How the test will be performed: apply input condition, observe the expected outp
 
 \item{QuickLock
 
-NFR8: The SmartLock must be quicker to use than a typical keyed or combination bike lock.  }
+NFR7: The SmartLock must be quicker to use than a typical keyed or combination bike lock.  }
 
 Control: Manual 
 
@@ -454,7 +474,7 @@ How the test will be performed: Users will be timed on locking and unlocking. A 
 
 \item{UseForce
 
-NFR9: Opening and closing lock must require similar force to a typical keyed/combo.  }
+NFR8: Opening and closing lock must require similar force to a typical keyed/combo.  }
 
 Control: Manual.
 
@@ -468,7 +488,7 @@ How the test will be performed: Users will measure force while locking and unloc
 
 \item{BatteryLife
 
-NFR10: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  }
+NFR9: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  }
 
 Control: Manual 
 
@@ -482,7 +502,7 @@ How the test will be performed:  A group of users will take turns to bike to a n
 
 \item{ComponentAccessibility
 
-NFR11: Batteries and other internal components must be accessible to replace and/or chargeable. }
+NFR10: Batteries and other internal components must be accessible to replace and/or chargeable. }
 
 Control: Manual.
 
@@ -496,7 +516,7 @@ How the test will be performed: Users will charge/replace batteries as intended.
 
 \item{NoSpecialTools
 
-NFR12: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install. }
+NFR11: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install. }
 
 Control: Manual.
 
@@ -510,7 +530,7 @@ How the test will be performed: Each user attempts to install the System, follow
 
 \item{BikeVersatility
 
-NFR13: The lock can be used for many different models of mountain, city, and road bikes.  }
+NFR12: The lock can be used for many different models of mountain, city, and road bikes.  }
 
 Control: Manual 
 
@@ -524,7 +544,7 @@ How the test will be performed: Three users each attempt to install the System o
 
 \item{AppOS
 
-NFR18: The App should run on iOS and Android.  }
+NFR17: The App should run on iOS and Android.  }
 
 Control: Manual 
 
@@ -535,26 +555,6 @@ Input/Condition: Load and open the app on an iOS and Android machine.
 Output/Results: App operates as expected.
 
 How the test will be performed: Perform the input condition and observe outcome to ensure actual results match expected results.  
-\end{enumerate}
-
-\subsubsection{Area of Testing: Accuracy}
-
-\begin{enumerate}
-
-\item{BatteryAccuracy
-
-NFR7: Battery percentage must be calculated accurately within 10\%. }
-
-Control: Manual
-
-Initial State: Full device assembled, battery percentage calculated is 1\%. 
-
-Input/Condition: Engage/disengage the lock until the battery dies.
-
-Output/Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
-
-How the test will be performed: Apply input condition and observe the expected output
-
 \end{enumerate}
 
 \subsection{Traceability Between Test Cases and Requirements}
@@ -569,19 +569,19 @@ How the test will be performed: Apply input condition and observe the expected o
  \hline
  DisengageLock & FR1 &  \\ 
   \hline
- LockLocation & FR4 &  \\ 
+ LockLocation & FR2 &  \\ 
   \hline
- EffectiveLock, EffectiveLockSimulation & FR5 &  \\ 
+ EffectiveLock, EffectiveLockSimulation & FR3 &  \\ 
   \hline
- Security & FR6 &  \\ 
+ Security & FR4 &  \\ 
   \hline
- LockMount & FR7 &  \\ 
+ LockMount & FR5 &  \\ 
   \hline
- BatteryPercentage & FR8 &  \\ 
+ BatteryPercentage & FR6 &  \\ 
   \hline
- LocationOnApp & FR9 &  \\ 
+ LocationOnApp & F79 &  \\ 
   \hline
- PowerOutput & FR10 &  \\ 
+ PowerOutput & FR18 &  \\ 
   \hline
  LimitedInstructions & & NFR1 \\
  \hline
@@ -593,26 +593,26 @@ How the test will be performed: Apply input condition and observe the expected o
  \hline
   Safety & & NFR5 \\
  \hline
-  BatteryAccuracy & & NFR7 \\
+  BatteryAccuracy & & NFR6 \\
  \hline
-  QuickLock & & NFR8 \\
+  QuickLock & & NFR7 \\
  \hline
- UseForce & & NFR9 \\
+ UseForce & & NFR8 \\
  \hline
- BatteryLike & & NFR10 \\
+ BatteryLike & & NFR9 \\
  \hline
-  ComponentAccessibility & & NFR11 \\
+  ComponentAccessibility & & NFR10 \\
  \hline
-  NoSpecialTools & & NFR12 \\
+  NoSpecialTools & & NFR11 \\
  \hline
-  BikeVersatility & & NFR13 \\
+  BikeVersatility & & NFR12 \\
  \hline
-  AppOS & & NFR18 \\
+  AppOS & & NFR17 \\
  \hline
  \end{tabular}
 \end{minipage}\\
 
-Note: FR 2-3 and NFR 6, 14-17 and 19 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
+Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 
 \section{Unit Test Description}
 \label{Section 6}

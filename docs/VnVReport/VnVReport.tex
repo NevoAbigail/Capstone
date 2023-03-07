@@ -67,17 +67,7 @@ This document will follow the \href{https://github.com/NevoAbigail/Capstone/blob
 
 \section{Functional Requirements Evaluation}
 
-\begin{center}
-\begin{tabular}{ |c|c|c| } 
- \hline
- cell1 & cell2 & cell3 \\ 
- cell4 & cell5 & cell6 \\ 
- cell7 & cell8 & cell9 \\ 
- \hline
-\end{tabular}
-\end{center}
-
-EDIT THIS This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's needs. these aspects include smartphone app features, physical design attributes, accuracy, and the usability of our product. Note that each requirement references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests were used to validate the functional requirements of our product. Completing these tests proves various aspects of our product's needs. These aspects include primary SmartLock functionality namely App, electrical circuit and mechanical locking features. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
 
 \subsubsection{Area of Testing: User Input Related}
 
@@ -93,7 +83,7 @@ Actual Result: Pass -- The lock successfully disengaged upon receiving the Disen
  
 \item{LockLocation: 
 
-FR4: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
+FR2: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
 
 Expected Results: Pass/fail if the App places a geotag within 10 metres of the Users current location 
 
@@ -101,7 +91,7 @@ Actual Result: NEED RESULTS HERE!!!!!!
 
 \item{EffectiveLock
 
-FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+FR3: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
 
 Expected Results: Perform the following user tests and achieve an average score at or above 90\%. Optional scores of 1-4 for the following cases: a fail if the lock disengages and breaks, a fail if the lock disengages, a pass if the lock stays engaged but breaks, and a pass if the lock system can stay engaged without breaking. 
 
@@ -140,7 +130,7 @@ Therefore, result of pass due to average engagement without breaking of 95\% of 
 ~\newpage
 \item{EffectiveLockSimulation
 
-FR5: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
+FR3: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
 
 Expected Results: A pass/fail if the simulation meets the 200-400 N threshold. 
 
@@ -148,7 +138,7 @@ Actual Results:
 
 \item{Security
 
-FR6: Lock must only be engaged/disengaged by the intended user(s). }
+FR4: Lock must only be engaged/disengaged by the intended user(s). }
 
 Expected Results: A Bluetooth developer app is downloaded on an unintended user’s phone. The unintended user will be able to connect to the Arduino but not be able to disengage the lock. 
 
@@ -162,7 +152,7 @@ Actual Results: Pass -- The unintended user was able to connect to the device bu
 
 \item{LockMount
 
-FR7: The lock can be mounted to the bike’s frame. }
+FR5: The lock can be mounted to the bike’s frame. }
 
 Expected Results: A pass/fail per bike tested if the lock is/isn’t able to be mounted onto the bike as intended. A score from 0-the number of bikes tested will be given.  
 
@@ -184,7 +174,7 @@ Therefore, of nine bikes tested, all passed.
 
 \item{BatteryPercentage
 
-FR8: Battery percentage must be shown on the phone app. }
+FR6: Battery percentage must be shown on the phone app. }
 
 Expected Results: The user must be able to view the battery percentage of the lock.
 
@@ -192,7 +182,7 @@ Actual Results: NEED RESULTS HERE!!!!!!
 
 \item{LocationOnApp
 
-FR9: Location (coordinates) of the bike must be shown on the app as BikePosition.}
+FR7: Location (coordinates) of the bike must be shown on the app as BikePosition.}
 
 Expected Results: The user must be able to view the saved coordinates 
 
@@ -200,7 +190,7 @@ Actual Results: NEED RESULTS HERE!!!!!!
 
 \item{PowerOutput
 
-FR10: Battery must output enough power to engage the lock. }
+FR8: Battery must output enough power to engage the lock. }
 
 Expected Results: Circuit connected. Battery is successfully able to meet the threshold voltage of the electromagnet to engage the locking mechanism.  
 
@@ -212,7 +202,7 @@ Note: During one test where the Arduino was powered on for more than an hour, th
 
 \section{Nonfunctional Requirements Evaluation}
 
-EDIT THIS: This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's needs. these aspects include smartphone app features, physical design attributes, accuracy, and the usability of our product. Note that each requirement references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's functionality. These aspects include smartphone app features, the physical design attributes, accuracy, and the usability of the product. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
 
 \subsubsection{Area of Testing: Smart Phone}
 
@@ -265,13 +255,27 @@ Actual Results: Pass -- User is not harmed or pinched when SmartLock is in use.
 
 \end{enumerate}
 
+\subsubsection{Area of Testing: Accuracy}
+
+\begin{enumerate}
+
+\item{BatteryAccuracy
+
+NFR6: Battery percentage must be calculated accurately within 10\%. }
+
+Expected Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
+
+Actual Results: NEED RESULTS HERE!!!!!!
+
+\end{enumerate}
+
 \subsubsection{Area of Testing: Usability}
 
 \begin{enumerate}
 
 \item{QuickLock
 
-NFR8: The SmartLock must be quicker to use than a typical keyed or combination bike lock.  }
+NFR7: The SmartLock must be quicker to use than a typical keyed or combination bike lock.  }
 
 Expected Results: The SmartLock must be quicker to use than both a  sample keyed and combination lock. One test user will attempt three times each to lock and unlock typical keyed and combination as well as the SmartLock. All tests must be faster for the SmartLock.
 
@@ -298,7 +302,7 @@ Actual Results:
 ~\newpage
 \item{UseForce
 
-NFR9: Opening and closing lock must require similar force to a typical keyed/combo.  }
+NFR8: Opening and closing lock must require similar force to a typical keyed/combo.  }
 
 Expected Results: The amount of force required to open and close the lock frame is comparable to that of a typical keyed or combination lock. Test users score the force required out of 5 where 5 is the maximum amount of force they can physically provide and 1 is the minimum amount of force they can physically provide. The SmartLock should not vary more than 1 score unit from the most different score in each test. 
 
@@ -314,7 +318,7 @@ Therefore, the SmartLock did not vary more than one score unit from the most dif
 
 \item{BatteryLife
 
-NFR10: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  }
+NFR9: Battery must last for greater than 1 month and/or 60 rides before needing to be replaced or charged.  }
 
 Expected Results: The battery lasts for longer than 1 month and/or 60 rides before needing to be replaced or charged. 
 
@@ -322,7 +326,7 @@ Actual Results: Pass -- The battery lasted longer than 1 month before needing to
 
 \item{ComponentAccessibility
 
-NFR11: Batteries and other internal components must be accessible to replace and/or chargeable. }
+NFR10: Batteries and other internal components must be accessible to replace and/or chargeable. }
 
 Expected Results: The battery can be replaced, and internal components can be accessed, as intended.
 
@@ -330,15 +334,15 @@ Actual Results: Pass -- Three test users were able to access and replace the bat
 
 \item{NoSpecialTools
 
-NFR12: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install. }
+NFR11: The lock must be easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install. }
 
 Expected Results: The lock is easily mounted on the bike frame. It does not require special tools, (i.e., those not found in a typical toolbox, such as power tools), to be installed and does not take more than twenty minutes to install.  
 
 Actual Results: Three test subjects’ results for three individual tests for the time to mount the lock on their bike frame without the use of special tools.  
 
-1- 6, 5, 4 min 
+1 -- 6, 5, 4 min 
 
-2- 7, 7, 4 min 
+2 -- 7, 7, 4 min 
 
 3 – 5, 3, 3 min 
 
@@ -346,7 +350,7 @@ Therefore, all tests were successful and completed within twenty minutes.
 
 \item{BikeVersatility
 
-NFR13: The lock can be used for many different models of mountain, city, and road bikes.  }
+NFR12: The lock can be used for many different models of mountain, city, and road bikes.  }
 
 Expected Results: The SmartLock can be mounted on three different categories of bikes (road, hybrid and mountain) successfully by each test user.  
 
@@ -362,25 +366,11 @@ Therefore, of nine bikes from three different types of bikes (road, hybrid and m
 
 \item{AppOS
 
-NFR18: The App should run on iOS and Android.  }
+NFR17: The App should run on iOS and Android.  }
 
 Expected Results: App operates on iOS and Android. 
 
 Actual Results: Pass -- App operates successfully on iOS and Android as expected. 
-
-\end{enumerate}
-
-\subsubsection{Area of Testing: Accuracy}
-
-\begin{enumerate}
-
-\item{BatteryAccuracy
-
-NFR7: Battery percentage must be calculated accurately within 10\%. }
-
-Expected Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
-
-Actual Results: NEED RESULTS HERE!!!!!!
 
 \end{enumerate}
 	
@@ -480,7 +470,7 @@ Changes due to \nameref{User Testing} are summarized below:
 
 \begin{minipage}{\textwidth}
 \footnotesize
-\captionof{table}{Traceability Table}
+\captionof{table}{Requirements Traceability Table}
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{| p{0.3\textwidth} | p{0.4\textwidth} | p{0.4\textwidth} |}
  \hline
@@ -488,19 +478,19 @@ Changes due to \nameref{User Testing} are summarized below:
  \hline
  DisengageLock & FR1 &  \\ 
   \hline
- LockLocation & FR4 &  \\ 
+ LockLocation & FR2 &  \\ 
   \hline
- EffectiveLock, EffectiveLockSimulation & FR5 &  \\ 
+ EffectiveLock, EffectiveLockSimulation & FR3 &  \\ 
   \hline
- Security & FR6 &  \\ 
+ Security & FR4 &  \\ 
   \hline
- LockMount & FR7 &  \\ 
+ LockMount & FR5 &  \\ 
   \hline
- BatteryPercentage & FR8 &  \\ 
+ BatteryPercentage & FR6 &  \\ 
   \hline
- LocationOnApp & FR9 &  \\ 
+ LocationOnApp & FR7 &  \\ 
   \hline
- PowerOutput & FR10 &  \\ 
+ PowerOutput & FR8 &  \\ 
   \hline
  LimitedInstructions & & NFR1 \\
  \hline
@@ -512,28 +502,83 @@ Changes due to \nameref{User Testing} are summarized below:
  \hline
   Safety & & NFR5 \\
  \hline
-  BatteryAccuracy & & NFR7 \\
+  BatteryAccuracy & & NFR6 \\
  \hline
-  QuickLock & & NFR8 \\
+  QuickLock & & NFR7 \\
  \hline
- UseForce & & NFR9 \\
+ UseForce & & NFR8 \\
  \hline
- BatteryLike & & NFR10 \\
+ BatteryLike & & NFR9 \\
  \hline
-  ComponentAccessibility & & NFR11 \\
+  ComponentAccessibility & & NFR10 \\
  \hline
-  NoSpecialTools & & NFR12 \\
+  NoSpecialTools & & NFR11 \\
  \hline
-  BikeVersatility & & NFR13 \\
+  BikeVersatility & & NFR12 \\
  \hline
-  AppOS & & NFR18 \\
+  AppOS & & NFR17 \\
  \hline
  \end{tabular}
 \end{minipage}\\
 
-Note: FR 2-3 and NFR 6, 14-17 and 19 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
+Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 		
-\section{Trace to Modules}		
+\section{Trace to Modules}	
+
+\begin{minipage}{\textwidth}
+\footnotesize
+\captionof{table}{Modules Traceability Table}
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{| p{0.5\textwidth} | p{0.5\textwidth} |}
+ \hline
+ Test Case & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module(s)}  \\ 
+ \hline
+ DisengageLock & M12 \\ 
+  \hline
+ LockLocation & M1, M4, M8, M9 \\ 
+  \hline
+ EffectiveLock, EffectiveLockSimulation & M1, M2, M8, M9  \\ 
+  \hline
+ Security & M9, M10, M11, M12 \\ 
+  \hline
+ LockMount & M2, M5 \\ 
+  \hline
+ BatteryPercentage & M12 \\ 
+  \hline
+ LocationOnApp & M1, M3, M6, M8, M9 \\ 
+  \hline
+ PowerOutput & M1, M3, M5, M7, M8 \\ 
+  \hline
+ LimitedInstructions & N/A \\
+ \hline
+  AppStorage & M1, M2, M3, M4, M5, M6, M8 \\
+ \hline
+  VisualAppeal & M2, M3 \\
+ \hline
+  NormalBikeFunction & M3 \\
+ \hline
+  Safety & M3 \\
+ \hline
+  BatteryAccuracy & M6, M9 \\
+ \hline
+  QuickLock & M1, M2, M12 \\
+ \hline
+ UseForce & M10, M11, M12 \\
+ \hline
+ BatteryLife & M6, M9 \\
+ \hline
+  ComponentAccessibility & N/A \\
+ \hline
+  NoSpecialTools & N/A \\
+ \hline
+  BikeVersatility & M2, M5 \\
+ \hline
+  AppOS & M1 \\
+ \hline
+ \end{tabular}
+\end{minipage}\\
+
+Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not present in this Verification and Validation Plan. 
 
 \section{Code Coverage Metrics - NA}
 
@@ -556,6 +601,8 @@ graduate attribute of Reflection.  Please answer the following question:
   predict a feasible amount of effort and the right tasks needed to build the
   evidence that demonstrates the required quality?  (It is expected that most
   teams will have had to deviate from their original VnV Plan.)
+  
+  Elsa: The VnVPlan was different than the actual VnV because several of the tests were initially hoped to be broader, however the group decided to utilize our time more effectively by making the tests more concise but still useful. This is because we realized we could not conduct 100 user test trials to be mindful of our test subject's time, but we did not anticipate this ahead of time.
 \end{enumerate}
 
 \end{document}
