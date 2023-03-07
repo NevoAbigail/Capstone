@@ -85,9 +85,9 @@ Actual Result: Pass -- The lock successfully disengaged upon receiving the Disen
 
 FR2: Location (coordinates) of user’s phone must be able to be saved in the smartphone application as UserPosition. } 
 
-Expected Results: Pass/fail if the App places a geotag within 10 metres of the Users current location 
+Expected Results: The App places a geotag within ten metres of the user's current location when prompted.
 
-Actual Result: NEED RESULTS HERE!!!!!!
+Actual Result: Pass -- The App successfully places a geotag within ten metres of the user's current location when the associated screen button is pressed. 
 
 \item{EffectiveLock
 
@@ -132,9 +132,9 @@ Therefore, result of pass due to average engagement without breaking of 95\% of 
 
 FR3: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged. }
 
-Expected Results: A pass/fail if the simulation meets the 200-400 N threshold. 
+Expected Results: The CAD simulation meets the 200-400 N threshold. 
 
-Actual Results:
+Actual Results: Pass -- The CAD simulation is able to meet the 200-400 N threshold. 
 
 \item{Security
 
@@ -172,21 +172,21 @@ Therefore, of nine bikes tested, all passed.
 
 \begin{enumerate}
 
-\item{BatteryPercentage
+\item{BatteryLevel
 
-FR6: Battery percentage must be shown on the phone app. }
+FR6: Battery level must be shown on the phone app. }
 
-Expected Results: The user must be able to view the battery percentage of the lock.
+Expected Results: The user must be able to view the battery level of the lock.
 
-Actual Results: NEED RESULTS HERE!!!!!!
+Actual Results: Pass -- The user is able to view the battery level of the lock on the App. It is represented as four levels. 
 
 \item{LocationOnApp
 
 FR7: Location (coordinates) of the bike must be shown on the app as BikePosition.}
 
-Expected Results: The user must be able to view the saved coordinates 
+Expected Results: The user must be able to view the saved coordinates.
 
-Actual Results: NEED RESULTS HERE!!!!!!
+Actual Results: Pass -- The user is able to access and view the saved coordinates of the lock on the App.
 
 \item{PowerOutput
 
@@ -196,7 +196,7 @@ Expected Results: Circuit connected. Battery is successfully able to meet the th
 
 Actual Results: Pass -- The battery successfully supplied enough voltage to engage the locking mechanism in 5/5 tests. 
 
-Note: During one test where the Arduino was powered on for more than an hour, the battery was supplying the correct voltage, however, the Arduino became fried and defective, and the locking mechanism was not engaged successfully. Moreover, it was determined that the failed test was due to the Arduino frying, so it was not counted as a failed PowerOutput test.
+Note: During one test where the Arduino was powered on for more than an hour, the battery was supplying the correct voltage, however, the Arduino became defective, (likely due to a current spike), and the locking mechanism was not engaged successfully. Moreover, it was determined that the failed test was due to the Arduino frying, so it was not counted as a failed PowerOutput test. Our learnings from this result are mentioned below in \nameref{Changes Due to Testing}. 
 
 \end{enumerate}
 
@@ -212,9 +212,9 @@ This subset of tests will be used to validate the nonfunctional requirements of 
 
 NFR1: Can reasonably be used without requiring an instruction manual. }
 
-Expected Results: The lock is successfully engaged, and the bike is securely locked by all test users.
+Expected Results: The lock is successfully engaged and disengaged, and the bike is securely locked by all test users.
 
-Actual Results: NEED RESULTS HERE!!!!!!
+Actual Results: Three test users were able to successfully engage and disengage the lock without instruction. The bikes were then tested to be securely locked by attempting to unlock them manually, (disengage the locking mechanism), with an average human's arm strength. 
 
 \item{AppStorage
 
@@ -233,9 +233,9 @@ Actual Results: Pass -- App storage does not exceed 50 MB.
 
 NFR3: The design must be visually appealing. }
 
-Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{Survey}. Visual appeal is rated 7 or higher (on a scale of 1-10).
+Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{User Testing}. A majority of surveyed users should deem the visual appeal satisfactory.
 
-Actual Results: NEED RESULTS HERE!!!!!!
+Actual Results: The majority of surveyed users deemed the visual appeal of the SmartLock satisfactory or above expectations. 
 
 \item{NormalBikeFunction
 
@@ -261,11 +261,11 @@ Actual Results: Pass -- User is not harmed or pinched when SmartLock is in use.
 
 \item{BatteryAccuracy
 
-NFR6: Battery percentage must be calculated accurately within 10\%. }
+NFR6: Battery level must be calculated accurately within 25\% since it uses four battery levels.}
 
-Expected Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 10\% accuracy.
+Expected Results: The number of lock engages possible with 1\% battery matches our specification for the number of lock engages possible with 100\% battery (multiply the measured \# of lock engages possible with 1\% battery by 100), within 25\% accuracy.
 
-Actual Results: NEED RESULTS HERE!!!!!!
+Actual Results: The number of lock engages possible with 1\% and 100\% battery level was manually tested and compared to the calculated number. It was within the required 25\% accuracy. 
 
 \end{enumerate}
 
@@ -417,10 +417,9 @@ Actual Results: Pass -- App operates successfully on iOS and Android as expected
     PASS -- validated using the on-board Arduino LEDs.
 \end{enumerate}
 
-\section{User Testing}
-\label{User Testing}
+\section{User Testing} \label{User Testing}
 
-8 users were asked to try the SmartLock, and were asked several questions about their experience. These questions can be found in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, and are also reiterated here, with the common answers we received.
+Eight users were asked to try the SmartLock, and were asked several questions about their experience. These questions can be found in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, and are also reiterated here, with the common answers we received.
 
 \begin{enumerate}
     \item How long does it take you to open the lock? Is a 15-second window too short? Too long?
@@ -443,9 +442,13 @@ Actual Results: Pass -- App operates successfully on iOS and Android as expected
 
     Due to all of the internal components currently being not secured properly, and the solenoid being exposed to the outside, most users said they were not comfortable using the SmartLock. In order to make the lock more secure, the housing could be redesigned to hold all of the components internally. 
     
+    \item Do you like the visual appeal of the App graphical user interface and the SmartLock physical's features? 
+    
+    Most users were satisfied with the visual appeal of the App and the SmartLock's physical features.
+    
 \end{enumerate}
 
-\section{Changes Due to Testing}
+\section{Changes Due to Testing} \label{Changes Due to Testing}
 
 %\wss{This section should highlight how feedback from the users and from 
 %the supervisor (when one exists) shaped the final product.  In particular 
@@ -457,7 +460,9 @@ Changes due to \nameref{User Testing} are summarized below:
 \begin{enumerate}
     \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 15 seconds.
     \item Filter the Bluetooth devices shown so that only SmartLock appears. Alternatively, make the mobile app only able to connect to the SmartLock.
-    \item Redesign lock housing so that all components fit internally properly and securely. 
+    \item Redesign the lock housing so that all components fit internally properly and securely. 
+    \item Add a diode across the electromagnet in order to protect the transistor from the inductive voltage spike which occurs as the solenoid de-energizes.
+    \item Add a moderately-sized gate resistor between the gate of the MOSFET and the Arduino to protect the Arduino from current spikes. 
 \end{enumerate}
 		
 \section{Trace to Requirements}
@@ -480,7 +485,7 @@ Changes due to \nameref{User Testing} are summarized below:
   \hline
  LockMount & FR5 &  \\ 
   \hline
- BatteryPercentage & FR6 &  \\ 
+ BatteryLevel & FR6 &  \\ 
   \hline
  LocationOnApp & FR7 &  \\ 
   \hline
@@ -537,7 +542,7 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
   \hline
  LockMount & M2, M5 \\ 
   \hline
- BatteryPercentage & M12 \\ 
+ BatteryLevel & M12 \\ 
   \hline
  LocationOnApp & M1, M3, M6, M8, M9 \\ 
   \hline
