@@ -96,7 +96,7 @@ described by giving their type signature followed by their specification.
 
 \section{Module Decomposition}
 
-The following table is taken directly from the Module Guide document for this project.
+The following table is taken directly from the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module Guide document} for this project.
 
 \begin{table}[h!]
 \centering
@@ -105,21 +105,21 @@ The following table is taken directly from the Module Guide document for this pr
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding Module} & ~ \\
+\multirow{2}{0.3\textwidth}{Hardware-Hiding Module} & User Input to Phone Module \\
+& Solenoid Actuation Module \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
-& Output Parameters Module \\
-& Engage Status Signal Module \\
-& Wireless Signal Connection Module \\
+\multirow{6}{0.3\textwidth}{Behaviour-Hiding Module} %& Engage Status Signal Module  \\
+& Arduino Bluetooth Communication Module\\
+& Mobile App Bluetooth Communication Module\\
 & Battery Status Module \\
-& Location Module \\ 
+& Location Module  \\
 & Lock Frame Module \\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & Load Power Signal Module \\
+\multirow{5}{0.3\textwidth}{Software Decision Module} & User Disengage Module \\
+& Hardware Disengage Module \\
 & Battery Module \\
-& Electromagnet Module \\
 & Locking Mechanism Module \\
 \bottomrule
 
@@ -129,60 +129,169 @@ The following table is taken directly from the Module Guide document for this pr
 \end{table}
 
 \newpage
-~\newpage
 
 
 
 
+\section{MIS of Arduino Bluetooth Communication Module} \label{mABC}
 
-\section{MIS of M2} \label{InputParameters} 
-
-\subsection{Input Parameter Module}
-
-As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Input Parameter Module (M2) is responsible for receiving input from the user. Parameters include input to unlock the bike as well as request the current geo location of the user. 
-
-\subsection{Uses}
-
+\subsection{Module}
+disengageControl.ino
 
 \subsection{Syntax}
 
 \subsubsection{Exported Constants}
 
-N/A
+\begin{center}
+\begin{tabular}{p{4cm} p{2cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Value} & \textbf{Description} \\
+\hline
+BAUD\_RATE & 9600 & Serial communication baud rate \\
+GREEN\_PIN & 23 & Pin for green LED onboard \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsubsection{Exported Access Programs}
 
-N/A
+\begin{center}
+\begin{tabular}{p{2cm} p{2cm} p{2cm} p{2cm} p{5cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Transition} & \textbf{Out} & \textbf{Exception} \\
+\hline
+setup & None & loop & None & BLE fails: print message  \\
+loop & None & \hyperref[mHD]{Hardware Disengage Module} & None & BLE fails: print message \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsection{Semantics}
 
 \subsubsection{State Variables}
 
-\begin{itemize}
-\item storedLocation, type: Location object, package: location
-\end{itemize}
-
-
-\subsubsection{Environment Variables}
-
-
-\begin{itemize}
-\item engageButton, type: Floating Action Button, Screen Interface
-\item locationButton, type: Floating Action Button, Screen Interface
-\end{itemize}
-
-
-\subsubsection{Assumptions}
-None.
+\begin{center}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+\hline
+nanoService & BLEService & BLE service UUID\\
+commCharacteristic & BLEByteCharacteristic & BLE Characteristic UUID\\
+password & int & password for disengage \\
+productName & char array & name to appear when device BL advertised \\
+central & BLEDevice & connected central device \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsubsection{Access Routine Semantics}
 
-None.
+\noindent setup
+\begin{itemize}
+\item Begins serial communication operating at BAUD\_RATE
+\item Configures output pins specified by Exported Constants
+\item Configures BLE settings: name, advertising service, characteristic, and initial value for the characteristic. Do this using functions from the Arduino Bluetooth library, use  \textit{\#include ArduinoBLE.h}
+\item Begins advertising BL service, and awaits for connections, prints status message
+
+\end{itemize}
+
+\noindent loop
+\begin{itemize}
+\item Listens for central device to connect using aforementioned Bluetooth library
+\item If a central device is connected, print a statement of this status and transition to \hyperref[mHD]{Hardware Disengage Module}
+\item When the central device disconnects, print a message indicating this new status
+\end{itemize}
 
 \subsubsection{Local Functions}
 
-None.
+A list of functions used in this module from Arduino Bluetooth library, \href{https://www.arduino.cc/reference/en/libraries/arduinoble/}{see official Arduino documentation here}
+\begin{itemize}
+    \item setDeviceName()
+    \item setLocalName()
+    \item setAdvertisedService()
+    \item addCharacteristic()
+    \item addService()
+    \item writeValue()
+    \item advertise()
+\end{itemize}
 
+
+%%END OF ARDUINO BLUETOOTH COMM MODULE
+
+
+
+\section{MIS of Hardware Disengage Module} \label{mHD}
+
+\subsection{Module}
+disengageControl.ino
+
+\subsection{Syntax}
+
+\subsubsection{Exported Constants}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{2cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Value} & \textbf{Description} \\
+\hline
+BAUD\_RATE & 9600 & Serial communication baud rate \\
+GREEN\_PIN & 23 & Pin for green LED onboard \\
+TRANSISTOR\_OUT & 9 & Output pin for signal to transistor \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Exported Access Programs}
+
+\begin{center}
+\begin{tabular}{p{2cm} p{2cm} p{4cm} p{2cm} p{2cm}}
+\hline
+\textbf{Name} & \textbf{In} & \textbf{Transition} & \textbf{Out} & \textbf{Exception} \\
+\hline
+setup & None & loop & None & - \\
+loop & None & see Access Routine Semantics & None & -\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+\hline
+password & int & password for disengage \\
+central & BLEDevice & connected central device \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Access Routine Semantics}
+
+\noindent setup
+\begin{itemize}
+\item Begins serial communication operating at BAUD\_RATE
+\item Configures output pins specified by Exported Constants
+\end{itemize}
+
+\noindent loop
+\begin{itemize}
+\item While a central device is connected;
+\item If the central device writes a value to the Arduino;
+\item If the written value matches \textit{password};
+\item Then print a message indicating this status, turn on the onboard green LED (write a LOW signal to GREEN\_PIN, and write a HIGH signal to TRANSISTOR\_OUT;
+\item Else, turn off the onboard green LED (write a HIGH signal to GREEN\_PIN, and write a LOW signal to TRANSISTOR\_OUT;
+\end{itemize}
+
+\subsubsection{Local Functions}
+
+No local functions.
+
+
+%%END OF HARDWARE DISENGAGE
 
 \section{MIS of M3} \label{OutputParameters} 
 
