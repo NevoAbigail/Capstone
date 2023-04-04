@@ -46,10 +46,11 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Developer} & {\bf Notes}\\
 \midrule
-02-01-23 & 1.0 & Elsa & Likely and Unlikely Changes \\
-10-01-23 & 2.0 & Elsa & Modules \\
-15-01-23 & 3.0 & Elsa & Remaining Contents \\
-16-01-23 & 4.0 & Elsa & References \\
+02-01-23 & 0.1 & Elsa & Likely and Unlikely Changes \\
+10-01-23 & 0.2 & Elsa & Modules \\
+15-01-23 & 0.3 & Elsa & Remaining Contents \\
+16-01-23 & 0.4 & Elsa & References \\
+02-03-23 & 1.0 & Abi & Rev 1 Revisions--Modules reworked \\
 \bottomrule
 \end{tabularx}
 
@@ -157,13 +158,12 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:]  The specific hardware on which the software is running. 
 \item[\refstepcounter{acnum}\actheacnum\label{acInput}:] The format of the initial input data and parameters on the App. 
 \item[\refstepcounter{acnum}\actheacnum\label{acOutput}:] The format of the output data on the App. 
 \item[\refstepcounter{acnum}\actheacnum\label{acEngage}:] The implementation of the transmission of the lock status signal (engaged status signal). 
 \item[\refstepcounter{acnum}\actheacnum\label{acWireless}:] The implementation of the transmission of the ‘disengage’ signal. 
 \item[\refstepcounter{acnum}\actheacnum\label{acBatteryStatus}:] How the battery status calculation is defined within the App. 
-\item[\refstepcounter{acnum}\actheacnum\label{acPowerSignal}:] How the Arduino allows/disallows power to the load (electromagnet) I.e., the implementation of the switch (transistor). 
+\item[\refstepcounter{acnum}\actheacnum\label{acPowerSignal}:] How the Arduino allows/disallows power to the load (solenoid) I.e., the implementation of the switch (transistor). 
 \item[\refstepcounter{acnum}\actheacnum\label{acGeocaching}:] The implementation of the location determinant feature. 
 \item[\refstepcounter{acnum}\actheacnum\label{acBattery}:] The size of the battery. 
 \item[\refstepcounter{acnum}\actheacnum\label{acMagnet}:] The size of the electromagnet. 
@@ -184,7 +184,7 @@ decisions will be changed.
 \begin{description}
 
 \item[\refstepcounter{ucnum}\uctheucnum\label{ucIO}:] The I/O devices (iPhone or android smartphone). 
-\item[\refstepcounter{ucnum}\uctheucnum\label{ucCircuit}:] The circuit devices (Arduino, battery and electromagnet). 
+\item[\refstepcounter{ucnum}\uctheucnum\label{ucCircuit}:] Use of the Arduino Nano BLE board, and use of a transistor and solenoid.
 \item[\refstepcounter{ucnum}\uctheucnum\label{ucOutput}:] Output data are displayed to the output device (App). 
 \item[\refstepcounter{ucnum}\uctheucnum\label{ucVerify}:] Output data can be verified by checking the lock frame. 
 \item[\refstepcounter{ucnum}\uctheucnum\label{ucGoal}:] The goal of the system (wirelessly and hands-free disengage the bike lock). 
@@ -200,16 +200,16 @@ below, which are leaves in the hierarchy tree, are the modules that will
 actually be implemented.
 
 \begin{description}
-\item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item [\refstepcounter{mnum} \mthemnum \label{mIP}:] Input Parameters Module 
-\item [\refstepcounter{mnum} \mthemnum \label{mOP}:] Output Parameters Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mUIP}:] User Input to Phone Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSA}:] Solenoid Actuation Module
 \item [\refstepcounter{mnum} \mthemnum \label{mESS}:] Engage Status Signal Module 
-\item [\refstepcounter{mnum} \mthemnum \label{mWSC}:] Wireless Signal Connection Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mABC}:] Arduino Bluetooth Communication Module
+\item [\refstepcounter{mnum} \mthemnum \label{mMABC}:] Mobile App Bluetooth Communication Module
 \item [\refstepcounter{mnum} \mthemnum \label{mBS}:] Battery Status Module 
-\item [\refstepcounter{mnum} \mthemnum \label{mLPS}:] Load Power Signal Module 
+\item [\refstepcounter{mnum} \mthemnum \label{mUD}:] User Disengage Module
+\item [\refstepcounter{mnum} \mthemnum \label{mHD}:] Hardware Disengage
 \item [\refstepcounter{mnum} \mthemnum \label{mL}:] Location Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mB}:] Battery Module 
-\item [\refstepcounter{mnum} \mthemnum \label{mEM}:] Electromagnet Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mLM}:] Locking Mechanism Module 
 \item [\refstepcounter{mnum} \mthemnum \label{mLF}:] Lock Frame Module 
 
@@ -222,21 +222,21 @@ actually be implemented.
 \textbf{Level 1} & \textbf{Level 2}\\
 \midrule
 
-{Hardware-Hiding Module} & ~ \\
+\multirow{2}{0.3\textwidth}{Hardware-Hiding Module} & User Input to Phone Module \\
+& Solenoid Actuation Module \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & Input Parameters Module \\
-& Output Parameters Module \\
-& Engage Status Signal Module \\
-& Wireless Signal Connection Module \\
+\multirow{6}{0.3\textwidth}{Behaviour-Hiding Module} & Engage Status Signal Module  \\
+& Arduino Bluetooth Communication Module\\
+& Mobile App Bluetooth Communication Module\\
 & Battery Status Module \\
-& Location Module \\ 
+& Location Module  \\
 & Lock Frame Module \\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & Load Power Signal Module \\
+\multirow{5}{0.3\textwidth}{Software Decision Module} & User Disengage Module \\
+& Hardware Disengage Module \\
 & Battery Module \\
-& Electromagnet Module \\
 & Locking Mechanism Module \\
 \bottomrule
 
@@ -267,13 +267,27 @@ Only the leaf modules in the hierarchy have to be implemented. If a dash
 (\emph{--}) is shown, this means that the module is not a leaf and will not have
 to be implemented.
 
-\subsection{Hardware Hiding Modules (\mref{mHH})}
+\subsection{Hardware Hiding Modules}
 
 \begin{description}
 \item[Secrets:]The data structure and algorithm used to implement the virtual
   hardware.
 \item[Services:]Serves as virtual hardware used by the rest of the system. This module provides the interface between the hardware and the software. So, the system can use it to display outputs or accept inputs.
-\item[Implemented By:]App OS
+\item[Implemented By:]--
+\end{description}
+
+\subsubsection{User Input to Phone Module  (\mref{mUIP})}
+\begin{description}
+\item[Secrets:]How the mobile app reacts to user’s touch at any point.
+\item[Services:]Allows user to interface with the mobile app via touch.
+\item[Implemented By:] Phone OS
+\end{description}
+
+\subsubsection{Solenoid Actuation Module  (\mref{mSA})}
+\begin{description}
+\item[Secrets:]Logic and implementation of the solenoid actuation depending on signal sent from Arduino.
+\item[Services:]Actuates the solenoid when appropriate signal is sent from Arduino.
+\item[Implemented By:] Circuit
 \end{description}
 
 \subsection{Behaviour-Hiding Module}
@@ -288,20 +302,6 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Parameters Module (\mref{mIP})}
-
-\begin{description}
-\item[Secrets:]The data structure for input parameters and how the values are inputted. The load and verify secrets are isolated to their own access programs, found in their respective submodules. 
-\item[Services:]Receives input from the user, stores input and verifies that the input parameters comply with physical and software constraints. There is no need for input verification because the user's input options are restricted such that they cannot be invalid.
-\item[Implemented By:]App
-\end{description}
-
-\subsubsection{Output Parameters Module (\mref{mOP})}
-\begin{description}
-\item[Secrets:]The format and structure of the output data.
-\item[Services:]Outputs the results of the battery status calculations, the engaged status signal and the location data. 
-\item[Implemented By:]App
-\end{description}
 
 \subsubsection{Engage Status Signal Module (\mref{mESS})}
 \begin{description}
@@ -311,13 +311,18 @@ to be implemented.
 \item[Implemented By:]App and Arduino
 \end{description}
 
-\subsubsection{Wireless Signal Connection Module (\mref{mWSC})}
+\subsubsection{Arduino Bluetooth Communication Module (\mref{mABC})}
 \begin{description}
+\item[Secrets:]Creation of infrastructure for Bluetooth communication on Arduino, searches for central device to connect to, and can successfully connect to a central device.
+\item[Services:]Allows delivery of Bluetooth signals from the central connected device. 
+\item[Implemented By:] Arduino
+\end{description}
 
-\item[Secrets:]How the wireless connection between the Arduino and App is established.
-\item[Services:]The user inputs the command to disengage the locking mechanism on the GUI. The App then wirelessly connects to the Arduino in order to send and receive wireless signals.
-
-\item[Implemented By:]App and Arduino
+\subsubsection{Mobile App Bluetooth Communication Module (\mref{mMABC})}
+\begin{description}
+\item[Secrets:]Creation of infrastructure for Bluetooth communication on the app, searches for peripheral devices to connect to, and can then successfully connect to a peripheral device.
+\item[Services:]Allows sending of Bluetooth signals to the connected peripheral device.
+\item[Implemented By:] App
 \end{description}
 
 \subsubsection{Battery Status Module (\mref{mBS})}
@@ -354,11 +359,19 @@ to be implemented.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Load Power Signal Module (\mref{mLPS})}
+\subsubsection{User Disengage Module(\mref{mUD})}
 \begin{description}
-\item[Secrets:]How the Arduino allows and disallows power to the load.
-\item[Services:]The implementation, logic and transmission of the power signal sent from the App to the Arduino and then to the transistor, which acts as a switch to allow power to the electromagnet.
-\item[Implemented By:]App and Arduino
+\item[Secrets:] Transmission of disengage signal.
+\item[Services:]Upon pressing “Disengage” button on app, app sends required signal to peripheral device.
+\item[Implemented By:]App
+\end{description}
+
+\subsubsection{Hardware Disengage Module(\mref{mHD})}
+\begin{description}
+\item[Secrets:] Logic of HIGH and LOW signal sent from Arduino.
+\item[Services:]The implementation, logic and transmission of the power signal sent from the 
+the Arduino to the transistor, which acts as a switch to give power to the solenoid. 
+\item[Implemented By:]Arduino
 \end{description}
 
 \subsubsection{Battery Module (\mref{mB})}
@@ -368,12 +381,6 @@ to be implemented.
 \item[Implemented By:]Electrical Circuit
 \end{description}
 
-\subsubsection{Electromagnet Module (\mref{mEM})}
-\begin{description}
-\item[Secrets:]The specifications of the component of the circuit responsible for moving the locking mechanism.
-\item[Services:]The type and size of the electromagnet, which must provide a magnetic force strong enough to move the locking mechanism into its desired position for disengagement.
-\item[Implemented By:]Electrical Circuit
-\end{description}
 
 \subsubsection{Locking Mechanism Module (\mref{mLM})}
 \begin{description}
