@@ -323,10 +323,24 @@ password & int & the value of the user inputted password \\
 \item Configures the buttons to disengage lock by sending the user inputted password to the Arduino 
 \end{itemize}
 
+\begin{itemize}
+\item inputs: password
+\item transition: none
+\item output: password to Arduino
+\item exception: none
+\end{itemize}
+
 \noindent Widget build (BuildContext context)
 \begin{itemize}
 \item Constructs the layout of the screen displaying the bluetooth devices
 \item Displays the connection status of the selected bluetooth device
+\end{itemize}
+
+\begin{itemize}
+\item inputs: none
+\item transition: none
+\item output: connection status displayed to user and device information
+\item exception: none
 \end{itemize}
 % End of Mobile App Bluetooth Communication Module
 
@@ -378,6 +392,13 @@ completedActuations & int & the total number of actuations to engage the lock co
 \begin{itemize}
 \item This function is used to calculate the amount of battery remaining
 \item This is done by dividing the total capacity of the battery by the power drawn from completing on actuation of engaging the lock
+\end{itemize}
+
+\begin{itemize}
+\item inputs: batteryPercentage
+\item transition: none
+\item output: new battery percentage
+\item exception: none
 \end{itemize}
 
 %% END OF BATTERY STATUS MODULE
@@ -449,9 +470,23 @@ locLOG & double & the longitude coordinates of the users current location \\
 \item When interacted with, it places a marker showing the current location of the user and stores those coordinates
 \end{itemize}
 
+\begin{itemize}
+\item inputs: locationLat and locationLog
+\item transition: none
+\item output: new locationLat and locationLog
+\item exception: none
+\end{itemize}
+
 \noindent determinePosition()
 \begin{itemize}
 \item This function gets user permission to use their mobile GPS
+\end{itemize}
+
+\begin{itemize}
+\item inputs: none
+\item transition: none
+\item output: none
+\item exception: If the user denies permission then disable Google Maps API 
 \end{itemize}
 
 
