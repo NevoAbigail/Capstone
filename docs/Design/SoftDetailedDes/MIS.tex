@@ -297,7 +297,7 @@ No local functions.
 
 \subsection{Output Parameter Module}
 
-As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Output Parameter Module (M3) is responsible for displaying the battery status, location, and the engaged status signal. In this module, there are submodules to store the current location requested by the user. 
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Output Parameter Module (M3) is responsible for displaying the battery status, location, and the engaged status signal. In this module, there are submodules to store the current location requested by the user as coordinates on a text file. 
 
 \subsection{Uses}
 
@@ -317,7 +317,8 @@ N/A
 \subsubsection{State Variables}
 
 \begin{itemize}
-\item storedLocation, type: Location object, package: location
+\item locationLatitude, type: String
+\item locationLongitude, type: String
 \end{itemize}
 
 
@@ -335,9 +336,9 @@ None.
 \noindent loadScreen():
 This routine oversees the layout and UserInterface architecture. It ensures all buttons, labels, and images fall within the constraints of any mobile device. 
 \begin{itemize}
-\item inputs: engageButton, locationButton
-\item transition: none
-\item output: none
+\item inputs: storedCurrentLocationButton, bluetoothConnectButton, getLocationButton, batteryButton
+\item transition: bluetoothConnectButton, getLocationButton
+\item output: display current location and battery percentage
 \item exception: none
 \end{itemize}
 
@@ -474,7 +475,7 @@ None.
 
 \subsection{Battery Status Module}
 
-As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Battery Status Module (M6) is responsible for calculating the battery status. In this module, there are submodules to calculate the amount of battery left.
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Battery Status Module (M6) is responsible for calculating the battery status. In this module, there are submodules to calculate the amount of battery left. The percentage is shown as a percent of the number of actuations that can be completed till the battery loses power. 
 
 \subsection{Uses}
 
@@ -503,23 +504,23 @@ None.
 
 \subsubsection{Assumptions}
 
-None.
+There is an assumption that the power drawn from the Arduino is negligible. Therefore it is not taken into consideration when calculating the battery percentage. 
 
 \subsubsection{Access Routine Semantics}
 
 \noindent getBatteryStatus():
-This routine gets the battery amount remaining.
+This routine gets the battery amount remaining. This is displayed to the user as a percentage of the number of actuations remaining. 
 \begin{itemize}
 \item inputs: batteryCalculator()
 \item transition: none
-\item output: none
+\item output: battery percentage as displayed to the user
 \item exception: none
 \end{itemize}
 
 \subsubsection{Local Functions}
 
 \noindent batteryCalculator():
-This function is used to calculate the amount of battery remaining. The output is used in the getBatteryStatus function.
+This function is used to calculate the amount of battery remaining. The output is used in the getBatteryStatus function. The function works by reading the battery percentage from the local text file. It then calculated the remaining battery life by taking how much of the battery has been used and calculating how much is remaining. It then writes that amount back to the local text file. 
 
 
 
@@ -576,16 +577,15 @@ This access routine is responsible for recieving the signal to disengage the loc
 
 \subsubsection{Local Functions}
 
-None.
-
-
+\item writeBattery()
+\item getBattery()
 
 
 \section{MIS of M8} \label{Location} 
 
 \subsection{Location Module}
 
-As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Location Module (M8) is responsible for gathering the location data requested by the user. In this module, there are submodules to store the current location requested by the user.
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Location Module (M8) is responsible for gathering the location data requested by the user. In this module, there are submodules to store the current location requested by the user. The module utilizes the Google Maps API to get the current user location and display it on the main screen. 
 
 \subsection{Uses}
 
@@ -605,7 +605,8 @@ N/A
 \subsubsection{State Variables}
 
 \begin{itemize}
-\item storedLocation, type: Location object, package: location
+\item locationLatitude, type: String
+\item locationLongitude, type: String
 \end{itemize}
 
 
@@ -616,31 +617,34 @@ None.
 
 \subsubsection{Assumptions}
 
-None.
+The user is storing their location right next to where they are leaving their bike. 
 
 \subsubsection{Access Routine Semantics}
 
 \noindent updateLocation():
-This routine writes to the local json file to store the last location requested by the user.
+This routine writes to the local text file to store the last location requested by the user.
 \begin{itemize}
-\item inputs: locationButton()
+\item inputs: locationPinButton()
 \item transition: none
 \item output: none
 \item exception: none
 \end{itemize}
 
 \noindent getLocation():
-This routine reads from the local json file to get the last location requested by the user
+This routine reads from the local text file to get the last location requested by the user
 \begin{itemize}
 \item inputs: none
 \item transition: none
-\item output: storedLocation
+\item output: storedCurrentLocationButton
 \item exception: none
 \end{itemize}
 
 \subsubsection{Local Functions}
 
-None.
+\item getLatLocation()
+\item getLogLocation()
+\item writeLatLocation()
+\item writeLogLocation()
 
 
 \newpage
