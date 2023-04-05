@@ -45,12 +45,25 @@
 
 \section{Revision History}
 
-\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Developer}\\
+\begin{tabularx}{\textwidth}{p{3cm}p{3cm}X}
+\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-January 16, 2023 & 1.0 & Steffi\\
+January 16, 2023 & Steffi & All Sections\\
+04-04-23 & Steffi & Final Updates\\
 \bottomrule
 \end{tabularx}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoftables
+
+\listoffigures
+
 
 \newpage
 
@@ -76,17 +89,6 @@ This section records information for easy reference.
   \bottomrule
 \end{tabular}\\
 
-\newpage
-
-\tableofcontents
-
-\newpage
-
-%\listoftables
-
-\listoffigures
-
-\newpage
 
 \pagenumbering{arabic}
 
@@ -154,10 +156,11 @@ In the case of an undesired or unexpected event, the lock will stay in the locke
  \end{center}
  \end{figure}
 
+
 \subsection{Connection Between Requirements and Design} %\label{SecConnection}
 
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\begin{table}[hp]
+\caption{\label{Connection between requirements and design choices} Connection between requirements and design choices}
 \begin{tabular}{| p{0.48\textwidth} | p{0.52\textwidth} | }
  \hline
  Requirement/Constraint & Design Description\\ 
@@ -168,9 +171,9 @@ In the case of an undesired or unexpected event, the lock will stay in the locke
  \hline
  SC5:  The project must be locked on existing external locking frames or racks &Current market bike lock cable is being used to ensure compatibility\\
  \hline
-FR2: LockDisengage input must disengage the lock on the bike & Using an electromagnet for locking allows for a easier connection to a microcontroller that can communicate with a phone app\\
+FR2: LockDisengage input must disengage the lock on the bike & Using a solenoid t for locking allows for a easier connection to a microcontroller that can communicate with a phone app\\
  \hline
-FR3,4,7: The application has to show the status of the electromagnet and battery as well as display the location&The UI was designed so that this information is easy to see, these are requirements to make the lock secure but they relate to the user experience\\
+FR3,4,7: The application has to show the status of the solenoid and battery as well as display the location&The UI was designed so that this information is easy to see, these are requirements to make the lock secure but they relate to the user experience\\
  \hline
 FR8: Effective Bike Lock: The lock is sturdy and cannot be manually opened by the average human once engaged& Using simple pieces without a lot of components that can break off makes it more sturdy, and using a market bike cable makes sure it is strong enough not to be broken\\
  \hline
@@ -191,7 +194,8 @@ NFR14: Batteries must be accessible to replace or chargeable&A chargeable batter
 NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-platform development\\
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
+
 
 
 %\wss{The intention of this section is to document decisions that are made
@@ -208,8 +212,8 @@ NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-plat
 
 \subsection{Monitored Variables}
 
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\begin{table}[hp]
+\caption{\label{Monitored Variables} Monitored Variables}
 \begin{tabular}{| p{0.23\textwidth} | p{0.54\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -225,12 +229,12 @@ NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-plat
  m\_BatteryPower & Monitors the current battery percentage & Analog & Percentage \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
 
 \subsection{Controlled Variables}
 
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\begin{table}[hp]
+\caption{\label{Controlled Variables} Controlled Variables}
 \begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -246,7 +250,7 @@ NFR22: The app should run on iOS and Android.&Designed on Flutter for cross-plat
  c\_BatteryPercentStatus & Indicates what the percentage of the battery is & Analog & Percentage \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
 
 \subsection{Constants Variables - NA}
 
@@ -260,26 +264,44 @@ The application is where the user will be able to disengage their lock and locat
  \begin{figure}[h!]
  \begin{center}
  {
-  \includegraphics[width=0.5\linewidth]{UI.png}
+  \includegraphics[width=0.38\linewidth]{UI.png}
  }
  \caption{\label{Application User Interface} Application User Interface}
  \end{center}
  \end{figure}
 
-\newpage
 The hardware will be mounted to the bike, which will require user interaction upon the purchase of the SmartLock. Additionally, the user must push the locking pin into the hole to engage the lock, and disengage the lock with their phone to be able to remove the pin. 
 
  \begin{figure}[h!]
  \begin{center}
  {
-  \includegraphics[width=0.9\linewidth]{HardwareUI.png}
+  \includegraphics[width=0.6\linewidth]{HardwareUI.png}
  }
  \caption{\label{Hardware User Interface} Hardware User Interface}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.4\linewidth]{11.png}
+ }
+ \caption{\label{CAD of the Housing} CAD of the Housing}
+ \end{center}
+ \end{figure}
+ 
+  \begin{figure}[h!]
+ \begin{center}
+ {
+  \includegraphics[width=0.32\linewidth]{12.png}
+ }
+ \caption{\label{CAD of the Pin} CAD of the Pin}
  \end{center}
  \end{figure}
 
 %\wss{Design of user interface for software and hardware.  Attach an appendix if needed. Drawings, Sketches, Figma}
 
+\newpage
 \section{Design of Hardware}
 
 The following is a list of the hardware components that will be acquired to build the SmartLock:
@@ -315,11 +337,11 @@ The following is a list of the electrical components that will be used in combin
 \subitem - Previously owned
 \item Breadboard
 \subitem - Previously owned
-\item Magnet
+\item Solenoid
 \subitem - Needs to be acquired
-\item Charging board (maybe)
-\subitem - Needs to be acquired
-\item Resistors (maybe)
+\item Resistors
+\subitem - Previously owned
+\item Diode
 \subitem - Previously owned
 \end{itemize}
 
@@ -337,16 +359,17 @@ The features of our lock include:
 \begin{itemize}
 \item Locking the bike from the application
 \subitem - A Bluetooth microcontroller is utilized so that the application is able to communicate with the physical device
-\subitem - The microcontroller is wired directly to an electromagnet that controls the disengagement of the lock
+\subitem - The microcontroller is wired directly to an solenoid that controls the disengagement of the lock
 \item Geotagging the location of the bike
 \subitem - Integration with Google Maps will be used to save the coordinates of the locked bike
 \end{itemize}
 %\wss{If appropriate}
 
+
 \section{Timeline}
 
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\begin{table}[hp]
+\caption{\label{Product Development Timeline}  Product Development Timeline}
 \begin{tabular}{| p{0.12\textwidth} | p{0.38\textwidth} | p{0.50\textwidth} |}
  \hline
  Date & Description & Group Member Assigned\\ 
@@ -384,7 +407,7 @@ The features of our lock include:
  TBD & EXPO & Everyone (Divided by areas of work)\\
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
 
 %\wss{Schedule of tasks and who is responsible}
 
@@ -403,10 +426,9 @@ The features of our lock include:
  \begin{figure}[ht]
  \begin{center}
  {
-  \includegraphics[width=0.4\linewidth]{1.png}
-  \includegraphics[width=0.4\linewidth]{2.png}
+  \includegraphics[width=0.4\linewidth]{13.png}
  }
- \caption{\label{Locking Mechanism Components} Locking Mechanism Components Disassembled and Assembled}
+ \caption{\label{Solenoid} Solenoid}
  \end{center}
  \end{figure}
  
@@ -453,7 +475,7 @@ The features of our lock include:
   \begin{figure}[ht]
  \begin{center}
  {
-  \includegraphics[width=0.5\linewidth]{10.png}
+  \includegraphics[width=0.7\linewidth]{10.png}
  }
  \caption{\label{Circuit Diagram} Circuit Diagram}
  \end{center}
