@@ -5,6 +5,7 @@
 \usepackage[raggedrightboxes]{ragged2e}
 
 
+
 \title{Problem Statement and Goals for SmartLock\\\progname}
 
 \author{\authname}
@@ -15,6 +16,11 @@
 \input{../Common}
 
 \begin{document}
+
+\bibliographystyle{IEEEtran}
+\bibliography{citation}
+
+
 \maketitle
 \thispagestyle{empty}
 \begin{figure}[h!]
@@ -33,12 +39,14 @@
 25-09-22 & Steffi & Completed\\
 19-11-22 & Steffi & Updates for grammar, formatting and terminology\\
 23-11-22 & Steffi & Updates for consistency across documentation\\
+04-04-23 & Steffi & Final Updates\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \newpage
 \tableofcontents
+\listoftables
 
 \newpage
 \pagenumbering{arabic}
@@ -48,7 +56,7 @@
 
 There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen (the seat, front and back wheels and frame). 
 
-Furthermore, the problem stretches beyond the locking mechanisms; bike locks can be bulky, heavy and dangerous to carry around.  The combination of these issues can lead to individuals leaving their bikes without properly locking them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, indicating a rather expansive problem that needs to be solved [1, 2]. 
+Furthermore, the problem stretches beyond the locking mechanisms; bike locks can be bulky, heavy and dangerous to carry around.  The combination of these issues can lead to individuals leaving their bikes without properly locking them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, indicating a rather expansive problem that needs to be solved \cite{web1} \cite{web2}. %[1, 2]. 
 
 Our team presents the SmartLock, which is a bike lock that is locked/unlocked through a smartphone application.  Users can secure their bikes automatically, eliminating the need for manual locking through keys or a combination.  The application includes a geotagging component to locate the bike in case the user forgets where they locked (parked) it.  Additionally, the SmartLock is intended to be mounted permanently on a bike frame, eliminating the need to carry a lock altogether.  The sleek design will ensure that the lock is unobtrusive while riding. 
 
@@ -57,6 +65,7 @@ Our team presents the SmartLock, which is a bike lock that is locked/unlocked th
 
 \begin{table}[hp]
   \begin{center}
+  \caption{Inputs and Outputs} \label{TblTInputsAndOutputs}
     \begin{tabular}{| l | r |}
     \hline
       \textbf{Inputs} & \textbf{Outputs}\\
@@ -83,13 +92,13 @@ Below is a list of the hardware and software needed to implement the solution to
 ~\newline
 Hardware:
 \begin{itemize}
-\item Physical Lock
-\item Lock Housing/Mount
+\item Lock Housing - CAD designed, 3D - printed 
+\subitem Locking Mechanism
+\item SmartLock Mount
 \item Chain (for external frame locking)
-\item Power Source
-\item Electromagnet
+\item Battery
+\item Solenoid
 \item Arduino with Bluetooth capabilities
-\item Positioning Sensors
 \end{itemize}
 
 ~\newline
@@ -104,21 +113,22 @@ Software:
 \section{Goals}
 \begin{table}[hp]
   \begin{center}
+    \caption{Goals} \label{TblGoals}
     \begin{tabular}{| p{0.52\linewidth} | p{0.6\linewidth} |}
     \hline
       \textbf{Goals} & \textbf{Measurability}\\
       \hline
-      Wireless communication and \newline engagement/disengagement of bike lock  & Quality and distance of signal strength\\
+      G1: Wireless communication and \newline engagement/disengagement of bike lock  & Quality and distance of signal strength\\
       \hline
-      Effective bike lock  & Lock functions, X amount of force before failure\\
+      G2: Effective bike lock: The lock can't be forced open by hand or standard tools.  & Lock functions, X amount of force before failure\\
       \hline
-      Long lasting battery life  & Time - in months \\
+      G3: Long lasting battery life  & Time - in months \\
       \hline
-      Fits on many different styles of bikes & Can easily be mounted to mountain bikes, city bikes, children's bikes and road bikes \\
+     G4: Fits on many different styles of bikes: Children's, Mountain, Road, and City & Can easily be mounted to mountain bikes, city bikes, children's bikes and road bikes \\
       \hline
-      Easily mount on bike frame & Does not require special tools for mount/dismount\\
+      G5: Easily mount on bike frame & Does not require special tools for mount/dismount\\
       \hline
-       Cross-platform implementation & Can be used on both an iPhone and an Android smartphone\\
+       G6: Cross-platform implementation & Can be used on both an iPhone and an Android smartphone\\
       \hline
     \end{tabular}
   \end{center}
@@ -133,11 +143,11 @@ Software:
 \end{itemize}
 
 \newpage
-\section{References}
 
-[1]“bicycle-thefts,” data.torontopolice.on.ca. https://data.torontopolice.on.ca/pages/bicycle-thefts (accessed Sep. 25, 2022).
-\newline
-[2]L. Hansen-Gillis, “Bike thefts are increasing in Canada: Here’s what you can do to protect your bike,” Canadian Cycling Magazine, Nov. 04, 2020. https://cyclingmagazine.ca/sections/news/bike-theft-canada/ (accessed Sep. 25, 2022).
+
+%[1]“bicycle-thefts,” data.torontopolice.on.ca. https://data.torontopolice.on.ca/pages/bicycle-thefts (accessed Sep. 25, 2022).
+%\newline
+%[2]L. Hansen-Gillis, “Bike thefts are increasing in Canada: Here’s what you can do to protect your bike,” Canadian Cycling Magazine, Nov. 04, 2020. https://cyclingmagazine.ca/sections/news/bike-theft-canada/ (accessed Sep. 25, 2022).
 ‌
 ‌
 
