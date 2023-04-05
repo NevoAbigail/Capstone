@@ -293,6 +293,170 @@ No local functions.
 
 %%END OF HARDWARE DISENGAGE
 
+
+\section{MIS of Mobile App Bluetooth Communication Module} \label{mHD}
+
+\subsection{Module}
+device.dart
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+\hline
+locking & int & request to engage the lock (value of 1 to engage) \\
+isConnected & int & wether SmartLock App is connected to the Arduino (value of 1 if connected) \\
+password & int & the value of the user inputted password \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Local Functions}
+
+\noindent buildServiceTiles
+\begin{itemize}
+\item Constructs the layout of the screen displaying the connected device
+\item Configures the buttons to disengage lock by sending the user inputted password to the Arduino 
+\end{itemize}
+
+\noindent Widget build (BuildContext context)
+\begin{itemize}
+\item Constructs the layout of the screen displaying the bluetooth devices
+\item Displays the connection status of the selected bluetooth device
+\end{itemize}
+% End of Mobile App Bluetooth Communication Module
+
+\section{MIS of Battery Status Module} \label{mHD}
+
+\subsection{Module}
+main.dart
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+\hline
+batteryPercentage & int & the calculated value of the battery percentage \\
+completedActuations & int & the total number of actuations to engage the lock completed \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Local Functions}
+
+\noindent getLocalPath
+\begin{itemize}
+\item This functions gets the local directory of the application
+\end{itemize}
+
+\noindent getLocalFile
+\begin{itemize}
+\item This function gets the local file that stores the battery percentage and number of completed actuations 
+\item It searches for a file called 'batteryInfo.txt'
+\end{itemize}
+
+\noindent writeBattery
+\begin{itemize}
+\item This function reads the value of the calculated battery percentage from the 'batteryInfo.txt' file
+\end{itemize}
+
+\noindent readBattery
+\begin{itemize}
+\item This function writes the value of the calculated battery percentage to the 'batteryInfo.txt' file
+\item If this file can not be found (if this the first time the application is run) it will create a new file titled 'batteryInfo.txt'
+\end{itemize}
+
+\noindent batteryCalculator
+\begin{itemize}
+\item This function is used to calculate the amount of battery remaining
+\item This is done by dividing the total capacity of the battery by the power drawn from completing on actuation of engaging the lock
+\end{itemize}
+
+%% END OF BATTERY STATUS MODULE
+
+\section{MIS of Location Module} \label{mHD}
+
+\subsection{Module}
+currentLocation.dart
+
+\subsection{Semantics}
+
+\subsubsection{State Variables}
+
+\begin{center}
+\begin{tabular}{p{4cm} p{4cm} p{6cm}}
+\hline
+\textbf{Name} & \textbf{Type} & \textbf{Description} \\
+\hline
+locLAT & double & the latitude coordinates of the users current location \\
+locLOG & double & the longitude coordinates of the users current location \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Local Functions}
+
+\noindent getLocalPath
+\begin{itemize}
+\item This functions gets the local directory of the application
+\end{itemize}
+
+\noindent getLocalFileLat
+\begin{itemize}
+\item This function gets the local file that stores the latitude coordinates
+\item It searches for a file called 'locationLat.txt'
+\end{itemize}
+
+\noindent getLocalFileLog
+\begin{itemize}
+\item This function gets the local file that stores the longitude coordinates
+\item It searches for a file called 'locationLog.txt'
+\end{itemize}
+
+\noindent readLat
+\begin{itemize}
+\item This function reads the value of the latitude coordinates from the 'locationLat.txt' file
+\item If this file can not be found (if this the first time the application is run) it will create a new file titled 'locationLat.txt'
+\end{itemize}
+
+\noindent readLog
+\begin{itemize}
+\item This function reads the value of the longitude coordinates from the 'locationLog.txt' file
+\item If this file can not be found (if this the first time the application is run) it will create a new file titled 'locationLog.txt'
+\end{itemize}
+
+\noindent writeLat
+\begin{itemize}
+\item This function writes the value of the latitude coordinates to the 'locationLat.txt' file
+\end{itemize}
+
+\noindent writeLog
+\begin{itemize}
+\item This function writes the value of the latitude coordinates to the 'locationLog.txt file
+\end{itemize}
+
+\noindent Widget build(BuildContext context)
+\begin{itemize}
+\item This function builds the layout of the screen including the Google Maps API and getCurrentLocation button
+\item When interacted with, it places a marker showing the current location of the user and stores those coordinates
+\end{itemize}
+
+\noindent determinePosition()
+\begin{itemize}
+\item This function gets user permission to use their mobile GPS
+\end{itemize}
+
+
+%% END OF LOCATION MODULE
+
 \section{MIS of M3} \label{OutputParameters} 
 
 \subsection{Output Parameter Module}
@@ -354,7 +518,7 @@ None.
 
 \subsection{Engage Status Signal Module}
 
-As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Engage Status Signal Module (M4) is responsible for trasmitting the engagement status of the lock from the Arduino to the mobile app. If the status reads "engaged", then the Arduino is not currently sending a high signal to the transistor, and the electromagnet remains off, meaning the latch in the locking mechanism is shut. Therefore, if the pin is in the lock, it will not be able to move. If the status reads "disengaged", then the Arduino is currently writing a high signal to the transistor, and the electromagnet is on, opening the latch in the locking mechanism, and allowing the pin to move freely (in or out of the lock). 
+As described in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{MG document}, the Engage Status Signal Module (M4) is responsible for transmitting the engagement status of the lock from the Arduino to the mobile app. If the status reads "engaged", then the Arduino is not currently sending a high signal to the transistor, and the electromagnet remains off, meaning the latch in the locking mechanism is shut. Therefore, if the pin is in the lock, it will not be able to move. If the status reads "disengaged", then the Arduino is currently writing a high signal to the transistor, and the electromagnet is on, opening the latch in the locking mechanism, and allowing the pin to move freely (in or out of the lock). 
 
 \subsection{Uses}
 
