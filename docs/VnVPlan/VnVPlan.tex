@@ -181,9 +181,6 @@ The tools used for automated testing and verifying coding standards are outlined
 
 \begin{enumerate}
 
-\item SwiftLint
-
-\subitem SwiftLint will be used in order to enforce common Swift style and naming conventions.
 
 \item CodeFactor
 
@@ -619,21 +616,108 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
 \section{Unit Test Description}
 \label{Section 6}
 
-\subsection{Unit Testing Scope}
+\subsection{Physical Locking Mechanism}
+\begin{enumerate}
+    \item{Locking Mechanism} \label{lock-mech}
+    
+    Setup: Test only the isolated physical locking mechanism--manually move the small locking pin and large pin with your hands.
+    
+    Input: Move the small pin and large pin into "locked" and "unlocked" positions (in and out). 
+    
+    Expected Result: When small pin in "locked" position, large pin cannot be pulled out. 
 
-Not applicable.
+\end{enumerate}
 
-\subsection{Tests for Functional Requirements}
+\subsection{Microcontroller}
+\begin{enumerate}
+    \item{Arduino Bluetooth Connection} \label{arduinoBluetoothConnection} 
+    
+    Setup: Flash Arduino with disengageControl.ino
 
-Not applicable.
+    Input: Connect to Arduino using the Bluetooth Development App "nRF Connect"
 
-\subsection{Tests for Nonfunctional Requirements}
+    Expected Result: Prints message to console stating that a central device is connected.
 
-Not applicable.
+    \item{Arduino Disengage Signal Output} \label{arduinoDisengageSignalOutput}
+    
+    Setup: Flash Arduino with disengageControl.ino
+
+    Input: Connect to Arduino using the Bluetooth Development App "nRF Connect", send the correct password.
+
+    Expected Result: Green onboard LED turns on, TRANSISTOR\_OUT pin has HIGH voltage. 
+
+    \item{Arduino Incorrect Password Signal Output} \label{arduinoIncorrect}
+    
+    Setup: Flash Arduino with disengageControl.ino
+
+    Input: Connect to Arduino using the Bluetooth Development App "nRF Connect", send an incorrect password.
+
+    Expected Result: Green onboard LED is off, TRANSISTOR\_OUT pin has LOW voltage. 
+\end{enumerate}
+
+\subsection{Circuit}
+\begin{enumerate}
+    \item{Circuit Transistor Test} \label{circuitTransistorTest}
+    
+    Setup: Complete the circuit documented in the System Design document, but substitute the Arduino for a power source, and the solenoid with an LED. 
+    
+    Input: Connection/disconnection of the power source to the transistor gate.
+    
+    Expected Result: When high power signal is transmitted to the gate of the transistor from power source, LED connected to drain of transistor turns on.
+
+    \item{Circuit Solenoid Test} \label{circuitSolenoidTest} 
+
+    Setup: Complete circuit documented in System Design document, but substitute the Arduino for a power source. 
+    
+    Input: Connection/disconnection of the power source to the transistor gate.
+    
+    Expected Result: When high power signal is transmitted to gate of transistor from power source (NOT Arduino), solenoid connected to drain of transistor is enabled.
+
+    \item{Full Circuit Test} \label{fullCircuitTest}
+
+    Setup: Complete circuit documented in System Design document. 
+    
+    Input: Send correct disengage signal to Arduino from "nFR Connect"
+    
+    Expected Result: When high power signal is transmitted to gate of transistor from Arduino, solenoid connected to drain of transistor is enabled.
+\end{enumerate}
+
+\subsection{Mobile App}
+\begin{enumerate}
+    \item Able to connect to Arduino from mobile app.
+
+    PASS
+    \item Arduino recieves signals transmitted to it from the mobile app.
+
+    PASS -- validated using the on-board Arduino LEDs.
+\end{enumerate}
 
 \subsection{Traceability Between Test Cases and Modules}
 
-Not applicable.
+\captionof{table}{Unit Test Traceability Table}
+\begin{center}
+
+\begin{tabular}{|c|c|}
+  \hline
+  \textbf{Unit Test} & \textbf{\href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module}} \\
+  \hline
+  \hyperref[lock-mech]{Locking Mechanism} & Locking Mechanism \\
+  \hline
+  \hyperref[arduinoBluetoothConnection]{Arduino Bluetooth Connection} & Arduino Bluetooth Communication\\
+  \hline
+  \hyperref[arduinoDisengageSignalOutput]{Arduino Disengage Signal Output} & Hardware Disengage \\
+  \hline
+  \hyperref[arduinoIncorrect]{Arduino Incorrect Password Signal Output} & Hardware Disengage \\
+  \hline
+  \hyperref[circuitTransistorTest]{Circuit Transistor Test} & Solenoid Actuation \\
+  \hline
+  \hyperref[circuitSolenoidTest]{Circuit Solenoid Test} & Solenoid Actuation \\
+  \hline
+  \hyperref[fullCircuitTest]{Full Circuit Test} & Solenoid Actuation \\
+  \hline
+  
+\end{tabular}
+\end{center}
 				
 \bibliographystyle{plainnat}
 

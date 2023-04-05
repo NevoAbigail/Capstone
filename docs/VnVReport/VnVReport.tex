@@ -37,6 +37,7 @@
 \midrule
 04-03-23& Abi, Anthony, Elsa, Steffi & Testing\\
 05-03-23& Abi, Elsa, Steffi & Writeup\\
+02-04-23 & Abi & Rev 1 Revisions\\
 \bottomrule
 \end{tabularx}
 
@@ -67,7 +68,7 @@ This document will follow the \href{https://github.com/NevoAbigail/Capstone/blob
 
 \section{Functional Requirements Evaluation}
 
-This subset of tests were used to validate the functional requirements of our product. Completing these tests proves various aspects of our product's needs. These aspects include primary SmartLock functionality namely App, electrical circuit and mechanical locking features. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests were used to validate the functional requirements of our product. Completing these tests proves various aspects of our product's needs. These aspects include primary SmartLock functionality namely App, electrical circuit and mechanical locking features. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS. Note that in this document, only the expected and actual result are listed for each test; for full descriptions (including setup and input) for each test, please refer to the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}.
 
 \subsubsection{Area of Testing: User Input Related}
 
@@ -214,7 +215,7 @@ Actual Results: Pass -- The user is able to access and view the saved coordinate
 
 \item{PowerOutput
 
-FR8: Battery must output enough power to engage the lock. }
+FR8: Battery must output enough power to engage the lock. } \label{PowerOutput}
 
 Expected Results: Circuit connected. Battery is successfully able to meet the threshold voltage of the electromagnet to engage the locking mechanism.  
 
@@ -226,7 +227,7 @@ Note: During one test where the Arduino was powered on for more than an hour, th
 
 \section{Nonfunctional Requirements Evaluation}
 
-This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's functionality. These aspects include smartphone app features, the physical design attributes, accuracy, and the usability of the product. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's functionality. These aspects include smartphone app features, the physical design attributes, accuracy, and the usability of the product. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS. Note that in this document, only the expected and actual result are listed for each test; for full descriptions (including setup and input) for each test, please refer to the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}.
 
 \subsubsection{Area of Testing: Smart Phone}
 
@@ -257,9 +258,9 @@ Actual Results: Pass -- App storage does not exceed 50 MB.
 
 NFR3: The design must be visually appealing.}
 
-Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{User Testing}, question 6. A majority of surveyed users should deem the visual appeal satisfactory.
+Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{User Testing}, question 6. A majority of surveyed users should deem the visual appeal satisfactory--a rating of 5 or above.
 
-Actual Results: The majority of surveyed users deemed the visual appeal of the SmartLock satisfactory or above expectations. 
+Actual Results: The majority of surveyed users deemed the visual appeal of the SmartLock satisfactory (rating of 5) or above expectations. 
 
  \begin{figure}[h!]
  \begin{center}
@@ -410,59 +411,45 @@ Actual Results: Pass -- App operates successfully on iOS and Android as expected
 
 \section{Unit Testing}
 
-\subsection{Physical Locking Mechanism}
-\begin{enumerate}
-    \item When small pin in "locked" position, large pin cannot be pulled out.
+Please refer to Section 5: Unit Testing of the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{Verification and Validation Plan} for details of each unit test, including setup, input, and expected result. A summary table of the results of this testing is provided below. A passing result is one where the actual result matches the expected result. 
 
-    Result: PASS
-\end{enumerate}
+\captionof{table}{Unit Testing Results Table}
+\begin{center}
 
-\subsection{Microcontroller}
-\begin{enumerate}
-    \item When Arduino receives signal from Bluetooth development app "nRF Connect", on-board LED turns on.
-
-    PASS
-
-    \item When Arduino receives signal from Bluetooth development app "nRF Connect", high voltage signal is sent to desired pin.
-
-    PASS -- validated using multimeter.
-\end{enumerate}
-
-\subsection{Circuit}
-\begin{enumerate}
-    \item When high power signal is transmitted to gate of transistor from power source (NOT Arduino), LED connected to drain of transistor turns on.
-
-    PASS
-    \item When high power signal is transmitted to gate of transistor from power source (NOT Arduino), solenoid connected to drain of transistor is enabled.
-
-    PASS
-    \item When high power signal is transmitted to gate of transistor from Arduino, solenoid connected to drain of transistor is enabled.
-
-    PASS
-\end{enumerate}
-
-\subsection{Mobile App}
-\begin{enumerate}
-    \item Able to connect to Arduino from mobile app.
-
-    PASS
-    \item Arduino recieves signals transmitted to it from the mobile app.
-
-    PASS -- validated using the on-board Arduino LEDs.
-\end{enumerate}
+\begin{tabular}{|c|c|}
+  \hline
+  \textbf{\href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{Unit Test}} & \textbf{Result} \\
+  \hline
+  Locking Mechanism & PASS\\
+  \hline
+  Arduino Bluetooth Connection & PASS\\
+  \hline
+  Arduino Disengage Signal Output & PASS\\
+  \hline
+  Arduino Incorrect Password Signal Output & PASS \\
+  \hline
+  Circuit Transistor Test & PASS \\
+  \hline
+  Circuit Solenoid Test & PASS \\
+  \hline
+  Full Circuit Test & PASS \\
+  \hline
+  
+\end{tabular}
+\end{center}
 
 \section{User Testing} \label{User Testing}
 
 Eight users were asked to try the SmartLock, and were asked several questions about their experience. These questions can be found in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, and are also reiterated here, with the common answers we received.
 
 \begin{enumerate}
-    \item How long does it take you to open the lock? Is a 15-second window too short? Too long?
+    \item How long does it take you to open the lock? Is a 5-second window too short? Too long?
 
-    15 seconds was found to be just slightly too long of an unlock window. It was found that 10 seconds was enough time to pull the pin out of the body of the lock. This change will be implemented. 
+    5 seconds was found to be just slightly too short of an unlock window. It was found that 10 seconds was enough time to pull the pin out of the body of the lock. This change will be implemented. 
     
     \item Is the app intuitive to use? Would you change any features or any part of the app design?
 
-    Many users commented on the confusing nature of listing all active Bluetooth devices in the area, rather than only the SmartLock. In order to limit this confusion, the list of Bluetooth devices will be filtered so that only the SmartLock appears.
+    Many users commented on not being able to get directions based on the location they geotagged. 
     
     \item How did you like the whole product use experience? Is the locking/unlocking process smooth, convenient, and efficient?
 
@@ -470,7 +457,7 @@ Eight users were asked to try the SmartLock, and were asked several questions ab
     
     \item Was any aspect of using the product confusing?
 
-    Again, users commented on the listing of all Bluetooth devices as being confusing. Users also mentioned that it was not clear that the lock would only be disengaged for a limited period of time after pressing "Unlock". This concept must be clarified either within the app, or in a seperate instruction manual.
+    Again, users commented on the listing of all Bluetooth devices as being confusing. Users also mentioned that it was not clear that the lock would only be disengaged for a limited period of time after pressing "Unlock". This concept must be clarified either within the app, or in a separate instruction manual. Further, users commented on the order (from the top to bottom) of the buttons on the app, and suggested a reordering of some buttons might make it easier to use.
     
     \item Would you be comfortable using this product to lock your bike? What would make you feel more secure?
 
@@ -491,17 +478,34 @@ Eight users were asked to try the SmartLock, and were asked several questions ab
 
 Changes due to Requirement Testing are summarized below:
 \begin{enumerate}
-    \item Add a diode across the electromagnet in order to protect the transistor from the inductive voltage spike which occurs as the solenoid de-energizes.
-    \item Add a moderately-sized gate resistor between the gate of the MOSFET and the Arduino to protect the Arduino from current spikes.
+    \item Add a diode across the electromagnet in order to protect the transistor from the inductive voltage spike which occurs as the solenoid de-energizes. As deemed necessary from the \hyperref[PowerOutput]{Power Output Test}
+    \item Add a moderately-sized gate resistor between the gate of the MOSFET and the Arduino to protect the Arduino from current spikes. As deemed necessary from the \hyperref[PowerOutput]{Power Output Test}
 \end{enumerate}
 
 Changes due to \nameref{User Testing} are summarized below:
 
 \begin{enumerate}
-    \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 15 seconds.
-    \item Filter the Bluetooth devices shown so that only SmartLock appears. Alternatively, make the mobile app only able to connect to the SmartLock.
-    \item Redesign the lock housing so that all components fit internally properly and securely. 
+    \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 5 seconds, as suggested by users' answer to the question "How long does it take you to open the lock? Is a 5-second window too short? Too long?"
+    \item Display coordinates of geotagged/pinned location on app. This way, users can then copy these coordinates and paste them into a map app of their choosing to get directions. This change was prompted by users' answers to the question "Is the app intuitive to use? Would you change any features or any part of the app design?"
+    \item Redesign the App UI to make it more user-friendly and intuitive, as prompted by users' answers to the question, "Was any aspect of using the product confusing?"
  
+\end{enumerate}
+
+\section{Automated Testing} \label{Automated Testing}
+
+As mentioned in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, we used a few tools for automated testing and verifying coding standards.
+
+\begin{enumerate}
+    \item CodeFactor
+
+    After importing our project repository into CodeFactor, we recieved a grade A for code quality.
+
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{CodeFactor}
+    \caption{CodeFactor Results}
+    \end{figure}
+
 \end{enumerate}
 		
 \section{Trace to Requirements}
@@ -571,47 +575,47 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
  \hline
  Test Case & \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/Design/SoftArchitecture/MG.pdf}{Module(s)}  \\ 
  \hline
- DisengageLock & M12 \\ 
+ DisengageLock & Hardware Disengage \\ 
   \hline
- LockLocation & M1, M4, M8, M9 \\ 
+ LockLocation & Location \\ 
   \hline
- EffectiveLock, EffectiveLockSimulation & M1, M2, M8, M9  \\ 
+ EffectiveLock, EffectiveLockSimulation & Solenoid Actuation, Locking Mechanism  \\ 
   \hline
- Security & M9, M10, M11, M12 \\ 
+ Security & Hardware Disengage\\ 
   \hline
- LockMount & M2, M5 \\ 
+ LockMount & Lock Frame \\ 
   \hline
- BatteryLevel & M12 \\ 
+ BatteryLevel & Battery, Battery Status \\ 
   \hline
- LocationOnApp & M1, M3, M6, M8, M9 \\ 
+ LocationOnApp & Location \\ 
   \hline
- PowerOutput & M1, M3, M5, M7, M8 \\ 
+ PowerOutput & Battery, Solenoid Actuation \\ 
   \hline
- LimitedInstructions & N/A \\
+ LimitedInstructions & None \\
  \hline
-  AppStorage & M1, M2, M3, M4, M5, M6, M8 \\
+  AppStorage & Mobile App Bluetooth Communication, Location, Battery Status, User Disengage \\
  \hline
-  VisualAppeal & M2, M3 \\
+  VisualAppeal & Lock Frame, User Disengage, Battery Status, Location \\
  \hline
-  NormalBikeFunction & M3 \\
+  NormalBikeFunction & Lock Frame \\
  \hline
-  Safety & M3 \\
+  Safety & Lock Frame, Locking Mechanism \\
  \hline
-  BatteryAccuracy & M6, M9 \\
+  BatteryAccuracy & Battery, Battery Status \\
  \hline
-  QuickLock & M1, M2, M12 \\
+  QuickLock & Locking Mechanism, User Disengage, Solenoid Actuation \\
  \hline
- UseForce & M10, M11, M12 \\
+ UseForce & Locking Mechanism\\
  \hline
- BatteryLife & M6, M9 \\
+ BatteryLife & Mobile App Bluetooth Communication, Location, Battery Status, User Disengage, Battery \\
  \hline
-  ComponentAccessibility & N/A \\
+  ComponentAccessibility & None \\
  \hline
-  NoSpecialTools & N/A \\
+  NoSpecialTools & Lock Frame \\
  \hline
-  BikeVersatility & M2, M5 \\
+  BikeVersatility & Lock Frame \\
  \hline
-  AppOS & M1 \\
+  AppOS & User Disengage, Mobile App Bluetooth Communication, Location, Battery Status \\
  \hline
  \end{tabular}
 \end{minipage}\\
