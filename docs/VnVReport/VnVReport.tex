@@ -68,7 +68,7 @@ This document will follow the \href{https://github.com/NevoAbigail/Capstone/blob
 
 \section{Functional Requirements Evaluation}
 
-This subset of tests were used to validate the functional requirements of our product. Completing these tests proves various aspects of our product's needs. These aspects include primary SmartLock functionality namely App, electrical circuit and mechanical locking features. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests were used to validate the functional requirements of our product. Completing these tests proves various aspects of our product's needs. These aspects include primary SmartLock functionality namely App, electrical circuit and mechanical locking features. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS. Note that in this document, only the expected and actual result are listed for each test; for full descriptions (including setup and input) for each test, please refer to the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}.
 
 \subsubsection{Area of Testing: User Input Related}
 
@@ -215,7 +215,7 @@ Actual Results: Pass -- The user is able to access and view the saved coordinate
 
 \item{PowerOutput
 
-FR8: Battery must output enough power to engage the lock. }
+FR8: Battery must output enough power to engage the lock. } \label{PowerOutput}
 
 Expected Results: Circuit connected. Battery is successfully able to meet the threshold voltage of the electromagnet to engage the locking mechanism.  
 
@@ -227,7 +227,7 @@ Note: During one test where the Arduino was powered on for more than an hour, th
 
 \section{Nonfunctional Requirements Evaluation}
 
-This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's functionality. These aspects include smartphone app features, the physical design attributes, accuracy, and the usability of the product. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS.
+This subset of tests will be used to validate the nonfunctional requirements of our product. Completing these tests will prove various aspects of our product's functionality. These aspects include smartphone app features, the physical design attributes, accuracy, and the usability of the product. Note that each test references, and is directly mapped to, at least one requirement, showing that these test cases robustly cover the defined requirements in the SRS. Note that in this document, only the expected and actual result are listed for each test; for full descriptions (including setup and input) for each test, please refer to the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}.
 
 \subsubsection{Area of Testing: Smart Phone}
 
@@ -258,9 +258,9 @@ Actual Results: Pass -- App storage does not exceed 50 MB.
 
 NFR3: The design must be visually appealing.}
 
-Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{User Testing}, question 6. A majority of surveyed users should deem the visual appeal satisfactory.
+Expected Results: Survey users on their opinions of the visual appeal of the device; see \nameref{User Testing}, question 6. A majority of surveyed users should deem the visual appeal satisfactory--a rating of 5 or above.
 
-Actual Results: The majority of surveyed users deemed the visual appeal of the SmartLock satisfactory or above expectations. 
+Actual Results: The majority of surveyed users deemed the visual appeal of the SmartLock satisfactory (rating of 5) or above expectations. 
 
  \begin{figure}[h!]
  \begin{center}
@@ -443,13 +443,13 @@ Please refer to Section 5: Unit Testing of the \href{https://github.com/NevoAbig
 Eight users were asked to try the SmartLock, and were asked several questions about their experience. These questions can be found in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, and are also reiterated here, with the common answers we received.
 
 \begin{enumerate}
-    \item How long does it take you to open the lock? Is a 15-second window too short? Too long?
+    \item How long does it take you to open the lock? Is a 5-second window too short? Too long?
 
-    15 seconds was found to be just slightly too long of an unlock window. It was found that 10 seconds was enough time to pull the pin out of the body of the lock. This change will be implemented. 
+    5 seconds was found to be just slightly too short of an unlock window. It was found that 10 seconds was enough time to pull the pin out of the body of the lock. This change will be implemented. 
     
     \item Is the app intuitive to use? Would you change any features or any part of the app design?
 
-    Many users commented on the confusing nature of listing all active Bluetooth devices in the area, rather than only the SmartLock. In order to limit this confusion, the list of Bluetooth devices will be filtered so that only the SmartLock appears.
+    Many users commented on not being able to get directions based on the location they geotagged. 
     
     \item How did you like the whole product use experience? Is the locking/unlocking process smooth, convenient, and efficient?
 
@@ -457,7 +457,7 @@ Eight users were asked to try the SmartLock, and were asked several questions ab
     
     \item Was any aspect of using the product confusing?
 
-    Again, users commented on the listing of all Bluetooth devices as being confusing. Users also mentioned that it was not clear that the lock would only be disengaged for a limited period of time after pressing "Unlock". This concept must be clarified either within the app, or in a separate instruction manual.
+    Again, users commented on the listing of all Bluetooth devices as being confusing. Users also mentioned that it was not clear that the lock would only be disengaged for a limited period of time after pressing "Unlock". This concept must be clarified either within the app, or in a separate instruction manual. Further, users commented on the order (from the top to bottom) of the buttons on the app, and suggested a reordering of some buttons might make it easier to use.
     
     \item Would you be comfortable using this product to lock your bike? What would make you feel more secure?
 
@@ -478,17 +478,34 @@ Eight users were asked to try the SmartLock, and were asked several questions ab
 
 Changes due to Requirement Testing are summarized below:
 \begin{enumerate}
-    \item Add a diode across the electromagnet in order to protect the transistor from the inductive voltage spike which occurs as the solenoid de-energizes.
-    \item Add a moderately-sized gate resistor between the gate of the MOSFET and the Arduino to protect the Arduino from current spikes.
+    \item Add a diode across the electromagnet in order to protect the transistor from the inductive voltage spike which occurs as the solenoid de-energizes. As deemed necessary from the \hyperref[PowerOutput]{Power Output Test}
+    \item Add a moderately-sized gate resistor between the gate of the MOSFET and the Arduino to protect the Arduino from current spikes. As deemed necessary from the \hyperref[PowerOutput]{Power Output Test}
 \end{enumerate}
 
 Changes due to \nameref{User Testing} are summarized below:
 
 \begin{enumerate}
-    \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 15 seconds.
-    \item Filter the Bluetooth devices shown so that only SmartLock appears. Alternatively, make the mobile app only able to connect to the SmartLock.
-    \item Redesign the lock housing so that all components fit internally properly and securely. 
+    \item Change the lock disengaged window (how long the lock is disengaged after pressing "Unlock") to 10 seconds from 5 seconds, as suggested by users' answer to the question "How long does it take you to open the lock? Is a 5-second window too short? Too long?"
+    \item Display coordinates of geotagged/pinned location on app. This way, users can then copy these coordinates and paste them into a map app of their choosing to get directions. This change was prompted by users' answers to the question "Is the app intuitive to use? Would you change any features or any part of the app design?"
+    \item Redesign the App UI to make it more user-friendly and intuitive, as prompted by users' answers to the question, "Was any aspect of using the product confusing?"
  
+\end{enumerate}
+
+\section{Automated Testing} \label{Automated Testing}
+
+As mentioned in the \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/VnVPlan/VnVPlan.pdf}{VnV Plan}, we used a few tools for automated testing and verifying coding standards.
+
+\begin{enumerate}
+    \item CodeFactor
+
+    After importing our project repository into CodeFactor, we recieved a grade A for code quality.
+
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[width=15cm]{CodeFactor}
+    \caption{CodeFactor Results}
+    \end{figure}
+
 \end{enumerate}
 		
 \section{Trace to Requirements}
