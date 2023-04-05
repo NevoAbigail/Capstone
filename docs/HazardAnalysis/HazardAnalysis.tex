@@ -54,6 +54,10 @@
 
 \tableofcontents
 
+\listoftables
+
+\listoffigures
+
 \newpage
 
 \pagenumbering{arabic}
@@ -116,10 +120,10 @@ The software boundary that we must remain within is the bounds of current techno
 \begin{itemize}
 
 \item[CA\refstepcounter{canum}\thecanum\label{CA1}:] Assume operator is not tampering or purposefully damaging the product.
-\item[CA\refstepcounter{canum}\thecanum\label{CA2}:] Assume weather is typical of Canada (i.e., no natural disasters).
+\item[CA\refstepcounter{canum}\thecanum\label{CA2}:] Assume weather is typical of Canada, thus the device shall not be operated in temperatures outside the range of -30 degrees Celsius to +40 degrees Celsius. It shall also not be operated under rainfall greater than 5 millimetres per hour or wind speeds greater than 10 kilometres per hour.
 \item[CA\refstepcounter{canum}\thecanum\label{CA3}:] Assume operator's smartphone (including all integrated technologies, like GPS) is functioning properly.
 \item[CA\refstepcounter{canum}\thecanum\label{CA4}:] Assume geotagging and Bluetooth signals are receivable and transmittable; operator is in a location that can be properly triangulated (i.e., operator is not underground, etc.). 
-\item[CA\refstepcounter{canum}\thecanum\label{CA5}:] Assume operator's bicycle has standard frame and dimensions, and functions properly.
+\item[CA\refstepcounter{canum}\thecanum\label{CA5}:] Assume operator's bicycle has standard frame and dimensions, and functions properly. A standard frame is 15'' to 21'' long and 13'' to 20'' high, with a 28.6mm tube diameter. 
 \item[CA\refstepcounter{canum}\thecanum\label{CA6}:] Assume operator's smartphone has power/is charged. 
 
 \end{itemize}
@@ -178,9 +182,10 @@ Other requirements were identified as being important for a high-quality project
 
 \begin{itemize}
 \item[SR\refstepcounter{srnum}\thesrnum\label{SR3}:] Product shall be made from anti-corrosive materials. %%SHOULD this be added as a stretch goal
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR4}:] The lock must be waterproofed to withstand normal rainfall.
-\item[SR\refstepcounter{srnum}\thesrnum\label{SR5}:] The lock must be waterproofed to withstand normal splashing while riding.
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR4}:] The lock must be waterproofed to withstand normal rainfall of 5 millimetres per hour, which is typical of Canadian weather. 
+\item[SR\refstepcounter{srnum}\thesrnum\label{SR5}:] The lock must be waterproofed to withstand normal splashing while riding, which is estimated at a distributed value of 1 millimetre over 10 minutes of riding.
 \end{itemize}
+
  
 
 \end{document}
