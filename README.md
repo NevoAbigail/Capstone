@@ -16,7 +16,10 @@ This project is a Capstone project for MechTron 4TB6. The Smart Lock device is a
 The folders and files for this project are as follows:
 
 docs - Documentation for the project
+
 refs - Reference material used for the project, including papers
+
 src - Source code
+
 test - Test cases
 etc.
