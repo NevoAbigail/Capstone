@@ -303,14 +303,6 @@ to be implemented.
 \end{description}
 
 
-%\subsubsection{Engage Status Signal Module (\mref{mESS})}
-%\begin{description}
-%\item[Secrets:]The determination and transmission of the ‘Engage Status’ signal, which tells %the user whether the locking mechanism is engaged or disengaged.
-%\item[Services:]The Arduino determines the status of the locking mechanism, then wirelessly 
-% this data to the App as a signal so it can be displayed to the user as the ‘Engage Status’.
-%\item[Implemented By:]App and Arduino
-%\end{description}
-
 \subsubsection{Arduino Bluetooth Communication Module (\mref{mABC})}
 \begin{description}
 \item[Secrets:]Creation of infrastructure for Bluetooth communication on Arduino, searches for central device to connect to, and can successfully connect to a central device.
@@ -318,10 +310,10 @@ to be implemented.
 \item[Implemented By:] Arduino
 \end{description}
 
-\subsubsection{Mobile App Bluetooth Communication Module (\mref{mMABC})}
+\subsubsection{Mobile App Bluetooth Communication and User Disengage Module (\mref{mMABC})}
 \begin{description}
-\item[Secrets:]Creation of infrastructure for Bluetooth communication on the app, searches for peripheral devices to connect to, and can then successfully connect to a peripheral device.
-\item[Services:]Allows sending of Bluetooth signals to the connected peripheral device.
+\item[Secrets:]Creation of infrastructure for Bluetooth communication on the app, searches for peripheral devices to connect to, and can then successfully connect to a peripheral device. Also transmits disengage signal.
+\item[Services:]Allows sending of Bluetooth signals to the connected peripheral device. Then, upon pressing “Disengage” button on app, app sends required signal to peripheral device.
 \item[Implemented By:] App
 \end{description}
 
@@ -357,13 +349,6 @@ to be implemented.
   % Changes in these modules are more likely to be motivated by a desire to
   % improve performance than by externally imposed changes.
 \item[Implemented By:] --
-\end{description}
-
-\subsubsection{User Disengage Module(\mref{mUD})}
-\begin{description}
-\item[Secrets:] Transmission of disengage signal.
-\item[Services:]Upon pressing “Disengage” button on app, app sends required signal to peripheral device.
-\item[Implemented By:]App
 \end{description}
 
 \subsubsection{Hardware Disengage Module(\mref{mHD})}
@@ -423,7 +408,7 @@ FR8 & \mref{mLF}\\
 \textbf{AC} & \textbf{Modules}\\
 \midrule
 \acref{acInput} & \mref{mUIP}\\
-\acref{acOutput} & \mref{mUD}\\
+\acref{acOutput} & \mref{mMABC}\\
 %\acref{acEngage} & \mref{mESS}\\
 \acref{acWireless} & \mref{mHD}\\
 \acref{acBatteryStatus} & \mref{mBS}\\
