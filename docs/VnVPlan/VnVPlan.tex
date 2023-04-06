@@ -631,6 +631,8 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
 \subsection{Microcontroller}
 \begin{enumerate}
     \item{Arduino Bluetooth Connection} \label{arduinoBluetoothConnection} 
+
+    Unit: setup() in disengageControl.ino
     
     Setup: Flash Arduino with disengageControl.ino
 
@@ -639,6 +641,8 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
     Expected Result: Prints message to console stating that a central device is connected.
 
     \item{Arduino Disengage Signal Output} \label{arduinoDisengageSignalOutput}
+
+    Unit: loop() in disengageControl.ino
     
     Setup: Flash Arduino with disengageControl.ino
 
@@ -647,6 +651,8 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
     Expected Result: Green onboard LED turns on, TRANSISTOR\_OUT pin has HIGH voltage. 
 
     \item{Arduino Incorrect Password Signal Output} \label{arduinoIncorrect}
+
+    Unit: loop() in disengageControl.ino
     
     Setup: Flash Arduino with disengageControl.ino
 
