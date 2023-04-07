@@ -154,10 +154,10 @@
 	
 \maketitle
 \thispagestyle{empty}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
-\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
+%\end{figure}
 
 \newpage
 \pagenumbering{roman}
@@ -716,14 +716,11 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 \bibliography {../../refs/References}
 
 \newpage
-
-\newpage{}
 \section{Appendix A}
-
 \subsection{Table of Monitored Variables}
-
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\newpage
+\begin{table}
+\caption{Table of Monitored Variables} \label{Table of Monitored Variables}
 \begin{tabular}{| p{0.23\textwidth} | p{0.54\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -737,12 +734,13 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
  m\_BatteryPower & Monitors the current battery level & Analog & Level \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
+
 
 \subsection{Table of Controlled Variables}
-
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\newpage
+\begin{table}
+\caption{Table of Controlled Variables} \label{Table of Controlled Variables}
 \begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -758,7 +756,8 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
  c\_BatteryLevelStatus & Indicates the level of the battery & Analog & Level \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
+
 ~\newline
 \subsection{Constants -- NA}
 ~\newline

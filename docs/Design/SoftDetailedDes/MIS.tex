@@ -33,47 +33,52 @@ urlcolor=cyan          % color of external links
 
 \externaldocument{../../SRS/SRS}
 
-\input{../../Comments}
-\input{../../Common}
 
-\begin{document}
-
-\title{Module Interface Specification for \progname{}}
+\title{Module Interface Specification for SmartLock \progname{}}
 
 \author{\authname}
 
 \date{\today}
 
+\input{../../Comments}
+\input{../../Common}
+
+\begin{document}
 \maketitle
+\thispagestyle{empty}
+%\begin{figure}[h!]
+%  \centering
+ % \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
+%\end{figure}
 
+\newpage
 \pagenumbering{roman}
-
-\section{Revision History}
-
-\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
-\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\begin{table}[hp]
+\caption{Revision History} \label{TblRevisionHistory}
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-16/01/23 & 1.0 & Abi started M4, M5, M7\\
-17/01/23  & 1.1 & Abi finished M4, M5, M7, Intro\\
-18/01/23 & 1.2 & Anthony finished M2,3,6,8\\
+16-01-23 & Abi & Started M4, M5, M7\\
+17-01-23  & Abi & Finished M4, M5, M7, Intro\\
+18-01-23 & Anthony & Finished M2,3,6,8\\
 \bottomrule
 \end{tabularx}
+\end{table}
 
-~\newpage
+
+\newpage
+\tableofcontents
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
 
 \section{Symbols, Abbreviations and Acronyms}
 
 See SRS Documentation \href{https://github.com/NevoAbigail/Capstone/blob/main/docs/SRS/SRS.pdf}{here}.
 
 %\wss{Also add any additional symbols, abbreviations or acronyms}
-
-\newpage
-
-\tableofcontents
-
-\newpage
-
-\pagenumbering{arabic}
 
 \section{Introduction}
 
