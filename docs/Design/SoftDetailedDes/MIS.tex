@@ -53,9 +53,9 @@ urlcolor=cyan          % color of external links
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-16-01-23 & 0.1 & Abi - M4, M5, M7\\
-17-01-23  & 0.2 & Abi - M4, M5, M7, Intro\\
-18-01-23 & 0.3 & Anthony - M2,3,6,8\\
+16/01/23 & 1.0 & Abi started M4, M5, M7\\
+17/01/23  & 1.1 & Abi finished M4, M5, M7, Intro\\
+18/01/23 & 1.2 & Anthony finished M2,3,6,8\\
 \bottomrule
 \end{tabularx}
 
@@ -265,6 +265,7 @@ loop & None & see Access Routine Semantics & None & -\\
 \hline
 password & int & password for disengage \\
 central & BLEDevice & connected central device \\
+commCharacteristic & BLEByteCharacteristic & BLE Characteristic UUID\\
 \hline
 \end{tabular}
 \end{center}
@@ -284,6 +285,22 @@ central & BLEDevice & connected central device \\
 \item If the written value matches \textit{password};
 \item Then print a message indicating this status, turn on the onboard green LED (write a LOW signal to GREEN\_PIN, and write a HIGH signal to TRANSISTOR\_OUT;
 \item Else, turn off the onboard green LED (write a HIGH signal to GREEN\_PIN, and write a LOW signal to TRANSISTOR\_OUT;
+\item This logic can also be described formally, using discrete math, with the following:
+
+If the central device is connected:
+$$central = C = \text{True}$$
+
+If the central device writes a value to the Arduino:
+$$commCharacteristic.written() = W = \text{True}$$
+
+If the written value matches \textit{password}:
+$$P = \text{True}$$
+
+If $P$ is true, then print a message indicating the status, turn on the onboard green LED, and set the transistor output high:
+$$P \Rightarrow (GREEN\_PIN = \text{LOW} \land TRANSISTOR\_OUT = \text{HIGH})$$
+
+If $P$ is false, then turn off the onboard green LED, and set the transistor output low:
+$$P \Rightarrow (GREEN\_PIN = \text{HIGH} \land TRANSISTOR\_OUT = \text{LOW})$$
 \end{itemize}
 
 \subsubsection{Local Functions}
