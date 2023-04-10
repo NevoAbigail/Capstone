@@ -2,4 +2,5 @@
 
 The folders and files for this folder are as follows:
 
-Describe ...
+HazardAnalysis.pdf: Hazard Analysis pdf file \
+HazardAnalysis.tex:  Hazard Analysis latex file
