@@ -690,12 +690,45 @@ Note: NFR 13-16 and 18 were deemed out of scope on the SRS, and thus are not pre
 
 \subsection{Mobile App}
 \begin{enumerate}
-    \item Able to connect to Arduino from mobile app.
+     \item{App Bluetooth Connection} \label{appBluetoothConnection} 
 
-    PASS
-    \item Arduino recieves signals transmitted to it from the mobile app.
+    Unit: device.connect() in device.dart
+    
+    Setup: Search for bluetooth devices using the FindDevicesScreen class in main.dart
 
-    PASS -- validated using the on-board Arduino LEDs.
+    Input: Connect to Arduino using the device name "SmartLock" as seen from the FindDevicesScreen 
+
+    Expected Result: Prints message to console stating that a central device is connected.
+
+    \item{App Disengaging Lock} \label{appDisengagingLock}
+
+    Unit: e.characteristics[0].write([password]) in device.dart
+    
+    Setup: Connect to Arduino using the device.connect() function in device.dart
+
+    Input: Write the password user inputed to Arduino 
+
+    Expected Result: If password is correct, lock is disengaged, otherwise lock is engaged
+
+    \item{App Battery Display} \label{batteryDisplay}
+
+    Unit: getBattery() in main.dart
+    
+    Setup: Read the battery information using the readCounter() function in device.dart
+
+    Input: The battery information in the text file 'counter.txt'
+
+    Expected Result: The remaining battery life for the Smartlock displayed as a percentage on the user screen. 
+
+    \item{App Current Location Display} \label{batteryDisplay}
+
+    Unit: getCameraPosition() in main.dart
+    
+    Setup: Read the coordinate information using the readLat() and readLog() functions in device.dart
+
+    Input: After the user pushes the current location button, the coordinate information in the text file 'locationLat.txt' and 'locationLog.txt' are collected. 
+
+    Expected Result: The current location of the user is displayed with coordinates on the main screen. 
 \end{enumerate}
 
 \subsection{Traceability Between Test Cases and Modules}
