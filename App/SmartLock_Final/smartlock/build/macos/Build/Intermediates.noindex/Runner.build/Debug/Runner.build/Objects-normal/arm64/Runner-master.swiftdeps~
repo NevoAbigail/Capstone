@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "a2d62591374aa256804bc46cb714f01cd963603e901b9cb3555e095e2c87f465"
+build_start_time: [1680169212, 949453830]
+build_end_time: [1680169212, 965373039]
+inputs:
+  "/Users/anthony/Desktop/SmartLock/smartlock/macos/Flutter/GeneratedPluginRegistrant.swift": !private [1680169190, 710365295]
+  "/Users/anthony/Desktop/SmartLock/smartlock/macos/Runner/AppDelegate.swift": !private [1645244457, 0]
+  "/Users/anthony/Desktop/SmartLock/smartlock/macos/Runner/MainFlutterWindow.swift": !private [1645244457, 0]

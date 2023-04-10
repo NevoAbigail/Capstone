@@ -1,0 +1,28 @@
+Target dependency graph (8 targets)
+FlutterMacOS in Pods, no dependencies
+Protobuf in Pods, no dependencies
+flutter_blue in Pods, depends on:
+FlutterMacOS in Pods (explicit)
+Protobuf in Pods (explicit)
+geolocator_apple in Pods, depends on:
+FlutterMacOS in Pods (explicit)
+path_provider_foundation in Pods, depends on:
+FlutterMacOS in Pods (explicit)
+Flutter Assemble in Runner, depends on:
+flutter_blue in Pods (implicit dependency via options '-framework flutter_blue' in build setting 'OTHER_LDFLAGS')
+geolocator_apple in Pods (implicit dependency via options '-framework geolocator_apple' in build setting 'OTHER_LDFLAGS')
+path_provider_foundation in Pods (implicit dependency via options '-framework path_provider_foundation' in build setting 'OTHER_LDFLAGS')
+Protobuf in Pods (implicit dependency via options '-framework protobuf' in build setting 'OTHER_LDFLAGS')
+Pods-Runner in Pods, depends on:
+FlutterMacOS in Pods (explicit)
+Protobuf in Pods (explicit)
+flutter_blue in Pods (explicit)
+geolocator_apple in Pods (explicit)
+path_provider_foundation in Pods (explicit)
+Runner in Runner, depends on:
+Flutter Assemble in Runner (explicit)
+Pods-Runner in Pods (implicit dependency via file 'Pods_Runner.framework' in build phase 'Link Binary')
+flutter_blue in Pods (implicit dependency via options '-framework flutter_blue' in build setting 'OTHER_LDFLAGS')
+geolocator_apple in Pods (implicit dependency via options '-framework geolocator_apple' in build setting 'OTHER_LDFLAGS')
+path_provider_foundation in Pods (implicit dependency via options '-framework path_provider_foundation' in build setting 'OTHER_LDFLAGS')
+Protobuf in Pods (implicit dependency via options '-framework protobuf' in build setting 'OTHER_LDFLAGS')

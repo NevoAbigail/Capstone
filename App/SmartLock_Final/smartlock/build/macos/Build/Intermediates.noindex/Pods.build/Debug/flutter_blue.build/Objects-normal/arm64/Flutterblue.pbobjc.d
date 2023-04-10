@@ -1,0 +1,45 @@
+dependencies: \
+  /Users/anthony/.pub-cache/hosted/pub.dev/flutter_blue-0.8.0/ios/gen/Flutterblue.pbobjc.m \
+  /Users/anthony/Desktop/SmartLock/smartlock/build/macos/Build/Intermediates.noindex/Pods.build/Debug/flutter_blue.build/module.modulemap \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Target\ Support\ Files/flutter_blue/flutter_blue-prefix.pch \
+  /Users/anthony/Desktop/SmartLock/smartlock/build/macos/Build/Intermediates.noindex/Pods.build/Debug/Protobuf.build/module.modulemap \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUnknownField_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUnknownFieldSet_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUtilities_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBRootObject_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBProtocolBuffers_RuntimeSupport.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Wrappers.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Type.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Struct.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/SourceContext.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/FieldMask.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Empty.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Api.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Timestamp.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Duration.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/google/protobuf/Any.pbobjc.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBWellKnownTypes.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUtilities.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUnknownFieldSet.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBUnknownField.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBRootObject.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBProtocolBuffers.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBMessage_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBMessage.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBExtensionRegistry.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBExtensionInternals.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBDictionary_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBDictionary.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBDescriptor_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBDescriptor.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBCodedOutputStream_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBWireFormat.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBCodedOutputStream.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBCodedInputStream_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBCodedInputStream.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBArray_PackagePrivate.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBBootstrap.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBRuntimeTypes.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Protobuf/objectivec/GPBArray.h \
+  /Users/anthony/Desktop/SmartLock/smartlock/macos/Pods/Target\ Support\ Files/Protobuf/Protobuf-umbrella.h \
+  /Users/anthony/.pub-cache/hosted/pub.dev/flutter_blue-0.8.0/ios/gen/Flutterblue.pbobjc.h
