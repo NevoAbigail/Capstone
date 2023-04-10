@@ -154,10 +154,10 @@
 	
 \maketitle
 \thispagestyle{empty}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
-\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=0.4\linewidth]{../BikeLogo.jpg}
+%\end{figure}
 
 \newpage
 \pagenumbering{roman}
@@ -329,7 +329,7 @@ This section provides general information about the system. It identifies the in
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
 
-The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the App, and the use time of the App when locking your bike is short. 
+The user of the SmartLock is anyone who owns a bike and a smartphone of any age, gender or biking ability.  The locking mechanism of the SmartLock functions similarly to that of any other locking device so that no special skills are required to perform the engagement/disengagement of the lock.  The physical mechanism is designed to be simple so that anyone who has the dexterity and physical strength to ride a bike will have the capability to open and close it with no strain.  The application needs to be on a smartphone that supports Bluetooth v4.0 or higher (ie. any iPhone 4S or newer or any Android with OS 4.3 or newer), the user will be expected to understand how basic applications work on these devices.  However, the application itself will be designed to be user-friendly and simple so that the functionality is clear and users do not have to spend lots of time learning the App, and the use time of the App when unlocking your bike is short. 
 
 \subsection{System Constraints}
 
@@ -389,7 +389,7 @@ The user’s smartphone's current coordinates can be requested through the mobil
 There are many problems associated with bike locks today.  People often forget or lose their keys, lock or combination.  Additionally, current locking systems are often not comprehensive – they may not lock all parts of the bike that can be stolen, namely the seat, front and back wheels, and frame.  
 
 
-Furthermore, bike locks can be bulky, heavy and dangerous to carry around. It can also be tedious to find and lock one’s bike to an external frame.  The combination of these nuisances can lead to individuals leaving their bikes without properly securing them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, which indicates a rather expansive problem that can be solved [1,2].  
+Furthermore, bike locks can be bulky, heavy and dangerous to carry around. It can also be tedious to find and lock one’s bike to an external frame.  The combination of these nuisances can lead to individuals leaving their bikes without properly securing them.  The city of Toronto reports an average of 3625 stolen bikes annually, and the Canadian Cycling Magazine estimates that only 15-20\% of stolen bikes are reported, which indicates a rather expansive problem that can be solved [1, 2]. 
 
 \subsubsection{Terminology and  Definitions}
 
@@ -714,16 +714,18 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
 
 \bibliographystyle {plainnat}
 \bibliography {../../refs/References}
-
 \newpage
+\section{References}
 
-\newpage{}
+[1]“bicycle-thefts,” data.torontopolice.on.ca. https://data.torontopolice.on.ca/pages/bicycle-thefts (accessed Sep. 25, 2022).
+~\newline
+[2]L. Hansen-Gillis, “Bike thefts are increasing in Canada: Here’s what you can do to protect your bike,” Canadian Cycling Magazine, Nov. 04, 2020. https://cyclingmagazine.ca/sections/news/bike-theft-canada/ (accessed Sep. 25, 2022).
+\newpage
 \section{Appendix A}
-
 \subsection{Table of Monitored Variables}
-
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\newpage
+\begin{table}
+\caption{Table of Monitored Variables} \label{Table of Monitored Variables}
 \begin{tabular}{| p{0.23\textwidth} | p{0.54\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -737,12 +739,13 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
  m\_BatteryPower & Monitors the current battery level & Analog & Level \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
+
 
 \subsection{Table of Controlled Variables}
-
-\begin{minipage}{\textwidth}
-\renewcommand*{\arraystretch}{1.5}
+\newpage
+\begin{table}
+\caption{Table of Controlled Variables} \label{Table of Controlled Variables}
 \begin{tabular}{| p{0.25\textwidth} | p{0.52\textwidth} | p{0.08\textwidth} | p{0.15\textwidth} |}
  \hline
  Variable Name & Description & Type & Units \\ 
@@ -758,7 +761,8 @@ Phase 6 consists of requirements that ensure maintainability, which is likely ou
  c\_BatteryLevelStatus & Indicates the level of the battery & Analog & Level \\ 
  \hline
 \end{tabular}
-\end{minipage}\\
+\end{table}
+
 ~\newline
 \subsection{Constants -- NA}
 ~\newline
