@@ -2,4 +2,4 @@
 
 The folders and files for this folder are as follows:
 
-Describe ...
+FinalDemo.ppt: Rev 1 Demo powerpoint presentation
