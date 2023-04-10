@@ -10,7 +10,7 @@ DevelopmentPlan: contains the Development Plan documentation
 
 HazardAnalysis: contains the Hazard Analysis documentation
 
-Presentations: contains the powerpoints for Rev 0 and Rev 1 demos
+Presentations: contains the powerpoints for Rev 0 and Rev 1 demos, and EXPO poster
 
 ProblemStatementAndGoals: contains documentation for the Problem Statement
 
