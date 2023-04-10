@@ -2,4 +2,5 @@
 
 The folders and files for this folder are as follows:
 
-Describe ...
+Reflection.pdf: Reflection pdf file \
+Reflection.tex: Reflection latex file
