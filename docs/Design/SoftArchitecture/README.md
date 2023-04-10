@@ -1,3 +1,5 @@
 # Module Guide
 
-The folders and files for the module guide.
+MG.pdf - Module Guide pdf
+MG.tex - Module Guide latex
+All other files - figure files
